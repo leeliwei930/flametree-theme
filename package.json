@@ -1,0 +1,38 @@
+{
+  "name": "flametree-theme",
+  "version": "1.0.0",
+  "description": "A flametree coop theme",
+  "main": "index.js",
+  "repository": "git@gitlab.com:leeliwei930/flametree-theme.git",
+  "author": "Lee Li Wei <leeliwei930@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.10.2",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "lozad": "^1.9.0",
+    "mmenu-js": "^8.3.0",
+    "vue": "^2.6.10",
+    "vue-carousel": "^0.18.0",
+    "vue-gallery-slideshow": "^1.4.0",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "browser-sync-webpack-plugin": "^2.0.1",
+    "cross-env": "^5.2.1",
+    "laravel-mix": "^4.1.4",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.22.0",
+    "sass-loader": "^7.3.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}
