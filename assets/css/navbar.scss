@@ -1,0 +1,105 @@
+
+.nav.hamburger-menu .line {
+    border-bottom: 1pt solid gray;
+    height: 15px;
+}
+
+.nav.navbar {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding:0;
+}
+.nav.navbar .logo {
+    height: 20px;
+    transform: scale(2.5);
+}
+
+.nav.navbar .nav-item {
+    display: inline-block;
+    transform: skew(-20deg);
+  
+    .nav-item-link {
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        transform: skew(20deg);
+        color: black;
+    }
+
+}
+.nav.navbar .nav-item:hover  {
+    animation-name: navBarItemAnimation;
+    animation-duration: 0.85s;
+    animation-direction: normal;
+    background: linear-gradient(-90deg, #FC4A1A, #F7B733);
+
+    .nav-item-link {
+        color:white;
+    } // scss syntax need to compile
+}
+// dropwdown section
+.nav.navbar .nav-item .nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav.navbar .nav-item .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    z-index: 1;
+    transform: skew(20deg); //skew back
+    margin-top:0;
+    animation-name: navbarDropwDownMenuFadeUp;
+    animation-duration: 0.5s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+.nav.navbar .nav-item.nav-dropdown:hover  {
+    .nav-dropdown-menu {
+        display: flex;
+    }
+}
+
+.nav-dropdown-menu {
+    .nav-item-dropdown-menu-item {
+        text-decoration: none;
+        color:black;
+        border-radius: 10px 10px 10px 10px;
+
+    }
+    .nav-item-dropdown-menu-item:hover {
+        background: #FC4A1A;
+        color:white;
+    }
+}
+
+@keyframes navBarItemAnimation {
+    from {
+        opacity: 0;
+
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes navbarDropwDownMenuFadeUp {
+    from {
+        opacity: 0.8;
+        margin-top: 0;
+        transform: skew(20deg)
+    }
+    to {
+        opacity: 1;
+        margin-top: 22px;
+        transform: skew(20deg)
+
+
+    }
+}

@@ -1,0 +1,81 @@
+name: 'Frontend Menu'
+items:
+    -
+        title: 'About Us'
+        nesting: ''
+        type: url
+        url: /about-us
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Products
+        nesting: ''
+        type: url
+        url: /products
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Membership
+        nesting: ''
+        type: url
+        url: /membership
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Volunteers Login'
+                nesting: ''
+                type: url
+                url: /volunteers/login
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Member Login'
+                nesting: ''
+                type: url
+                url: /member/login
+                code: ''
+                reference: ''
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'Contact Us'
+        nesting: ''
+        type: url
+        url: /contact-us
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

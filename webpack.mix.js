@@ -20,7 +20,7 @@ mix
         }
     }
 })
-
+.disableNotifications()
 .js( 'assets/js/index.js' , 'assets/public/js/index.js')
 .js( 'assets/js/jquery.js' , 'assets/public/js/jquery.js')
 .sass('assets/css/lib.scss', 'assets/public/css/lib.css')
