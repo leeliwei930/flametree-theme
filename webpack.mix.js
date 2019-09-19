@@ -18,6 +18,22 @@ mix
             '@components': path.resolve(__dirname, 'assets/js/vue/components'),
             '@store': path.resolve(__dirname, 'assets/js/vue/store')
         }
+    },
+    module: {
+        rules: [
+            {
+                test: /\.pug$/,
+                oneOf: [
+                    {
+                        resourceQuery: /^\?vue/,
+                        use: ['pug-plain-loader']
+                    },
+                    {
+                        use: ['raw-loader', 'pug-plain-loader']
+                    }
+                ]
+            }
+        ]
     }
 })
 .disableNotifications()

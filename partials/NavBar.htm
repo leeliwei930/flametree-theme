@@ -20,9 +20,16 @@ code = "frontend-menu"
         {% if staticMenu.menuItems %}
             {% for item in staticMenu.menuItems %}
                 {% if not isHidden %}
-                <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                    {%  if item.title == "Products"  %}
+
+                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"  @mouseout="$store.commit('Navbar/deactivateMegaMenu')"  @mouseover="$store.commit('Navbar/activateMegaMenu')" >
+                    {%  else %}
+                            <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"   >
+
+                    {%  endif %}
                     <a class="nav-item-link" href="{{ item.url | app}}">{{item.title}}</a>
-                    {%  if item.items %}
+
+                    {%  if item.items and item.title != "Products" %}
                         <div class="nav-dropdown-menu  flex-column">
                             {% for dropdownItem in item.items %}
                                 <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
@@ -38,4 +45,13 @@ code = "frontend-menu"
         {% endif %}
     </div>
 </div>
+<div class="d-none" :class="{'d-flex' : $store.getters['Navbar/currentMegaMenuState']}"  @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"  @mouseenter="$store.commit('Navbar/activateMegaMenu')">
+<mega-menu>
+    <sidebar-menu-item title="Vegetable" link="/">
+        <menu-item parent="Vegetable" title="Carrot">
+        </menu-item>
+    </sidebar-menu-item>
+</mega-menu>
 
+</div>
+</div>

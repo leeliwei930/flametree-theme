@@ -1,0 +1,29 @@
+items:
+    -
+        title: Announcements
+        type: url
+        url: /volunteers/annoucements
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Meetings Minutes'
+        type: url
+        url: /volunteers/meeting-minutes
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Training
+        type: url
+        url: /volunteers/training
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+name: 'Volunteers Area Tab'
