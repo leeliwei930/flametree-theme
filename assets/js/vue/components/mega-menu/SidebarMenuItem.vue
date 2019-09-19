@@ -1,8 +1,9 @@
 <template lang="pug">
-    a.nav-link(:class="{'active' : title == $parent.currentSelectedMenu }",:href="link",@mouseenter="notifyChanged(title)")
-        | {{title}}
-        portal(to="menu-items")
-            slot
+    .flex-column
+        a.nav-link(:class="{'active' : title == $parent.currentSelectedMenu }",:href="link",@mouseenter="notifyChanged(title)")
+            | {{title}}
+            portal(to="menu-items")
+                slot
 </template>
 
 <script>

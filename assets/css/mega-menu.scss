@@ -7,13 +7,60 @@
 
     right: 0;
 }
+.mega-menu .nav-link {
+    color: black;
+}
+.mega-menu .nav-link.active {
+    background-color:  #F05033 ;
+}
+
 .mega-menu .menu-item {
     padding:15px;
     text-decoration:none;
+    font-family: "Nunito" , sans-serif;
+}
+.mega-menu .menu-item  i {
+    color:#F05033 ;
 }
 
-.mega-menu .menu-item:hover{
-    background-color:teal;
-    color:white;
+.mega-menu .menu-item:hover   {
+    background-color:#F05033;
+    div , i {
+        color:white;
+    }
     border-radius: 10px;
+
+}
+
+.mega-menu-slideout .mega-menu.shadow-lg {
+    animation-name: megaMenuSlideOutAnimation;
+    animation-duration: 1.85s;
+    animation-fill-mode: forwards;
+
+}
+
+.mega-menu-slideout .mega-menu .d-flex {
+    animation-name: fadeIn;
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes megaMenuSlideOutAnimation {
+    from {
+        opacity: 0;
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

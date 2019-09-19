@@ -1,6 +1,11 @@
 <template lang="pug">
-    a.col-5.mx-3.my-1.menu-item(:href="link" v-if="$parent.$parent.$data.currentSelectedMenu == parent")
-        | {{title}}
+    a.d-flex.flex-row.col-5.mx-3.menu-item(:href="link" v-if="$parent.$parent.$data.currentSelectedMenu == parent")
+        .d-flex.flex-row.justify-content-between.align-items-center
+            .flex-column.px-3
+                i(:class="icon")
+            .flex-column
+                strong {{title}}
+                p {{description}}
 </template>
 <script>
 export default {

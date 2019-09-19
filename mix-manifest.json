@@ -2,5 +2,6 @@
     "/assets/public/js/index.js": "/assets/public/js/index.js",
     "/assets/public/css/lib.css": "/assets/public/css/lib.css",
     "/assets/public/css/app.css": "/assets/public/css/app.css",
-    "/assets/public/js/jquery.js": "/assets/public/js/jquery.js"
+    "/assets/public/js/jquery.js": "/assets/public/js/jquery.js",
+    "/assets/public/css/override.css": "/assets/public/css/override.css"
 }

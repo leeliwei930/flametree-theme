@@ -6,28 +6,31 @@ description = "Main Layout"
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
- 
+
     <title>{{ this.page.title }}</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "assets/public/css/override.css" |theme}}">
+
     <link rel="stylesheet" href="{{ "assets/public/css/lib.css" |theme}}">
+
     <link rel="stylesheet" href="{{ "assets/public/css/app.css" |theme}}">
     {% styles %}
- 
-    
+
+
 </head>
 <body>
     <div id="flametree-app">
         {% page %}
     </div>
-    
+
 
         <script type="text/javascript" src="{{"assets/public/js/index.js" | theme}}"></script>
 
         <script type="text/javascript" src="{{"assets/public/js/jquery.js" | theme}}"></script>
     {% framework extras %}
-   
+
     {% scripts %}
-   
+
 
 </body>
 

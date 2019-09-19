@@ -1,9 +1,9 @@
 <template lang="pug">
     div.mega-menu.shadow-lg(v-on:mouseleave="hideMegaMenu()")
-        .d-flex.justify-content-center.p-5.align-items-baseline
-            .nav.flex-column.nav-pills.col-2
+        .d-flex.justify-content-center.align-items-baseline
+            .nav.flex-column.nav-pills.col-3
                 slot
-            .w-50.m-1
+            .col-8.m-3
                 portal-target.d-flex.flex-wrap(name="menu-items" multiple)
 </template>
 <script>

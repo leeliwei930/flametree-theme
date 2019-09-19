@@ -1,0 +1,41 @@
+
+
+
+ /*Mega Menu Override Styling*/
+ /*internal sidebar menu item default color*/
+#flametree-app .mega-menu .nav-link {
+    /*color: black;*/
+}
+
+/*internal sidebar menu item active color*/
+
+#flametree-app .mega-menu .nav-link.active {
+    /*background-color: #F05033;*/
+}
+
+/*internal mega menu item  color*/
+
+#flametree-app .mega-menu .menu-item {
+    /*padding: 15px;*/
+    /*text-decoration: none;*/
+    /*font-family: "Nunito", sans-serif;*/
+}
+
+ /*internal mega menu item icon  color*/
+
+#flametree-app .mega-menu .menu-item i {
+    /*color: green;*/
+}
+
+/*internal mega menu sidebar item hover states icon  color*/
+
+#flametree-app .mega-menu .menu-item:hover {
+    /*background-color: #F05033;*/
+    /*border-radius: 10px;*/
+}
+
+#flametree-app .mega-menu .menu-item:hover div,
+#flametree-app .mega-menu .menu-item:hover i {
+    /*color: white;*/
+}
+
