@@ -1,6 +1,8 @@
 <template lang="pug">
     a.d-flex.flex-row.col-5.mx-3.menu-item(:href="link" v-if="$parent.$parent.$data.currentSelectedMenu == parent")
         .d-flex.flex-row.justify-content-between.align-items-center
+            .flex-column
+                i(:class="leadingIcon", v-if="leadingIcon != null")
             .flex-column.px-3
                 i(:class="icon")
             .flex-column
@@ -17,7 +19,8 @@ export default {
         title: String,
         description: String,
         icon: String,
-        link: String
+        link: String,
+        leadingIcon: String
     },
 }
 </script>

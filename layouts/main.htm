@@ -19,8 +19,13 @@ description = "Main Layout"
 
 </head>
 <body>
+
     <div id="flametree-app">
-        {% page %}
+        {% partial 'NavBar' %}
+        <div id="page-content">
+
+            {% page %}
+        </div>
     </div>
 
 

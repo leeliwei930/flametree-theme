@@ -10,7 +10,7 @@ import PortalVue from 'portal-vue';
 import MegaMenu from '@components/mega-menu/MegaMenu';
 import SidebarMenuItem from '@components/mega-menu/SidebarMenuItem';
 import MenuItem from '@components/mega-menu/MenuItem';
-
+import Mmenu from 'mmenu-js/src/mmenu.js';
 
 
 Vue.use(PortalVue);
@@ -30,9 +30,23 @@ let app = new Vue({
     store: store,
 
     methods: {
-
+        initializeMMenu(){
+           let mmenu =  new Mmenu( "#flametree-side-drawer", {
+               wrappers: ["bootstrap"],
+               "extensions": [
+                   "pagedim-black",
+                   "position-front"
+               ],
+                offCanvas: {
+                    page: {
+                        selector: "#page-content"
+                    }
+                }
+            });
+           this.$store.commit('SideDrawer/setMenu', mmenu);
+        }
     },
     mounted: function() {
-
+        this.initializeMMenu();
     }
 })

@@ -5,73 +5,113 @@ code = "frontend-menu"
 
 [viewBag]
 ==
+
 <div class="d-flex justify-content-between justify-content-sm-between bg-light shadow-md nav navbar fixed-top flex-row">
 
+
     <div class="d-flex flex-grow-1 flex-md-grow-0 py-4 px-3 align-items-center justify-content-between ">
-        <a class="mx-3 d-sm-flex d-lg-none text-dark" href="#" >
-            <i class="fas fa-bars fa-1x"></i>
-        </a>
-        <a href="#" class="button nav-item-link mx-auto mx-md-3">
-            <img src="{{ 'assets/images/logo.jpg' | theme}}" class="logo mx-md-3 ">
-        </a>
-    </div>
-    <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
-{#        {{ staticMenu.menuItems | json_encode }}#}
-        {% if staticMenu.menuItems %}
-            {% for item in staticMenu.menuItems %}
-                {% if not isHidden %}
-                    {%  if item.title == "Products"  %}
+        <a class="mx-3 d-sm-flex d-lg-none text-dark" href="#flametree-side-drawer" >
+<i class="fas fa-bars fa-1x"></i>
+</a>
+<a href="#" class="button nav-item-link mx-auto mx-md-3">
+    <img src="{{ 'assets/images/logo.jpg' | theme}}" class="logo mx-md-3 ">
+</a>
+</div>
+<div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
+    {#        {{ staticMenu.menuItems | json_encode }}#}
+    {% if staticMenu.menuItems %}
+    {% for item in staticMenu.menuItems %}
+    {% if not isHidden %}
+    {%  if item.title == "Products"  %}
 
-                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"  @mouseout="$store.commit('Navbar/deactivateMegaMenu')"  @mouseover="$store.commit('Navbar/activateMegaMenu')" >
-                    {%  else %}
-                            <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"   >
+    <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"  @mouseout="$store.commit('Navbar/deactivateMegaMenu')"  @mouseover="$store.commit('Navbar/activateMegaMenu')" >
+        {%  else %}
+        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"   >
 
-                    {%  endif %}
-                    <a class="nav-item-link" href="{{ item.url | app}}">{{item.title}}</a>
+            {%  endif %}
+            <a class="nav-item-link" href="{{ item.url | app}}">{{item.title}}</a>
 
-                    {%  if item.items and item.title != "Products" %}
-                        <div class="nav-dropdown-menu  flex-column">
-                            {% for dropdownItem in item.items %}
-                                <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
-                                    {{ dropdownItem.title }}
-                                </a>
-                            {%  endfor %}
-                        </div>
-                    {%  endif %}
+            {%  if item.items and item.title != "Products" %}
+                <div class="nav-dropdown-menu  flex-column">
+                    {% for dropdownItem in item.items %}
+                        <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
+                            {{ dropdownItem.title }}
+                        </a>
+                    {%  endfor %}
                 </div>
+            {%  endif %}
+        </div>
 
-                {% endif %}
-            {% endfor %}
+        {% endif %}
+        {% endfor %}
         {% endif %}
     </div>
 </div>
 <div class="d-none" :class="{'d-flex mega-menu-slideout' : $store.getters['Navbar/currentMegaMenuState']}"  @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"  @mouseenter="$store.commit('Navbar/activateMegaMenu')">
-<mega-menu>
-    <sidebar-menu-item title="Fruit and Vegetable" link="/">
-        <menu-item parent="Fruit and Vegetable" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Fruit and Vegetable" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Fruit and Vegetable" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Fruit and Vegetable" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Fruit and Vegetable" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-    </sidebar-menu-item>
-    <sidebar-menu-item title="Dairy and Fridge Products" link="/">
-        <menu-item parent="Dairy and Fridge Products" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Dairy and Fridge Products" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Dairy and Fridge Products" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Dairy and Fridge Products" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-        <menu-item parent="Dairy and Fridge Products" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
-        </menu-item>
-    </sidebar-menu-item>
-</mega-menu>
+    <mega-menu>
+        <sidebar-menu-item title="Fruit and Vegetable" link="/">
+            <menu-item leading-icon="fas fa-chevron-circle-right" parent="Fruit and Vegetable" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas fa-chevron-circle-right" parent="Fruit and Vegetable" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+        </sidebar-menu-item>
+        <sidebar-menu-item title="Dairy and Fridge Products" link="/">
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
+            </menu-item>
+        </sidebar-menu-item>
+    </mega-menu>
 
 </div>
+
+</div>
+<div id="flametree-side-drawer">
+    {% if staticMenu.menuItems %}
+        <ul>
+            {% for item in staticMenu.menuItems %}
+                {% if not isHidden %}
+
+                    {%  if item.title == "Products"  %}
+                        <li>
+                            <a href="#">Products</a>
+                            <ul>
+
+                            </ul>
+                        </li>
+                    {%  else %}
+                        <li>
+                            <a href="{{ item.url }}" >
+                                {{ item.title }}
+                            </a>
+                            {%  if item.items and item.title != "Products" %}
+                                <ul>
+                                    {% for dropdownItem in item.items %}
+                                        <li>
+                                            <a href="{{ dropdownItem.url }}" >
+                                                {{ dropdownItem.title }}
+                                            </a>
+                                        </li>
+                                    {%  endfor %}
+                                </ul>
+                            {%  endif %}
+                        </li>
+                    {%  endif %}
+
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
 </div>
