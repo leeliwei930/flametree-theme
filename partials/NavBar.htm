@@ -1,11 +1,12 @@
 description = "Navigation Bar"
 
+[viewBag]
+
 [staticMenu]
 code = "frontend-menu"
 
-[viewBag]
+[ProductCategory]
 ==
-
 <div class="d-flex justify-content-between justify-content-sm-between bg-light shadow-md nav navbar fixed-top flex-row">
 
 
@@ -48,33 +49,8 @@ code = "frontend-menu"
     </div>
 </div>
 <div class="d-none" :class="{'d-flex mega-menu-slideout' : $store.getters['Navbar/currentMegaMenuState']}"  @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"  @mouseenter="$store.commit('Navbar/activateMegaMenu')">
-    <mega-menu>
-        <sidebar-menu-item title="Fruit and Vegetable" link="/">
-            <menu-item leading-icon="fas fa-chevron-circle-right" parent="Fruit and Vegetable" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas fa-chevron-circle-right" parent="Fruit and Vegetable" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Fruit and Vegetable" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-        </sidebar-menu-item>
-        <sidebar-menu-item title="Dairy and Fridge Products" link="/">
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Dapto Community Farm" description="Dapto" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Popes Produce" description="Woonona" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Green Connect" description="Warrawong" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Moonacres Farm" description="Fitzroy Falls" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-            <menu-item leading-icon="fas  fa-chevron-circle-right" parent="Dairy and Fridge Products" title="Glenbernie Orchard" description="Darkes Forest" icon="fas fa-map-marker-alt fa-2x">
-            </menu-item>
-        </sidebar-menu-item>
-    </mega-menu>
-
+    
+{% component 'ProductCategory' %}
 </div>
 
 </div>
