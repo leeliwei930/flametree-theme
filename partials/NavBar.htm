@@ -11,80 +11,96 @@ code = "frontend-menu"
 
 
     <div class="d-flex flex-grow-1 flex-md-grow-0 py-4 px-3 align-items-center justify-content-between ">
-        <a class="mx-3 d-sm-flex d-lg-none text-dark" href="#flametree-side-drawer" >
-<i class="fas fa-bars fa-1x"></i>
-</a>
-<a href="#" class="button nav-item-link mx-auto mx-md-3">
-    <img src="{{ 'assets/images/logo.jpg' | theme}}" class="logo mx-md-3 ">
-</a>
-</div>
-<div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
-    {#        {{ staticMenu.menuItems | json_encode }}#}
-    {% if staticMenu.menuItems %}
-    {% for item in staticMenu.menuItems %}
-    {% if not isHidden %}
-    {%  if item.title == "Products"  %}
-
-    <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"  @mouseout="$store.commit('Navbar/deactivateMegaMenu')"  @mouseover="$store.commit('Navbar/activateMegaMenu')" >
-        {%  else %}
-        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"   >
-
-            {%  endif %}
-            <a class="nav-item-link" href="{{ item.url | app}}">{{item.title}}</a>
-
-            {%  if item.items and item.title != "Products" %}
-                <div class="nav-dropdown-menu  flex-column">
-                    {% for dropdownItem in item.items %}
-                        <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
-                            {{ dropdownItem.title }}
-                        </a>
-                    {%  endfor %}
-                </div>
-            {%  endif %}
-        </div>
-
-        {% endif %}
-        {% endfor %}
-        {% endif %}
+        <a class="mx-3 d-sm-flex d-lg-none text-dark" href="#flametree-side-drawer">
+            <i class="fas fa-bars fa-1x"></i>
+        </a>
+        <a href="#" class="button nav-item-link mx-auto mx-md-3">
+            <img src="{{ 'assets/images/logo.jpg' | theme }}" class="logo mx-md-3 "/>
+        </a>
     </div>
-</div>
-<div class="d-none" :class="{'d-flex mega-menu-slideout' : $store.getters['Navbar/currentMegaMenuState']}"  @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"  @mouseenter="$store.commit('Navbar/activateMegaMenu')">
-    
-{% component 'ProductCategory' %}
-</div>
+    <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
+        {#        {{ staticMenu.menuItems | json_encode }}#}
+        {% if staticMenu.menuItems %}
+            {% for item in staticMenu.menuItems %}
+                {% if not isHidden %}
+                    {% if item.title == "Products" %}
 
-</div>
+                    <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
+                         @mouseout="$store.commit('Navbar/deactivateMegaMenu')"
+                         @mouseover="$store.commit('Navbar/activateMegaMenu')">
+                        <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
+
+                        {% if item.items and item.title != "Products" %}
+                            <div class="nav-dropdown-menu  flex-column">
+                                {% for dropdownItem in item.items %}
+                                    <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
+                                        {{ dropdownItem.title }}
+                                    </a>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                            <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
+
+                            {% if item.items and item.title != "Products" %}
+                                <div class="nav-dropdown-menu  flex-column">
+                                    {% for dropdownItem in item.items %}
+                                        <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
+                                            {{ dropdownItem.title }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                    {% endif %}
+
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <div class="d-none" :class="{'d-flex mega-menu-slideout' : $store.getters['Navbar/currentMegaMenuState']}"
+         @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"
+         @mouseenter="$store.commit('Navbar/activateMegaMenu')">
+
+        {% component 'ProductCategory' %}
+    </div>
+
 <div id="flametree-side-drawer">
     {% if staticMenu.menuItems %}
         <ul>
             {% for item in staticMenu.menuItems %}
                 {% if not isHidden %}
 
-                    {%  if item.title == "Products"  %}
+                    {% if item.title == "Products" %}
                         <li>
                             <a href="#">Products</a>
                             <ul>
 
                             </ul>
                         </li>
-                    {%  else %}
+                    {% else %}
                         <li>
-                            <a href="{{ item.url }}" >
+                            <a href="{{ item.url }}">
                                 {{ item.title }}
                             </a>
-                            {%  if item.items and item.title != "Products" %}
+                            {% if item.items and item.title != "Products" %}
                                 <ul>
                                     {% for dropdownItem in item.items %}
                                         <li>
-                                            <a href="{{ dropdownItem.url }}" >
+                                            <a href="{{ dropdownItem.url }}">
                                                 {{ dropdownItem.title }}
                                             </a>
                                         </li>
-                                    {%  endfor %}
+                                    {% endfor %}
                                 </ul>
-                            {%  endif %}
+                            {% endif %}
                         </li>
-                    {%  endif %}
+                    {% endif %}
 
                 {% endif %}
             {% endfor %}

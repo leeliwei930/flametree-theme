@@ -1,6 +1,6 @@
 @import "~mmenu-js/dist/mmenu.css";
 @import "~bootstrap/dist/css/bootstrap.css";
-
+@import "~plyr/dist/plyr.css";
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts" !default;
 // override the fonts public url path
@@ -31,7 +31,7 @@ $fa-font-display:             auto !default;
     url('#{$fa-url-font-path}/fa-brands-400.ttf') format('truetype'),
     url('#{$fa-url-font-path}/fa-brands-400.svg#fontawesome') format('svg');
   }
-  
+
 @font-face {
     font-family: 'Font Awesome 5 Free';
     font-style: normal;
