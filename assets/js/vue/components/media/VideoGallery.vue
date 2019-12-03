@@ -6,7 +6,7 @@
     .d-flex.flex-column.justify-content-start.col-lg-4
         video-playlist( :title="playlistName")
             template(v-if="videos.length > 0")
-                video-thumbnail.my-2(
+                video-thumbnail.my-3(
                     v-for="video in videos"
                     :key=" 'video-thumbnail-' + video.embed_id"
                     :description="shortenVideoDescription(video.description)"
@@ -67,9 +67,6 @@ export default {
 
 
         }
-    },
-    beforeCreate: function(){
-
     },
     created: function(){
         // copy all the videos from props to data collection for state

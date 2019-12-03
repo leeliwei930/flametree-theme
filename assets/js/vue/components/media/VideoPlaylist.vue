@@ -7,10 +7,10 @@
 </template>
 <style lang="scss">
 .video-playlist {
-    max-height: 30rem;
+    max-height: 35rem;
     overflow-y: scroll;
     overflow-x: hidden;
-
+    padding:15px;
 }
 </style>
 <script type="text/javascript">
@@ -18,7 +18,7 @@ export default {
     props: {
         title : {
             type: String,
-            value: "Your Playlist"
+            default: "Your Playlist"
         }
     },
     data: function(){

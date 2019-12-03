@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueX from 'vuex'
-import Moment from 'moment';
 
 import store from '@store/index.js'
 import VueCarousel from 'vue-carousel'
@@ -23,9 +22,11 @@ let components = {
 
     VideoThumbnail, VideoPlaylist, VideoPlayer, VideoGallery
 };
-let moment = require('moment');
-let momentDurationFormatSetup = require("moment-duration-format");
+
+import moment from 'moment';
+import  momentDurationFormatSetup from "moment-duration-format";
 momentDurationFormatSetup(moment);
+
 Vue.prototype.$moment = moment;
 
 Vue.use(PortalVue);
@@ -35,29 +36,29 @@ Vue.use(VueCarousel);
 Vue.use(VueGallery);
 window.Vue = Vue;
 window.VueX = VueX;
-let app = new Vue({
+window.app = new Vue({
     el : "#flametree-app",
     components,
     store: store,
 
     methods: {
         initializeMMenu(){
-           let mmenu =  new Mmenu( "#flametree-side-drawer", {
-               wrappers: ["bootstrap"],
-               "extensions": [
-                   "pagedim-black",
-                   "position-front"
-               ],
+            let mmenu =  new Mmenu("#flametree-side-drawer", {
+                wrappers: ["bootstrap"],
+                "extensions": [
+                    "pagedim-black",
+                    "position-front"
+                ],
                 offCanvas: {
                     page: {
                         selector: "#page-content"
                     }
                 }
             });
-           this.$store.commit('SideDrawer/setMenu', mmenu);
+            this.$store.commit('SideDrawer/setMenu', mmenu);
         }
     },
-    mounted: function() {
+    mounted: function () {
         this.initializeMMenu();
     }
 })

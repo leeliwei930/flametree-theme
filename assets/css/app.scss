@@ -1,7 +1,9 @@
 html  , body {
     overflow-x: hidden;
 }
-
+@import "variable";
+@import "util";
+@import "typography.scss";
 @import "./navbar.scss";
 
 @import "home/who_we_are.scss";

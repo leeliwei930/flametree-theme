@@ -1,11 +1,14 @@
 <template lang="pug">
     .video-thumbnail(@mouseover="showPlayIcon = true" @mouseleave="showPlayIcon = false" v-on:click="emitClickEvent()")
-        .d-flex.flex-column.justify-content-between.p-3.w-100.h-100.rounded-lg(:style="backgroundCSS" , :class="styleBuilder()" )
-                .duration.p-2.d-flex.justify-content-between.align-items-center
-                    i.fas.fa-video
-                    strong.ml-auto
-                        | {{formatReadableDuration}}
-                .justify-content-center.my-auto.d-none(:class="{'d-flex action-fadeIn' : showPlayIcon }")
+        .d-flex.flex-column.justify-content-between.p-3.w-100.h-100.rounded-card(:style="backgroundCSS" , :class="styleBuilder()" )
+                .d-flex.flex-row.justify-content-between
+                    .duration.p-2.d-flex.justify-content-between.align-items-center
+                        i.fas.fa-video
+                        strong.ml-auto
+                            | {{formatReadableDuration}}
+                    .currently-playing-indicator.text-uppercase.bg-primary.p-2.d-flex.justify-content-center.align-items-center(v-if="isPlaying")
+                        strong  Playing
+                .justify-content-center.my-auto.action-fadeIn.d-flex
                         i.fas(:class="dynamicActionIcon")
                 .d-flex.flex-column.justify-content-end
                     h3.title
@@ -13,11 +16,17 @@
                     .description
                         p {{description}}
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
+
     .video-thumbnail  {
         height: 15rem;
+
     }
 
+    .video-thumbnail .rounded-card {
+        border-radius: 15pt;
+
+    }
     .video-thumbnail .dark-overlay{
         color:white;
     }
@@ -41,44 +50,41 @@
         text-overflow: ellipsis;
         overflow:hidden;
     }
-
     .video-thumbnail .action-fadeIn {
-        animation-name: playActionFadeIn;
-        animation-fill-mode: forwards;
-        animation-duration: 1.5s;
+        transition: all 0.5s;
+        opacity: 0;
     }
-
-    @keyframes cardFloatAnimation {
-        from {
-            box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)
-        }
-        to {
-            box-shadow: 0 1rem 3rem rgba(0,0,0,.175) ;
-
-        }
-    }
-
-    @keyframes playActionFadeIn {
-        from {
-            opacity: 0;
-        }
-
-        to {
+    .video-thumbnail:hover {
+        .action-fadeIn {
             opacity: 1;
+            transform: translateY(-15px);
         }
     }
-    .video-thumbnail .has-hover-effect:hover {
 
-        animation-name:cardFloatAnimation;
-        animation-duration: 0.5s;
-        animation-fill-mode:both;
+    .video-thumbnail .has-hover-effect:hover {
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.175) ;
+
 
     }
 
     .video-thumbnail .has-hover-effect {
         cursor:pointer;
+        transition: all 1s;
     }
 
+    .video-thumbnail .currently-playing-indicator {
+        border-radius: 15pt;
+        width:6em;
+        color: white;
+        opacity: 1;
+        transition: all 1s;
+    }
+
+    .video-thumbnail .currently-playing-indicator strong {
+        font-family: 'Nunito Light' , sans-serif;
+        font-size:12pt;
+
+    }
 
 
 
@@ -173,8 +179,11 @@ export default {
         },
         formatReadableDuration: function(){
             if(this.duration != null){
-             return this.$moment.duration(this.duration, 'seconds').format("hh:mm:ss")
+                return this.$moment.duration(this.duration, 'seconds').format("hh:mm:ss")
+            } else {
+                return `LIVE`
             }
+
         },
         dynamicActionIcon : function(){
             if(this.isPlaying){

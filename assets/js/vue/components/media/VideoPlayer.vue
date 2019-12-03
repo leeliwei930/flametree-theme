@@ -29,7 +29,8 @@ export default {
             default: "media"
         },
         embedId: {
-            type: String
+            type: String,
+            default: ""
         },
         posterUrl: {
             type: String,
@@ -60,7 +61,7 @@ export default {
             // create a new player instance
             this.player = new Plyr('#plyr-' + id);
 
-            this.player.on('ready' , (event) => {
+            this.player.on('ready' , () => {
 
                 this.$emit('ready', this.player);
             })
@@ -68,8 +69,10 @@ export default {
         }
 
     },
+
     created: function(){
     },
+
     mounted: function(){
         this.loadPlyr(this.embedId);
 
@@ -80,13 +83,12 @@ export default {
     computed: {
         getIframeSources: function(){
             switch(this.source){
-                case 'youtube':
-                    return `https://www.youtube.com/embed/${this.embedId}?origin=${window.location.host}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`
-                case 'vimeo':
-                    return `https://player.vimeo.com/video/${this.embedId}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media`
-                case 'media' :
-                    break;
-                default:
+            case 'youtube':
+                return `https://www.youtube.com/embed/${this.embedId}?origin=${window.location.host}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`
+            case 'vimeo':
+                return `https://player.vimeo.com/video/${this.embedId}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media`
+            default:
+                return ``
 
             }
         }
