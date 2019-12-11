@@ -2,18 +2,24 @@
 .d-flex.justify-content-around.m-5.flex-wrap
     .d-flex.flex-column.col-lg-8.justify-content-center
         template(v-if="currentPlaying")
-            video-player.my-2(:autoplay="autoplay" :key="currentPlaying.embed_id" :embed-id="currentPlaying.embed_id" :source="currentPlaying.type" @ready="registerPlayerInstance" :ref="'plyr-video-'+currentPlaying.embed_id")
+            video-player.my-2(:autoplay="autoplay" :key="currentPlaying.embed_id"
+                :id="currentPlaying.id"
+                :embed-id="currentPlaying.embed_id" :source="currentPlaying.type" @ready="registerPlayerInstance"
+                :ref="'plyr-video-'+currentPlaying.id" :video-url="currentPlaying.video_url"
+                :poster-url="currentPlaying.featured_image_url"
+                )
     .d-flex.flex-column.justify-content-start.col-lg-4
         video-playlist( :title="playlistName")
             template(v-if="videos.length > 0")
                 video-thumbnail.my-3(
                     v-for="video in videos"
-                    :key=" 'video-thumbnail-' + video.embed_id"
+                    :key=" 'video-thumbnail-' + video.id"
                     :description="shortenVideoDescription(video.description)"
                     :duration="video.duration"
                     :title="video.title"
-                    :featured-image="video.featured_image"
+                    :featured-image-url="video.featured_image_url"
                     :embed-id="video.embed_id"
+                    :video-url="video.video_url"
                     :is-playing="(currentPlaying.embed_id === video.embed_id && currentPlaying.type === video.type)"
                     :type="video.type"
                     @click="playVideo"

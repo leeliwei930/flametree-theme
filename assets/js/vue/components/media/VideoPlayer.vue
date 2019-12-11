@@ -1,7 +1,7 @@
 <template lang="pug">
 .plyr_root
     template(v-if="(source === 'youtube' || source === 'vimeo')")
-        div(:id="'plyr-' + embedId")
+        div(:id="'plyr-' + id")
             iframe(
                 :src="getIframeSources"
                 allowfullscreen
@@ -10,10 +10,10 @@
             )
     template(v-else)
         video(:poster="posterUrl"
-            :id="'plyr-'+embedId"
+            :id="'plyr-'+id"
             playsinline
             controls
-            autoplay="autoplay ? 'true' : 'false'"
+            :autoplay="autoplay"
             :volume="volume"
         )
             source(:src="videoUrl" type="video/mp4")
@@ -24,6 +24,10 @@
 import  Plyr  from 'plyr';
 export default {
     props: {
+        id: {
+            type: Number,
+            default: null
+        },
         source: {
             type: String,
             default: "media"
@@ -74,7 +78,7 @@ export default {
     },
 
     mounted: function(){
-        this.loadPlyr(this.embedId);
+        this.loadPlyr(this.id);
 
     },
     updated: function(){

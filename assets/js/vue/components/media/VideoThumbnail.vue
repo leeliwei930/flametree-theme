@@ -100,7 +100,7 @@ export default {
             type: Boolean,
             default: true
         },
-        featuredImage: {
+        featuredImageUrl: {
             type: String
         },
         title: {
@@ -112,7 +112,7 @@ export default {
         duration: {
             type: Number
         },
-        url: {
+        videoUrl: {
             type: String
         },
         embedId: {
@@ -121,7 +121,7 @@ export default {
         type: {
             type: String,
             validator: function(typeVal){
-                return ['youtube' , 'vimeo' , 'media' ].indexOf(typeVal) !== -1;
+                return ['youtube' , 'vimeo' , 'video' ].indexOf(typeVal) !== -1;
             }
         }
     },
@@ -150,9 +150,9 @@ export default {
                 type: this.type,
                 title: this.title,
                 description: this.description,
-                url: this.url,
                 embed_id : this.embedId,
-                featured_image: this.featured_image
+                featured_image_url: this.featuredImageUrl,
+                video_url : this.videoUrl,
             };
 
             this.$emit('click' , videoObj);
@@ -170,7 +170,7 @@ export default {
     computed: {
         backgroundCSS: function(){
             if(this.featuredImage !== null){
-                return `background: url(' `+ this.featuredImage + `') ,linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
+                return `background: url(' `+ this.featuredImageUrl + `') ,linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
                         background-blend-mode:multiply;
                         background-repeat:no-repeat;
                         background-size:cover`
