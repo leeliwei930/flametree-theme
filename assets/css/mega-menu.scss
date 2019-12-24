@@ -2,9 +2,8 @@
     margin-top: 65px;
 
     position: fixed;
-    z-index: 100;
     left: 0;
-
+    transform: translateY(7px);
     right: 0;
     background: white;
 }
@@ -35,9 +34,8 @@
 
 .mega-menu-slideout .mega-menu.shadow-lg {
     animation-name: megaMenuSlideOutAnimation;
-    animation-duration: 1.85s;
+    animation-duration: 0.85s;
     animation-fill-mode: forwards;
-
 }
 
 .mega-menu-slideout .mega-menu .d-flex {
@@ -53,7 +51,7 @@
     }
     to {
         opacity: 1;
-        min-height:550px;
+        min-height:50%;
     }
 }
 

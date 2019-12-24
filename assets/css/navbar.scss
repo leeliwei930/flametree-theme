@@ -3,6 +3,16 @@
     border-bottom: 1pt solid gray;
     height: 15px;
 }
+.nav.navbar .navbar-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(0.5px) brightness(15)  opacity(0.5);
+    z-index:-1;
+    background: rgba(255, 255, 255, 1);
+}
 
 .nav.navbar {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -15,12 +25,10 @@
 
 .nav.navbar .nav-item {
     display: inline-block;
-    transform: skew(-20deg);
     .nav-item-link {
         display: block;
         text-decoration: none;
         text-transform: uppercase;
-        transform: skew(20deg);
         color: black;
     }
 
@@ -38,6 +46,7 @@
 // dropwdown section
 .nav.navbar .nav-item .nav-dropdown {
     float:left;
+
 }
 
 .nav.navbar .nav-item  .nav-dropdown-menu {
@@ -47,22 +56,19 @@
     border-radius: 10px;
     min-width: 250px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
     z-index: 1;
-    transform: skew(20deg); //skew back
-    margin-top:0;
-    animation-name: navbarDropwDownMenuFadeUp;
-    animation-duration: 0.45s;
-    animation-direction: normal;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-    margin-left: -10px;
+
 
 }
 
 .nav.navbar .nav-item.nav-dropdown:hover  {
     .nav-dropdown-menu {
         display: flex;
+        animation-name: animateDropdownMenu;
+        animation-duration: 0.45s;
+        animation-direction: normal;
+        animation-timing-function: ease-out;
+        animation-fill-mode: forwards;
     }
     .nav-dropdown-menu-mega-menu {
         display: block;
@@ -79,13 +85,11 @@
     left:-60vw;
     z-index: 1;
     right:0;
-    transform: skew(20deg); //skew back
-    margin-top:20px;
-    //animation-name: navbarDropwDownMenuFadeUp;
-    //animation-duration: 0.45s;
-    //animation-direction: normal;
-    //animation-timing-function: ease-out;
-    //animation-fill-mode: forwards;
+    animation-name: navbarDropwDownMenuFadeUp;
+    animation-duration: 0.45s;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 
 }
 
@@ -105,26 +109,29 @@
     from {
         opacity: 0;
 
+
     }
     to {
         opacity: 1;
+
     }
 }
 
-@keyframes navbarDropwDownMenuFadeUp {
+
+@keyframes animateDropdownMenu {
     from {
-        opacity: 0.8;
-        margin-top: 0px;
-        transform: scale( 0.5) skew(20deg);
+        opacity:0;
+        transform: translate(-15px,15px);
 
     }
+
     to {
         opacity: 1;
-        margin-top: 22px;
-        transform: scale( 1) skew(20deg);
-
+        transform: translate(-15px,25px);
 
     }
 }
+
+
 
 @import "mega-menu";
