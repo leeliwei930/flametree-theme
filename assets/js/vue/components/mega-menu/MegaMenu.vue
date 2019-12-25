@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.mega-menu.shadow-lg(v-on:mouseleave="hideMegaMenu()")
+    .mega-menu.shadow-lg
         .d-flex.justify-content-center.align-items-baseline
             .nav.flex-column.nav-pills.col-3
                 slot
@@ -9,27 +9,25 @@
 <script>
 export default  {
 
-    data: function(){
-        return {
-            currentSelectedMenu: null
-        }
-    },
     methods: {
-        selectFirstItem(){
+        selectFirstItem: function(){
             if( this.$slots.default != null){
-                if( this.$slots.default.length > 0)
-                    this.currentSelectedMenu =   this.$slots.default[0].componentOptions.propsData.title;
+                if( this.$slots.default.length > 0){
+
+                    let defaultSelection = this.$slots.default[0].componentOptions.propsData.title;
+                    if(defaultSelection == null){
+                        defaultSelection = 'unknown'
+                    }
+                    this.updateSelectedMenu(defaultSelection)
+                }
             }
         },
-        hideMegaMenu(){
-            this.$emit('hideMegaMenu');
+        updateSelectedMenu: function(item){
+            this.$store.commit("Navbar/setCurrentSelectedMenu", item)
         }
     },
     mounted: function(){
         this.selectFirstItem();
-        this.$on('notifyChangedItem', (item) => {
-            this.currentSelectedMenu = item;
-        })
     }
 }
 </script>

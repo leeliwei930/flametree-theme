@@ -1,6 +1,6 @@
 <template lang="pug">
-    .flex-column
-        a.nav-link(:class="{'active' : title == $parent.currentSelectedMenu }",:href="link",@mouseenter="notifyChanged(title)")
+    .flex-column(@mouseenter="notifyChanged(title)")
+        a.nav-link(:class="{'active' : title === currentSelectedMenu }",:href="link")
             | {{title}}
             portal(to="menu-items")
                 slot
@@ -19,7 +19,15 @@ export default {
     },
     methods: {
         notifyChanged: function (item) {
-            this.$parent.$emit('notifyChangedItem' , item)
+            setTimeout(() => {
+                this.$store.commit("Navbar/setCurrentSelectedMenu" , item);
+
+            }, 150);
+        }
+    },
+    computed: {
+        currentSelectedMenu: function () {
+            return this.$store.getters["Navbar/getCurrentSelectedMenu"];
         }
     }
 }

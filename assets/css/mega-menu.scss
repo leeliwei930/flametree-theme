@@ -3,7 +3,6 @@
 
     position: fixed;
     left: 0;
-    transform: translateY(7px);
     right: 0;
     background: white;
 }
@@ -36,30 +35,23 @@
     animation-name: megaMenuSlideOutAnimation;
     animation-duration: 0.85s;
     animation-fill-mode: forwards;
+    min-height: 50%;
+
 }
 
 .mega-menu-slideout .mega-menu .d-flex {
-    animation-name: fadeIn;
-    animation-duration: 1.25s;
-    animation-fill-mode: forwards;
+
+    opacity: 1;
+    height: auto;
+    transition: all 0.85s;
 }
 
 @keyframes megaMenuSlideOutAnimation {
     from {
-        opacity: 0;
-        min-height: 0;
-    }
-    to {
-        opacity: 1;
-        min-height:50%;
-    }
-}
+        transform: translateY(-100px);
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
     }
     to {
-        opacity: 1;
+        transform: translateY(7px);
     }
 }

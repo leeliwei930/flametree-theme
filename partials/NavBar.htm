@@ -63,7 +63,7 @@ code = "frontend-menu"
             {% endif %}
         </div>
     </div>
-    <div class="d-none" :class="{'d-flex mega-menu-slideout' : $store.getters['Navbar/currentMegaMenuState']}"
+    <div  :class="($store.getters['Navbar/currentMegaMenuState']) ? 'd-flex mega-menu-slideout' : 'd-none'"
          @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"
          @mouseenter="$store.commit('Navbar/activateMegaMenu')">
 
