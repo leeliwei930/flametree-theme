@@ -32,7 +32,7 @@
 }
 
 .mega-menu-slideout .mega-menu.shadow-lg {
-    animation-name: megaMenuSlideOutAnimation;
+    animation-name: slideInDown;
     animation-duration: 0.85s;
     animation-fill-mode: forwards;
     min-height: 50%;
@@ -46,12 +46,3 @@
     transition: all 0.85s;
 }
 
-@keyframes megaMenuSlideOutAnimation {
-    from {
-        transform: translateY(-100px);
-
-    }
-    to {
-        transform: translateY(7px);
-    }
-}
