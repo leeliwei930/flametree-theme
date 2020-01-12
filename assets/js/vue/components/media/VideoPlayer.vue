@@ -1,12 +1,11 @@
 <template lang="pug">
 .plyr_root
     template(v-if="(source === 'youtube' || source === 'vimeo')")
-        div(:id="'plyr-' + id")
+        div(class="plyr__video-embed" :id="'plyr-' + id")
             iframe(
                 :src="getIframeSources"
                 allowfullscreen
                 allowtransparency
-                allow="autoplay"
             )
     template(v-else)
         video(:poster="posterUrl"
@@ -22,6 +21,7 @@
 </style>
 <script type="text/javascript">
 import  Plyr  from 'plyr';
+import isMobile from "../../../mobile-detector";
 export default {
     props: {
         id: {
@@ -64,10 +64,11 @@ export default {
         loadPlyr: function(id){
             // create a new player instance
             this.player = new Plyr('#plyr-' + id);
-
             this.player.on('ready' , () => {
 
-                this.$emit('ready', this.player);
+                setTimeout(() => {
+                    this.$emit('ready', this.player);
+                }, 1800)
             })
 
         }
@@ -88,7 +89,13 @@ export default {
         getIframeSources: function(){
             switch(this.source){
             case 'youtube':
-                return `https://www.youtube.com/embed/${this.embedId}?origin=${window.location.host}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1`
+                if(isMobile()){
+                    return `https://www.youtube.com/embed/${this.embedId}`
+
+                } else {
+                    return `https://www.youtube.com/embed/${this.embedId}?origin=${window.location.origin}&amp;iv_load_policy=3&amp;modestbranding=1&amp;playsinline=1&amp;showinfo=0&amp;rel=0&amp;enablejsapi=1&amp;muted=1;autoplay=0`
+
+                }
             case 'vimeo':
                 return `https://player.vimeo.com/video/${this.embedId}?loop=false&amp;byline=false&amp;portrait=false&amp;title=false&amp;speed=true&amp;transparent=0&amp;gesture=media`
             default:

@@ -1,8 +1,8 @@
 <template lang="pug">
-.d-flex.justify-content-around.m-5.flex-wrap
-    .d-flex.flex-column.col-lg-8.justify-content-center
+.d-flex.justify-content-around.m-2.mx-3.flex-wrap
+    .d-flex.flex-column.col-lg-6.justify-content-center
         template(v-if="currentPlaying")
-            video-player.my-2(:autoplay="autoplay" :key="currentPlaying.embed_id"
+            video-player(:autoplay="autoplay" :key="currentPlaying.embed_id"
                 :id="currentPlaying.id"
                 :embed-id="currentPlaying.embed_id" :source="currentPlaying.type" @ready="registerPlayerInstance"
                 :ref="'plyr-video-'+currentPlaying.id" :video-url="currentPlaying.video_url"
@@ -33,6 +33,7 @@
 import VideoPlayer from "./VideoPlayer";
 import VideoThumbnail from "./VideoThumbnail";
 import VideoPlaylist from "./VideoPlaylist";
+import isMobile from "../../../mobile-detector";
 export default {
     components: {VideoThumbnail, VideoPlayer, VideoPlaylist},
     props: {
@@ -62,7 +63,7 @@ export default {
         },
         registerPlayerInstance: function(player){
             this.player = player;
-            if(this.autoplay){
+            if(this.autoplay && !isMobile()){
                 this.player.play();
             }
         },

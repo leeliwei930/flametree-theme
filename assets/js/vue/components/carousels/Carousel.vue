@@ -1,31 +1,35 @@
 <template lang="pug">
-    .godspeed-carousel
-        .bg-dark.d-flex.flex-row.justify-content-between.preview
-            slot(:carousel="carouselState")
-        .navigation-overlay.d-flex.flex-column.justify-content-center.w-100
-            .d-flex.flex-row.justify-content-between
-                a.navigation.navigation-left(@click="navigationController().prev()")
-                    i.fas.fa-chevron-left.fa-2x
-                a.navigation.navigation-right(@click="navigationController().next()")
-                    i.fas.fa-chevron-right.fa-2x
-            .d-flex.flex-row.justify-content-center.indicator-bar
-                i.fas.fa-circle
-                i.fas.fa-circle
-                i.fas.fa-circle
+        .godspeed-carousel
+            .bg-dark.d-flex.flex-row.justify-content-between.preview
+                slot(:carousel="carouselState")
+            .navigation-overlay.d-flex.flex-column.justify-content-center.w-100
+                .d-flex.flex-row.justify-content-between
+                    a.navigation.navigation-left(@click="navigationController().prev()")
+                        i.fas.fa-chevron-left.fa-2x
+                    a.navigation.navigation-right(@click="navigationController().next()")
+                        i.fas.fa-chevron-right.fa-2x
+                .d-flex.flex-row.justify-content-center.indicator-bar
+                    i.fas.fa-circle
+                    i.fas.fa-circle
+                    i.fas.fa-circle
 </template>
-<style lang="scss" scoped>
+<style lang="scss" >
     .godspeed-carousel {
+        position: relative;
         .preview {
-            min-height: 480px;
+            min-height: 640px;
         }
-        .navigation-overlay {
-            position: absolute;
-            top:50%;
-            left:0;
 
-        }
-        .navigation-overlay .indicator-bar {
-            transform: translateY(100px);
+    }
+
+    .navigation-overlay {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right:0;
+        z-index: 2;
+        .indicator-bar {
+            transform: translateY(200px);
             color:white;
 
             i {
@@ -57,7 +61,6 @@
             }
         }
     }
-
 
 </style>
 <script type="text/javascript">
@@ -122,6 +125,10 @@ export default {
         indicatorActiveClass: {
             type: String,
             default: "fas fa-circle"
+        },
+        navigationControlShape: {
+            type: String,
+            default: "circle"
         }
     },
     data: function(){
@@ -140,40 +147,37 @@ export default {
         },
         navigationController: function() {
 
-            let _this = this;
             // allow vue instance props, data, methods able to pass in
             return {
                 next: function(){
-                    if(_this.showNavigation){
-                        _this.nextSlide();
+                    if(this.showNavigation){
+
+                        this.nextSlide();
                     }
-                },
+                }.bind(this),
                 prev: function () {
-                    if(_this.showNavigation){
-                        _this.prevSlide();
+                    if(this.showNavigation){
+                        this.prevSlide();
 
                     }
-                }
+                }.bind(this)
             }
         },
         indicatorController: function() {
 
             // allow vue instance props, data, methods able to pass in
-            let _this = this;
 
             return {
                 next: function(){
-                    if(_this.showNavigation){
-                        _this.nextSlide();
-                        console.log("Indicator Next Clicked")
+                    if(this.showNavigation){
+                        this.nextSlide();
                     }
-                },
+                }.bind(this),
                 prev: function(){
-                    if(_this.showNavigation){
-                        _this.prevSlide();
-                        console.log("Indicator Prev Clicked")
+                    if(this.showNavigation){
+                        this.prevSlide();
                     }
-                }
+                }.bind(this)
             }
         }
     },

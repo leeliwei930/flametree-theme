@@ -1,3 +1,60 @@
- .bg-primary {
-    background-color: $primaryColor !important;
+@import "variable";
+.flametree-theme {
+    .godspeed-slide {
+
+        .slide-title {
+            font-family: "Lato Black", sans-serif;
+            font-size: 32pt;
+            color:white;
+            max-width: 65%;
+        }
+
+
+        @media only screen and (max-width: 480px) {
+            .slide-title {
+                transform: scale(0.8);
+                max-width: 100%;
+
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+        }
+
+    }
+
+
+
+
+    .btn-primary {
+        background-color: $primaryColor !important;
+        border: none;
+        text-transform: uppercase;
+        border-radius: 0;
+    }
+
+    .btn-outline-primary {
+        border-color: $primaryColor !important;
+        color: $primaryColor !important;
+        border-radius: 0;
+
+        &:hover {
+            color: $white !important;
+            background-color: $primaryColor !important;
+
+        }
+    }
+
+    .btn-outline-default {
+        border-color: $white;
+        color: $white;
+        border-radius: 0;
+        &:hover {
+            color: $primaryColor !important;
+            background-color: $white !important;
+
+        }
+    }
 }
