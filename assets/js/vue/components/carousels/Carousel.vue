@@ -1,43 +1,44 @@
 <template lang="pug">
         .godspeed-carousel
-            .bg-dark.d-flex.flex-row.justify-content-between.preview
-                slot(:carousel="carouselState")
+            .bg-dark.d-flex.flex-row.justify-content-between.slides(:style="getTransalationPosition")
+                slot(:carouselState="carouselState")
             .navigation-overlay.d-flex.flex-column.justify-content-center.w-100
                 .d-flex.flex-row.justify-content-between
-                    a.navigation.navigation-left(@click="navigationController().prev()")
-                        i.fas.fa-chevron-left.fa-2x
-                    a.navigation.navigation-right(@click="navigationController().next()")
-                        i.fas.fa-chevron-right.fa-2x
+                    a.navigation.navigation-left(@click="navigationController().prev()" :style="navigationIconStyle")
+                        i(:class="navigationPrevIcon").fa-2x
+                    a.navigation.navigation-right(@click="navigationController().next()" :style="navigationIconStyle")
+                        i(:class="navigationNextIcon").fa-2x
                 .d-flex.flex-row.justify-content-center.indicator-bar
-                    i.fas.fa-circle
-                    i.fas.fa-circle
-                    i.fas.fa-circle
+                    template(v-for="index in carouselState.totalSlides"  )
+                        i(v-if="showIndicator" :class="(--index === carouselState.currentSlide)? indicatorActiveClass : indicatorClass")
 </template>
 <style lang="scss" >
     .godspeed-carousel {
         position: relative;
-        .preview {
-            min-height: 640px;
+        .slides {
+            min-height: 500px;
+            transition: all 0.85s;
         }
 
     }
 
     .navigation-overlay {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right:0;
-        z-index: 2;
-        .indicator-bar {
-            transform: translateY(200px);
-            color:white;
 
+        .indicator-bar {
+            color:white;
+            position: absolute;
+
+            bottom:15px;
+            left:0;
+            right:0;
+            z-index:5;
             i {
                 font-size: 8pt;
                 margin:5px;
             }
         }
         .navigation{
+
             background-color: grey;
             height: 80px;
             width: 80px;
@@ -51,9 +52,21 @@
                     transform: translateX(10px);
                 }
                 transform: translateX(-40px);
+                position: absolute;
+                z-index: 5;
+
+                top: 50%;
+
+                left: 0;
             }
 
             &.navigation-right {
+                position: absolute;
+                z-index: 5;
+
+                top: 50%;
+
+                right: 0;
                 i {
                     transform: translateX(-10px);
                 }
@@ -129,21 +142,49 @@ export default {
         navigationControlShape: {
             type: String,
             default: "circle"
+        },
+        navigationControlBgColor: {
+            type: String
         }
     },
     data: function(){
         return {
             carouselState: {
-                currentSlide: null
+                nextSlideAnimation: null,
+                totalSlides: null,
+                currentSlide: null,
+                currentTranslationPosition: 0
             }
         }
     },
     methods: {
         nextSlide: function(){
-
+            let nextSlide = Number.parseInt(this.carouselState.currentSlide) + 1;
+            this.carouselState.nextSlideAnimation = this.nextSlideAnimation;
+            if(nextSlide >= this.carouselState.totalSlides){
+                this.carouselState.currentSlide = 0;
+            } else {
+                this.carouselState.currentSlide = nextSlide;
+            }
         },
         prevSlide: function(){
+            let prevSlide = Number.parseInt(this.carouselState.currentSlide) - 1;
+            this.carouselState.nextSlideAnimation = this.prevSlideAnimation;
 
+            if(prevSlide < 0){
+                this.carouselState.currentSlide = this.carouselState.totalSlides - 1;
+            } else {
+                this.carouselState.currentSlide = prevSlide;
+            }
+        },
+        loadDefaultSlide: function(){
+            let slides = this.$children;
+            this.carouselState.totalSlides = slides.length;
+            if(slides.length > 0){
+                this.carouselState.currentSlide = Number.parseInt(slides[0].$options.propsData.slideId);
+
+
+            }
         },
         navigationController: function() {
 
@@ -185,10 +226,26 @@ export default {
 
     },
     mounted: function(){
+        this.loadDefaultSlide();
 
     },
     updated: function(){
 
+    },
+    computed: {
+        navigationIconStyle: function(){
+            return `background-color:${this.navigationControlBgColor};color:${this.navigationIconColor}`
+        },
+        getTransalationPosition: function(){
+            let index = this.carouselState.currentSlide * 100;
+            return `transform:translateX(-${index}%);
+                    -webkit-transform:translateX(-${index}%)
+                    -ms-transform:translateX(-${index}%)
+                    -o-transform:translateX(-${index}%)
+                    -moz-transform:translateX(-${index}%)
+
+                    `
+        }
     }
 }
 

@@ -26,12 +26,12 @@ code = "frontend-menu"
                     {% if item.title == "Products" %}
 
                     <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
-                         @mouseout="$store.commit('Navbar/deactivateMegaMenu')"
+                         @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"
                          @mouseover="$store.commit('Navbar/activateMegaMenu')">
                         <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                         {% if item.items and item.title != "Products" %}
-                            <div class="nav-dropdown-menu  flex-column">
+                            <div class="nav-dropdown-menu  flex-column" >
                                 {% for dropdownItem in item.items %}
                                     <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
                                         {{ dropdownItem.title }}
@@ -41,7 +41,7 @@ code = "frontend-menu"
                         {% endif %}
                     </div>
                     {% else %}
-                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                        <div class=" nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
                             <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                             {% if item.items and item.title != "Products" %}

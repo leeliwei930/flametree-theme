@@ -1,36 +1,43 @@
 <template lang="pug">
-    .flametree-theme.w-100.d-flex.justify-content-center.flex-column(:style="slideBgStyle" v-if="show")
-        .godspeed-slide.m-3.m-md-5.p-2
-            h1.slide-title  {{ title }}
-            p(v-if="caption !== ''").mx-3.slide-caption {{ caption }}
-            .d-flex.justify-content-start.flex-row.flex-wrap
+    .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column(:style="slideBgStyle" )
+        .godspeed-slide.m-3.m-md-5.p-2(v-if="show")
+            h1.slide-title(:class="titleClasses")  {{ title }}
+            p(v-if="caption !== ''" :class="captionClasses").mx-3.slide-caption {{ caption }}
+            .d-flex.justify-content-start.flex-row.flex-wrap(:class="captionClasses")
                 template(v-if="showPrimaryActionButton === '1'")
-                    a.m-2.shadow-sm(:class="primaryButtonClasses" :href="primaryActionButtonLink")
+                    a.mr-2.my-2.shadow-sm(:class="primaryButtonClasses" :href="primaryActionButtonLink")
                         | {{ primaryActionButtonText }}
                         i.mx-3.fas.fa-chevron-right
                 template(v-if="showSecondaryActionButton === '1'")
-                    a.m-2(:class="secondaryButtonClasses" :href="secondaryActionButtonLink")
+                    a.mr-2.my-2(:class="secondaryButtonClasses" :href="secondaryActionButtonLink")
                         | {{ secondaryActionButtonText }}
 </template>
 <style lang="scss" scoped>
+.godspeed-slide-wrapper {
+    flex-basis: inherit;
+    flex-grow: 0;
+    flex-shrink: 0;
+    width: 100%;
+    overflow: hidden;
+}
 .godspeed-slide {
     height: inherit;
-    z-index:5;
-    .slide-title {
 
-    }
-
-    .slide-caption {
-
-    }
 }
 </style>
 <script type="text/javascript">
 export default {
     props: {
+        classes: {
+            type: String
+        },
         show: {
             type: Boolean,
-            default: true
+            default: false
+        },
+        slideId: {
+            type: String,
+            default: null
         },
         image: {
             type: String,

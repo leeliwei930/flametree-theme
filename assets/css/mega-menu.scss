@@ -1,9 +1,10 @@
 .mega-menu {
-    margin-top: 65px;
+    padding-top: 65px;
 
     position: fixed;
     left: 0;
     right: 0;
+    z-index:100;
     background: white;
 }
 .mega-menu .nav-link {
