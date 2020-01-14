@@ -1,16 +1,25 @@
 <template lang="pug">
-        .godspeed-carousel
+        .godspeed-carousel(@mouseover="navigationController().showCarouselNavigationControl()", @mouseleave="navigationController().hideCarouselNavigationControl()")
             .bg-dark.d-flex.flex-row.justify-content-between.slides(:style="getTransalationPosition")
                 slot(:carouselState="carouselState")
             .navigation-overlay.d-flex.flex-column.justify-content-center.w-100
                 .d-flex.flex-row.justify-content-between
-                    a.navigation.navigation-left(@click="navigationController().prev()" :style="navigationIconStyle")
+                    a.navigation.navigation-left(
+                        @click="navigationController().prev()"
+                        :style="navigationIconStyle",
+                        :class="{'d-none' : !carouselState.showNavigationControl}"
+                    )
                         i(:class="navigationPrevIcon").fa-2x
-                    a.navigation.navigation-right(@click="navigationController().next()" :style="navigationIconStyle")
+                    a.navigation.navigation-right(
+                        @click="navigationController().next()"
+                        :style="navigationIconStyle"
+                        :class="{'d-none' : !carouselState.showNavigationControl}"
+                    )
                         i(:class="navigationNextIcon").fa-2x
                 .d-flex.flex-row.justify-content-center.indicator-bar
-                    template(v-for="index in carouselState.totalSlides"  )
-                        i(v-if="showIndicator" :class="(--index === carouselState.currentSlide)? indicatorActiveClass : indicatorClass")
+                    template(v-for="index in carouselState.totalSlides"  v-if="showIndicator")
+                        a.text-white(href="#" @click="navigateToSlide(index)" )
+                            i( :class="(--index === carouselState.currentSlide)? indicatorActiveClass : indicatorClass")
 </template>
 <style lang="scss" >
     .godspeed-carousel {
@@ -46,7 +55,8 @@
             justify-content: center;
             align-items: center;
             border-radius: 100%;
-
+            cursor: pointer;
+            opacity: 0.6;
             &.navigation-left {
                 i {
                     transform: translateX(10px);
@@ -54,9 +64,11 @@
                 transform: translateX(-40px);
                 position: absolute;
                 z-index: 5;
-
                 top: 50%;
+                animation-name: navigationControlLeftAnimation;
+                animation-fill-mode: forwards;
 
+                animation-duration: 0.85s;
                 left: 0;
             }
 
@@ -65,13 +77,39 @@
                 z-index: 5;
 
                 top: 50%;
+                animation-name: navigationControlRightAnimation;
+                animation-fill-mode: forwards;
 
+                animation-duration: 0.65s;
                 right: 0;
                 i {
                     transform: translateX(-10px);
                 }
-                transform: translateX(40px);
             }
+        }
+    }
+
+    @keyframes navigationControlLeftAnimation {
+        from {
+            transform: translateX(-80px);
+
+        }
+
+        to {
+            transform: translateX(-40px);
+
+        }
+    }
+
+    @keyframes navigationControlRightAnimation {
+        from {
+            transform: translateX(80px);
+
+        }
+
+        to {
+            transform: translateX(40px);
+
         }
     }
 
@@ -153,11 +191,17 @@ export default {
                 nextSlideAnimation: null,
                 totalSlides: null,
                 currentSlide: null,
-                currentTranslationPosition: 0
+                currentTranslationPosition: 0,
+                showNavigationControl: true
             }
         }
     },
     methods: {
+        autoplayCarousel: function(){
+            setInterval(() => {
+                this.nextSlide();
+            }, this.interval);
+        },
         nextSlide: function(){
             let nextSlide = Number.parseInt(this.carouselState.currentSlide) + 1;
             this.carouselState.nextSlideAnimation = this.nextSlideAnimation;
@@ -176,6 +220,9 @@ export default {
             } else {
                 this.carouselState.currentSlide = prevSlide;
             }
+        },
+        navigateToSlide: function(index){
+            this.carouselState.currentSlide = index;
         },
         loadDefaultSlide: function(){
             let slides = this.$children;
@@ -200,6 +247,18 @@ export default {
                     if(this.showNavigation){
                         this.prevSlide();
 
+                    }
+                }.bind(this),
+
+                showCarouselNavigationControl:function(){
+                    if(this.autoHideNavigation){
+                        this.carouselState.showNavigationControl = true;
+                    }
+                }.bind(this),
+
+                hideCarouselNavigationControl: function(){
+                    if(this.autoHideNavigation){
+                        this.carouselState.showNavigationControl = false;
                     }
                 }.bind(this)
             }
@@ -227,7 +286,10 @@ export default {
     },
     mounted: function(){
         this.loadDefaultSlide();
-
+        if(this.autoplay){
+            this.autoplayCarousel();
+        }
+        this.carouselState.showNavigationControl = !this.autoHideNavigation;
     },
     updated: function(){
 

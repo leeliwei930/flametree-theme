@@ -45,4 +45,42 @@ $fa-font-display:             auto !default;
     url('#{$fa-url-font-path}/fa-regular-400.svg#fontawesome') format('svg');
   }
 
+
+$lato-url-font-path: "/themes/flametree-theme/assets/fonts/Lato";
+
+@font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
+    font-display: auto;
+    src: url('#{$lato-url-font-path}/Lato-Regular.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: "Lato Black";
+    font-weight: bold;
+    font-display: auto;
+    src: url('#{$lato-url-font-path}/Lato-Black.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: "Lato Bold";
+    font-weight: bold;
+    font-display: auto;
+    src: url('#{$lato-url-font-path}/Lato-Bold.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: "Lato Light";
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$lato-url-font-path}/Lato-Light.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: "Lato Thin";
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$lato-url-font-path}/Lato-Thin.ttf') format('truetype')
+}
 @import "~@fortawesome/fontawesome-free/css/all.css";
