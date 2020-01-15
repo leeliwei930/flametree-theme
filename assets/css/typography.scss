@@ -1,3 +1,26 @@
-#flametree-app .text-primary {
-    color: $primaryColor !important;
+
+
+
+#flametree-app{
+    .text-primary {
+        color: $primaryColor !important;
+    }
+
+    .headline-light {
+        font-family: 'Lato Black' , sans-serif;
+        font-size: 32pt;
+
+        &.text-primary {
+            color: $primaryColor !important;
+        }
+    }
+
+    .headline-light-bold {
+        font-family: 'Lato Bold',sans-serif;
+        font-size: 32pt;
+        &.text-primary {
+            color: $primaryColor !important;
+        }
+
+    }
 }

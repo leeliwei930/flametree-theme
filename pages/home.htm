@@ -10,8 +10,29 @@ label = 1
 
 [VideoSection]
 playlist_name = 1
-autoplay = 1
+autoplay = 0
+
+[AllProducer]
+Include Categories = 1
+Limit = 3
 ==
 {% component 'ImageSlider' %}
 
-{#{% component 'VideoSection' %}#}
+<div class="flametree-theme d-flex flex-column p-4" id="flametree-who-we-are">
+    <h1 class="headline-light-bold text-uppercase text-primary">Who We Are?</h1>
+    {% component 'VideoSection' %}
+</div>
+
+
+<div class="flametree-theme our-producers d-flex flex-row flex-grow-1 flex-wrap justify-content-start  p-3">
+
+    <div class="d-flex flex-column align-self-sm-start align-self-xl-center  justify-content-start px-5 py-5 ">
+        <h1 class="headline-light text-uppercase text-primary w-25">
+            <span class="text-white">OUR</span>
+        PRODUCERS</h1>
+        <a href="#" class="title-link big hover-move-right">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
+    </div>
+    <div class="mx-auto">
+    {% component 'AllProducer' %}
+    </div>
+</div>
