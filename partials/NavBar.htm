@@ -28,8 +28,7 @@ code = "frontend-menu"
                         {% set producer_categories = item.items %}
 
                         <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
-                         @mouseleave="deactivateMegaMenu()"
-                         @mouseenter="activateMegaMenu()">
+                         id="producer-link">
                         <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                         {% if item.items and item.title != "Producers" %}
@@ -67,9 +66,7 @@ code = "frontend-menu"
     </div>
 
 {% if producer_categories %}
-    <div :class='(!megaMenuState) ? "d-none" : "d-flex" '
-          @mouseleave="deactivateMegaMenu()"
-          @mouseenter="activateMegaMenu()">
+    <div  id="producer-mega-menu" class="d-none">
 
         <mega-menu>
             {%  for index, producer_category in producer_categories %}

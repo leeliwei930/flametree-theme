@@ -2,7 +2,7 @@
     .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column(:style="slideBgStyle" )
         .godspeed-slide.m-3.m-md-5.p-2(v-if="show")
             h1.slide-title(:class="titleClasses")  {{ title }}
-            p(v-if="caption !== ''" :class="captionClasses").mx-3.slide-caption {{ caption }}
+            p.slide-caption(v-if="caption !== ''" :class="captionClasses").slide-caption {{ caption }}
             .d-flex.justify-content-start.flex-row.flex-wrap(:class="captionClasses")
                 template(v-if="showPrimaryActionButton === '1'")
                     a.mr-2.my-2.shadow-sm(:class="primaryButtonClasses" :href="primaryActionButtonLink")

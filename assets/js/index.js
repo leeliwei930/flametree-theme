@@ -56,27 +56,35 @@ window.app = new Vue({
         displayMenu: function(){
             document.getElementById('flametree-side-drawer').classList.remove('d-none')
         },
-        activateMegaMenu: function () {
-            this.$store.commit('Navbar/activateMegaMenu');
 
-        },
-        deactivateMegaMenu: function(){
+        registerMegaMenuEvent: function(){
+            document.getElementById('producer-link').addEventListener('mouseenter', () => {
+                document.getElementById('producer-mega-menu').classList.remove('d-none');
 
-            this.$store.commit('Navbar/deactivateMegaMenu');
+                document.getElementById('producer-mega-menu').classList.add('d-flex');
+            });
 
+            document.getElementById('producer-link').addEventListener('mouseleave', () => {
+                document.getElementById('producer-mega-menu').classList.remove('d-flex');
+                document.getElementById('producer-mega-menu').classList.add('d-none');
+            });
 
-        },
+            document.getElementById('producer-mega-menu').addEventListener('mouseenter', () => {
+                document.getElementById('producer-mega-menu').classList.remove('d-none');
 
-        getDisplayMegaMenuClass: function(){
-            if(this.megaMenuState){
-                return 'd-flex'
-            } else {
-                return 'd-none'
-            }
+                document.getElementById('producer-mega-menu').classList.add('d-flex');
+            });
+
+            document.getElementById('producer-mega-menu').addEventListener('mouseleave',() => {
+                document.getElementById('producer-mega-menu').classList.remove('d-flex');
+                document.getElementById('producer-mega-menu').classList.add('d-none');
+            });
+
         }
     },
     mounted: function () {
         this.initializeMMenu();
+        this.registerMegaMenuEvent();
     },
     computed: {
 
