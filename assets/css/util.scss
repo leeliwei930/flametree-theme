@@ -28,35 +28,54 @@
 
     /** Button Classes**/
 
+    .btn {
+        &.hover-move-right:hover {
 
-    .btn-primary {
-        background-color: $primaryColor !important;
-        border: none;
-        text-transform: uppercase;
-        border-radius: 0;
-    }
+            .fas {
+                transform: translateX(10px);
+                transition: all 0.25s;
 
-    .btn-outline-primary {
-        border-color: $primaryColor !important;
-        color: $primaryColor !important;
-        border-radius: 0;
+            }
+        }
 
-        &:hover {
-            color: $white !important;
+        &.btn-primary {
             background-color: $primaryColor !important;
+            border: 0.75pt solid $primaryColor;
+            text-transform: uppercase;
+            border-radius: 0;
 
+            &:hover {
+                color: $primaryColor !important;
+                background-color:  $white !important;
+                border: 0.75pt solid $primaryColor;
+            }
         }
-    }
 
-    .btn-outline-default {
-        border-color: $white;
-        color: $white;
-        border-radius: 0;
-        &:hover {
+
+        &.btn-outline-primary {
+            border-color: $primaryColor !important;
             color: $primaryColor !important;
-            background-color: $white !important;
+            border-radius: 0;
 
+            &:hover {
+                color: $white !important;
+                background-color: $primaryColor !important;
+
+            }
         }
+
+        &.btn-outline-default {
+            border-color: $white;
+            color: $white;
+            border-radius: 0;
+
+            &:hover {
+                color: $primaryColor !important;
+                background-color: $white !important;
+
+            }
+        }
+
     }
 
     .title-link {

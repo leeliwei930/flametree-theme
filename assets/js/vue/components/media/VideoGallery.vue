@@ -1,5 +1,5 @@
 <template lang="pug">
-.d-flex.justify-content-around.m-2.mx-3.flex-wrap
+.d-flex.justify-content-around.flex-wrap
     .d-flex.flex-column.col-lg-6.justify-content-center
         template(v-if="currentPlaying")
             video-player(:autoplay="autoplay" :key="currentPlaying.embed_id"

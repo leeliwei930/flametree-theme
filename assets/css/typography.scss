@@ -6,12 +6,19 @@
         color: $primaryColor !important;
     }
 
+    .text-accent {
+        color: $accentColor !important;
+    }
     .headline-light {
         font-family: 'Lato Black' , sans-serif;
         font-size: 32pt;
 
         &.text-primary {
             color: $primaryColor !important;
+        }
+
+        &.small {
+            font-size: 24pt;
         }
     }
 
@@ -22,5 +29,18 @@
             color: $primaryColor !important;
         }
 
+    }
+
+    .text-dark {
+        color: #373A3C;
+    }
+
+    .post-title {
+
+        font-family: "Baskerville", sans-serif;
+        font-size:24pt;
+        &.big {
+            font-size:36pt;
+        }
     }
 }

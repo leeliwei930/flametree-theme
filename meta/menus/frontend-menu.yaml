@@ -14,28 +14,13 @@ items:
             cssClass: ''
             isExternal: '0'
     -
-        title: Products
-        nesting: ''
-        type: url
-        url: /products
+        title: Producers
+        type: all-producer-category
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
-        items:
-            -
-                title: Vegetable
-                type: url
-                url: /products/vegetable
-                code: ''
-                viewBag:
-                    isHidden: '0'
-                    cssClass: ''
-                    isExternal: '0'
     -
         title: Membership
         nesting: ''

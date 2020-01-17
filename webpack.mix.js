@@ -14,6 +14,7 @@ let mix = require('laravel-mix');
 
 mix
 .webpackConfig({
+        devtool: 'inline-source-map',
         resolve: {
             alias: {
                 '@components': path.resolve(__dirname, 'assets/js/vue/components'),

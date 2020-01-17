@@ -26,10 +26,15 @@ window.app = new Vue({
     el : "#flametree-app",
     components,
     store: store,
-
+    data: {
+        mmenuState: {
+            ready: false
+        }
+    },
     methods: {
         initializeMMenu(){
             let mmenu =  new Mmenu("#flametree-side-drawer", {
+
                 wrappers: ["bootstrap"],
                 "extensions": [
                     "pagedim-black",
@@ -41,10 +46,42 @@ window.app = new Vue({
                     }
                 }
             });
+            this.mmenuState.ready = true;
+
             this.$store.commit('SideDrawer/setMenu', mmenu);
+
+            this.displayMenu();
+        },
+
+        displayMenu: function(){
+            document.getElementById('flametree-side-drawer').classList.remove('d-none')
+        },
+        activateMegaMenu: function () {
+            this.$store.commit('Navbar/activateMegaMenu');
+
+        },
+        deactivateMegaMenu: function(){
+
+            this.$store.commit('Navbar/deactivateMegaMenu');
+
+
+        },
+
+        getDisplayMegaMenuClass: function(){
+            if(this.megaMenuState){
+                return 'd-flex'
+            } else {
+                return 'd-none'
+            }
         }
     },
     mounted: function () {
         this.initializeMMenu();
+    },
+    computed: {
+
+        megaMenuState(){
+            return this.$store.getters['Navbar/currentMegaMenuState']
+        }
     }
 })

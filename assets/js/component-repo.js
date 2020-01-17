@@ -13,11 +13,13 @@ import Carousel from "@components/carousels/Carousel.vue";
 import Slide from "@components/carousels/Slide.vue";
 
 import ProducerCard from "@components/producers/ProducerCard.vue";
+import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
 
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
     VideoThumbnail, VideoPlaylist, VideoPlayer,
     VideoGallery, Carousel, Slide,
-    ProducerCard
+    ProducerCard,
+    AnnouncementBasicCard
 };
 

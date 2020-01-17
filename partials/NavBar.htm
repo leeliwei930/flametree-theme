@@ -7,6 +7,8 @@ code = "frontend-menu"
 
 [ProductCategory]
 ==
+{% set producer_categories = null %}
+
 <div class="d-flex justify-content-between justify-content-sm-between shadow-md nav navbar fixed-top flex-row">
     <div class="navbar-overlay"></div>
 
@@ -19,18 +21,18 @@ code = "frontend-menu"
         </a>
     </div>
     <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
-        {#        {{ staticMenu.menuItems | json_encode }}#}
         {% if staticMenu.menuItems %}
             {% for item in staticMenu.menuItems %}
                 {% if not isHidden %}
-                    {% if item.title == "Products" %}
+                    {% if item.title is same as("Producers") %}
+                        {% set producer_categories = item.items %}
 
-                    <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
-                         @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"
-                         @mouseover="$store.commit('Navbar/activateMegaMenu')">
+                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
+                         @mouseleave="deactivateMegaMenu()"
+                         @mouseenter="activateMegaMenu()">
                         <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
-                        {% if item.items and item.title != "Products" %}
+                        {% if item.items and item.title != "Producers" %}
                             <div class="nav-dropdown-menu  flex-column" >
                                 {% for dropdownItem in item.items %}
                                     <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
@@ -44,7 +46,7 @@ code = "frontend-menu"
                         <div class=" nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
                             <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
-                            {% if item.items and item.title != "Products" %}
+                            {% if item.items and item.title != "Producers" %}
                                 <div class="nav-dropdown-menu  flex-column">
                                     {% for dropdownItem in item.items %}
                                         <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
@@ -63,24 +65,61 @@ code = "frontend-menu"
             {% endif %}
         </div>
     </div>
-    <div  :class="($store.getters['Navbar/currentMegaMenuState']) ? 'd-flex mega-menu-slideout' : 'd-none'"
-         @mouseleave="$store.commit('Navbar/deactivateMegaMenu')"
-         @mouseenter="$store.commit('Navbar/activateMegaMenu')">
 
-        {% component 'ProductCategory' %}
+{% if producer_categories %}
+    <div :class='(!megaMenuState) ? "d-none" : "d-flex" '
+          @mouseleave="deactivateMegaMenu()"
+          @mouseenter="activateMegaMenu()">
+
+        <mega-menu>
+            {%  for index, producer_category in producer_categories %}
+                <sidebar-menu-item key="{{ index}}" title="{{ producer_category.title }}" link="{{ "/products/#"~producer_category.title  }}">
+                    {%  if producer_category.items %}
+                        {%  for producer in producer_category.items %}
+                            <menu-item
+                                leading-icon="fas fa-chevron-circle-right"
+                                parent="{{ producer_category.title }}"
+                                title="{{ producer.title }}"
+                                description="{{ producer.viewBag.origin }}"
+                                icon="fas fa-map-marker-alt fa-2x"
+                            >
+                            </menu-item>
+
+                        {% endfor %}
+                    {%  endif %}
+                </sidebar-menu-item>
+            {%  endfor %}
+
+        </mega-menu>
     </div>
 
-<div id="flametree-side-drawer">
+{% endif %}
+
+<div id="flametree-side-drawer" class="d-none" >
     {% if staticMenu.menuItems %}
-        <ul>
+        <ul class="mm-listview" >
             {% for item in staticMenu.menuItems %}
                 {% if not isHidden %}
 
-                    {% if item.title == "Products" %}
+                    {% if item.title is same as("Producers") %}
+                        {%  set producer_category = item.items %}
                         <li>
-                            <a href="#">Products</a>
+                            <a href="#">Producers</a>
                             <ul>
+                                {% for category in producer_category %}
 
+                                    <li>
+                                        <a href="#">{{ category.title }}</a>
+                                        <ul>
+                                            {% for producer in category.items %}
+                                                <a class="d-flex flex-column justify-content-start" href="{{ producer.url | default(category.url) }}">
+                                                        <span>{{ producer.title }}</span>
+                                                        <span> <i class="fas fa-map-marker-alt mx-2"></i>{{ producer.viewBag.origin }}</span>
+                                                </a>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </li>
                     {% else %}
@@ -88,7 +127,7 @@ code = "frontend-menu"
                             <a href="{{ item.url }}">
                                 {{ item.title }}
                             </a>
-                            {% if item.items and item.title != "Products" %}
+                            {% if item.items and item.title is not same as("Producers") %}
                                 <ul>
                                     {% for dropdownItem in item.items %}
                                         <li>

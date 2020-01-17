@@ -1,0 +1,83 @@
+name: 'Footer Menu'
+items:
+    -
+        title: 'GET INVOLVED'
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'Our Team'
+                type: cms-page
+                code: ''
+                reference: our-team
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'Our Producers'
+                type: cms-page
+                code: ''
+                reference: our-producers
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'NEWS AND MEDIA'
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: ANNOUNCEMENTS
+                type: cms-page
+                code: ''
+                reference: announcements
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'FREQUENTLY ASKED QUESTIONS'
+        type: cms-page
+        code: ''
+        reference: frequently-ask-questions
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: MEMBERSHIP
+        type: header
+        code: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+        items:
+            -
+                title: 'VOLUNTEERS LOGIN'
+                type: cms-page
+                code: ''
+                reference: member/volunteers-login
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+    -
+        title: 'MEMBER LOGIN'
+        type: cms-page
+        code: ''
+        reference: member/member-login
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

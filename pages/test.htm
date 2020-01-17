@@ -1,0 +1,14 @@
+title = "test"
+url = "/test"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[staticMenu]
+code = "footer-menu"
+==
+{% if staticMenu.menuItems %}
+  <pre>
+      {{ staticMenu.menuItems | json_encode }}
+  </pre>
+{% endif %}

@@ -15,11 +15,19 @@ autoplay = 0
 [AllProducer]
 Include Categories = 1
 Limit = 3
+
+[TrendingAnnouncement]
+pageNumber = 1
+postsPerPage = 3
+noPostsMessage = "There is no recent posts right now."
+sortOrder = "published_at desc"
+categoryPage = "announcements"
+postPage = "announcements"
 ==
 {% component 'ImageSlider' %}
 
-<div class="flametree-theme d-flex flex-column p-4" id="flametree-who-we-are">
-    <h1 class="headline-light-bold text-uppercase text-primary">Who We Are?</h1>
+<div class="flametree-theme d-flex flex-column p-5" id="flametree-who-we-are">
+    <h1 class="headline-light-bold text-uppercase text-primary px-3 mx-lg-5">Who We Are?</h1>
     {% component 'VideoSection' %}
 </div>
 
@@ -35,4 +43,12 @@ Limit = 3
     <div class="mx-auto">
     {% component 'AllProducer' %}
     </div>
+</div>
+
+
+<div class="flametree-theme announcements d-flex flex-column justify-content-around">
+
+    <h3 class="headline-light text-uppercase text-primary p-5 small">Announcements</h3>
+
+    {% component 'TrendingAnnouncement' %}
 </div>
