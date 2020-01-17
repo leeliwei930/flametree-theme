@@ -12,7 +12,7 @@
                     a.mr-2.my-2(:class="secondaryButtonClasses" :href="secondaryActionButtonLink")
                         | {{ secondaryActionButtonText }}
 </template>
-<style lang="scss" scoped>
+<style lang="scss" >
 .godspeed-slide-wrapper {
     flex-basis: inherit;
     flex-grow: 0;

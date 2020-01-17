@@ -1,5 +1,5 @@
 <template lang="pug">
-    .mega-menu.shadow-lg.mega-menu-slideout
+    .mega-menu.shadow-lg.mega-menu-slideout.pb-3
         .d-flex.justify-content-center.align-items-start
             .nav.flex-column.nav-pills.col-3.pt-3
                 slot

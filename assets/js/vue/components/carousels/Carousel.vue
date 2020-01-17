@@ -1,5 +1,8 @@
 <template lang="pug">
-        .godspeed-carousel(@mouseover="navigationController().showCarouselNavigationControl()", @mouseleave="navigationController().hideCarouselNavigationControl()")
+        .godspeed-carousel(
+            @mouseover="navigationController().showCarouselNavigationControl()",
+            @mouseleave="navigationController().hideCarouselNavigationControl()"
+            :style="'height:'+ height")
             .bg-dark.d-flex.flex-row.justify-content-between.slides(:style="getTransalationPosition")
                 slot(:carouselState="carouselState")
             .navigation-overlay.d-flex.flex-column.justify-content-center.w-100
@@ -25,7 +28,7 @@
     .godspeed-carousel {
         position: relative;
         .slides {
-            min-height: 500px;
+            height: inherit;
             transition: all 0.85s;
         }
 

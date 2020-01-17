@@ -29,7 +29,8 @@ window.app = new Vue({
     data: {
         mmenuState: {
             ready: false
-        }
+        },
+        scrollY: 0
     },
     methods: {
         initializeMMenu(){
@@ -80,16 +81,30 @@ window.app = new Vue({
                 document.getElementById('producer-mega-menu').classList.add('d-none');
             });
 
+        },
+        registerAffixNavbar: function(){
+            window.addEventListener('scroll', () => {
+                if(window.scrollY > 450){
+                    document.getElementById('flametree-navigation-bar').classList
+                        .add('fixed-top', 'animated', 'fadeInDown')
+                } else {
+                    document.getElementById('flametree-navigation-bar').classList
+                        .remove('fixed-top', 'animated', 'fadeInDown')
+                }
+            })
+
         }
     },
     mounted: function () {
         this.initializeMMenu();
         this.registerMegaMenuEvent();
+        this.registerAffixNavbar();
+
     },
     computed: {
 
         megaMenuState(){
             return this.$store.getters['Navbar/currentMegaMenuState']
-        }
+        },
     }
 })

@@ -46,9 +46,13 @@ postPage = "announcements"
 </div>
 
 
-<div class="flametree-theme announcements d-flex flex-column justify-content-around">
+<div class="flametree-theme announcements d-flex flex-column justify-content-around ">
+    <div class="d-flex flex-column align-self-sm-start  justify-content-start p-5">
 
-    <h3 class="headline-light text-uppercase text-primary p-5 small">Announcements</h3>
+    <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>
+    <a href="#" class="title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
+    </div>
 
-    {% component 'TrendingAnnouncement' %}
+        {% component 'TrendingAnnouncement' %}
+
 </div>
