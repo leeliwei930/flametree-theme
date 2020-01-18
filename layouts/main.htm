@@ -1,4 +1,7 @@
 description = "Main Layout"
+
+[staticMenu footerMenu]
+code = "footer-menu"
 ==
 <!doctype html>
 <html lang="en">
@@ -22,12 +25,49 @@ description = "Main Layout"
 
     <div id="flametree-app">
         {% partial 'NavBar' %}
-               {% page %}
+           {% page %}
 
-        <footer>
 
-        </footer>
+        <mega-footer>
+            <div class="d-flex flex-row flex-wrap justify-content-end ">
 
+            {% for menu in footerMenu.menuItems %}
+                <div class="col-12 col-md-6 p-0">
+                    <mega-footer-header title="{{ menu.title }}">
+                        {% for menuItem in menu.items %}
+                            <ul class="mega-footer-menu-list">
+                                <mega-footer-item link="{{menuItem.url}}">
+                                    {{ menuItem.title }}
+                                </mega-footer-item>
+                            </ul>
+                        {% endfor %}
+                    </mega-footer-header>
+                </div>
+            {% endfor %}
+            </div>
+            <template slot="operating-hours">
+                <mega-footer-header title="OPERATING HOURS">
+                    <div class="operating-hour ">
+
+
+                        {% content 'footer/business-operating-hours.md' %}
+                    </div>
+                </mega-footer-header>
+            </template>
+            <template slot="newsletter-form">
+                <mega-footer-header title="SUBSCRIBE NEWSLETTER">
+
+                </mega-footer-header>
+            </template>
+            <template slot="credit-message">
+                <strong>
+                    Designed and made with ❤️ by <a target="_blank" href="https://csit321_ft01s.techrino.net">Team GodSpeed</a>
+                </strong>
+                <strong>
+                    Copyright {{ "now" | date("Y") }} &copy; All Rights Reserved.
+                </strong>
+            </template>
+        </mega-footer>
     </div>
 
 
@@ -42,3 +82,9 @@ description = "Main Layout"
 </body>
 
 </html>
+<script>
+    import MegaFooterHeader from "../assets/js/vue/components/mega-footer/MegaFooterHeader";
+    export default {
+        components: {MegaFooterHeader}
+    }
+</script>

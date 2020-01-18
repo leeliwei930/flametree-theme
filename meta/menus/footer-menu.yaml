@@ -2,8 +2,13 @@ name: 'Footer Menu'
 items:
     -
         title: 'GET INVOLVED'
+        nesting: ''
         type: header
+        url: ''
         code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -11,24 +16,32 @@ items:
         items:
             -
                 title: 'Our Team'
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: our-team
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
                 title: 'Our Producers'
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: our-producers
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
     -
-        title: 'NEWS AND MEDIA'
+        title: 'KNOWLEDGE BASED'
         type: header
         code: ''
         viewBag:
@@ -38,46 +51,81 @@ items:
         items:
             -
                 title: ANNOUNCEMENTS
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: announcements
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+            -
+                title: 'FREQUENTLY ASKED QUESTIONS'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: frequently-ask-questions
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
     -
-        title: 'FREQUENTLY ASKED QUESTIONS'
-        type: cms-page
-        code: ''
-        reference: frequently-ask-questions
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
-    -
         title: MEMBERSHIP
+        nesting: ''
         type: header
+        url: ''
         code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
         items:
             -
-                title: 'VOLUNTEERS LOGIN'
+                title: 'MEMBER LOGIN'
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
-                reference: member/volunteers-login
+                reference: member/member-login
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
-    -
-        title: 'MEMBER LOGIN'
-        type: cms-page
-        code: ''
-        reference: member/member-login
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'
+            -
+                title: 'VOLUNTEERS LOGIN'
+                nesting: ''
+                type: cms-page
+                url: ''
+                code: ''
+                reference: member/volunteers-login
+                cmsPage: ''
+                replace: ''
+                viewBag:
+                    isHidden: '0'
+                    cssClass: ''
+                    isExternal: '0'
+                items:
+                    -
+                        title: 'MEMBER LOGIN'
+                        nesting: ''
+                        type: cms-page
+                        url: ''
+                        code: ''
+                        reference: member/member-login
+                        cmsPage: ''
+                        replace: ''
+                        viewBag:
+                            isHidden: '0'
+                            cssClass: ''
+                            isExternal: '0'

@@ -6,7 +6,7 @@
 
 .nav.navbar .navbar-overlay {
 
-    z-index:-1;
+    z-index:0;
     background: rgba(255,255,255,0.9);
     left: 0;
     right: 0;
@@ -38,12 +38,16 @@
 }
 
 .nav.navbar .nav-item {
+    z-index:1;
+
     display: inline-block;
+    padding: inherit;
     .nav-item-link {
         display: block;
         text-decoration: none;
         text-transform: uppercase;
         color: black;
+        font-size: 11pt;
 
     }
 
@@ -52,10 +56,9 @@
     animation-name: navBarItemAnimation;
     animation-duration: 0.85s;
     animation-direction: normal;
-    background: linear-gradient(-90deg, #f05033, #F7B733);
 
     .nav-item-link {
-        color:white;
+        color: $primaryColor;
     } // scss syntax need to compile
 }
 // dropwdown section
@@ -114,8 +117,8 @@
         border-radius: 10px 10px 10px 10px;
     }
     .nav-item-dropdown-menu-item:hover {
-        background: #f05033;
-        color:white;
+        color:$white;
+        background: $primaryColor;
     }
 }
 
@@ -135,13 +138,13 @@
 @keyframes animateDropdownMenu {
     from {
         opacity:0;
-        transform: translate(-15px,15px);
+        transform: translate(-15px,0px);
 
     }
 
     to {
         opacity: 1;
-        transform: translate(-15px,25px);
+        transform: translate(-15px,15px);
 
     }
 }

@@ -15,11 +15,17 @@ import Slide from "@components/carousels/Slide.vue";
 import ProducerCard from "@components/producers/ProducerCard.vue";
 import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
 
+
+import MegaFooter from "@components/mega-footer/MegaFooter";
+import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
+import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
+
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
     VideoThumbnail, VideoPlaylist, VideoPlayer,
     VideoGallery, Carousel, Slide,
     ProducerCard,
-    AnnouncementBasicCard
+    AnnouncementBasicCard,
+    MegaFooter, MegaFooterHeader, MegaFooterItem
 };
 

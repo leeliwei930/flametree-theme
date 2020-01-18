@@ -1,0 +1,32 @@
+.flametree-mega-footer {
+    .mega-footer-header {
+        font-family: 'Lato', 'sans-serif';
+        font-size: 12pt;
+        color: $primaryColor;
+    }
+    .operating-hour ul {
+       list-style-type: none;
+        margin-left:0;
+        padding-left: 0;
+
+    }
+    ul.mega-footer-menu-list {
+        list-style-type: none;
+        margin-left:0;
+        padding-left: 0;
+        line-height:0;
+        li a.mega-footer-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: 'Lato', 'sans-serif';
+            font-size: 11pt;
+            color: $dark;
+            transition: all 0.25s;
+            &:hover {
+                color: $accentColor;
+
+            }
+        }
+    }
+
+}

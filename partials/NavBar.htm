@@ -27,12 +27,12 @@ code = "frontend-menu"
                     {% if item.title is same as("Producers") %}
                         {% set producer_categories = item.items %}
 
-                        <div class="nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
+                        <div class="nav-item p-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
                          id="producer-link">
                         <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                         {% if item.items and item.title != "Producers" %}
-                            <div class="nav-dropdown-menu  flex-column" >
+                            <div class="nav-dropdown-menu  flex-column shadow" >
                                 {% for dropdownItem in item.items %}
                                     <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
                                         {{ dropdownItem.title }}
@@ -42,7 +42,7 @@ code = "frontend-menu"
                         {% endif %}
                     </div>
                     {% else %}
-                        <div class=" nav-item py-4 px-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                        <div class=" nav-item p-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
                             <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                             {% if item.items and item.title != "Producers" %}

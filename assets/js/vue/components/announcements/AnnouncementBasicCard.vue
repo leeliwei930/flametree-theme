@@ -1,5 +1,5 @@
 <template lang="pug">
-    .d-flex.flex-column.flex-wrap.announcement-basic-card.shadow.bg-light.hoverable.my-2.p-3
+    .d-flex.flex-column.flex-wrap.announcement-basic-card.shadow.bg-light.hoverable.my-2.mx-2.p-3
         h2.post-title.text-dark {{title}}
         p.post-summary.text-dark {{ description }}
 
