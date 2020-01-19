@@ -1,25 +1,25 @@
 <template lang="pug">
 .d-flex.flex-column.flex-wrap.bg-white.flametree-mega-footer.p-3.justify-content-center
     .d-flex.flex-row.flex-wrap
-        .col-12.col-md-5.text-center.text-md-left
+        .col-12.col-lg-6.text-center.text-lg-left
             slot
-        .col-12.col-md-4.text-center.text-md-left
+        .col-12.col-lg-3.text-center.text-lg-left
             slot(name="operating-hours")
-        .col-12.col-md-3.text-center.text-left
+        .col-12.col-lg-3.text-center.text-lg-left
             slot(name="newsletter-form")
     .d-flex.justify-content-center.flex-column
         img(class="footer-logo" :src="logo")
-        .d-flex.flex-row.justify-content-between
-            a(:href="facebook" v-if="facebook")
-                i.fas.fa-facebook
-            a(:href="twitter" v-if="twitter")
-                i.fas.fa-twitter
-            a(:href="instagram" v-if="instagram")
-                i.fas.fa-instagram
-            a(:mailto="mail" v-if="mail")
+        .d-flex.flex-row.justify-content-center
+            a.mx-2.fa-2x(:href="facebook" v-if="facebook.length > 0" target="_blank")
+                i.fab.fa-facebook-square
+            a.mx-2.fa-2x(:href="twitter"  v-if="twitter.length > 0" target="_blank")
+                i.fab.fa-twitter
+            a.mx-2.fa-2x(:href="instagram"  v-if="instagram.length > 0" target="_blank")
+                i.fab.fa-instagram
+            a.mx-2.fa-2x(:href="'mailto::'+email"  v-if="email.length > 0" target="_blank")
                 i.fas.fa-envelope
         .d-flex.flex-column.justify-content-center
-        slot(name="credit-message")
+            slot(name="credit-message")
 
 
 
@@ -31,28 +31,36 @@
 export default {
     props: {
         facebook: {
-
+            type: String,
+            default: null
         },
         twitter: {
-
+            type: String,
+            default: null
         },
         instagram: {
-
+            type: String,
+            default: null
         },
         email: {
-
+            type: String,
+            default: null
         },
-        phone_number: {
-
+        phoneNumber: {
+            type: String,
+            default: null
         },
         poBox: {
-
+            type: String,
+            default: null
         },
         address: {
-
+            type: String,
+            default: null
         },
         logo: {
-
+            type: String,
+            default: null
         }
     },
     data: function(){

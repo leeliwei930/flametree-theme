@@ -2,6 +2,8 @@ description = "Main Layout"
 
 [staticMenu footerMenu]
 code = "footer-menu"
+
+[BusinessContact businessContact]
 ==
 <!doctype html>
 <html lang="en">
@@ -28,7 +30,12 @@ code = "footer-menu"
            {% page %}
 
 
-        <mega-footer>
+        <mega-footer
+            facebook="{{ businessContact.facebook_link | default("")}}"
+            twitter="{{ businessContact.twitter_link  | default("") }}"
+            instagram="{{ businessContact.instagram_link  | default("") }}"
+            email="{{ businessContact.email  | default("") }}"
+        >
             <div class="d-flex flex-row flex-wrap justify-content-end ">
 
             {% for menu in footerMenu.menuItems %}
@@ -56,7 +63,26 @@ code = "footer-menu"
             </template>
             <template slot="newsletter-form">
                 <mega-footer-header title="SUBSCRIBE NEWSLETTER">
+                    <div class="flametree-theme mx-auto my-2">
+                        <div class="text-field-control my-1">
+                            <label  for="subscribe_fullname_newsletter">FULL NAME</label>
 
+                            <input id="subscribe_fullname_newsletter" type="text"  class="text-field"/>
+
+                        </div>
+                        <div class="text-field-control my-1">
+                            <label for="subscribe_email_newsletter">EMAIL</label>
+
+                            <input type="text" id="subscribe_email_newsletter"  class="text-field"/>
+
+                        </div>
+
+                        <a class="btn btn-outline-primary w-100 rounded-lg my-1">
+                            SUBSCRIBE NEWSLETTER
+                        </a>
+
+
+                    </div>
                 </mega-footer-header>
             </template>
             <template slot="credit-message">
@@ -82,9 +108,3 @@ code = "footer-menu"
 </body>
 
 </html>
-<script>
-    import MegaFooterHeader from "../assets/js/vue/components/mega-footer/MegaFooterHeader";
-    export default {
-        components: {MegaFooterHeader}
-    }
-</script>

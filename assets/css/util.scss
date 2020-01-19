@@ -102,6 +102,57 @@
         }
 
     }
+    .text-field-control{
+        display: inline-block;
+        width: 100%;
+        border-width: 0.75px;
+        border-style: solid;
+        border-color: rgba(0,0,0, 0.24);
+        outline: grey;
+        border-radius: 5pt;
+        label {
+            display: block;
+            font-family: 'Lato Bold', sans-serif;
+            color: gray;
+            padding: 10px;
+            font-size: 9pt;
+            line-height: 0px;
+            margin: 0;
+            text-align: left;
+
+        }
+
+        &:focus-within {
+                border-color: $primaryColor;
+                label {
+                    color: $primaryColor;
+                }
+
+        }
+        .text-field {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            background: transparent;
+            height: auto;
+            line-height: 0px;
+
+            &::placeholder {
+                text-transform: uppercase;
+                font-size: 10pt;
+                font-family: "Lato Bold", sans-serif;
+
+
+            }
+            &:focus {
+                outline: none;
+
+
+
+
+            }
+        }
+    }
 
 
 
