@@ -4,6 +4,9 @@ description = "Main Layout"
 code = "footer-menu"
 
 [BusinessContact businessContact]
+
+[mailSignup]
+list = "79d86d3102"
 ==
 <!doctype html>
 <html lang="en">
@@ -39,7 +42,7 @@ code = "footer-menu"
             <div class="d-flex flex-row flex-wrap justify-content-end ">
 
             {% for menu in footerMenu.menuItems %}
-                <div class="col-12 col-md-6 p-0">
+                <div class="col-12 col-lg-6 p-0">
                     <mega-footer-header title="{{ menu.title }}">
                         {% for menuItem in menu.items %}
                             <ul class="mega-footer-menu-list">
@@ -63,35 +66,75 @@ code = "footer-menu"
             </template>
             <template slot="newsletter-form">
                 <mega-footer-header title="SUBSCRIBE NEWSLETTER">
-                    <div class="flametree-theme mx-auto my-2">
+                    <div class="flametree-theme mx-auto my-2" id="{{ mailSignup.id }}container">
+                        <form
+        data-request="{{ mailSignup }}::onSignup"
+        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'">
                         <div class="text-field-control my-1">
                             <label  for="subscribe_fullname_newsletter">FULL NAME</label>
 
-                            <input id="subscribe_fullname_newsletter" type="text"  class="text-field"/>
+                            <input name="fullname" id="subscribe_fullname_newsletter" type="text"  class="text-field"/>
 
                         </div>
                         <div class="text-field-control my-1">
                             <label for="subscribe_email_newsletter">EMAIL</label>
 
-                            <input type="text" id="subscribe_email_newsletter"  class="text-field"/>
+                            <input name="email" type="email" id="subscribe_email_newsletter"  class="text-field"/>
 
                         </div>
 
-                        <a class="btn btn-outline-primary w-100 rounded-lg my-1">
+                        <button type="submit" class="btn btn-outline-primary w-100 rounded-lg my-1">
                             SUBSCRIBE NEWSLETTER
-                        </a>
+                        </button>
 
-
+            </form>
                     </div>
                 </mega-footer-header>
+
+                <div class="d-flex flex-column align-self-start business-contact">
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-2">
+                            <i class="fas fa-phone"></i>
+
+                        </div>
+                        <div class="col-10">
+                            <p>{{ businessContact.phone_number }}</p>
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-2">
+
+                        <i class="fas fa-map-marker-alt  mx-auto"></i>
+                        </div>
+                        <div class="col-10">
+                            {{ businessContact.address | raw }}
+
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <div class="col-2">
+
+                        <i class="fas fa-inbox mx-auto"></i>
+                        </div>
+                        <div class="col-10">
+
+                        <div class="mr-auto">
+
+                        {{ businessContact.po_box_address | raw }}
+                        </div>
+                        </div>
+
+                    </div>
+                </div>
             </template>
             <template slot="credit-message">
-                <strong>
+                <p>
                     Designed and made with ❤️ by <a target="_blank" href="https://csit321_ft01s.techrino.net">Team GodSpeed</a>
-                </strong>
-                <strong>
+                </p>
+                <p>
                     Copyright {{ "now" | date("Y") }} &copy; All Rights Reserved.
-                </strong>
+                </p>
             </template>
         </mega-footer>
     </div>

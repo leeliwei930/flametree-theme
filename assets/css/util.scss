@@ -110,6 +110,8 @@
         border-color: rgba(0,0,0, 0.24);
         outline: grey;
         border-radius: 5pt;
+        transition: all 0.25s;
+
         label {
             display: block;
             font-family: 'Lato Bold', sans-serif;
@@ -136,7 +138,6 @@
             background: transparent;
             height: auto;
             line-height: 0px;
-
             &::placeholder {
                 text-transform: uppercase;
                 font-size: 10pt;
