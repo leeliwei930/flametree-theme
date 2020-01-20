@@ -9,6 +9,15 @@
     .text-accent {
         color: $accentColor !important;
     }
+
+    .text-link {
+        text-decoration: none;
+        color: $primaryColor;
+        transition: 0.25s all;
+        &:hover {
+            color: $accentColor;
+        }
+    }
     .headline-light {
         font-family: 'Lato Black' , sans-serif;
         font-size: 32pt;
@@ -42,5 +51,32 @@
         &.big {
             font-size:36pt;
         }
+
+        &.small {
+            font-size: 16pt;
+        }
+    }
+
+    .post-published-at {
+        font-family: "Baskerville", sans-serif;
+
+        &.big {
+            font-size:18pt;
+        }
+
+        &.small {
+            font-size: 12pt;
+        }
+    }
+
+    .post-description {
+        font-family: 'Lato', sans-serif;
+        color: $light-dark;
+    }
+
+    .post-author {
+        font-family: 'Lato', sans-serif;
+        font-weight: 300;
+
     }
 }

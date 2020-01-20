@@ -118,7 +118,7 @@ export default {
     },
     computed:{
         slideBgStyle: function(){
-            return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('storage/app/media/${this.image}');
+            return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');
                     background-size:cover;
                     background-repeat:no-repeat`
         },

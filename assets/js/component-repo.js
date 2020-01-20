@@ -14,18 +14,22 @@ import Slide from "@components/carousels/Slide.vue";
 
 import ProducerCard from "@components/producers/ProducerCard.vue";
 import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
-
+import AnnouncementListCard from "@components/announcements/AnnouncementListCard";
 
 import MegaFooter from "@components/mega-footer/MegaFooter";
 import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
 import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
+
+
+import Hero from "@components/hero/Hero.vue";
 
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
     VideoThumbnail, VideoPlaylist, VideoPlayer,
     VideoGallery, Carousel, Slide,
     ProducerCard,
-    AnnouncementBasicCard,
-    MegaFooter, MegaFooterHeader, MegaFooterItem
+    AnnouncementBasicCard,AnnouncementListCard,
+    MegaFooter, MegaFooterHeader, MegaFooterItem,
+    Hero
 };
 

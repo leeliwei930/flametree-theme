@@ -1,0 +1,29 @@
+<template lang="pug">
+    .flametree-theme
+        .d-flex.justify-content-center.align-items-center.flex-column.hero(:style="heroBgStyle")
+                slot
+
+</template>
+<style lang="scss">
+
+</style>
+<script type="text/javascript">
+export default {
+    props: {
+        backgroundImage : {
+            type: String,
+            default: ""
+        }
+    },
+
+    computed : {
+        heroBgStyle: function(){
+            return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.backgroundImage}');
+                    background-size:cover;
+                    background-repeat:no-repeat`
+        }
+    }
+
+}
+
+</script>

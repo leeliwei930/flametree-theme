@@ -34,11 +34,19 @@
 
     /** Button Classes**/
 
+    .hero {
+        height:320px;
+        .hero-title {
+            font-family: 'Lato Black', sans-serif;
+            color: $primaryColor;
+        }
+    }
+
     .btn {
         &.hover-move-right:hover {
 
             .fas {
-                transform: translateX(10px);
+                transform: translateX(5px);
                 transition: all 0.25s;
 
             }
@@ -80,6 +88,10 @@
                 background-color: $white !important;
 
             }
+        }
+
+        &.btn-pill {
+            border-radius: 10pt;
         }
 
     }

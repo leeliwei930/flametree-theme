@@ -1,0 +1,17 @@
+title = "Announcement Category"
+url = "/announcement-category/:category/:page"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :category }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/announcement"
+postPage = "blog/announcement"
+==
+{% component 'blogPosts' %}

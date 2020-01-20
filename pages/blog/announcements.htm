@@ -1,0 +1,67 @@
+title = "Announcements"
+url = "/announcements"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/announcement"
+postPage = "blog/announcement"
+==
+{#{% component 'blogPosts' %}#}
+
+<hero
+
+background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+
+>
+    <h1 class="hero-title text-uppercase ">Announcements</h1>
+</hero>
+
+<div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
+
+    {%  if blogPosts.posts %}
+        {% for announcement in blogPosts.posts %}
+            <announcement-list-card
+                key="{{ announcement.id }}"
+
+                title="{{ announcement.title }}"
+                featured-image-url="{{ announcement.featured_images[0].path }}"
+                description="{{ str_words(announcement.summary, 20) }}"
+                author="{{ announcement.user.full_name }}"
+                author-avatar-image="{{ announcement.user.getAvatarThumb(35) }}"
+                author-role="{{ announcement.user.role.name }}"
+                published-on="{{ announcement.published_at | date("D, d M Y. h:i a") }}"
+            >
+                <div class="d-flex flex-row flex-wrap justify-content-between mt-5">
+                    {% if announcement.categories is not empty %}
+                        <div class="d-flex align-items-center">
+                            <i class="text-primary fas fa-tags mr-2"></i>
+                            {% for category in announcement.categories %}
+                                <a class="text-link" href="#">
+                                    {{ category.name }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <a class="btn btn-primary text-uppercase hover-move-right ml-auto align-self-end" href="#">
+                        READ MORE
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </announcement-list-card>
+
+        {% endfor %}
+    {% else %}
+        No posts
+    {%  endif %}
+
+
+
+</div>
