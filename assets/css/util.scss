@@ -42,6 +42,26 @@
         }
     }
 
+    .post-card {
+        width:95%;
+        max-width: 1280px;
+
+        &.absolute {
+            transform: translateY(-50px);
+        }
+
+        .post-html {
+            img {
+               max-width: 100%;
+            }
+            p {
+
+                word-break: break-word;
+
+            }
+        }
+    }
+
     .btn {
         &.hover-move-right:hover {
 
@@ -63,6 +83,14 @@
                 background-color:  $white !important;
                 border: 0.75pt solid $primaryColor;
             }
+        }
+
+
+        &.btn-primary-basic {
+            background-color: $primaryColor !important;
+            border: 0.75pt solid $primaryColor;
+            text-transform: uppercase;
+            border-radius: 0;
         }
 
 
@@ -168,6 +196,33 @@
     }
 
 
+    ul.pagination {
+
+        li {
+            margin:5px;
+            border-radius: 50%;
+            height:35px;
+            width: 35px;
+            line-height: 35px;
+
+            text-align: center;
+            &.active {
+                background-color: $primaryColor;
+                color: white;
+            }
+            a {
+                text-decoration: none;
+                color:$primaryColor;
+
+
+            }
+
+            &:hover {
+                background-color: $light-silver;
+                color: $primaryColor;
+            }
+        }
+    }
 
 
 }

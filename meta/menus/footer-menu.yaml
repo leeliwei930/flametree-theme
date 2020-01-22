@@ -42,8 +42,13 @@ items:
                     isExternal: '0'
     -
         title: 'KNOWLEDGE BASED'
+        nesting: ''
         type: header
+        url: ''
         code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -51,13 +56,9 @@ items:
         items:
             -
                 title: ANNOUNCEMENTS
-                nesting: ''
                 type: cms-page
-                url: ''
                 code: ''
-                reference: announcements
-                cmsPage: ''
-                replace: ''
+                reference: blog/announcements
                 viewBag:
                     isHidden: '0'
                     cssClass: ''

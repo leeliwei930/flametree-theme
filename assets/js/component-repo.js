@@ -1,6 +1,6 @@
 
 
-import MegaMenu from '@components/mega-menu/MegaMenu';
+import MegaMenu from  '@components/mega-menu/MegaMenu';
 import SidebarMenuItem from '@components/mega-menu/SidebarMenuItem';
 import MenuItem from '@components/mega-menu/MenuItem';
 
@@ -20,7 +20,7 @@ import MegaFooter from "@components/mega-footer/MegaFooter";
 import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
 import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
 
-
+import SocialButton from "@components/social-bars/SocialButton";
 import Hero from "@components/hero/Hero.vue";
 
 export let components = {
@@ -30,6 +30,6 @@ export let components = {
     ProducerCard,
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
-    Hero
+    Hero, SocialButton
 };
 

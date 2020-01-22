@@ -54,7 +54,6 @@ mix
 .copy('node_modules/@fortawesome/fontawesome-free/webfonts' , "./assets/fonts/vendor/@fortawesome/fontawesome-free")
 .browserSync({
         proxy : "flametree.test",
-        host : "flametree.test",
         notify: false,
         files: [
             "assets/**/*.scss",

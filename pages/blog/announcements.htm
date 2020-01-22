@@ -1,4 +1,4 @@
-title = "Announcements"
+title = "Announcements | Flame Tree Community Food Co-Op"
 url = "/announcements"
 layout = "main"
 is_hidden = 0
@@ -24,7 +24,6 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
 </hero>
 
 <div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
-
     {%  if blogPosts.posts %}
         {% for announcement in blogPosts.posts %}
             <announcement-list-card
@@ -50,7 +49,7 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
                         </div>
                     {% endif %}
 
-                    <a class="btn btn-primary text-uppercase hover-move-right ml-auto align-self-end" href="#">
+                    <a class="btn btn-primary text-uppercase hover-move-right ml-auto align-self-end" href="{{ "blog/announcement" | page({slug: announcement.slug}) }}">
                         READ MORE
                         <i class="fas fa-chevron-right"></i>
                     </a>
@@ -58,8 +57,16 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
             </announcement-list-card>
 
         {% endfor %}
+
+        <div class="d-flex justify-content-around mx-5">
+            {{ blogPosts.posts.render|raw }}
+        </div>
+
+
     {% else %}
-        No posts
+
+        {{ blogPosts.noPostsMessage}}
+
     {%  endif %}
 
 
