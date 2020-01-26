@@ -13,17 +13,24 @@ sortOrder = "published_at desc"
 categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
-{#{% component 'blogPosts' %}#}
+<?php
 
+function onEnd(){
+    $this['currentPage'] = $this->page;
+}
+
+
+==
 <hero
 
 background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
 
 >
-    <h1 class="hero-title text-uppercase ">Announcements</h1>
+        <h1 class="hero-title text-uppercase m-auto align-self-center">Announcements</h1>
 </hero>
 
 <div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
+    {% partial 'tabs/announcement-tab' %}
     {%  if blogPosts.posts %}
         {% for announcement in blogPosts.posts %}
             <announcement-list-card
@@ -59,7 +66,20 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
         {% endfor %}
 
         <div class="d-flex justify-content-around mx-5">
-            {{ blogPosts.posts.render|raw }}
+            <dropdown-pagination
+                current-page="{{ posts.currentPage() }}"
+                page-param="page"
+                per-page="{{ posts.perPage() }}"
+                prev-page-url="{{ posts.previousPageUrl() }}"
+                next-page-url="{{ posts.nextPageUrl() }}"
+                url="{{ this.page.url | app }}"
+                total="{{ posts.total() }}"
+                @change="(e) => {
+                    $window.location.href = e.target.value;
+                }"
+            >
+
+            </dropdown-pagination>
         </div>
 
 

@@ -1,0 +1,45 @@
+title = "Announcement Categories"
+url = "/announcement-categories"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/announcement"
+==
+<?php
+
+function onStart(){
+   $this['currentPage'] = $this->page;
+}
+?>
+
+==
+
+<hero
+
+    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+
+>
+    <div class="d-flex align-items-start flex-column h-100">
+        <h1 class="m-auto hero-title text-uppercase ">Announcement Categories</h1>
+    </div>
+</hero>
+<div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
+
+{% partial "tabs/announcement-tab" %}
+
+    <div class="d-flex justify-content-center mx-auto">
+        {% for category in blogCategories.categories %}
+            <producer-card
+                name="{{ category.name }}"
+                subheading="{{ category.posts_count.count }} posts"
+            >
+            </producer-card>
+        {% endfor %}
+    </div>
+</div>
+

@@ -1,10 +1,10 @@
 <template lang="pug">
-    .d-flex.flex-column.shadow.justify-content-between.producer-card.bg-secondary.m-2(:class="{'hoverable' : hoverable }")
-        h5.origin-label.p-3
-            i.fas.fa-map-marker-alt.mx-1
+    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.bg-secondary.m-2(:class="{'hoverable' : hoverable }")
+        h5.origin-label.p-3.mb-auto
+            i.fas.fa-map-marker-alt.mx-1(v-show="origin")
             | {{origin}}
-        h2.card-title.p-4 {{ name }}
-
+        h2.card-title.px-4.py-3 {{ name }}
+        h3.subheading.px-4.py-3(v-if="subheading") {{ subheading }}
         slot(name="actions")
 
 
@@ -34,6 +34,14 @@
         color:white;
         text-transform: uppercase;
     }
+
+    .subheading {
+        font-family: "Lato", sans-serif;
+        font-size:16pt;
+        color:white;
+        text-transform: uppercase;
+
+    }
 }
 </style>
 <script type="text/javascript">
@@ -41,7 +49,7 @@ export default {
     props: {
         origin: {
             type: String,
-            default: "Origin Title"
+            default:  null
         },
         hoverable: {
             type: Boolean,
@@ -50,6 +58,10 @@ export default {
         name: {
             type: String,
             default: "Card Title"
+        },
+        subheading: {
+            type: String,
+            default: null
         }
     },
     data: function(){

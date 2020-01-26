@@ -34,6 +34,11 @@ Vue.use(VueGallery);
 
 import { components } from '@flametree-theme/js/component-repo.js';
 
+
+// allow injected global function for ajax handler able to reference in vue instance
+Vue.prototype.$window = window;
+Vue.prototype.$ = window.jQuery;
+
 window.Vue = Vue;
 window.VueX = VueX;
 window.app = new Vue({
@@ -115,10 +120,14 @@ window.app = new Vue({
         this.registerAffixNavbar();
 
     },
+
+    updated: function(){
+        this.$forceUpdate();
+    },
     computed: {
 
         megaMenuState(){
             return this.$store.getters['Navbar/currentMegaMenuState']
         },
-    }
+    },
 })

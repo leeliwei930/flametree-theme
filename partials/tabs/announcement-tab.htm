@@ -1,0 +1,12 @@
+<div class="d-flex flex-row justify-content-center  ">
+    <a href="{{ 'blog/announcements' | page }}"
+       class="d-flex align-items-center btn  rounded-pill mx-1 my-3 px-3 py-2 shadow-lg text-font-nunito {{ (currentPage.baseFileName == 'blog/announcements') ? 'btn-light-inversed' : 'btn-light'}} "
+    >
+        <i class="fas fa-list mx-2"></i>
+        ANNOUNCEMENTS
+    </a>
+    <a href="{{ 'blog/announcement-categories' | page }}"
+       class="d-flex align-items-center btn rounded-pill mx-1 my-3 shadow-lg  px-3 py-2 text-font-nunito {{ (currentPage.baseFileName == 'blog/announcement-categories') ? 'btn-light-inversed' : 'btn-light'}}">
+        <i class="fas fa-cubes mx-2"></i>CATEGORIES
+    </a>
+</div>

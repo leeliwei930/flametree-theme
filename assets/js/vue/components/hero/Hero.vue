@@ -1,6 +1,6 @@
 <template lang="pug">
     .flametree-theme
-        .d-flex.justify-content-center.align-items-center.flex-column.hero(:style="heroBgStyle")
+        .hero(:style="heroBgStyle")
                 slot
 
 </template>

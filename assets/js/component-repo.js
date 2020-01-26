@@ -23,6 +23,8 @@ import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
 import SocialButton from "@components/social-bars/SocialButton";
 import Hero from "@components/hero/Hero.vue";
 
+import DropdownPagination from "@components/pagination/DropdownPagination";
+
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
     VideoThumbnail, VideoPlaylist, VideoPlayer,
@@ -30,6 +32,6 @@ export let components = {
     ProducerCard,
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
-    Hero, SocialButton
+    Hero, SocialButton, DropdownPagination
 };
 
