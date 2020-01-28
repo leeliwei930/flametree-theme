@@ -1,5 +1,5 @@
 title = "Announcement Category"
-url = "/announcement-category/:category/:page"
+url = "/announcement-category/:category"
 layout = "main"
 is_hidden = 0
 robot_index = "index"
@@ -14,4 +14,80 @@ sortOrder = "published_at desc"
 categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
-{% component 'blogPosts' %}
+
+
+<div class="d-flex flex-column flex-wrap flametree-theme">
+
+    <hero
+
+        gradient-color="linear-gradient(-30deg, rgba(247, 183, 51, 0.3), rgba(240, 80, 51, 0.9))"
+    >
+        <div class="d-flex flex-column justify-content-center mx-5">
+            <h1 class="hero-title text-white text-uppercase ">{{ category.name }}</h1>
+            <h3 class="hero-subheading text-white text-uppercase ">{{ category.posts | length }} POSTS</h3>
+        </div>
+    </hero>
+    <div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
+
+    {%  if blogPosts.posts %}
+        {% for announcement in blogPosts.posts %}
+
+    <announcement-list-card
+                key="{{ announcement.id }}"
+
+                title="{{ announcement.title }}"
+                featured-image-url="{{ announcement.featured_images[0].path }}"
+                description="{{ str_words(announcement.summary, 20) }}"
+                author="{{ announcement.user.full_name }}"
+                author-avatar-image="{{ announcement.user.getAvatarThumb(35) }}"
+                author-role="{{ announcement.user.role.name }}"
+                published-on="{{ announcement.published_at | date("D, d M Y. h:i a") }}"
+            >
+                <div class="d-flex flex-column flex-wrap justify-content-between mt-5">
+                    {% if announcement.categories is not empty %}
+                        <div class="d-flex align-items-center flex-row">
+                            <i class="text-primary fas fa-tags mr-2"></i>
+                            {% for index, category in announcement.categories %}
+                                <a class="text-link" href="#">
+                                    {{ category.name }}
+                                </a>
+                                {% if index != announcement.categories | length -1 %}
+                                    <span>,&nbsp;</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                    <a class="btn btn-primary text-uppercase hover-move-right my-2 rounded" href="{{ "blog/announcement" | page({slug: announcement.slug}) }}">
+                        READ MORE
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </announcement-list-card>
+        {% endfor %}
+
+        <div class="d-flex justify-content-around mx-5">
+            <dropdown-pagination
+                current-page="{{ posts.currentPage() }}"
+                page-param="page"
+                per-page="{{ posts.perPage() }}"
+                prev-page-url="{{ posts.previousPageUrl() }}"
+                next-page-url="{{ posts.nextPageUrl() }}"
+                url="{{ "/announcement-category/"~ category.slug  }}"
+                total="{{ posts.total() }}"
+                @change="(e) => {
+                    $window.location.href = e.target.value;
+                }"
+            >
+
+            </dropdown-pagination>
+        </div>
+
+
+    {% else %}
+
+        {{ blogPosts.noPostsMessage}}
+
+    {%  endif %}
+    </div>
+</div>

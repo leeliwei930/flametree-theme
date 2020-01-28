@@ -44,19 +44,22 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
                 author-role="{{ announcement.user.role.name }}"
                 published-on="{{ announcement.published_at | date("D, d M Y. h:i a") }}"
             >
-                <div class="d-flex flex-row flex-wrap justify-content-between mt-5">
+                <div class="d-flex flex-column flex-wrap justify-content-between mt-5">
                     {% if announcement.categories is not empty %}
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center flex-row">
                             <i class="text-primary fas fa-tags mr-2"></i>
-                            {% for category in announcement.categories %}
+                            {% for index, category in announcement.categories %}
                                 <a class="text-link" href="#">
                                     {{ category.name }}
                                 </a>
+                                {% if index != announcement.categories | length -1 %}
+                                    <span>,&nbsp;</span>
+                                {% endif %}
                             {% endfor %}
                         </div>
                     {% endif %}
 
-                    <a class="btn btn-primary text-uppercase hover-move-right ml-auto align-self-end" href="{{ "blog/announcement" | page({slug: announcement.slug}) }}">
+                    <a class="btn btn-primary text-uppercase hover-move-right my-2 rounded" href="{{ "blog/announcement" | page({slug: announcement.slug}) }}">
                         READ MORE
                         <i class="fas fa-chevron-right"></i>
                     </a>

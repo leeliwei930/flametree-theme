@@ -41,6 +41,10 @@
             font-family: 'Lato Black', sans-serif;
             color: $primaryColor;
         }
+        .hero-subheading {
+            font-family: 'Lato', sans-serif;
+            color: $primaryColor;
+        }
     }
 
     .post-card {
@@ -137,6 +141,12 @@
         &.btn-light-inversed {
             color: $white;
             background: $primaryColor;
+        }
+
+        &.btn-action {
+            font-family: 'Lato Bold', sans-serif;
+            text-decoration: none;
+            color: $primaryColor;
         }
 
     }

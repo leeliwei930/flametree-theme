@@ -26,17 +26,23 @@ function onStart(){
 >
         <h1 class="hero-title text-uppercase m-auto align-self-center">Announcement Categories</h1>
 </hero>
-<div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
+<div class="d-flex flex-column justify-content-center flex-wrap mx-4 flametree-theme">
 
 {% partial "tabs/announcement-tab" %}
 
-    <div class="d-flex justify-content-center mx-auto">
+    <div class="d-flex justify-content-center flex-wrap ">
         {% for category in blogCategories.categories %}
-            <producer-card
-                name="{{ category.name }}"
-                subheading="{{ category.posts_count.count }} posts"
-            >
-            </producer-card>
+                <producer-card
+                    name="{{ category.name }}"
+                    subheading="{{ category.posts.count }} posts"
+                    background-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
+                >
+                    <template slot="actions">
+                        <a class="btn btn-action text-white align-self-end my-4 mx-3 hover-move-right" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">VIEW ALL POSTS
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </template>
+                </producer-card>
         {% endfor %}
     </div>
 </div>

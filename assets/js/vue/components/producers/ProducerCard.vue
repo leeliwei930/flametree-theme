@@ -1,5 +1,8 @@
 <template lang="pug">
-    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.bg-secondary.m-2(:class="{'hoverable' : hoverable }")
+    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
+        :class="{'hoverable' : hoverable }"
+        :style="backgroundStyle"
+    )
         h5.origin-label.p-3.mb-auto
             i.fas.fa-map-marker-alt.mx-1(v-show="origin")
             | {{origin}}
@@ -62,6 +65,10 @@ export default {
         subheading: {
             type: String,
             default: null
+        },
+        backgroundImage: {
+            type: String,
+            default: ''
         }
     },
     data: function(){
@@ -80,6 +87,17 @@ export default {
     },
     updated: function(){
 
+    },
+    computed: {
+        backgroundStyle: function () {
+            if(this.backgroundImage !== ''){
+                return `background:linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('${this.backgroundImage}');
+                    background-size: 100% 100%;
+                    background-repeat:no-repeat`
+            } else {
+                return `background:linear-gradient(0deg, rgba(247, 183, 51, 1), rgba(240, 80, 51, 1));`
+            }
+        }
     }
 }
 
