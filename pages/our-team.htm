@@ -1,6 +1,21 @@
-title = "Our Team"
+title = "Our Team | Flame Tree Community Food Co-Op"
 url = "/our-team"
+layout = "main"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+
+[TeamMember]
+groupName = 14
 ==
+
+<hero
+
+    background-image="{{ "hero/team.jpg"  | media }}"
+
+>
+    <h1 class="hero-title text-uppercase m-auto align-self-center text-center"><span class="text-white">OUR</span> TEAM</h1>
+</hero>
+<div class="my-5">
+{% component 'TeamMember' %}
+</div>

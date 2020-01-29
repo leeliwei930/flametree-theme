@@ -29,6 +29,10 @@
         &.small {
             font-size: 24pt;
         }
+
+        &.huge {
+            font-size: 72pt ;
+        }
     }
 
     .headline-light-bold {
@@ -38,6 +42,9 @@
             color: $primaryColor !important;
         }
 
+        &.huge {
+            font-size: 72pt ;
+        }
     }
 
     .text-dark {

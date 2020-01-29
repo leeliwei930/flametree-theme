@@ -83,4 +83,105 @@ $lato-url-font-path: "/themes/flametree-theme/assets/fonts/Lato";
     font-display: auto;
     src: url('#{$lato-url-font-path}/Lato-Thin.ttf') format('truetype')
 }
+
+$questrial-url-font-path: "/themes/flametree-theme/assets/fonts/Questrial";
+
+@font-face {
+    font-family: "Questrial";
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$questrial-url-font-path}/Questrial-Regular.ttf')
+}
+
+$nunito-url-font-path: "/themes/flametree-theme/assets/fonts/Nunito";
+
+@font-face {
+    font-family: 'Nunito';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-Regular.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito Black';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-Black.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito BlackItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-BlackItalic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito BoldItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-BoldItalic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito ExtraBold';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-ExtraBold.ttf')
+}
+@font-face {
+    font-family: 'Nunito ExtraBoldItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-ExtraBoldItalic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito ExtraLight';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-ExtraLight.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito ExtraLightItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-ExtraLightItalic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito Italic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-Italic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito Light';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-Light.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito LightItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-LightItalic.ttf')
+}
+
+@font-face {
+    font-family: 'Nunito SemiBold';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-SemiBold.ttf')
+}
+@font-face {
+    font-family: 'Nunito SemiBoldItalic';
+    font-weight: normal;
+    font-display: auto;
+    src: url('#{$nunito-url-font-path}/Nunito-SemiBoldItalic.ttf')
+}
+
 @import "~@fortawesome/fontawesome-free/css/all.css";

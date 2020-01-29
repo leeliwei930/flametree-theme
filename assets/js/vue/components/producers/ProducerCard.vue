@@ -15,7 +15,6 @@
 </template>
 <style lang="scss">
 .producer-card {
-    width: 300px;
     height: 400px;
     border-radius: 13pt;
     transition: all 0.25s;
@@ -69,6 +68,14 @@ export default {
         backgroundImage: {
             type: String,
             default: ''
+        },
+        gradient: {
+            type: String,
+            default: 'linear-gradient(30deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65))'
+        },
+        width: {
+            type: String,
+            default: "100%"
         }
     },
     data: function(){
@@ -91,11 +98,11 @@ export default {
     computed: {
         backgroundStyle: function () {
             if(this.backgroundImage !== ''){
-                return `background:linear-gradient(0deg, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8)), url('${this.backgroundImage}');
+                return `background: ${this.gradient}, url('${this.backgroundImage}');
                     background-size: 100% 100%;
-                    background-repeat:no-repeat`
+                    background-repeat:no-repeat;width:${this.width}`
             } else {
-                return `background:linear-gradient(0deg, rgba(247, 183, 51, 1), rgba(240, 80, 51, 1));`
+                return `background:${this.gradient};width:${this.width};`
             }
         }
     }

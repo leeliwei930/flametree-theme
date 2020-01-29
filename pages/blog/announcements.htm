@@ -49,7 +49,7 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
                         <div class="d-flex align-items-center flex-row">
                             <i class="text-primary fas fa-tags mr-2"></i>
                             {% for index, category in announcement.categories %}
-                                <a class="text-link" href="#">
+                                <a target="_blank" class="text-link" href="{{ 'blog/announcement-category' | page({category: category.slug}) }}">
                                     {{ category.name }}
                                 </a>
                                 {% if index != announcement.categories | length -1 %}

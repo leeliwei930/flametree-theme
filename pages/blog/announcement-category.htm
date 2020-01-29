@@ -15,12 +15,13 @@ categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
 
+{% if category is not empty %}
 
 <div class="d-flex flex-column flex-wrap flametree-theme">
 
     <hero
-
-        gradient-color="linear-gradient(-30deg, rgba(247, 183, 51, 0.3), rgba(240, 80, 51, 0.9))"
+        background-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
+        gradient-color="linear-gradient(-30deg, rgba(247, 183, 51, 0.3), rgba(240, 80, 51, 0.8))"
     >
         <div class="d-flex flex-column justify-content-center mx-5">
             <h1 class="hero-title text-white text-uppercase ">{{ category.name }}</h1>
@@ -68,13 +69,13 @@ postPage = "blog/announcement"
 
         <div class="d-flex justify-content-around mx-5">
             <dropdown-pagination
-                current-page="{{ posts.currentPage() }}"
+                current-page="{{ blogPosts.posts.currentPage() }}"
                 page-param="page"
-                per-page="{{ posts.perPage() }}"
-                prev-page-url="{{ posts.previousPageUrl() }}"
-                next-page-url="{{ posts.nextPageUrl() }}"
+                per-page="{{ blogPosts.posts.perPage() }}"
+                prev-page-url="{{ blogPosts.posts.previousPageUrl() }}"
+                next-page-url="{{ blogPosts.posts.nextPageUrl() }}"
                 url="{{ "/announcement-category/"~ category.slug  }}"
-                total="{{ posts.total() }}"
+                total="{{ blogPosts.posts.total() }}"
                 @change="(e) => {
                     $window.location.href = e.target.value;
                 }"
@@ -91,3 +92,9 @@ postPage = "blog/announcement"
     {%  endif %}
     </div>
 </div>
+
+{% else %}
+
+    {% partial '404' %}
+
+{% endif %}

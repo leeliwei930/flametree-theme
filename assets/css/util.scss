@@ -253,6 +253,16 @@
         }
     }
 
+    .bar-primary:after {
+           content: '';
+
+            min-height: 15px;
+            max-width: 55%;
+            display: block;
+            border-bottom: 5pt solid $primaryColor;
+
+   }
+
 
 
 

@@ -1,24 +1,21 @@
 <template lang="pug">
-    .d-flex.flex-column.flex-wrap.announcement-basic-card.shadow.bg-light.hoverable.my-2.mx-2.p-3
+    .d-flex.flex-column.flex-wrap.announcement-basic-card.shadow.bg-light.hoverable.p-3.m-2
         h2.post-title.text-dark {{title}}
         p.post-summary.text-dark {{ description }}
-
-        p.mb-auto
+        p
             i.fas.fa-user.text-accent.mr-2
             | {{ author }}
 
-        .d-flex.flex-row.justify-content-start.flex-wrap.w-100.align-items-center
-            p.mr-sm-auto.my-auto
+        .d-flex.flex-column.justify-content-start.flex-wrap
+
+            p
                 i.fas.fa-calendar.text-accent.mr-2
                 | {{ publishedOn }}
-
-
             slot
 </template>
 <style lang="scss">
     .announcement-basic-card {
         width:450px;
-        height:300px;
         min-height:180px;
         padding:15px;
         transition: all 0.25s;
@@ -27,6 +24,10 @@
             transform: translateY(-5px);
             -webkit-transform: translateY(-5px);
             -moz-transform: translateY(-5px);
+        }
+        .post-summary {
+            text-overflow: ellipsis;
+            word-break: break-word;
         }
     }
 </style>
