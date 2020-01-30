@@ -1,3 +1,6 @@
+import lozad from 'lozad'
+
+
 import Vue from 'vue'
 import VueX from 'vuex'
 
@@ -131,3 +134,9 @@ window.app = new Vue({
         },
     },
 })
+const observer = lozad('.lozad', {
+    loaded: function (element) {
+        element.__vue__.$emit('loaded');
+    }
+}); // lazy loads elements with default selector as '.lozad'
+observer.observe();

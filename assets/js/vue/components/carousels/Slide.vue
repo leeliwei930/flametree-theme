@@ -1,5 +1,8 @@
 <template lang="pug">
-    .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column(:style="slideBgStyle" )
+    .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column.lozad(
+        :style="slideBgStyle"
+        :data-background-image="dataImage"
+        )
         .godspeed-slide.m-3.m-md-5.p-2(v-if="show")
             h1.slide-title(:class="titleClasses")  {{ title }}
             p.slide-caption(v-if="caption !== ''" :class="captionClasses").slide-caption {{ caption }}
@@ -42,6 +45,11 @@ export default {
         image: {
             type: String,
             default: null
+        },
+
+        dataImage: {
+            type: String,
+            default:null
         },
 
         title: {
@@ -101,7 +109,7 @@ export default {
     },
     data: function(){
         return {
-
+            loaded: false
         }
     },
     methods: {
@@ -111,16 +119,23 @@ export default {
 
     },
     mounted: function(){
-
+        this.$on('loaded', () => {
+            this.loaded  = true;
+        });
     },
     updated: function(){
 
     },
     computed:{
         slideBgStyle: function(){
-            return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');
-                    background-size:cover;
-                    background-repeat:no-repeat`
+
+
+            if(this.loaded){
+                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataImage}');background-size:cover;background-repeat:no-repeat`
+            } else {
+                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');background-size:cover;background-repeat:no-repeat`
+            }
+
         },
         titleClasses: function(){
             return `animated ${this.titleAnimation}`

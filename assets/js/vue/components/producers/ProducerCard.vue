@@ -65,6 +65,10 @@ export default {
             type: String,
             default: null
         },
+        backgroundDataImage:{
+            type: String,
+            default: ''
+        },
         backgroundImage: {
             type: String,
             default: ''

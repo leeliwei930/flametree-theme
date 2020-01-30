@@ -10,6 +10,15 @@ html  , body {
 @import "home/_our_producers.scss";
 @import "home/_announcements.scss";
 
+.lozad {
+
+    transition: all 0.25s;
+
+
+}
+
+
+
 .error-page {
     p {
         font-family:'Nunito' , sans-serif; font-size: 14pt;
