@@ -1,7 +1,8 @@
 <template lang="pug">
-    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
+    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2.lozad(
         :class="{'hoverable' : hoverable }"
         :style="backgroundStyle"
+        :data-background-image="dataImage"
     )
         h5.origin-label.p-3.mb-auto
             i.fas.fa-map-marker-alt.mx-1(v-show="origin")
@@ -65,17 +66,17 @@ export default {
             type: String,
             default: null
         },
-        backgroundDataImage:{
+        dataImage:{
             type: String,
             default: ''
         },
-        backgroundImage: {
+        image: {
             type: String,
             default: ''
         },
         gradient: {
             type: String,
-            default: 'linear-gradient(30deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65))'
+            default: 'linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5))'
         },
         width: {
             type: String,
@@ -84,7 +85,7 @@ export default {
     },
     data: function(){
         return {
-
+            loading: true
         }
     },
     methods: {
@@ -94,18 +95,29 @@ export default {
 
     },
     mounted: function(){
+        this.$on('loading', () => {
+            this.loading = true;
+            console.log('loading')
+        });
+        this.$on('loaded', () => {
+            this.loading = false;
+            console.log('loaded')
 
+        })
     },
     updated: function(){
 
     },
     computed: {
         backgroundStyle: function () {
-            if(this.backgroundImage !== ''){
-                return `background: ${this.gradient}, url('${this.backgroundImage}');
-                    background-size: 100% 100%;
-                    background-repeat:no-repeat;width:${this.width}`
-            } else {
+            if(this.image !== ''){
+                if(this.loading){
+
+                    return `background-image: ${this.gradient}, url('${this.image}');background-size:100% 100%;background-repeat:no-repeat;width:${this.width};`
+                } else {
+
+                    return `background-image: ${this.gradient}, url('${this.dataImage}');background-size: 100% 100%;background-repeat:no-repeat;width:${this.width};`
+                }            } else {
                 return `background:${this.gradient};width:${this.width};`
             }
         }

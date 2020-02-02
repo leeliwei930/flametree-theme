@@ -10,10 +10,19 @@ html  , body {
 @import "home/_our_producers.scss";
 @import "home/_announcements.scss";
 
+
 .lozad {
 
-    transition: all 0.25s;
 
+    &.loaded{
+
+            animation-name: fadeIn;
+            animation-duration: 1.85s;
+            animation-timing-function:  ease;
+            animation-fill-mode: forwards;
+
+
+        }
 
 }
 

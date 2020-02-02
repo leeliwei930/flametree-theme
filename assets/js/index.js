@@ -134,9 +134,15 @@ window.app = new Vue({
         },
     },
 })
-const observer = lozad('.lozad', {
+lozad('.lozad', {
+    threshold: 0.9, // ratio of element convergence
     loaded: function (element) {
+        element.classList.add('loaded');
         element.__vue__.$emit('loaded');
+    },
+    load: function (element) {
+
+        element.__vue__.$emit('loading');
     }
-}); // lazy loads elements with default selector as '.lozad'
-observer.observe();
+}).observe(); // lazy loads elements with default selector as '.lozad'
+

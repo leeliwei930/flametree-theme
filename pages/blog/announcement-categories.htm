@@ -36,7 +36,8 @@ function onStart(){
                     <producer-card
                         name="{{ category.name }}"
                         subheading="{{ category.posts.count }} posts"
-                        background-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
+                        image="{{ (category.featured_image) ? category.featured_image| media | resize(350, null, {quality: '15', blur : 15}) : '' }}"
+                       data-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
                     >
                         <template slot="actions">
                             <a class="btn btn-action text-white align-self-end my-4 mx-3 hover-move-right" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">VIEW ALL POSTS
