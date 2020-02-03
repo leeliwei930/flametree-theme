@@ -23,7 +23,8 @@ function onEnd(){
 ==
 <hero
 
-background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640,null, {blur: 15 })}}"
+    background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
 
 >
         <h1 class="hero-title text-uppercase m-auto align-self-center">Announcements</h1>
@@ -37,7 +38,8 @@ background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}
                 key="{{ announcement.id }}"
 
                 title="{{ announcement.title }}"
-                featured-image-url="{{ announcement.featured_images[0].path }}"
+                featured-image-url="{{ announcement.featured_images[0].getLocalPath() | resize(640, null) }}"
+                data-featured-image-url="{{ announcement.featured_images[0].path }}"
                 description="{{ str_words(announcement.summary, 20) }}"
                 author="{{ announcement.user.full_name }}"
                 author-avatar-image="{{ announcement.user.getAvatarThumb(35) }}"

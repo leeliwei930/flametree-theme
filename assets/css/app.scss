@@ -7,19 +7,16 @@ html  , body {
 @import "./navbar.scss";
 
 @import "home/_who_we_are.scss";
-@import "home/_our_producers.scss";
-@import "home/_announcements.scss";
+
 
 
 .lozad {
-
-
+    transition: opacity 2100ms;
+    &.loading {
+        opacity: 0.65;
+    }
     &.loaded{
-
-            animation-name: fadeIn;
-            animation-duration: 1.85s;
-            animation-timing-function:  ease;
-            animation-fill-mode: forwards;
+            opacity: 1;
 
 
         }

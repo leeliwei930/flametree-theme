@@ -1,6 +1,6 @@
 <template lang="pug">
-    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2.lozad(
-        :class="{'hoverable' : hoverable }"
+    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
+        :class="{'hoverable' : hoverable ,'lozad' : image !== '', 'loading' : loading }"
         :style="backgroundStyle"
         :data-background-image="dataImage"
     )
@@ -85,23 +85,21 @@ export default {
     },
     data: function(){
         return {
-            loading: true
+            loading: false
         }
     },
     methods: {
 
     },
     created: function(){
-
+        if(this.image !== ''){
+            this.loading = true;
+        }
     },
     mounted: function(){
-        this.$on('loading', () => {
-            this.loading = true;
-            console.log('loading')
-        });
+
         this.$on('loaded', () => {
             this.loading = false;
-            console.log('loaded')
 
         })
     },
@@ -117,7 +115,8 @@ export default {
                 } else {
 
                     return `background-image: ${this.gradient}, url('${this.dataImage}');background-size: 100% 100%;background-repeat:no-repeat;width:${this.width};`
-                }            } else {
+                }            }
+            else {
                 return `background:${this.gradient};width:${this.width};`
             }
         }

@@ -1,7 +1,7 @@
 <template lang="pug">
-    .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column.lozad(
+    .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column(
         :style="slideBgStyle"
-        :data-background-image="dataImage"
+        :class="{'loading' : loading , 'lozad' : image !== null}"
         )
         .godspeed-slide.m-3.m-md-5.p-2(v-if="show")
             h1.slide-title(:class="titleClasses")  {{ title }}
@@ -109,18 +109,24 @@ export default {
     },
     data: function(){
         return {
-            loaded: false
+            loading: false
         }
     },
     methods: {
 
     },
     created: function(){
-
+        if(this.image !== ''){
+            this.loading = true;
+        }
     },
     mounted: function(){
+        this.$on('loading', () => {
+            this.loading = true;
+            console.log("loading")
+        });
         this.$on('loaded', () => {
-            this.loaded  = true;
+            this.loading  = false;
         });
     },
     updated: function(){
@@ -129,12 +135,17 @@ export default {
     computed:{
         slideBgStyle: function(){
 
-
-            if(this.loaded){
-                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataImage}');background-size:cover;background-repeat:no-repeat`
+            if(this.image != null){
+                if(!this.loading){
+                    return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataImage}');background-size:cover;background-repeat:no-repeat`
+                } else {
+                    return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');background-size:cover;background-repeat:no-repeat`
+                }
             } else {
-                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');background-size:cover;background-repeat:no-repeat`
+                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8))`
+
             }
+
 
         },
         titleClasses: function(){

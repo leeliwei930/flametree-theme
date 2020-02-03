@@ -20,8 +20,8 @@ function onStart(){
 ==
 
 <hero
-
-    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+    background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640, null, {blur: 15}) }}"
 
 >
         <h1 class="hero-title text-uppercase m-auto align-self-center text-center">Announcement Categories</h1>

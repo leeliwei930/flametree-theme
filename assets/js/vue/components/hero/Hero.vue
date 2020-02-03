@@ -1,6 +1,6 @@
 <template lang="pug">
-    .flametree-theme
-        .hero(:style="heroBgStyle" :class="{'lazy' : backgroundImage !== ''}")
+    .flametree-theme(:class="{'lozad' : backgroundImage !== '', 'loading' : loading}")
+        .hero(:style="heroBgStyle" )
                 slot
 
 </template>
@@ -25,25 +25,26 @@ export default {
     },
     data: function() {
         return {
-            loading: true
+            loading: false
+        }
+    },
+    created() {
+        if(this.backgroundImage !== ''){
+            this.loading = true;
         }
     },
     mounted() {
 
-        this.$on('loading' , () => {
-            this.loading = true;
-        });
-
 
         this.$on('loaded', () => {
-            this.loaded = false;
+            this.loading = false;
         })
 
     },
 
     computed : {
         heroBgStyle: function(){
-            if(this.backgroundImage !== ''){
+            if(this.backgroundImage !== ""){
                 if(this.loading)
                 {
                     return `background-image:${this.gradientColor}, url('${this.backgroundImage}');
@@ -55,7 +56,7 @@ export default {
                     background-repeat:no-repeat`
                 }
             } else {
-                return `background-image:${this.gradientColor}');
+                return `background-image:${this.gradientColor};
                     background-size:cover;
                     background-repeat:no-repeat`
             }

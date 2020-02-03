@@ -1,5 +1,7 @@
 <template lang="pug">
-    .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto(:class="{'hoverable' : hoverable}")
+    .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto(
+        :class="{'hoverable' : hoverable, 'lozad' : featuredImageUrl != null, 'loading' : loading}"
+    )
         .col-12.col-md-6.p-0
             .featured-image.rounded(:style="featuredImageStyle")
         .col-12.col-md-6.p-3
@@ -59,7 +61,12 @@ export default {
             type: String
         },
         featuredImageUrl: {
-            type: String
+            type: String,
+            default: null
+        },
+        dataFeaturedImageUrl: {
+            type: String,
+            default: null
         },
         hoverable: {
             type: Boolean,
@@ -68,26 +75,51 @@ export default {
     },
     data: function(){
         return {
-
+            loading: false
         }
     },
     methods: {
 
     },
     created: function(){
-
+        if(this.featuredImageUrl == null)
+        {
+            this.loading = false;
+        }
     },
     mounted: function(){
+        this.$on('loading', function(){
+            this.loading = true;
+        });
 
+        this.$on('loaded', function(){
+            this.loading = false;
+        });
     },
     updated: function(){
 
     },
     computed: {
         featuredImageStyle: function(){
-            return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.featuredImageUrl}');
+            if(this.featuredImageUrl != null){
+                if(this.loading)
+                {
+                    return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.featuredImageUrl}');
                 background-size:cover;
                 background-repeat:no-repeat`
+
+                } else {
+                    return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataFeaturedImageUrl}');
+                background-size:cover;
+                background-repeat:no-repeat`
+
+                }
+            } else {
+                return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)));
+                background-size:cover;
+                background-repeat:no-repeat`
+
+            }
 
         }
     }

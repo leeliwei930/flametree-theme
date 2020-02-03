@@ -1,5 +1,3 @@
-import lozad from 'lozad'
-
 
 import Vue from 'vue'
 import VueX from 'vuex'
@@ -134,15 +132,3 @@ window.app = new Vue({
         },
     },
 })
-lozad('.lozad', {
-    threshold: 0.9, // ratio of element convergence
-    loaded: function (element) {
-        element.classList.add('loaded');
-        element.__vue__.$emit('loaded');
-    },
-    load: function (element) {
-
-        element.__vue__.$emit('loading');
-    }
-}).observe(); // lazy loads elements with default selector as '.lozad'
-
