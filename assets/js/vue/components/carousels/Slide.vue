@@ -123,7 +123,6 @@ export default {
     mounted: function(){
         this.$on('loading', () => {
             this.loading = true;
-            console.log("loading")
         });
         this.$on('loaded', () => {
             this.loading  = false;
