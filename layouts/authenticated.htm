@@ -1,0 +1,69 @@
+description = "Authenticated Layout"
+==
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+
+    <title>{{ this.page.title }}</title>
+    <link href="https://unpkg.com/normalize.css@8.0.1/normalize.css" >
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ "assets/public/css/override.css" |theme}}">
+
+    <link rel="stylesheet" href="{{ "assets/public/css/lib.css" |theme}}">
+    <script type="text/javascript" src="{{"assets/public/js/jquery.js" | theme}}"></script>
+
+    <link rel="stylesheet" href="{{ "assets/public/css/app.css" |theme}}">
+    <link rel="stylesheet" href="{{ "assets/public/css/authenticated/app.css" |theme}}">
+    {% styles %}
+
+
+</head>
+<body>
+
+    <div id="flametree-app" class="portal">
+        <div class="d-flex flex-column flametree-theme flex-wrap">
+            <hero
+                gradient-color="linear-gradient(-30deg, rgba(247, 183, 51, 0.8), rgba(240, 80, 51, 0.8))"
+
+            >
+                <div class="d-flex flex-column justify-content-center flex-grow-1">
+                    <div class="d-flex my-3 mr-4 align-items-center">
+                        <h5 class=" font-weight-light text-white my-auto ml-3 mr-auto text-uppercase">Flame Tree Community Co-Op Portal</h5>
+
+                        {% verbatim %}
+            <h5 class=" font-weight-light text-white my-auto mx-4">Hi, {{ "username" }} </h5>
+
+            {% endverbatim %}
+                        <a href="#" class="btn btn-outline-default">LOG OUT</a>
+
+                    </div>
+                    <div class="d-flex flex-column justify-content-center mx-5 mt-5 mb-auto">
+
+                        <h1 class="hero-title text-white text-uppercase ">| {{ this.page.title }}</h1>
+
+
+                    </div>
+                </div>
+
+            </hero>
+        </div>
+
+        {% page %}
+    </div>
+
+    {% framework extras %}
+
+
+        <script type="text/javascript" src="{{"assets/public/js/index.js" | theme}}"></script>
+
+    <script type="text/javascript" src="{{"assets/public/js/lozad.js" | theme}}"></script>
+
+    {% scripts %}
+
+
+</body>
+
+</html>

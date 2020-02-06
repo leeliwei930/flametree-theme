@@ -37,6 +37,10 @@
     transform: scale(3.5);
 }
 
+.nav.navbar .text {
+    z-index: 1;
+}
+
 .nav.navbar .nav-item {
     z-index:1;
 

@@ -49,6 +49,7 @@ mix
 .js('assets/js/index.js' , 'assets/public/js/index.js')
 .js('assets/js/jquery.js' , 'assets/public/js/jquery.js')
 .js('assets/js/lozad.js' , 'assets/public/js/lozad.js')
+.sass('assets/css/authenticated/app.scss', 'assets/public/css/authenticated/app.css')
 .sass('assets/css/lib.scss', 'assets/public/css/lib.css')
 .copy('assets/css/override.css', 'assets/public/css/override.css')
 .sass('assets/css/app.scss', 'assets/public/css/app.css')

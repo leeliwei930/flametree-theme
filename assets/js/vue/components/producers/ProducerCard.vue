@@ -1,13 +1,14 @@
 <template lang="pug">
     .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
-        :class="{'hoverable' : hoverable ,'lozad' : image !== '', 'loading' : loading }"
+        :class="{'hoverable' : hoverable ,'lozad' : image !== '', 'loading' : loading}"
         :style="backgroundStyle"
         :data-background-image="dataImage"
+        @click="redirect()"
     )
         h5.origin-label.p-3.mb-auto
             i.fas.fa-map-marker-alt.mx-1(v-show="origin")
             | {{origin}}
-        h2.card-title.px-4.py-3 {{ name }}
+        h2.card-title.px-4.py-3(:class="nameClass") {{ name }}
         h3.subheading.px-4.py-3(v-if="subheading") {{ subheading }}
         slot(name="actions")
 
@@ -26,6 +27,7 @@
     }
 
     &.hoverable:hover {
+        cursor: pointer;
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5) !important;
         transform: translateY(-5px);
         -webkit-transform: translateY(-5px);
@@ -54,6 +56,14 @@ export default {
             type: String,
             default:  null
         },
+        href: {
+            type: String,
+            default: null
+        },
+        target: {
+            type: String,
+            default: "_blank"
+        },
         hoverable: {
             type: Boolean,
             default: true
@@ -61,6 +71,9 @@ export default {
         name: {
             type: String,
             default: "Card Title"
+        },
+        nameClass: {
+            type: String
         },
         subheading: {
             type: String,
@@ -89,7 +102,11 @@ export default {
         }
     },
     methods: {
-
+        redirect: function(){
+            if(this.href != null){
+                window.open(this.href, this.target);
+            }
+        }
     },
     created: function(){
         if(this.image !== ''){

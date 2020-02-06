@@ -1,29 +1,29 @@
+name: 'Volunteer Navbar menu'
 items:
     -
         title: Announcements
-        type: url
-        url: /volunteers/annoucements
+        type: cms-page
         code: ''
+        reference: volunteer/announcements
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
-        title: 'Meetings Minutes'
-        type: url
-        url: /volunteers/meeting-minutes
+        title: 'Meeting Minutes'
+        type: cms-page
         code: ''
+        reference: volunteer/meeting-minutes
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
-        title: Training
-        type: url
-        url: /volunteers/training
+        title: 'Training Resources'
+        type: cms-page
         code: ''
+        reference: volunteer/training-resources
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
-name: 'Volunteers Area Tab'

@@ -1,0 +1,14 @@
+title = "Announcements"
+url = "/volunteer/announcements"
+layout = "authenticated"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[forumTopic]
+slug = "{{ volunteer-announcements }}"
+postsPerPage = 20
+memberPage = "404-not-found"
+channelPage = "404-not-found"
+==
+{% component 'forumTopic' %}

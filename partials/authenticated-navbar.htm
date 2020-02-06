@@ -1,0 +1,78 @@
+description = "Authenticated Navigation Bar"
+
+[viewBag]
+
+[staticMenu]
+code = "volunteers-tabs"
+==
+{% set producer_categories = null %}
+<div class="d-flex flex-column justify-content-between justify-content-sm-between shadow-md nav navbar" id="flametree-navigation-bar" >
+    <div class="navbar-overlay"></div>
+
+    <div class="w-100 d-flex flex-grow-1 flex-md-grow-0 py-4 px-3 align-items-center justify-content-between ">
+        <a style="z-index:1;text-decoration: none" class="d-sm-flex d-lg-none text-dark align-items-start" href="#flametree-side-drawer">
+            <i class="fas fa-bars fa-1x"></i>
+        </a>
+        <a href="{{ "home" | page }}" class="button nav-item-link mx-auto">
+            <img src="{{ 'assets/images/logo.png' | theme }}" class="logo p-3"/>
+        </a>
+
+    </div>
+    <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
+
+        {% if staticMenu.menuItems %}
+            {% for item in staticMenu.menuItems %}
+                {% if not isHidden %}
+
+                        <div class=" nav-item p-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                            <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
+
+                            {% if item.items  %}
+                                <div class="nav-dropdown-menu  flex-column">
+                                    {% for dropdownItem in item.items %}
+                                        <a href="{{ dropdownItem.url }}" class="nav-item-dropdown-menu-item px-3  py-3">
+                                            {{ dropdownItem.title }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+
+
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+
+
+<div id="flametree-side-drawer" class="d-none" >
+    {% if staticMenu.menuItems %}
+        <ul class="mm-listview">
+            {% for item in staticMenu.menuItems %}
+                {% if not isHidden %}
+
+                        <li>
+                            <a href="{{ item.url }}">
+                                {{ item.title }}
+                            </a>
+                            {% if item.items %}
+                                <ul>
+                                    {% for dropdownItem in item.items %}
+                                        <li>
+                                            <a href="{{ dropdownItem.url }}">
+                                                {{ dropdownItem.title }}
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

@@ -54,6 +54,9 @@ window.app = new Vue({
     },
     methods: {
         initializeMMenu(){
+            if(document.getElementById('flametree-side-drawer') == null){
+                return;
+            }
             let mmenu =  new Mmenu("#flametree-side-drawer", {
 
                 wrappers: ["bootstrap"],
@@ -79,6 +82,11 @@ window.app = new Vue({
         },
 
         registerMegaMenuEvent: function(){
+
+            if(document.getElementById('producer-link') === null|| document.getElementById('producer-mega-menu') === null)
+            {
+                return;
+            }
             document.getElementById('producer-link').addEventListener('mouseenter', () => {
                 document.getElementById('producer-mega-menu').classList.remove('d-none');
 
