@@ -14,7 +14,17 @@ sortOrder = "published_at desc"
 categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
+<?php
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoryPolicy;
+use RainLab\Blog\Models\Category;
+function onStart(){
+    Category::extend(function($model){
+        PortalBlogCategoryPolicy::check($model);
+    });
+}
+?>
 
+==
 {% if category is not empty %}
 
 <div class="d-flex flex-column flex-wrap flametree-theme">

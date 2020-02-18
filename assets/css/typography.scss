@@ -41,7 +41,15 @@
         &.text-primary {
             color: $primaryColor !important;
         }
-
+        &.tiny {
+            font-size: 12pt;
+        }
+        &.small {
+            font-size: 18pt;
+        }
+        &.medium {
+            font-size: 24pt;
+        }
         &.huge {
             font-size: 72pt ;
         }

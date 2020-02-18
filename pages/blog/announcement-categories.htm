@@ -11,11 +11,18 @@ displayEmpty = 0
 categoryPage = "blog/announcement"
 ==
 <?php
-
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoryPolicy;
+use RainLab\Blog\Models\Category;
 function onStart(){
    $this['currentPage'] = $this->page;
+
+
+    Category::extend(function($model){
+        PortalBlogCategoryPolicy::check($model);
+    });
 }
 ?>
+
 
 ==
 

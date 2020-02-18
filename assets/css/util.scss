@@ -176,15 +176,14 @@
         border-width: 0.75px;
         border-style: solid;
         border-color: rgba(0,0,0, 0.24);
-        outline: grey;
+        outline: none;
         border-radius: 5pt;
         transition: all 0.25s;
-
         label {
             display: block;
             font-family: 'Lato Bold', sans-serif;
             color: gray;
-            padding: 10px;
+            padding: 15px 10px 10px 10px;
             font-size: 9pt;
             line-height: 0px;
             margin: 0;
@@ -204,9 +203,10 @@
             border: none;
             padding: 10px;
             width: 100%;
-            background: white;
+            background-color: transparent;
             height: auto;
             line-height: 0px;
+            box-shadow: none;
 
             &::placeholder {
                 text-transform: uppercase;
@@ -223,6 +223,10 @@
 
             }
 
+            &.toggle-show-password {
+                content: '<i class="fas fa-eye"></i>';
+                display: block;
+            }
         }
     }
 
