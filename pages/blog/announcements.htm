@@ -14,10 +14,12 @@ categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
 <?php
+use GodSpeed\FlametreeCMS\Policies\PortalBlogPostPolicy;
 
 
-function onEnd(){
+function onStart(){
     $this['currentPage'] = $this->page;
+    PortalBlogPostPolicy::guard();
 }
 
 

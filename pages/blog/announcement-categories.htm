@@ -12,14 +12,10 @@ categoryPage = "blog/announcement"
 ==
 <?php
 use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoryPolicy;
-use RainLab\Blog\Models\Category;
 function onStart(){
    $this['currentPage'] = $this->page;
+    PortalBlogCategoryPolicy::guard();
 
-
-    Category::extend(function($model){
-        PortalBlogCategoryPolicy::check($model);
-    });
 }
 ?>
 
