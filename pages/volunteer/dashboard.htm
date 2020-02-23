@@ -1,4 +1,4 @@
-title = "Volunteer Dashboard"
+title = "My Dashboard"
 url = "/volunteer/dashboard"
 layout = "authenticated"
 description = "Volunteer Dashboard"
@@ -10,48 +10,53 @@ robot_follow = "follow"
 ==
 
 
-<div class="d-flex justify-content-center mx-5 dashboard">
-    <div class="d-flex flex-row flex-wrap justify-content-start mx-5 main-menu">
+<div class="d-flex justify-content-center dashboard">
+    <div class="d-flex flex-row flex-wrap justify-content-around main-menu">
 
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col">
+            <a class="text-decoration-none" href="{{ "volunteer/announcements" | page }}">
             <producer-card
-                name="Announcements"
-                name-class="text-dark"
+                name="Portal Announcements"
+                name-class="text-dark "
                 gradient = 'white'
-                href="{{ "volunteer/announcements" | page }}"
             >
             </producer-card>
+            </a>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col">
+            <a class="text-decoration-none" href="{{ "volunteer/training-resources" | page }}">
+
             <producer-card
                 name="Training Resources"
                 name-class="text-dark"
                 gradient = 'white'
-                href="{{ "volunteer/training-resources" | page }}"
 
             >
             </producer-card>
+            </a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col">
+            <a class="text-decoration-none" href="{{ "volunteer/meeting-minutes" | page }}">
             <producer-card
                 name="Meeting Minutes"
                 name-class="text-dark"
                 gradient = 'white'
-                href="{{ "volunteer/meeting-minutes" | page }}"
 
             >
             </producer-card>
+            </a>
         </div>
-        <div class="col-12 col-md-6 col-lg-3">
+        <div class="col">
+            <a class="text-decoration-none" href="{{ "volunteer/profile-settings" | page }}">
             <producer-card
                 name="Profile Settings"
                 name-class="text-dark"
                 gradient = 'white'
-                href="{{ "volunteer/profile-settings" | page }}"
 
             >
             </producer-card>
+            </a>
         </div>
     </div>
 </div>

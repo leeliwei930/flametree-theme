@@ -20,7 +20,11 @@ redirect = "volunteer/dashboard"
     <div class="bg-white rounded-lg shadow-lg  mx-auto col-10 col-lg-4 px-3 py-4 my-5 ">
         {{ form_ajax('onSignin') }}
         <div class="flametree-theme">
-
+            {% if get('success')  %}
+            <div class="alert alert-success">
+                <p>{{ get('success')  }}</p>
+            </div>
+            {% endif %}
             <h2 class="text-primary headline-light-bold small py-2">VOLUNTEER LOGIN</h2>
             <div class="text-field-control my-1">
                 <label  for="volunteer_login_email">EMAIL</label>

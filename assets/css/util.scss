@@ -1,5 +1,113 @@
 @import "variable";
+
+@keyframes animateDropdownCard {
+    from {
+        opacity: 0;
+        transform: translate(-40%, -10px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-40%, 10px);
+
+    }
+}
 .flametree-theme {
+    .dropdown-card {
+        padding: 10px;
+        .dropdown-card-item {
+            display: inline;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: black;
+
+            font-size: 11pt;
+        }
+        .dropdown-card-menu {
+            transition: all 0.5s;
+
+            &:before {
+                bottom: 100%;
+                left: 50%;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+            }
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            min-width: 250px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index:1;
+
+            animation-name: animateDropdownCard;
+            animation-duration: 0.45s;
+            animation-direction: normal;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+            .dropdown-card-menu-item {
+
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                text-decoration: none;
+                strong {
+                    font-family: 'Lato', sans-serif;
+                    font-weight: 400;
+                    font-size: 12pt;
+                }
+                &.no-separator {
+                    border-bottom: none !important;
+                }
+                &:not(:last-child) {
+
+                    border-bottom: 0.15pt solid silver;
+                }
+
+
+                &:not(.no-separator):hover {
+                    background-color: $light-silver;
+                }
+
+
+            }
+        }
+        &:hover {
+            .dropdown-card-menu {
+                display: flex;
+
+            }
+        }
+    }
+    .alert {
+        padding: 25px;
+        border-radius: 0;
+        outline: none;
+        border: none;
+
+        p {
+            margin: auto 0 auto 0;
+        }
+        &.alert-danger {
+            background-color: $alert-danger;
+            color: $white;
+
+        }
+        &.alert-warning {
+            background-color: $alert-warning;
+            color: $dark;
+        }
+
+        &.alert-success {
+            background-color: $alert-success;
+            color: $white;
+
+        }
+    }
     .godspeed-slide {
 
         .slide-title {
@@ -169,8 +277,31 @@
         }
 
     }
-    .text-field-control{
+    .checkbox-field-control {
+        display: flex;
+        width: 100%;
 
+        align-items: baseline;
+
+
+        outline: none;
+
+        transition: all 0.25s;
+        label {
+            display: block;
+            font-family: 'Lato Bold', sans-serif;
+            color: gray;
+            font-size: 10pt;
+            line-height: 0px;
+            margin: 0 5px 0 5px;
+            text-align: left;
+
+        }
+
+    }
+
+
+    .text-field-control{
         display: inline-block;
         width: 100%;
         border-width: 0.75px;
@@ -179,6 +310,12 @@
         outline: none;
         border-radius: 5pt;
         transition: all 0.25s;
+        &.has-error {
+            border-color: $alert-danger;
+            label {
+                color: $alert-danger;
+            }
+        }
         label {
             display: block;
             font-family: 'Lato Bold', sans-serif;
@@ -197,11 +334,12 @@
                     color: $primaryColor;
                 }
 
+
         }
         .text-field {
 
             border: none;
-            padding: 10px;
+            padding: 5px 10px 5px 10px;
             width: 100%;
             background-color: transparent;
             height: auto;

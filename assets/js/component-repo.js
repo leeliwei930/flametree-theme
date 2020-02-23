@@ -25,6 +25,8 @@ import Hero from "@components/hero/Hero.vue";
 
 import DropdownPagination from "@components/pagination/DropdownPagination";
 
+import UploadAvatar from "@components/avatarfield/UploadAvatar";
+
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
     VideoThumbnail, VideoPlaylist, VideoPlayer,
@@ -32,6 +34,7 @@ export let components = {
     ProducerCard,
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
-    Hero, SocialButton, DropdownPagination
+    Hero, SocialButton, DropdownPagination,
+    UploadAvatar
 };
 

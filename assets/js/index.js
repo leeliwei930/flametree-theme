@@ -111,6 +111,10 @@ window.app = new Vue({
 
         },
         registerAffixNavbar: function(){
+            if(document.getElementById('flametree-navigation-bar') === null)
+            {
+                return;
+            }
             window.addEventListener('scroll', () => {
                 if(window.scrollY > 450){
                     document.getElementById('flametree-navigation-bar').classList

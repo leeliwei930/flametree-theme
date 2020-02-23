@@ -3,7 +3,6 @@
         :class="{'hoverable' : hoverable ,'lozad' : image !== '', 'loading' : loading}"
         :style="backgroundStyle"
         :data-background-image="dataImage"
-        @click="redirect()"
     )
         h5.origin-label.p-3.mb-auto
             i.fas.fa-map-marker-alt.mx-1(v-show="origin")
@@ -56,14 +55,6 @@ export default {
             type: String,
             default:  null
         },
-        href: {
-            type: String,
-            default: null
-        },
-        target: {
-            type: String,
-            default: "_blank"
-        },
         hoverable: {
             type: Boolean,
             default: true
@@ -102,11 +93,7 @@ export default {
         }
     },
     methods: {
-        redirect: function(){
-            if(this.href != null){
-                window.open(this.href, this.target);
-            }
-        }
+
     },
     created: function(){
         if(this.image !== ''){

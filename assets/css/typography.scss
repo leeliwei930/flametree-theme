@@ -25,7 +25,9 @@
         &.text-primary {
             color: $primaryColor !important;
         }
-
+        &.tiny {
+            font-size: 12pt;
+        }
         &.small {
             font-size: 24pt;
         }
