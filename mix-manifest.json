@@ -5,5 +5,6 @@
     "/assets/public/css/app.css": "/assets/public/css/app.css",
     "/assets/public/js/jquery.js": "/assets/public/js/jquery.js",
     "/assets/public/js/lozad.js": "/assets/public/js/lozad.js",
-    "/assets/public/css/override.css": "/assets/public/css/override.css"
+    "/assets/public/css/override.css": "/assets/public/css/override.css",
+    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js"
 }

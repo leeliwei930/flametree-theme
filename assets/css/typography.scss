@@ -18,6 +18,22 @@
             color: $accentColor;
         }
     }
+
+    .heading {
+        font-family: 'Lato' , sans-serif;
+        font-weight: bold;
+        &.tiny {
+            font-size: 12pt;
+        }
+        &.small {
+            font-size: 24pt;
+        }
+
+        &.huge {
+            font-size: 72pt ;
+        }
+    }
+
     .headline-light {
         font-family: 'Lato Black' , sans-serif;
         font-size: 32pt;
