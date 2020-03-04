@@ -1,0 +1,41 @@
+{% if session %}
+    {% set account = session %}
+{% endif %}
+
+
+<div class="d-flex flex-column justify-content-between flametree-theme  p-3">
+
+    <div class="d-flex align-self-center">
+        <img src="{{ account.user.getAvatarThumb(150) }}" alt="" class="rounded-circle"
+             style="height: 150px;width: 150px">
+
+    </div>
+
+    <h4 class="headline-light-bold small my-5 align-self-center">{{ account.user.surname }} {{ account.user.name }}</h4>
+
+    <div class="d-flex row">
+        <div class="col-6">
+            <strong class="text-uppercase">Name</strong>
+            <p>{{ account.user.name }}</p>
+
+        </div>
+        <div class="col-6">
+            <strong class="text-uppercase">Surname</strong>
+            <p>{{ account.user.surname }}</p>
+
+        </div>
+        <div class="col-12">
+            <strong class="text-uppercase">Email</strong>
+            <p>{{ account.user.email }}</p>
+
+        </div>
+        <div class="col-12">
+            <strong class="text-uppercase">Phone Number</strong>
+            <p>{{ account.user.phone_number }}</p>
+
+        </div>
+    </div>
+
+
+</div>
+

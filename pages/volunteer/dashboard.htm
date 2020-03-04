@@ -6,57 +6,44 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
-
+[PortalRecentPrivateAnnouncements recentAnnouncement]
+duration = "7"
+duration_unit = "days"
+max_records = "5"
 ==
 
 
-<div class="d-flex justify-content-center dashboard">
-    <div class="d-flex flex-row flex-wrap justify-content-around main-menu">
+<div class="flametree-theme">
+        <div class="d-flex flex-row flex-wrap  justify-content-center align-items-start">
+            <div class="d-flex flex-column flex-wrap flex-grow-1 col-md-7 col-11">
+                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+                    <div class="panel-header-primary d-flex justify-content-start  rounded-top  align-items-baseline m-0 ">
+                        <i class="fas fa-bell mx-2"></i>
+                        <span class="text-uppercase font-weight-bold">{{ recentAnnouncement.getPanelHeaderTitle() }}</span>
+                    </div>
+                    <div class="p-2">
+                        {% component 'recentAnnouncement' %}
 
-        <div class="col">
-            <a class="text-decoration-none" href="{{ "volunteer/announcements" | page }}">
-            <producer-card
-                name="Portal Announcements"
-                name-class="text-dark "
-                gradient = 'white'
-            >
-            </producer-card>
-            </a>
+                    </div>
+                </div>
+                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+                    <div class="panel-header-primary d-flex justify-content-start   rounded-top align-content-center m-0 ">
+                        <span class="font-weight-bold" >UPCOMING MEETINGS</span>
+                    </div>
+                </div>
+            </div>
+            <div class=" col-md-3 col-11">
+                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+
+                    <div class="panel-header-primary d-flex justify-content-between align-items-baseline rounded-top">
+                        <span class="font-weight-bold">MY PROFILE</span>
+                        <a href="{{ "volunteer/profile-settings" | page }}">
+                            <i class="fas fa-edit text-white"></i>
+                        </a>
+                    </div>
+                    {% partial 'profile-basic-info' %}
+                </div>
+
+            </div>
         </div>
-
-        <div class="col">
-            <a class="text-decoration-none" href="{{ "volunteer/training-resources" | page }}">
-
-            <producer-card
-                name="Training Resources"
-                name-class="text-dark"
-                gradient = 'white'
-
-            >
-            </producer-card>
-            </a>
-        </div>
-        <div class="col">
-            <a class="text-decoration-none" href="{{ "volunteer/meeting-minutes" | page }}">
-            <producer-card
-                name="Meeting Minutes"
-                name-class="text-dark"
-                gradient = 'white'
-
-            >
-            </producer-card>
-            </a>
-        </div>
-        <div class="col">
-            <a class="text-decoration-none" href="{{ "volunteer/profile-settings" | page }}">
-            <producer-card
-                name="Profile Settings"
-                name-class="text-dark"
-                gradient = 'white'
-
-            >
-            </producer-card>
-            </a>
-        </div>
-    </div>
 </div>

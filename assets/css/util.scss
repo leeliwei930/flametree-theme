@@ -3,23 +3,32 @@
 @keyframes animateDropdownCard {
     from {
         opacity: 0;
-        transform: translate(-40%, -10px);
+        transform: translateY(-10px);
+
     }
     to {
         opacity: 1;
-        transform: translate(-40%, 10px);
-
+        transform: translateY(5px);
     }
 }
 .flametree-theme {
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid $accentColor;
+        margin: 1em 0;
+        padding: 0;
+    }
+    //dropdown class
     .dropdown-card {
         padding: 10px;
+        position: relative;
         .dropdown-card-item {
             display: inline;
             text-decoration: none;
             text-transform: uppercase;
             color: black;
-
             font-size: 11pt;
         }
         .dropdown-card-menu {
@@ -49,7 +58,8 @@
             animation-timing-function: ease-out;
             animation-fill-mode: forwards;
             .dropdown-card-menu-item {
-
+                min-width: 320px;
+                min-height: 50px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-between;
@@ -83,7 +93,7 @@
             }
         }
     }
-    .alert {
+    .alert  {
         padding: 25px;
         border-radius: 0;
         outline: none;
@@ -91,6 +101,10 @@
 
         p {
             margin: auto 0 auto 0;
+        }
+        &.alert-primary {
+            background-color: $primaryColor;
+            color: $white;
         }
         &.alert-danger {
             background-color: $alert-danger;
@@ -139,8 +153,7 @@
 
     }
 
-
-    /** Button Classes**/
+    //hero class
 
     .hero {
         display: flex;
@@ -174,6 +187,30 @@
             }
         }
     }
+
+    .post-list-view {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-height: 480px;
+        scroll-behavior: smooth;
+        overflow-y: scroll;
+        p.post-excerpt {
+            word-break: break-word;
+            word-wrap: break-word;
+
+        }
+
+        .post-list-item {
+            width: 98%;
+            &.separator {
+                border-bottom: 0.75pt solid grey;
+
+            }
+        }
+    }
+
+    /** Button Classes**/
 
     .btn {
         &.hover-move-right:hover {
@@ -277,6 +314,8 @@
         }
 
     }
+
+    // form class
     .checkbox-field-control {
         display: flex;
         width: 100%;
@@ -368,7 +407,7 @@
         }
     }
 
-
+    // pagination class
     ul.pagination {
         li {
             border-radius: 50%;
@@ -404,6 +443,18 @@
             border-bottom: 5pt solid $primaryColor;
 
    }
+
+
+    // Panel Header class
+
+    .panel-header {
+        &-primary {
+            padding:10px;
+
+            color: $white;
+            background-color: $primaryColor;
+        }
+    }
 
 
 

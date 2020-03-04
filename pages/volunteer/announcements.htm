@@ -13,4 +13,14 @@ sortOrder = "published_at desc"
 categoryPage = "404-not-found"
 postPage = "404-not-found"
 ==
+<?php
+function onStart(){
+    $this['currentPage'] = $this->page;
+}
+?>
+==
+{% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
+<div class="d-flex justify-content-around flex-column mx-3">
+    {% partial 'tabs/volunteer-announcement-tab'  %}
 {% component 'PrivateAnnouncements' %}
+</div>

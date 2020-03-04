@@ -1,0 +1,62 @@
+description = "Volunteer Layout"
+
+[session]
+security = "user"
+allowedUserGroups[] = "member"
+allowedUserGroups[] = "volunteer"
+redirect = "login/volunteer"
+
+[staticMenu]
+code = "volunteer-navbar-menu"
+==
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
+
+    <title>{{ this.page.title }}</title>
+    <link href="https://unpkg.com/normalize.css@8.0.1/normalize.css" >
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ "assets/public/css/override.css" |theme}}">
+
+    <link rel="stylesheet" href="{{ "assets/public/css/lib.css" |theme}}">
+    <script type="text/javascript" src="{{"assets/public/js/jquery.js" | theme}}"></script>
+
+    <link rel="stylesheet" href="{{ "assets/public/css/app.css" |theme}}">
+    <link rel="stylesheet" href="{{ "assets/public/css/authenticated/app.css" |theme}}">
+    {% styles %}
+
+
+</head>
+<body>
+
+<div id="flametree-app" class="portal">
+    {% page %}
+
+</div>
+
+{% framework extras %}
+
+
+<script type="text/javascript" src="{{"assets/public/js/index.js" | theme}}"></script>
+
+<script type="text/javascript" src="{{"assets/public/js/lozad.js" | theme}}"></script>
+<script>
+    $(window).on('ajaxInvalidField', function(event, fieldElement, fieldName, errorMsg, isFirst) {
+        $(fieldElement).closest('.text-field-control').addClass('has-error');
+    });
+
+    $(document).on('ajaxPromise', '[data-request]', function() {
+        $(this).closest('form').find('.text-field-control.has-error').removeClass('has-error');
+    });
+
+
+</script>
+{% scripts %}
+
+
+</body>
+
+</html>

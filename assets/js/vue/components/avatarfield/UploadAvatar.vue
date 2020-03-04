@@ -1,33 +1,33 @@
 <template lang="pug">
-    popper(:options="popperOptions")
-
-        .popper.border-0.p-0.bg-transparent.shadow-none
-            .bg-white.shadow-sm.popover-cropper.p-2.d-flex.flex-column(v-if="afterSelectImage")
-                .d-flex.justify-content-start
-                    strong.heading.text-uppercase.text-secondary.my-2
-                        i.fas.fa-crop.mx-2.text-light-dark
-                        | CROP IMAGE
-                .d-flex.flex-grow-1
-                    vue-cropper(
-                        ref="cropper"
-                        :src="avatarImage"
-                        :preview="'#preview-'+fieldId"
-                        :aspect-ratio="1"
-                        :cropmove="() => isCropped = false"
-
-                        :minContainerHeight="180",
-                    )
-                .d-flex.flex-row
-                    button.col.btn.btn-primary.rounded-0(@click.prevent="cropAvatar" v-if="!isCropped") CROP
-                    button.col.btn.btn-success.rounded-0(@click.prevent="() => null" v-else) DONE
-                    button.col.btn.btn-secondary.rounded-0 RESET
-            .d-flex.flex-column.rounded-pill.bg-dark.p-2(v-else)
-                    strong.text-white Click me to select a new profile image.
-        .avatar(slot="reference" @click="openFilePicker")
-            div(:id="'preview-'+fieldId" class="avatar-preview rounded-full")
-                img(:src="avatarImage" v-show="!afterSelectImage")
-            input(type="file"  accept="image/*" class="d-none" :name="'_'+fieldName" :id="'_'+fieldId" @change="avatarChanged")
-            input(type="hidden" class="d-none" :name="fieldName" :id="fieldId" v-model="avatarImage")
+    .d-flex.align-self-center(style="position:relative")
+        // the style position relative which fix the issue where popper positioning doesn't work well on safari
+        popper(:options="popperOptions")
+            .popper.border-0.p-0.bg-transparent.shadow-none.my-3
+                .bg-white.shadow-sm.popover-cropper.p-2.d-flex.flex-column(v-if="afterSelectImage")
+                    .d-flex.justify-content-start
+                        strong.heading.text-uppercase.text-secondary.my-2
+                            i.fas.fa-crop.mx-2.text-light-dark
+                            | CROP IMAGE
+                    .d-flex.flex-grow-1
+                        vue-cropper(
+                            ref="cropper"
+                            :src="avatarImage"
+                            :preview="'#preview-'+fieldId"
+                            :aspect-ratio="1"
+                            :cropmove="() => isCropped = false"
+                            :minContainerHeight="180",
+                        )
+                    .d-flex.flex-row
+                        button.col.btn.btn-primary.rounded-0(@click.prevent="cropAvatar" v-if="!isCropped") CROP
+                        button.col.btn.btn-success.rounded-0(@click.prevent="() => null" v-else) DONE
+                        button.col.btn.btn-secondary.rounded-0 RESET
+                .d-flex.flex-column.rounded-pill.bg-dark.p-2(v-else)
+                        strong.text-white Select Image
+            .avatar(slot="reference" @click="openFilePicker")
+                div(:id="'preview-'+fieldId" class="avatar-preview rounded-full")
+                    img(:src="avatarImage" v-show="!afterSelectImage")
+                input(type="file"  accept="image/*" class="d-none" :name="'_'+fieldName" :id="'_'+fieldId" @change="avatarChanged")
+                input(type="hidden" class="d-none" :name="fieldName" :id="fieldId" v-model="avatarImage")
 
 
 </template>
@@ -95,9 +95,10 @@ export default {
         return {
             showUploadDialog: false,
             avatarImage: null,
+            // isCropped which is a commit marker that use to indicate the crop image position has been saved
             isCropped: false,
             afterSelectImage: false,
-            popperOptions: {placement: 'bottom',  modifiers: [
+            popperOptions: {placement: 'bottom',   modifiers: [
 
             ],}
         }

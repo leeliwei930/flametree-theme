@@ -5,6 +5,9 @@ security = "user"
 allowedUserGroups[] = "member"
 allowedUserGroups[] = "volunteer"
 redirect = "login/volunteer"
+
+[staticMenu]
+code = "volunteer-navbar-menu"
 ==
 <!doctype html>
 <html lang="en">
@@ -37,14 +40,16 @@ redirect = "login/volunteer"
             >
 
                 <div class="d-flex flex-column   flex-grow-1 ">
-                    <div class="d-flex flex-row justify-content-end align-items-baseline px-5 mt-3">
+
+                    <div class="d-flex flex-row justify-content-start align-items-baseline px-5 mt-3">
+
                         <div class="dropdown-card ">
-                            <a href="#" class="dropdown-card-item btn btn-outline-default d-flex flex-wrap justify-content-center align-items-center">
-                                <strong>My Account <i class="fas fa-chevron-down mx-1"></i></strong>
+                            <a href="#" class="dropdown-card-item mb-2 btn btn-outline-default d-flex flex-wrap justify-content-center align-items-center">
+                                <strong><i class="fas fa-bars mx-1"></i></strong>
 
                             </a>
                             <div class="dropdown-card-menu flex-column shadow flex-wrap flametree-theme ">
-                                <i class="fas fa-caret-up text-white absolute ml-auto mr-5" style="transform: translateY(-10px)"></i>
+                                <i class="fas fa-caret-up text-white absolute ml-2 mr-auto" style="transform: translateY(-10px)"></i>
                                 <div class="dropdown-card-menu-item no-separator mb-2">
                                     <img class=" rounded-circle px-2 col-3" src="{{ user.getAvatarThumb(50) }}" alt=""/>
                                     <div class="d-flex flex-column col-9">
@@ -52,9 +57,19 @@ redirect = "login/volunteer"
                                         <span class="text-dark">{{user.email }}</span>
                                     </div>
                                 </div>
+                                {% if staticMenu.menuItems %}
+                                    {% for navItem in staticMenu.menuItems %}
+                                        <a class="dropdown-card-menu-item" href="{{navItem.url}}">
+                                            <i class="fas {{ navItem.code }} text-accent col"></i>
+                                            <strong class="col-9 text-dark text-uppercase ">{{ navItem.title }}</strong>
+                                        </a>
+
+                                    {% endfor %}
+                                {% endif %}
+
                                 <a href="{{ 'volunteer/profile-settings' | page }}" class="dropdown-card-menu-item" >
                                     <i class="fas fa-edit text-accent col"></i>
-                                    <strong class="col-9 text-dark text-uppercase font-weight-bold">Update Profile</strong>
+                                    <strong class="col-9 text-dark text-uppercase ">Update Profile</strong>
                                 </a>
 
                                 <a href="#"
@@ -63,7 +78,7 @@ redirect = "login/volunteer"
                                    data-request-data="{'redirect':  '{{ 'login/volunteer' | page }}'}"
                                 >
                                     <i class="fas fa-sign-out-alt col text-accent"></i>
-                                    <strong class="col-9 text-dark text-uppercase font-weight-bold">Log Out</strong>
+                                    <strong class="col-9 text-dark text-uppercase ">Log Out</strong>
                                 </a>
 
 
