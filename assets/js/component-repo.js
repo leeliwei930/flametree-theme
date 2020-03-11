@@ -15,6 +15,7 @@ import Slide from "@components/carousels/Slide.vue";
 import ProducerCard from "@components/producers/ProducerCard.vue";
 import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
 import AnnouncementListCard from "@components/announcements/AnnouncementListCard";
+import TileCard from "@components/announcements/TileCard";
 
 import MegaFooter from "@components/mega-footer/MegaFooter";
 import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
@@ -27,6 +28,9 @@ import DropdownPagination from "@components/pagination/DropdownPagination";
 
 import UploadAvatar from "@components/avatarfield/UploadAvatar";
 
+import Accordian from "@components/accordian/Accordian";
+import AccordianView from "@components/accordian/AccordianView";
+
 
 export let components = {
     MegaMenu, MenuItem, SidebarMenuItem,
@@ -36,7 +40,7 @@ export let components = {
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
     Hero, SocialButton, DropdownPagination,
-    UploadAvatar,
+    UploadAvatar, TileCard, Accordian, AccordianView,
 
 };
 
