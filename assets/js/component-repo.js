@@ -15,7 +15,8 @@ import Slide from "@components/carousels/Slide.vue";
 import ProducerCard from "@components/producers/ProducerCard.vue";
 import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
 import AnnouncementListCard from "@components/announcements/AnnouncementListCard";
-import TileCard from "@components/announcements/TileCard";
+import TileCard from "@components/cards/TileCard";
+import EventCard from "@components/cards/EventCard";
 
 import MegaFooter from "@components/mega-footer/MegaFooter";
 import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
@@ -40,7 +41,7 @@ export let components = {
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
     Hero, SocialButton, DropdownPagination,
-    UploadAvatar, TileCard, Accordian, AccordianView,
+    UploadAvatar, TileCard, Accordian, AccordianView, EventCard
 
 };
 

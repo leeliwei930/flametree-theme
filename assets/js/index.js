@@ -4,7 +4,7 @@ import store from '@store/index.js'
 import Mmenu from 'mmenu-js/src/mmenu.js';
 import VueGallery from 'vue-gallery-slideshow'
 import PortalVue from 'portal-vue';
-import moment from 'moment';
+import moment from 'moment-timezone';
 
 import  momentDurationFormatSetup from "moment-duration-format";
 momentDurationFormatSetup(moment);

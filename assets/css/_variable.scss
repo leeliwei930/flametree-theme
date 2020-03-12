@@ -1,7 +1,7 @@
 //Theme Coloring
 
-$primaryColor : #f05033;
-$accentColor: #F7B733;
+$primaryColor : #3f2b96;
+$accentColor: #a8c0ff;
 
 
 // Typography font
@@ -15,3 +15,10 @@ $light-silver: rgb(189, 189, 189, 0.5);
 $alert-success : #48c774;
 $alert-danger: #f14668;
 $alert-warning: #ffdd57;
+
+:root {
+    --primary-color-hex: $primaryColor;
+    --primary-color-rgba: 63, 43, 150;
+    --accent-color-rgba: 168,192,255;
+    --accent-color-hex: $accentColor;
+}

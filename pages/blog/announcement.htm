@@ -61,7 +61,7 @@ function onEnd(){
     {{ post|generateOgTags }}
 {% endput %}
 
-<hero gradient-color="linear-gradient(0deg, rgba(247, 183, 51, 0.2), rgba(240, 80, 51, 0.35))"
+<hero gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.2), rgba(var(--accent-color-rgba),0.8))"
       background-image-data="{{ post.featured_images[0].getPath()  }}"
       background-image="{{ post.featured_images[0].getLocalPath()  | resize(640, null, {quality: 35, blur: '15'}) }}"
 >

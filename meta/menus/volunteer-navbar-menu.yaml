@@ -2,36 +2,48 @@ name: 'Volunteer Navbar menu'
 items:
     -
         title: 'My Dashboard'
+        nesting: ''
         type: cms-page
+        url: ''
         code: fa-home
         reference: volunteer/dashboard
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Portal Announcements'
+        nesting: ''
         type: cms-page
+        url: ''
         code: fa-bell
         reference: volunteer/announcements
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
-        title: 'Meeting Minutes'
+        title: Events
         type: cms-page
-        code: fa-comments
-        reference: volunteer/meeting-minutes
+        code: fa-calendar
+        reference: volunteer/events
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
     -
         title: 'Training Resources'
+        nesting: ''
         type: cms-page
+        url: ''
         code: fa-folder
         reference: volunteer/training-resources
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''

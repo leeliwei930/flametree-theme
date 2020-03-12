@@ -14,7 +14,7 @@
     color: black;
 }
 .mega-menu .nav-link.active {
-    background-color:  #F05033 ;
+    background-color: $primaryColor ;
 }
 
 .mega-menu .menu-item {
@@ -23,11 +23,11 @@
     font-family: "Nunito" , sans-serif;
 }
 .mega-menu .menu-item  i {
-    color:#F05033 ;
+    color:$primaryColor ;
 }
 
 .mega-menu .menu-item:hover   {
-    background-color:#F05033;
+    background-color:$primaryColor;
     div , i {
         color:white;
     }

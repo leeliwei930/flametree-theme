@@ -34,7 +34,24 @@ function onStart(){
 </hero>
 
 <div class="d-flex flex-column align-content-around flex-wrap mx-4 flametree-theme">
-    {% partial 'tabs/announcement-tab' %}
+
+
+    {% put tabs %}
+        {% partial "components/tab"
+            icon="fa-list"
+            link=('blog/announcements' | page )
+            title="ANNOUNCEMENTS"
+            isActive=  currentPage.baseFileName == 'blog/announcements'
+        %}
+        {% partial "components/tab"
+            icon="fa-cubes"
+            link=( 'blog/announcement-categories' | page )
+            title="CATEGORIES"
+            isActive= currentPage.baseFileName == 'blog/announcements-categories'
+        %}
+    {% endput %}
+    {% partial "components/tabs" %}
+
     {%  if blogPosts.posts %}
         {% for announcement in blogPosts.posts %}
             <announcement-list-card

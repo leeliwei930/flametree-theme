@@ -13,8 +13,21 @@ function onStart(){
 ?>
 ==
 {% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
-{% partial 'tabs/volunteer-announcement-tab' %}
-
+  {% put tabs %}
+  {% partial "components/tab"
+      icon="fa-list"
+      link=('volunteer/announcements' | page )
+      title="ANNOUNCEMENTS"
+      isActive=  currentPage.baseFileName == 'volunteer/announcements'
+  %}
+  {% partial "components/tab"
+      icon="fa-cubes"
+      link=( 'volunteer/announcement-categories' | page )
+      title="CATEGORIES"
+      isActive= currentPage.baseFileName == 'volunteer/announcement-categories'
+  %}
+  {% endput %}
+    {% partial "components/tabs" %}
 <div class="d-flex justify-content-center flex-wrap mx-5">
     {% for category in blogCategories.categories %}
         <div class="d-flex col-12 col-md-4 justify-content-around flex-grow-1">
