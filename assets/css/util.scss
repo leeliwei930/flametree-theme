@@ -19,6 +19,13 @@
         margin: 1em 0;
         padding: 0;
     }
+    .bg-primary {
+        &-light {
+            background-color: $primaryColor;
+
+            color: white;
+        }
+    }
     //dropdown class
     .dropdown-card {
         padding: 10px;
@@ -244,8 +251,8 @@
 
 
         &.btn-outline-primary {
-            border-color: $accentColor !important;
-            color: $accentColor !important;
+            border-color: $primaryColor !important;
+            color: $primaryColor !important;
             border-radius: 0;
 
             &:hover {

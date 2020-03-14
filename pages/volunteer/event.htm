@@ -1,1 +1,14 @@
 layout = "volunteer"
+url = "volunteer/event/:slug"
+title = "Event"
+description = "Events"
+
+[Event]
+searchKey = "{{ :slug }}"
+searchBy = "slug"
+
+==
+{% partial 'nav-header' backBtnLink= "volunteer/events" backBtnText="Back To Events" %}
+
+{% component 'Event' %}
+

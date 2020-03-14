@@ -17,7 +17,7 @@ import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCa
 import AnnouncementListCard from "@components/announcements/AnnouncementListCard";
 import TileCard from "@components/cards/TileCard";
 import EventCard from "@components/cards/EventCard";
-
+import Calendar from "@components/cards/Calendar";
 import MegaFooter from "@components/mega-footer/MegaFooter";
 import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
 import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
@@ -41,7 +41,9 @@ export let components = {
     AnnouncementBasicCard,AnnouncementListCard,
     MegaFooter, MegaFooterHeader, MegaFooterItem,
     Hero, SocialButton, DropdownPagination,
-    UploadAvatar, TileCard, Accordian, AccordianView, EventCard
-
+    'accordion' : Accordian,
+    'accordion-view' : AccordianView,
+    UploadAvatar, TileCard, Accordian, AccordianView, EventCard,
+    Calendar
 };
 

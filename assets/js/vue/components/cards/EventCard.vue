@@ -1,28 +1,41 @@
 <template lang="pug">
     .event-card
         .stripe.rounded-lg.rounded-0-bottom
-        .d-flex.flex-row.flex-wrap.bg-light.shadow-lg.rounded-lg.justify-content-around.align-items-start.event-card-body
-            .d-flex.flex-column.col-5
-                .d-flex.justify-content-start.p-3(v-if="showCountDown")
-                    strong.text-uppercase.countdown
+        .d-flex.flex-column.flex-wrap.bg-light.shadow-lg.rounded-lg.justify-content-around.align-items-center.event-card-body
+            .d-flex.flex-column
+                .d-flex.flex-row.flex-wrap.justify-content-around.p-3
+                    strong.text-uppercase.countdown(v-if="showCountDown")
                         i.fas.fa-clock.mx-2
                         | {{ this.getDaysLeft() }}
-                .d-flex.flex-column.align-items-center.justify-content-around
-                    .bg-white.shadow.rounded-lg.small-calendar.m-3
-                        .w-100.h-25.bg-light.d-flex.justify-content-center
-                            h5.text-danger.text-uppercase.font-weight-light {{monthName}}
-                        .w-100.h-75.d-flex.flex-column.d-flex.justify-content-center.align-items-center
-                            h6.text-dark.text-uppercase.font-weight-light {{dayName}}
-                            h3.font-weight-light {{ day }}
-            .d-flex.flex-column.justify-content-start.align-items-start.m-2.col-6
+                    strong.text-uppercase.location(v-if="location != ''")
+                        i.fas.fa-map-marker-alt.mx-2
+                        | {{ location }}
+                .d-flex.flex-row
+                    calendar(:date-time="startedAt")
+                    .d-flex.justify-content-center.align-items-center
+                            i.fas.fa-long-arrow-alt-right.text-secondary
+                    calendar(:date-time="endedAt")
+                strong.text-secondary.d-flex.justify-content-start.p-3.align-items-center
+                    i.fas.fa-globe.mx-2
+                    | {{ timezone }}
+            .d-flex.flex-column.justify-content-start.align-items-start.mx-5.text-sm-left
+
                 h5.text-primary.event-title {{ name }}
                 slot
-                a(v-if="link" :href="link")
+            .d-flex.flex-row.justify-content-between.my-3
+                a.mx-2.d-flex.justify-content-center.align-items-center.btn.btn-primary.hover-move-right(v-if="link != ''" :href="link")
                     | MORE DETAILS
+                    i.fas.fa-chevron-right.mx-2
+                a.mx-2.d-flex.justify-content-center.align-items-center.btn.btn-outline-primary( :href="link")
+                    | DOWNLOAD EVENT FILE
+                    i.fas.fa-download.mx-2
+
+
 </template>
 <style lang="scss">
 .event-card {
-    .countdown {
+    width: 500px;
+    .countdown , .location {
         color: gray;
         font-size: 10pt;
     }
@@ -31,44 +44,34 @@
         background-image: linear-gradient(30deg, rgba(var(--primary-color-rgba, 0.8)), rgba(var(--accent-color-rgba, 0.2)));
         width:100%;
     }
-    .small-calendar {
-        height: 125px;
-        width: 150px;
-    }
+
     &.event-card-body {
         min-height: 250px;
 
     }
     .description {
-        word-wrap: break-word;
-        max-width: 300px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
     }
     .event-title {
         word-wrap: break-word;
-        max-width: 300px;
     }
 }
 </style>
 <script type="text/javascript">
 export default {
     props: {
-        dayName: {
-            type: String,
-            default: "Monday"
-        },
-        monthName: {
-            type: String,
-            default: "JAN"
-        },
-        day: {
-            type: String,
-            default: "1"
-        },
+
         startedAt: {
             type: String,
             default: ""
         },
         endedAt: {
+            type: String,
+            default: ""
+        },
+        location: {
             type: String,
             default: ""
         },
@@ -119,7 +122,7 @@ export default {
             if(diff >= 0) {
                 return `${Math.ceil(diff)} days left`
             } else {
-                return `${Math.floor(Math.abs(diff))} days ago`
+                return `${Math.ceil(Math.abs(diff))} days ago`
             }
         }
     },

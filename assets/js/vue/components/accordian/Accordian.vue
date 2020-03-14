@@ -1,6 +1,6 @@
 <template lang="pug">
     .card
-        .card-header(@click="$emit('click')")
+        .card-header.bg-primary-light.text-white(@click="$emit('click')")
             slot(name="header")
         .accordian-content.border.bg-light(
             :style="accordianStyle",

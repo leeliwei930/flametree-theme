@@ -20,7 +20,7 @@ export default {
         },
         gradientColor: {
             type: String,
-            default: "linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8))"
+            default: "linear-gradient(0deg, rgba(var(--primary-color-rgba), 0.3), rgba(var(--accent-color-rgba), 0.8))"
         }
     },
     data: function() {

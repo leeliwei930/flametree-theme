@@ -14,7 +14,7 @@ categoryPage = "404-not-found"
 {% set announcement = announcementComponent.post %}
 <div class="d-flex m-5 flametree-theme flex-column">
     <h1 class="post-title my-2">{{ announcement.title }}</h1>
-    <h5 class="post-published-at">{{ announcement.published_at | date("M d, Y h:i a") }}</h5>
+    <h5 class="post-published-at" v-text="$tzConverter.convert('{{  announcement.published_at }}', 'dddd, MMM D Y hh:mm a')"></h5>
     <div class="d-flex flex-row my-2 justify-content-start align-items-center">
         <img src="{{ announcement.user.getAvatarThumb(50) }}" alt="" class="rounded-circle">
         <div class="d-flex flex-column flex-wrap justify-content-start align-content-start ">

@@ -30,17 +30,23 @@ Vue.use(VueX);
 Vue.use(VueGallery);
 
 import { components } from '@flametree-theme/js/component-repo.js';
+import { BrowserTimeZoneConverter } from "@flametree-theme/js/util.js";
 
 
 // allow injected global function for ajax handler able to reference in vue instance
 Vue.prototype.$window = window;
 Vue.prototype.$ = window.jQuery;
+Vue.prototype.$tzConverter = BrowserTimeZoneConverter;
+
+// peform global component registration
+Object.keys(components).forEach((index) => {
+    Vue.component(index, components[index])
+});
 
 window.Vue = Vue;
 window.VueX = VueX;
 window.app = new Vue({
     el : "#flametree-app",
-    components,
     store: store,
     data: {
         mmenuState: {

@@ -1,5 +1,5 @@
 <template lang="pug">
-    .d-flex.flex-column.flex-wrap.announcement-basic-card.shadow.bg-light.p-3.m-2(:class="{'hoverable' : hoverable}")
+    .d-flex.flex-column.flex-wrap.justify-content-between.announcement-basic-card.shadow.bg-light.p-3.m-2(:class="{'hoverable' : hoverable}")
         h2.post-title.text-dark {{title}}
         p.post-summary.text-dark {{ description }}
         p
