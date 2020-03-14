@@ -1,32 +1,31 @@
 <template lang="pug">
     .event-card
         .stripe.rounded-lg.rounded-0-bottom
-        .d-flex.flex-column.flex-wrap.bg-light.shadow-lg.rounded-lg.justify-content-around.align-items-center.event-card-body
+        .d-flex.flex-column.flex-wrap.bg-light.shadow-lg.rounded-lg.justify-content-around.align-items-center.event-card-body.p-3
             .d-flex.flex-column
-                .d-flex.flex-row.flex-wrap.justify-content-around.p-3
+                .d-flex.flex-row.flex-wrap.justify-content-around
                     strong.text-uppercase.countdown(v-if="showCountDown")
                         i.fas.fa-clock.mx-2
                         | {{ this.getDaysLeft() }}
                     strong.text-uppercase.location(v-if="location != ''")
                         i.fas.fa-map-marker-alt.mx-2
                         | {{ location }}
-                .d-flex.flex-row
+                .d-flex.flex-row.justify-content-center
                     calendar(:date-time="startedAt")
                     .d-flex.justify-content-center.align-items-center
                             i.fas.fa-long-arrow-alt-right.text-secondary
                     calendar(:date-time="endedAt")
-                strong.text-secondary.d-flex.justify-content-start.p-3.align-items-center
+                strong.text-secondary.d-flex.justify-content-center.p-3.align-items-center
                     i.fas.fa-globe.mx-2
                     | {{ timezone }}
-            .d-flex.flex-column.justify-content-start.align-items-start.mx-5.text-sm-left
-
+            .d-flex.flex-column.align-content-around
                 h5.text-primary.event-title {{ name }}
                 slot
-            .d-flex.flex-row.justify-content-between.my-3
-                a.mx-2.d-flex.justify-content-center.align-items-center.btn.btn-primary.hover-move-right(v-if="link != ''" :href="link")
+            .d-flex.flex-row.flex-wrap.justify-content-between
+                a.d-flex.justify-content-between.align-items-center.btn.w-100.my-2.btn-primary.hover-move-right(v-if="link != ''" :href="link")
                     | MORE DETAILS
                     i.fas.fa-chevron-right.mx-2
-                a.mx-2.d-flex.justify-content-center.align-items-center.btn.btn-outline-primary( :href="link")
+                a.d-flex.justify-content-between.align-items-center.btn.w-100.my-2.btn-outline-primary( :href="icsLink")
                     | DOWNLOAD EVENT FILE
                     i.fas.fa-download.mx-2
 
@@ -34,7 +33,8 @@
 </template>
 <style lang="scss">
 .event-card {
-    width: 500px;
+    width: 400px;
+
     .countdown , .location {
         color: gray;
         font-size: 10pt;
@@ -52,7 +52,6 @@
     .description {
         text-overflow: ellipsis;
         overflow: hidden;
-
     }
     .event-title {
         word-wrap: break-word;
@@ -100,7 +99,10 @@ export default {
             type: String,
             default: ""
         },
-
+        icsLink: {
+            type: String,
+            default: ""
+        },
         openLinkInNewTab: {
             type: Boolean,
             default: true
