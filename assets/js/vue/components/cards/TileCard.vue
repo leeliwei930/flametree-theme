@@ -1,12 +1,14 @@
 <template lang="pug">
-    a.tile-card.d-flex.flex-row.rounded-sm.align-items-center.justify-content-around.text-decoration-none(
+    a.tile-card.d-flex.flex-column.rounded-lg.align-items-center.justify-content-center.text-decoration-none(
         :style="getTileStyle",
         :class="getTileCardClass",
         :href="link",
         :target="(openTab) ? '_blank' : '_self'"
     )
-        slot
-        slot(name="trailing")
+        .text-primary
+            slot
+        .text-accent
+            slot(name="trailing")
 </template>
 <style lang="scss">
 .tile-card {
@@ -32,7 +34,7 @@ export default {
         },
         backgroundColor: {
             type: String,
-            default: "#FFFFFF"
+            default: "linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8))"
         },
         link: {
             type: String,
@@ -66,7 +68,7 @@ export default {
     },
     computed: {
         getTileStyle() {
-            return `background-color:${this.backgroundColor};color:${this.textColor}`
+            return `background-image:${this.backgroundColor};color:${this.textColor}`
         },
         getTileCardClass(){
             let className = "";
