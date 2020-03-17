@@ -8,7 +8,10 @@
     "/assets/public/js/chunks/accordion-vue-component.js": "/assets/public/js/chunks/accordion-vue-component.js",
     "/assets/public/js/chunks/announcement-basic-card-vue-component.js": "/assets/public/js/chunks/announcement-basic-card-vue-component.js",
     "/assets/public/js/chunks/announcement-list-card-vue-component.js": "/assets/public/js/chunks/announcement-list-card-vue-component.js",
+    "/assets/public/js/chunks/calendar-card-vue-component.js": "/assets/public/js/chunks/calendar-card-vue-component.js",
     "/assets/public/js/chunks/dropdown-pagination-vue-component.js": "/assets/public/js/chunks/dropdown-pagination-vue-component.js",
+    "/assets/public/js/chunks/event-card-vue-component.js": "/assets/public/js/chunks/event-card-vue-component.js",
+    "/assets/public/js/chunks/hero-vue-component.js": "/assets/public/js/chunks/hero-vue-component.js",
     "/assets/public/js/chunks/mega-footer-header-vue-component.js": "/assets/public/js/chunks/mega-footer-header-vue-component.js",
     "/assets/public/js/chunks/mega-footer-item-vue-component.js": "/assets/public/js/chunks/mega-footer-item-vue-component.js",
     "/assets/public/js/chunks/mega-footer-vue-component.js": "/assets/public/js/chunks/mega-footer-vue-component.js",
@@ -26,8 +29,5 @@
     "/assets/public/js/chunks/video-playlist-vue-component.js": "/assets/public/js/chunks/video-playlist-vue-component.js",
     "/assets/public/js/chunks/video-thumbnail-vue-component.js": "/assets/public/js/chunks/video-thumbnail-vue-component.js",
     "/assets/public/css/override.css": "/assets/public/css/override.css",
-    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js",
-    "/assets/public/js/chunks/event-card-vue-component.js": "/assets/public/js/chunks/event-card-vue-component.js",
-    "/assets/public/js/chunks/calendar-card-vue-component.js": "/assets/public/js/chunks/calendar-card-vue-component.js",
-    "/assets/public/js/chunks/hero-vue-component.js": "/assets/public/js/chunks/hero-vue-component.js"
+    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js"
 }
