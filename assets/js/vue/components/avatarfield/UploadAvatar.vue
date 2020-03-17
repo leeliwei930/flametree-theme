@@ -25,9 +25,8 @@
                         strong.text-white Select Image
             .avatar(slot="reference" @click="openFilePicker")
                 div(:id="'preview-'+fieldId" class="avatar-preview rounded-full")
-                    img(:src="avatarImage" v-show="!afterSelectImage")
-                input(type="file"  accept="image/*" class="d-none" :name="'_'+fieldName" :id="'_'+fieldId" @change="avatarChanged")
-                input(type="hidden" class="d-none" :name="fieldName" :id="fieldId" v-model="avatarImage")
+                    img(:src="defaultAvatarUrl" v-show="!afterSelectImage")
+                input(type="file"  accept="image/*" class="d-none" :name=" fieldName" :id="'_'+fieldId" @change="avatarChanged")
 
 
 </template>
@@ -132,11 +131,9 @@ export default {
         cropAvatar: function(){
             this.isCropped = true;
             this.avatarImage = this.$refs.cropper.getCroppedCanvas().toDataURL();
-            console.log(this.$parent);
         }
     },
     created: function () {
-        this.avatarImage = this.defaultAvatarUrl;
     },
     mounted: function () {
 
