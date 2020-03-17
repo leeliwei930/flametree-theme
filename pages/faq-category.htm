@@ -1,0 +1,14 @@
+title = "FAQ Category | "
+layout = "main"
+url = "/faq-category/:slug"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[FaqCategory]
+slug = "{{:slug}}"
+==
+
+<div class="d-flex flex-column align-items-around">
+{% component 'FaqCategory' %}
+</div>

@@ -1,12 +1,14 @@
 <template lang="pug">
-    .card
-        .card-header.bg-primary-light.text-white(@click="$emit('click')")
+
+    .card.shadow.accordian
+        .accordian-header.p-3(@click="$emit('click')")
             slot(name="header")
-        .accordian-content.border.bg-light(
+        .accordian-content.bg-light(
             :style="accordianStyle",
             :class="showAccordian",
         )
-            slot
+            .accordian-paragraph.p-3
+                slot
 </template>
 <style lang="scss">
     @keyframes showAccordian {
@@ -16,42 +18,43 @@
         }
         to {
             opacity:1;
-
         }
     }
-
-
     @keyframes hideAccordian {
         from {
             opacity:1;
-
         }
         to {
             opacity:0;
             height: 0;
-
         }
     }
-    .card .accordian-content {
+    .accordian {
+        max-width: 800px;
+    }
+
+    .accordian-header {
+        background-color: rgb(var(--primary-color-rgba));
+        color: white;
+    }
+    .accordian-content {
         overflow-y: scroll;
+        &.show {
+            animation-name: showAccordian;
+            animation-duration:0.25s;
+            animation-fill-mode:forwards;
+            animation-timing-function: ease-in;
+        }
+
+        &.hide  {
+            animation-name: hideAccordian;
+            animation-duration:0.25s;
+            animation-fill-mode:forwards;
+            animation-timing-function: ease-in-out;
+        }
     }
-    .card .accordian-content.show {
-        animation-name: showAccordian;
-        animation-duration:0.25s;
-        animation-fill-mode:forwards;
-        animation-timing-function: ease-in;
-
-    }
-
-    .card .accordian-content.hide  {
-        animation-name: hideAccordian;
-        animation-duration:0.25s;
-
-        animation-fill-mode:forwards;
-        animation-timing-function: ease-in-out;
 
 
-    }
 </style>
 <script type="text/javascript">
 export default {
