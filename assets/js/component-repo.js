@@ -55,7 +55,7 @@ export default {
     MegaFooterHeader: () => import (/*webpackChunkName: "mega-footer-header-vue-component"*/"@components/mega-footer/MegaFooterHeader"),
     MegaFooterItem: () => import (/*webpackChunkName: "mega-footer-item-vue-component"*/"@components/mega-footer/MegaFooterItem"),
 
-    Hero: () => import (/*webpackChunkName: "mega-footer-item-vue-component"*/ "@components/hero/Hero.vue"),
+    Hero: () => import (/*webpackChunkName: "hero-vue-component"*/ "@components/hero/Hero.vue"),
     SocialButton: () => import(/*webpackChunkName: "social-button-vue-component" */"@components/social-bars/SocialButton"),
     DropdownPagination: () => import(/*webpackChunkName: "dropdown-pagination-vue-component" */"@components/pagination/DropdownPagination"),
     'accordion' : () => import(/*webpackChunkName: "accordion-vue-component" */ "@components/accordian/Accordian"),
@@ -65,7 +65,7 @@ export default {
     Accordian: () => import(/*webpackChunkName: "accordion-vue-component" */ "@components/accordian/Accordian"),
     AccordianView:  () => import(/*webpackChunkName: "accordion-view-vue-component" */ "@components/accordian/AccordianView"),
 
-    EventCard: () =>  import(/*webpackChunkName: "tile-card-vue-component" */ "@components/cards/EventCard"),
-    Calendar:  () => import(/*webpackChunkName: "tile-card-vue-component" */ "@components/cards/Calendar"),
+    EventCard: () =>  import(/*webpackChunkName: "event-card-vue-component" */ "@components/cards/EventCard"),
+    Calendar:  () => import(/*webpackChunkName: "calendar-card-vue-component" */ "@components/cards/Calendar"),
 };
 
