@@ -26,7 +26,7 @@
             .avatar(slot="reference" @click="openFilePicker")
                 div(:id="'preview-'+fieldId" class="avatar-preview rounded-full")
                     img(:src="defaultAvatarUrl" v-show="!afterSelectImage")
-                input(type="file"  accept="image/*" class="d-none" :name=" fieldName" :id="'_'+fieldId" @change="avatarChanged")
+                input(type="file"  accept="image/*" class="d-none" :name=" getFieldName" :id="'_'+fieldId" @change="avatarChanged")
 
 
 </template>
@@ -105,7 +105,6 @@ export default {
     methods: {
 
         avatarChanged: function (event) {
-
             if (event.target.files != null && event.target.files.length == 1) {
                 let file = event.target.files[0];
                 if(file.type.indexOf('image/') === -1){
@@ -141,6 +140,14 @@ export default {
     updated: function () {
 
     },
+    computed: {
+        getFieldName(){
+            if(this.afterSelectImage){
+                return this.fieldName;
+            }
+            return "_" + this.fieldName;
+        }
+    }
 }
 
 </script>
