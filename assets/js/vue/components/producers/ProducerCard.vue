@@ -1,28 +1,55 @@
 <template lang="pug">
     .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
-        :class="{'hoverable' : hoverable ,'lozad' : image !== '', 'loading' : loading}"
-        :style="backgroundStyle"
-        :data-background-image="dataImage"
+        :class="{'hoverable' : hoverable }"
+        v-lazy:background-image="imgObj"
     )
-        h5.origin-label.p-3.mb-auto
-            i.fas.fa-map-marker-alt.mx-1(v-show="origin")
-            | {{origin}}
-        h2.card-title.px-4.py-3(:class="nameClass") {{ name }}
-        h3.subheading.px-4.py-3(v-if="subheading") {{ subheading }}
-        slot(name="actions")
+        .producer-card-content.d-flex.flex-row.justify-content-between.w-100
+            .d-flex.flex-column
+                h5.origin-label.p-3.mb-auto
+                    i.fas.fa-map-marker-alt.mx-1(v-show="origin")
+                    | {{origin}}
+                h2.card-title.px-4.py-3(:class="nameClass") {{ name }}
+                h3.subheading.px-4.py-3(v-if="subheading") {{ subheading }}
+            .d-flex.flex-row
+                slot(name="actions")
+        .producer-card-overlay(:style="bgOverlayStyle")
 
 
 
 </template>
 <style lang="scss">
 .producer-card {
+    position: relative;
     height: 400px;
+
+    width: 100%;
     border-radius: 13pt;
     transition: all 0.25s;
+    z-index: 3;
+    &[lazy=loaded] {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &[lazy=loading] {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
     h5.origin-label {
         font-family: 'Nunito', sans-serif;
         font-size: 12pt;
         color: white;
+    }
+    .producer-card-content {
+        z-index: 3;
+
+    }
+    .producer-card-overlay {
+        position: absolute;
+        z-index:1;
+        width: 100%;
+        height: 100%;
+        border-radius: 13pt;
+
     }
 
     &.hoverable:hover {
@@ -89,40 +116,29 @@ export default {
     },
     data: function(){
         return {
-            loading: false
+            imgObj : {
+                src: null,
+                loading: null
+            }
         }
     },
     methods: {
 
     },
     created: function(){
-        if(this.image !== ''){
-            this.loading = true;
-        }
+        this.imgObj.src = this.dataImage;
+        this.imgObj.loading = this.image;
     },
     mounted: function(){
 
-        this.$on('loaded', () => {
-            this.loading = false;
 
-        })
     },
     updated: function(){
 
     },
     computed: {
-        backgroundStyle: function () {
-            if(this.image !== ''){
-                if(this.loading){
-
-                    return `background-image: ${this.gradient}, url('${this.image}');background-size:100% 100%;background-repeat:no-repeat;width:${this.width};`
-                } else {
-
-                    return `background-image: ${this.gradient}, url('${this.dataImage}');background-size: 100% 100%;background-repeat:no-repeat;width:${this.width};`
-                }            }
-            else {
-                return `background:${this.gradient};width:${this.width};`
-            }
+        bgOverlayStyle(){
+            return `background-image:${this.gradient}; background-repeat:no-repeat; background-size:cover`
         }
     }
 }

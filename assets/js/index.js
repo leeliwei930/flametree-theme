@@ -5,8 +5,17 @@ import Mmenu from 'mmenu-js/src/mmenu.js';
 import VueGallery from 'vue-gallery-slideshow'
 import PortalVue from 'portal-vue';
 import moment from 'moment-timezone';
-
+import VueLazyload from 'vue-lazyload'
 import  momentDurationFormatSetup from "moment-duration-format";
+Vue.use(VueLazyload, {
+    preLoad: 1.3,
+    observer: true,
+    observerOptions: {
+        rootMargin: '0px',
+        threshold:0.9
+    }
+});
+
 momentDurationFormatSetup(moment);
 
 Vue.prototype.$moment = moment;
@@ -29,7 +38,7 @@ Vue.use(PortalVue);
 Vue.use(VueX);
 Vue.use(VueGallery);
 
-import { components } from '@flametree-theme/js/component-repo.js';
+import components from '@flametree-theme/js/component-repo.js';
 import { BrowserTimeZoneConverter } from "@flametree-theme/js/util.js";
 
 
@@ -38,9 +47,10 @@ Vue.prototype.$window = window;
 Vue.prototype.$ = window.jQuery;
 Vue.prototype.$tzConverter = BrowserTimeZoneConverter;
 
-// peform global component registration
+// perform global component registration
 Object.keys(components).forEach((index) => {
     Vue.component(index, components[index])
+    // eslint-disable-next-line no-debugger
 });
 
 window.Vue = Vue;
@@ -118,7 +128,7 @@ window.app = new Vue({
                 return;
             }
             window.addEventListener('scroll', () => {
-                if(window.scrollY > 450){
+                if(window.scrollY > 200){
                     document.getElementById('flametree-navigation-bar').classList
                         .add('fixed-top', 'animated', 'fadeInDown')
                 } else {
@@ -137,7 +147,7 @@ window.app = new Vue({
     },
 
     updated: function(){
-        this.$forceUpdate();
+        // this.$forceUpdate();
     },
     computed: {
 

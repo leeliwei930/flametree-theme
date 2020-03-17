@@ -1,9 +1,10 @@
 <template lang="pug">
     .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto(
-        :class="{'hoverable' : hoverable, 'lozad' : featuredImageUrl != null, 'loading' : loading}"
+        :class="{'hoverable' : hoverable }"
     )
         .col-12.col-md-6.p-0
-            .featured-image.rounded(:style="featuredImageStyle")
+            .featured-image.rounded( v-lazy:background-image="imgObj")
+                .featured-image-bg-overlay(:style="featuredImageOverlayStyle")
         .col-12.col-md-6.p-3
             .d-flex.flex-column.justify-content-start
                 h5.post-title.small {{ title }}
@@ -24,7 +25,28 @@
         transition: 0.25s all;
         .featured-image {
             height:100%;
+            position: relative;
+            z-index: 1;
             min-height: 320px;
+            &[lazy=loaded] {
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &[lazy=loading] {
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &[lazy=error] {
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+
+            .featured-image-bg-overlay {
+                position: absolute;
+                z-index:3;
+                width: 100%;
+                height: 100%;
+            }
         }
 
 
@@ -75,51 +97,33 @@ export default {
     },
     data: function(){
         return {
-            loading: false
+            imgObj : {
+                src: null,
+                loading: null
+            }
         }
     },
     methods: {
 
     },
     created: function(){
-        if(this.featuredImageUrl == null)
-        {
-            this.loading = false;
-        }
+        this.imgObj.src = this.dataFeaturedImageUrl;
+        this.imgObj.loading = this.featuredImageUrl;
     },
     mounted: function(){
-        this.$on('loading', function(){
-            this.loading = true;
-        });
 
-        this.$on('loaded', function(){
-            this.loading = false;
-        });
     },
     updated: function(){
 
     },
     computed: {
-        featuredImageStyle: function(){
-            if(this.featuredImageUrl != null){
-                if(this.loading)
-                {
-                    return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.featuredImageUrl}');
-                background-size:cover;
-                background-repeat:no-repeat`
+        featuredImageOverlayStyle: function(){
 
-                } else {
-                    return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataFeaturedImageUrl}');
-                background-size:cover;
-                background-repeat:no-repeat`
+            return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8));
+            background-size:cover;
+            background-repeat:no-repeat`
 
-                }
-            } else {
-                return `background:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)));
-                background-size:cover;
-                background-repeat:no-repeat`
 
-            }
 
         }
     }

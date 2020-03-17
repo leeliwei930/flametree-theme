@@ -1,11 +1,37 @@
 <template lang="pug">
-    .flametree-theme(:class="{'lozad' : backgroundImage !== '', 'loading' : loading}")
-        .hero(:style="heroBgStyle" )
+        .hero( v-lazy:background-image="imgObj")
+            .hero-content
                 slot
+            .hero-overlay(:style="bgOverlayStyle")
 
 </template>
 <style lang="scss">
+    .hero {
+        position: relative;
+        .hero-overlay {
+            position: absolute;
+            z-index:1;
+            width: 100%;
+            height: 100%;
+        }
+        .hero-content {
 
+            z-index: 3;
+            width: 100%;
+            display: flex;
+        }
+
+
+
+        &[lazy=loaded] {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        &[lazy=loading] {
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
 </style>
 <script type="text/javascript">
 export default {
@@ -20,49 +46,27 @@ export default {
         },
         gradientColor: {
             type: String,
-            default: "linear-gradient(0deg, rgba(var(--primary-color-rgba), 0.4), rgba(var(--accent-color-rgba), 0.9))"
+            default: "linear-gradient(0deg, rgba(var(--primary-color-rgba), 0.2), rgba(var(--accent-color-rgba), 0.3))"
         }
     },
     data: function() {
         return {
-            loading: false
+            imgObj : {
+                src: null,
+                loading: null
+            }
         }
     },
     created() {
-        if(this.backgroundImage !== ''){
-            this.loading = true;
-        }
+        this.imgObj.src = this.backgroundImageData;
+        this.imgObj.loading = this.backgroundImage;
     },
-    mounted() {
-
-
-        this.$on('loaded', () => {
-            this.loading = false;
-        })
-
-    },
-
-    computed : {
-        heroBgStyle: function(){
-            if(this.backgroundImage !== ""){
-                if(this.loading)
-                {
-                    return `background-image:${this.gradientColor}, url('${this.backgroundImage}');
-                    background-size:cover;
-                    background-repeat:no-repeat`
-                } else {
-                    return `background-image:${this.gradientColor}, url('${this.backgroundImageData}');
-                    background-size:cover;
-                    background-repeat:no-repeat`
-                }
-            } else {
-                return `background-image:${this.gradientColor};
-                    background-size:cover;
-                    background-repeat:no-repeat`
-            }
-
+    computed: {
+        bgOverlayStyle(){
+            return `background-image:${this.gradientColor}; background-repeat:no-repeat; background-size:cover`
         }
     }
+
 
 }
 

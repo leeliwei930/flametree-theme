@@ -10,24 +10,9 @@
 export default  {
 
     methods: {
-        selectFirstItem: function(){
-            if( this.$slots.default != null){
-                if( this.$slots.default.length > 0){
 
-                    let defaultSelection = this.$slots.default[0].componentOptions.propsData.title;
-                    if(defaultSelection == null){
-                        defaultSelection = 'unknown'
-                    }
-                    this.updateSelectedMenu(defaultSelection)
-                }
-            }
-        },
-        updateSelectedMenu: function(item){
-            this.$store.commit("Navbar/setCurrentSelectedMenu", item)
-        }
     },
     mounted: function(){
-        this.selectFirstItem();
     }
 }
 </script>

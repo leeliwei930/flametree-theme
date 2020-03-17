@@ -33,14 +33,14 @@ postPage = "announcements"
 
 {% put styles %}
     <style>
-    .our-producers.lozad.loading {
-        background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)),url({{  '/assets/images/gardens.jpg' | theme | resize(640, null) }});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+    {#.our-producers {#}
+    {#    background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)),url({{  '/assets/images/gardens.jpg' | theme | resize(640, null) }});#}
+    {#    background-size: cover;#}
+    {#    background-repeat: no-repeat;#}
+    {#    background-attachment: fixed;#}
+    {#}#}
 
-        .our-producers.lozad.loaded {
+        .our-producers {
             background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url("/themes/flametree-theme/assets/images/gardens.jpg");
             background-size: cover;
             background-repeat: no-repeat;
@@ -48,7 +48,7 @@ postPage = "announcements"
         }
     </style>
 {% endput %}
-<div class="flametree-theme our-producers d-flex flex-row flex-wrap justify-content-start  px-3 py-5 lozad">
+<div class="flametree-theme our-producers d-flex flex-row flex-wrap justify-content-start  px-3 py-5 ">
 
     <div class="d-flex flex-column align-self-sm-start align-self-xl-center  justify-content-start px-5 py-5 ">
         <h1 class="headline-light text-uppercase text-primary w-25">
@@ -63,14 +63,9 @@ postPage = "announcements"
 
 {% put styles %}
     <style>
-        .announcements.lozad.loading {
-            background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)),url({{  'assets/images/contact.jpg' | theme | resize(640, null) }});
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
 
-        .announcements.lozad.loaded {
+
+        .announcements {
             background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url({{ 'assets/images/contact.jpg' | theme }}) ;
             background-size: cover;
             background-repeat: no-repeat;
@@ -79,7 +74,7 @@ postPage = "announcements"
         }
     </style>
 {% endput %}
-<div class="flametree-theme announcements d-flex flex-column justify-content-around py-5 lozad">
+<div class="flametree-theme announcements d-flex flex-column justify-content-around py-5 ">
     <div class="d-flex flex-column align-self-sm-start  justify-content-start p-5">
 
     <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>

@@ -166,11 +166,11 @@
         height:320px;
         .hero-title {
             font-family: 'Lato Black', sans-serif;
-            color: $accentColor;
+            color: $white;
         }
         .hero-subheading {
             font-family: 'Lato', sans-serif;
-            color: $accentColor;
+            color: $white;
         }
     }
 
@@ -180,6 +180,7 @@
 
         &.absolute {
             transform: translateY(-50px);
+            z-index: 5;
         }
 
         .post-html {

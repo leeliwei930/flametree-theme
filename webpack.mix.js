@@ -13,6 +13,9 @@ let mix = require('laravel-mix');
  */
 
 mix
+.babelConfig({
+    plugins: ['@babel/plugin-syntax-dynamic-import'],
+})
 .webpackConfig({
         devtool: 'inline-source-map',
         resolve: {
@@ -21,6 +24,11 @@ mix
                 '@store': path.resolve(__dirname, 'assets/js/vue/store'),
                 '@flametree-theme' : path.resolve('assets')
             }
+        },
+        output: {
+            publicPath: "/themes/flametree-theme/",
+            chunkFilename: "assets/public/js/chunks/[name].js",
+
         },
         module: {
             rules: [
@@ -48,7 +56,6 @@ mix
 .disableNotifications()
 .js('assets/js/index.js' , 'assets/public/js/index.js')
 .js('assets/js/jquery.js' , 'assets/public/js/jquery.js')
-.js('assets/js/lozad.js' , 'assets/public/js/lozad.js')
 
 .sass('assets/css/authenticated/app.scss', 'assets/public/css/authenticated/app.css')
 .sass('assets/css/lib.scss', 'assets/public/css/lib.css')

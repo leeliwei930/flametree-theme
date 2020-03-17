@@ -1,19 +1,20 @@
 <template lang="pug">
     .godspeed-slide-wrapper.d-flex.flametree-theme.w-100.justify-content-center.flex-column(
-        :style="slideBgStyle"
-        :class="{'loading' : loading , 'lozad' : image !== null}"
-        )
+        v-lazy:background-image="imgObj"
+    )
         .godspeed-slide.m-3.m-md-5.p-2(v-if="show")
-            h1.slide-title(:class="titleClasses")  {{ title }}
-            p.slide-caption(v-if="caption !== ''" :class="captionClasses").slide-caption {{ caption }}
-            .d-flex.justify-content-start.flex-row.flex-wrap(:class="captionClasses")
-                template(v-if="showPrimaryActionButton === '1'")
-                    a.mr-2.my-2.shadow-sm(:class="primaryButtonClasses" :href="primaryActionButtonLink")
-                        | {{ primaryActionButtonText }}
-                        i.mx-3.fas.fa-chevron-right
-                template(v-if="showSecondaryActionButton === '1'")
-                    a.mr-2.my-2(:class="secondaryButtonClasses" :href="secondaryActionButtonLink")
-                        | {{ secondaryActionButtonText }}
+            .godspeed-slide-content
+                h1.slide-title(:class="titleClasses")  {{ title }}
+                p.slide-caption(v-if="caption !== ''" :class="captionClasses").slide-caption {{ caption }}
+                .d-flex.justify-content-start.flex-row.flex-wrap(:class="captionClasses")
+                    template(v-if="showPrimaryActionButton === '1'")
+                        a.mr-2.my-2.shadow-sm(:class="primaryButtonClasses" :href="primaryActionButtonLink")
+                            | {{ primaryActionButtonText }}
+                            i.mx-3.fas.fa-chevron-right
+                    template(v-if="showSecondaryActionButton === '1'")
+                        a.mr-2.my-2(:class="secondaryButtonClasses" :href="secondaryActionButtonLink")
+                            | {{ secondaryActionButtonText }}
+        .godspeed-slide-overlay(:style="bgOverlayStyle")
 </template>
 <style lang="scss" >
 .godspeed-slide-wrapper {
@@ -22,10 +23,38 @@
     flex-shrink: 0;
     width: 100%;
     overflow: hidden;
-}
+    position: relative;
+
+    .godspeed-slide-overlay {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    &[lazy=loaded] {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &[lazy=loading] {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 .godspeed-slide {
     height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    .godspeed-slide-content {
+        z-index: 5;
 
+        height: 100%;
+        width: 100%;
+
+    }
+
+
+}
 }
 </style>
 <script type="text/javascript">
@@ -109,42 +138,29 @@ export default {
     },
     data: function(){
         return {
-            loading: false
+            imgObj : {
+                src: null,
+                loading: null
+            }
         }
     },
     methods: {
 
     },
     created: function(){
-        if(this.image !== ''){
-            this.loading = true;
-        }
+        this.imgObj.src = this.dataImage;
+        this.imgObj.loading = this.image;
     },
     mounted: function(){
-        this.$on('loading', () => {
-            this.loading = true;
-        });
-        this.$on('loaded', () => {
-            this.loading  = false;
-        });
+
     },
     updated: function(){
 
     },
     computed:{
-        slideBgStyle: function(){
+        bgOverlayStyle: function(){
 
-            if(this.image != null){
-                if(!this.loading){
-                    return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.dataImage}');background-size:cover;background-repeat:no-repeat`
-                } else {
-                    return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url('${this.image}');background-size:cover;background-repeat:no-repeat`
-                }
-            } else {
-                return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8))`
-
-            }
-
+            return `background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8))`
 
         },
         titleClasses: function(){
