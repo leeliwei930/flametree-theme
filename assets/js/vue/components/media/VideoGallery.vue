@@ -59,6 +59,9 @@ export default {
     },
     methods: {
         shortenVideoDescription: function(description){
+            if(description === null){
+                return  "Unknown"
+            }
             return description.substring(0, 15);
         },
         registerPlayerInstance: function(player){
