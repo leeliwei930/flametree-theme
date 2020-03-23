@@ -30,7 +30,7 @@
         }
     }
     .accordian {
-        max-width: 800px;
+        width: 100%;
     }
 
     .accordian-header {

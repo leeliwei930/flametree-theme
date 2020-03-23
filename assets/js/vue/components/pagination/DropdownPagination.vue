@@ -1,7 +1,6 @@
 <template lang="pug">
-.flametree-theme
     .text-field-control
-        label NAVIGATE TO OTHER PAGE
+        label PAGES
         select.text-field(@input="fireChangedEvent" )
             option(v-if="prevPageUrl !== ''"  :value="prevPageUrl")
                 | Go to previous page

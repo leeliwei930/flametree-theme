@@ -1,36 +1,6 @@
 
-//
-// import SidebarMenuItem from '@components/mega-menu/SidebarMenuItem';
-// import MenuItem from '@components/mega-menu/MenuItem';
-//
-// import VideoGallery from "@components/media/VideoGallery.vue";
-// import VideoPlayer from "@components/media/VideoPlayer.vue"
-// import VideoPlaylist from "@components/media/VideoPlaylist.vue";
-// import VideoThumbnail from "@components/media/VideoThumbnail.vue";
-//
 import Carousel from "@components/carousels/Carousel.vue";
 import Slide from "@components/carousels/Slide.vue";
-//
-// import ProducerCard from "@components/producers/ProducerCard.vue";
-// import AnnouncementBasicCard from "@components/announcements/AnnouncementBasicCard";
-// import AnnouncementListCard from "@components/announcements/AnnouncementListCard";
-// import TileCard from "@components/cards/TileCard";
-// import EventCard from "@components/cards/EventCard";
-// import Calendar from "@components/cards/Calendar";
-// import MegaFooter from "@components/mega-footer/MegaFooter";
-// import MegaFooterHeader from "@components/mega-footer/MegaFooterHeader";
-// import MegaFooterItem from "@components/mega-footer/MegaFooterItem";
-//
-// // import SocialButton from "@components/social-bars/SocialButton";
-// import Hero from "@components/hero/Hero.vue";
-//
-// import DropdownPagination from "@components/pagination/DropdownPagination";
-//
-// import UploadAvatar from "@components/avatarfield/UploadAvatar";
-//
-// import Accordian from "@components/accordian/Accordian";
-// import AccordianView from "@components/accordian/AccordianView";
-
 
 
 
@@ -50,7 +20,7 @@ export default {
     ProducerCard: () => import(/*webpackChunkName: "producer-card-vue-component"*/ "@components/producers/ProducerCard"),
     AnnouncementBasicCard: () => import(/*webpackChunkName: "announcement-basic-card-vue-component"*/ "@components/announcements/AnnouncementBasicCard"),
     AnnouncementListCard: () => import (/*webpackChunkName: "announcement-list-card-vue-component"*/"@components/announcements/AnnouncementListCard"),
-
+    TrainingCard: () => import(/*webpackChunkName: "training-card-vue-component" */ "@components/cards/TrainingCard"),
     MegaFooter: () => import(/*webpackChunkName: "mega-footer-vue-component"*/"@components/mega-footer/MegaFooter"),
     MegaFooterHeader: () => import (/*webpackChunkName: "mega-footer-header-vue-component"*/"@components/mega-footer/MegaFooterHeader"),
     MegaFooterItem: () => import (/*webpackChunkName: "mega-footer-item-vue-component"*/"@components/mega-footer/MegaFooterItem"),

@@ -12,15 +12,15 @@ forceSecure = 0
 ==
 
 <div class="flametree-theme">
+    <div class="d-flex">
+        {% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
 
+    </div>
     <div class="d-flex flex-column align-items-center">
-        <div class="d-flex flex-column bg-light shadow rounded-lg   post-card absolute " style="min-height: 640px">
 
 
-            {% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
             {% component 'account' %}
 
-        </div>
 
     </div>
 </div>

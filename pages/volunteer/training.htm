@@ -1,0 +1,15 @@
+title = "Training"
+url = "volunteer/training/:slug"
+description = "Training Page"
+layout = "volunteer"
+
+[Training]
+searchBy = "slug"
+searchKey = "{{ :slug }}"
+==
+<div class="d-flex">
+    {% partial 'nav-header' backBtnLink= "volunteer/training-resources" backBtnText="Back To All Trainings" %}
+
+</div>
+
+{% component 'Training' %}

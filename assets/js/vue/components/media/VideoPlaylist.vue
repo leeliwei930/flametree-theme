@@ -1,15 +1,13 @@
 <template lang="pug">
 .d-flex.flex-column.justify-content-start
-    h5.text-primary.text-uppercase.py-2
+    h5.text-primary.text-uppercase.p-3.font-weight-bold
         | {{title}}
-    .video-playlist
+    .video-playlist.d-flex
         slot
 </template>
 <style lang="scss">
 .video-playlist {
-    max-height: 35rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-x: scroll;
     padding:15px;
 }
 </style>

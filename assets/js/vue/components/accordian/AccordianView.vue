@@ -1,5 +1,5 @@
 <template lang="pug">
-    .accordion
+    .w-100
         slot(
             :accordianCtrl="accordianCtrl"
         )
