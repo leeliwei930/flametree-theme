@@ -1,14 +1,15 @@
-layout = "volunteer"
-url = "volunteer/event/:slug"
 title = "Event"
+url = "/membership/event/:slug"
+layout = "volunteer"
 description = "Events"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [Event]
-searchKey = "{{ :slug }}"
 searchBy = "slug"
-
+searchKey = "{{ :slug }}"
 ==
 {% partial 'nav-header' backBtnLink= "volunteer/events" backBtnText="Back To Events" %}
 
 {% component 'Event' %}
-

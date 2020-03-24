@@ -3,7 +3,7 @@
         :class="{'hoverable' : hoverable }"
         v-lazy:background-image="imgObj"
     )
-        .producer-card-content.d-flex.flex-row.justify-content-between.w-100
+        .producer-card-content.d-flex.flex-row.justify-content-between.w-100.flex-wrap
             .d-flex.flex-column
                 h5.origin-label.p-3.mb-auto
                     i.fas.fa-map-marker-alt.mx-1(v-show="origin")
@@ -53,7 +53,7 @@
     }
 
     &.hoverable:hover {
-        cursor: pointer;
+
         box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5) !important;
         transform: translateY(-5px);
         -webkit-transform: translateY(-5px);

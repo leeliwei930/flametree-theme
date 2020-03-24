@@ -1,7 +1,11 @@
-layout = "volunteer"
 title = "Announcement Category | Volunteer Portal"
-url = "/volunteer/announcement-category"
+url = "/membership/announcement-category"
+layout = "volunteer"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 ==
+<?php
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :category }}"
@@ -10,6 +14,6 @@ noPostsMessage = "No posts found"
 sortOrder = "published_at desc"
 categoryPage = "volunteer/announcement-category"
 postPage = "volunteer/announcement"
+?>
 ==
-
 {% partial  %}
