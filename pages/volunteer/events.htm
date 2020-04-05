@@ -6,37 +6,12 @@ robot_index = "index"
 robot_follow = "follow"
 
 [Events]
-limit = 0
-list_only = "all"
 max_period = 1
 period = "months"
 ==
-<div class=" d-flex  flex-column flex-wrap mx-3 justify-content-around ">
 
+            <div class="d-flex flex-column">
 
-            {% put tabs %}
-            {% partial "components/tab"
-                icon="fa-list"
-                link=( 'volunteer/events' | page )
-                title="ALL"
-                isActive=  (Events.getScope() == 'all' )
-            %}
-            {% partial "components/tab"
-                icon="fa-rocket"
-                link=( 'volunteer/events' | page ~ '?scope=upcoming')
-                title="UPCOMING"
-                isActive=  (Events.getScope() == 'upcoming' )
-            %}
-            {% partial "components/tab"
-                icon="fa-history"
-                link=( 'volunteer/events' | page ~ '?scope=past')
-                title="PAST"
-                isActive=  (Events.getScope() == 'past' )
-            %}
-            {% endput %}
-            {% partial "components/tabs" %}
-                <div class="mx-auto">
-                    {%  component 'Events' %}
-                </div>
+                {%  component 'Events' %}
+            </div>
 
-    </div>

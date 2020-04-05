@@ -37,5 +37,10 @@ export default {
 
     EventCard: () =>  import(/*webpackChunkName: "event-card-vue-component" */ "@components/cards/EventCard"),
     Calendar:  () => import(/*webpackChunkName: "calendar-card-vue-component" */ "@components/cards/Calendar"),
+    ListView:  () => import(/*webpackChunkName: "list-view-vue-component" */ "@components/listview/ListView"),
+    List:  () => import(/*webpackChunkName: "list-vue-component" */ "@components/listview/List")
+
+
+
 };
 

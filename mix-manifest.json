@@ -30,5 +30,7 @@
     "/assets/public/js/chunks/video-playlist-vue-component.js": "/assets/public/js/chunks/video-playlist-vue-component.js",
     "/assets/public/js/chunks/video-thumbnail-vue-component.js": "/assets/public/js/chunks/video-thumbnail-vue-component.js",
     "/assets/public/css/override.css": "/assets/public/css/override.css",
-    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js"
+    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js",
+    "/assets/public/js/chunks/list-view-vue-component.js": "/assets/public/js/chunks/list-view-vue-component.js",
+    "/assets/public/js/chunks/list-vue-component.js": "/assets/public/js/chunks/list-vue-component.js"
 }

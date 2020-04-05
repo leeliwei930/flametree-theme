@@ -1,8 +1,8 @@
 <template lang="pug">
     .event-card
         .stripe.rounded-lg.rounded-0-bottom
-        .d-flex.flex-column.flex-wrap.bg-light.shadow-lg.rounded-lg.justify-content-around.align-items-center.event-card-body.p-3
-            .d-flex.flex-column
+        .d-flex.flex-column.flex-wrap.bg-light.shadow.rounded-lg.event-card-body.p-3
+            .d-flex.flex-column.justify-content-around.align-items-center
                 .d-flex.flex-row.flex-wrap.justify-content-around
                     strong.text-uppercase.countdown(v-if="showCountDown")
                         i.fas.fa-clock.mx-2
@@ -21,11 +21,11 @@
             .d-flex.flex-column.align-content-around
                 h5.text-primary.event-title {{ name }}
                 slot
-            .d-flex.flex-row.flex-wrap.justify-content-between
-                a.d-flex.justify-content-between.align-items-center.btn.w-100.my-2.btn-primary.hover-move-right(v-if="link != ''" :href="link")
+            .d-flex.flex-row.flex-wrap.justify-content-center
+                a.d-flex.justify-content-between.flex-grow-1.align-items-center.btn.m-2.btn-primary.hover-move-right(v-if="link != ''" :href="link")
                     | MORE DETAILS
                     i.fas.fa-chevron-right.mx-2
-                a.d-flex.justify-content-between.align-items-center.btn.w-100.my-2.btn-outline-primary( :href="icsLink")
+                a.d-flex.justify-content-between.flex-grow-1.align-items-center.btn.m-2.btn-outline-primary( :href="icsLink")
                     | DOWNLOAD EVENT FILE
                     i.fas.fa-download.mx-2
 
@@ -33,7 +33,6 @@
 </template>
 <style lang="scss">
 .event-card {
-    width: 400px;
 
     .countdown , .location {
         color: gray;

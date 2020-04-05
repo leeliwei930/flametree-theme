@@ -21,7 +21,6 @@
     .announcement-card-list {
         height:auto;
         width: 100%;
-        max-width:768px;
         transition: 0.25s all;
         .featured-image {
             height:100%;

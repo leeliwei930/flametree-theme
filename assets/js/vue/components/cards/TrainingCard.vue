@@ -1,6 +1,6 @@
 <template lang="pug">
-    .training-card.d-inline-flex.justify-content-around.bg-white.shadow.rounded-lg.flex-wrap.flex-column.p-3.my-2
-            h6.posted-at.text-accent.text-uppercase {{ postedAt }}
+    .training-card.d-flex.justify-content-around.bg-white.shadow.rounded-lg.flex-wrap.flex-column.p-3
+            h6.text-primary.text-uppercase {{ postedAt }}
             h4 {{ title }}
             slot
 
@@ -13,8 +13,8 @@
 </template>
 <style lang="scss">
 .training-card {
-    height: 320px;
-    width:  30rem;
+    height: 360px;
+    width: 100%;
     .posted-at {
         font-weight: bold;
     }
