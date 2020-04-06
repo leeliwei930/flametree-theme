@@ -11,44 +11,42 @@ duration = 7
 duration_unit = "days"
 max_records = 5
 
-
+[UpcomingEvents]
+scope = 1
+period = "months"
 ==
-<div class="flametree-theme">
-        <div class="d-flex flex-row flex-wrap  justify-content-center align-items-start">
-            <div class="d-flex flex-column flex-wrap flex-grow-1 col-md-7 col-12">
-                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
-                    <div class="panel-header-primary d-flex justify-content-start  rounded-top  align-items-baseline m-0 ">
-                        <i class="fas fa-bell mx-2"></i>
-                        <span class="text-uppercase font-weight-bold">{{ recentAnnouncement.getPanelHeaderTitle() }}</span>
-                    </div>
-                    <div class="p-2">
-                        {% component 'recentAnnouncement' %}
-
-                    </div>
-                </div>
-                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
-                    <div class="panel-header-primary d-flex justify-content-start   rounded-top align-content-center m-0 ">
-                        <span class="font-weight-bold" >UPCOMING EVENTS</span>
-                    </div>
-                        <div class="post-list-view justify-content-center ">
-                        <div class="d-flex flex-column flex-wrap">
-{#                          {% component 'Events' %}#}
-                        </div>
-                        </div>
-                </div>
+<div class="d-flex flex-row flex-wrap  justify-content-center m-3">
+    <div class="d-flex flex-column flex-wrap flex-grow-1 col-12 col-lg-8 ">
+        <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+            <div class="panel-header-primary d-flex justify-content-start  rounded-top  align-items-baseline m-0 ">
+                <i class="fas fa-bell mx-2"></i>
+                <span class="text-uppercase font-weight-bold">{{ recentAnnouncement.getPanelHeaderTitle() }}</span>
             </div>
-            <div class=" col-md-3 col-12">
-                <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
-
-                    <div class="panel-header-primary d-flex justify-content-between align-items-baseline rounded-top">
-                        <span class="font-weight-bold">MY PROFILE</span>
-                        <a href="{{ "volunteer/profile-settings" | page }}">
-                            <i class="fas fa-edit text-white"></i>
-                        </a>
-                    </div>
-                        {% partial 'profile-basic-info' %}
-                </div>
+            <div class="p-2">
+                {% component 'recentAnnouncement' %}
 
             </div>
         </div>
+        <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+            <div class="panel-header-primary d-flex justify-content-start  rounded-top  align-items-baseline m-0 ">
+                <i class="fas fa-calendar mx-2"></i> <span class="font-weight-bold" >UPCOMING EVENTS</span>
+            </div>
+                <div class="d-flex flex-column flex-wrap">
+                  {% component 'UpcomingEvents' %}
+                </div>
+        </div>
+    </div>
+    <div class=" col-md-4 col-12">
+        <div class="d-flex flex-column  flex-wrap shadow-lg rounded-lg my-3">
+
+            <div class="panel-header-primary d-flex justify-content-between align-items-baseline rounded-top">
+                <span class="font-weight-bold">MY PROFILE</span>
+                <a href="{{ "volunteer/profile-settings" | page }}">
+                    <i class="fas fa-edit text-white"></i>
+                </a>
+            </div>
+                {% partial 'profile-basic-info' %}
+        </div>
+
+    </div>
 </div>

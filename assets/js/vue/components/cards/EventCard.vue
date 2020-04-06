@@ -21,11 +21,11 @@
             .d-flex.flex-column.align-content-around
                 h5.text-primary.event-title {{ name }}
                 slot
-            .d-flex.flex-row.flex-wrap.justify-content-center
-                a.d-flex.justify-content-between.flex-grow-1.align-items-center.btn.m-2.btn-primary.hover-move-right(v-if="link != ''" :href="link")
+            .d-flex.flex-md-row.flex-column.flex-wrap.justify-content-center.justify-content-md-end
+                a.d-flex.justify-content-between.flex-grow-1.flex-md-grow-0.align-items-center.btn.m-2.btn-primary.hover-move-right(v-if="link != ''" :href="link")
                     | MORE DETAILS
                     i.fas.fa-chevron-right.mx-2
-                a.d-flex.justify-content-between.flex-grow-1.align-items-center.btn.m-2.btn-outline-primary( :href="icsLink")
+                a.d-flex.justify-content-between.flex-grow-1.flex-md-grow-0.align-items-center.btn.m-2.btn-outline-primary( :href="icsLink")
                     | DOWNLOAD EVENT FILE
                     i.fas.fa-download.mx-2
 
