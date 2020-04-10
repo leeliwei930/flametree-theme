@@ -18,26 +18,30 @@ redirect = "volunteer/dashboard"
 ==
 <div class="d-flex flex-column align-content-center justify-content-center" >
     <div class="bg-white rounded-lg shadow-lg  mx-auto col-10 col-lg-4 px-3 py-4 my-5 ">
-        {{ form_ajax('onSignin') }}
+        {{ form_ajax('onSignin' ,  { 'data-request-validate' : true, 'data-request-flash': true }) }}
         <div class="flametree-theme">
             {% if get('success')  %}
             <div class="alert alert-success">
                 <p>{{ get('success')  }}</p>
             </div>
             {% endif %}
-            <h2 class="text-primary headline-light-bold small py-2">VOLUNTEER LOGIN</h2>
+            <h2 class="text-primary headline-light-bold small py-2">PORTAL LOGIN</h2>
             <div class="text-field-control my-1">
                 <label  for="volunteer_login_email">EMAIL</label>
 
                 <input name="login" id="volunteer_login_email" type="text"  class="text-field"/>
 
             </div>
+            <small class="text-danger" data-validate-for="login"></small>
+
             <div class="text-field-control my-1">
                 <label  for="volunteer_login_password">PASSWORD</label>
 
                 <input name="password" id="volunteer_login_password" type="password"  class="text-field"/>
 
             </div>
+            <small class="text-danger" data-validate-for="password"></small>
+
             <div class="d-flex flex-row justify-content-between my-2">
                 <a href="{{ 'login/volunteer-forgot' | page }}" class="text-link">Forgot Your Password?</a>
 

@@ -1,14 +1,10 @@
 name: 'Frontend Menu'
 items:
     -
-        title: 'About Us'
-        nesting: ''
-        type: url
-        url: /about-us
+        title: Announcements
+        type: cms-page
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
+        reference: blog/announcements
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -28,15 +24,20 @@ items:
             isExternal: '0'
     -
         title: Membership
+        nesting: ''
         type: header
+        url: ''
         code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
             isExternal: '0'
         items:
             -
-                title: 'Volunteer Login'
+                title: Portal
                 type: cms-page
                 code: ''
                 reference: login/volunteer
@@ -45,10 +46,10 @@ items:
                     cssClass: ''
                     isExternal: '0'
             -
-                title: 'Member Login'
+                title: 'Create an account'
                 type: cms-page
                 code: ''
-                reference: login/member
+                reference: signup/volunteer-signup
                 viewBag:
                     isHidden: '0'
                     cssClass: ''

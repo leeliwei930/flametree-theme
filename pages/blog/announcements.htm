@@ -33,7 +33,7 @@ function onStart(){
         <h1 class="hero-title text-uppercase m-auto align-self-center">Announcements</h1>
 </hero>
 
-<div class="d-flex flex-column align-content-around flex-wrap flametree-theme">
+<div class="d-flex flex-column  flex-wrap">
 
 
     {% put tabs %}
@@ -51,13 +51,13 @@ function onStart(){
         %}
     {% endput %}
     {% partial "components/tabs" %}
-    <div class="col-12 col-sm-10 col-md-10 col-lg-8">
 
     {%  if blogPosts.posts %}
+    <div class="mx-auto">
         {% for announcement in blogPosts.posts %}
             <announcement-list-card
                 key="{{ announcement.id }}"
-
+                class="col-11"
                 title="{{ announcement.title }}"
                 featured-image-url="{{ announcement.featured_images[0].getLocalPath() | resize(640, null) }}"
                 data-featured-image-url="{{ announcement.featured_images[0].path }}"
@@ -114,7 +114,6 @@ function onStart(){
         {{ blogPosts.noPostsMessage}}
 
     {%  endif %}
-
     </div>
 
 </div>
