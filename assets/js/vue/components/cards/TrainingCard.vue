@@ -3,8 +3,7 @@
             h6.text-primary.text-uppercase {{ postedAt }}
             h4 {{ title }}
             slot
-
-            a.d-flex.justify-content-center.align-items-center.btn.w-100.my-2.btn-primary.hover-move-right(
+            a.align-self-lg-end.d-inline-flex.justify-content-center.align-items-center.btn.my-2.btn-primary.hover-move-right(
                 v-if="primaryLink !== ''" :href="primaryLink"
             )
                 | {{primaryButtonText}}
@@ -14,7 +13,6 @@
 <style lang="scss">
 .training-card {
     height: 360px;
-    width: 100%;
     .posted-at {
         font-weight: bold;
     }

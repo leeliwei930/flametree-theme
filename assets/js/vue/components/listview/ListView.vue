@@ -2,7 +2,7 @@
 <template lang="pug">
     .d-flex.flex-column.list-view
         h6.font-weight-bold.text-secondary {{ heading }}
-        div(style="max-height:480px;overflow-y:scroll")
+        div(style="max-height:100vh;overflow-y:scroll")
             slot
 </template>
 <style lang="scss">
