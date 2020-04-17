@@ -1,7 +1,7 @@
 <template lang="pug">
     .event-card
         .stripe.rounded-lg.rounded-0-bottom
-        .d-flex.flex-column.flex-wrap.bg-light.shadow.rounded-lg.event-card-body.p-3
+        .d-flex.flex-column.flex-wrap.bg-light.shadow-sm.rounded-lg.event-card-body.p-3
             .d-flex.flex-column.justify-content-around.align-items-center
                 .d-flex.flex-row.flex-wrap.justify-content-around
                     strong.text-uppercase.countdown(v-if="showCountDown")

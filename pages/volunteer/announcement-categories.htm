@@ -13,7 +13,9 @@ function onStart(){
 ?>
 ==
 {% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
-  {% put tabs %}
+<div class="d-flex flex-column justify-content-center flex-wrap mx-3">
+
+{% put tabs %}
   {% partial "components/tab"
       icon="fa-list"
       link=('volunteer/announcements' | page )
@@ -30,7 +32,7 @@ function onStart(){
     {% partial "components/tabs" %}
 <div class="d-flex justify-content-start flex-wrap ">
     {% for category in blogCategories.categories %}
-        <div class="d-flex  flex-grow-1">
+    <a class="d-flex justify-content-around flex-grow-1 text-decoration-none" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">
             <producer-card
                 name="{{ category.name }}"
                 subheading="{{ category.posts.count }} posts"
@@ -43,6 +45,7 @@ function onStart(){
                     </a>
                 </template>
             </producer-card>
-        </div>
+        </a>
     {% endfor %}
+</div>
 </div>

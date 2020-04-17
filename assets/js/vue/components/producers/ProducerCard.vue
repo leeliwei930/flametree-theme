@@ -1,5 +1,5 @@
 <template lang="pug">
-    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.m-2(
+    .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.flex-wrap.flex-grow-1.m-2(
         :class="{'hoverable' : hoverable }"
         v-lazy:background-image="imgObj"
     )
@@ -20,9 +20,8 @@
 <style lang="scss">
 .producer-card {
     position: relative;
-    height: 400px;
+    height: 40vh;
 
-    width: 100%;
     border-radius: 13pt;
     transition: all 0.25s;
     z-index: 3;

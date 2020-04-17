@@ -33,12 +33,6 @@ postPage = "announcements"
 
 {% put styles %}
     <style>
-    {#.our-producers {#}
-    {#    background:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)),url({{  '/assets/images/gardens.jpg' | theme | resize(640, null) }});#}
-    {#    background-size: cover;#}
-    {#    background-repeat: no-repeat;#}
-    {#    background-attachment: fixed;#}
-    {#}#}
 
         .our-producers {
             background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.65)), url("/themes/flametree-theme/assets/images/gardens.jpg");
@@ -48,16 +42,16 @@ postPage = "announcements"
         }
     </style>
 {% endput %}
-<div class="flametree-theme our-producers d-flex flex-row flex-wrap justify-content-start  px-3 py-5 ">
+<div class="our-producers d-flex flex-column flex-wrap align-items-stretch py-5 px-3">
 
-    <div class="d-flex flex-column align-self-sm-start align-self-xl-center  justify-content-start px-5 py-5 ">
+    <div class="d-flex flex-column align-self-sm-start justify-content-start">
         <h1 class="headline-light text-uppercase text-primary w-25">
             <span class="text-white">OUR</span>
         PRODUCERS</h1>
         <a href="#" class="title-link big hover-move-right">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
     </div>
-    <div class="mx-auto">
-    {% component 'AllProducer' %}
+    <div class="d-flex flex-row flex-wrap">
+        {% component 'AllProducer' %}
     </div>
 </div>
 
@@ -74,13 +68,12 @@ postPage = "announcements"
         }
     </style>
 {% endput %}
-<div class="flametree-theme announcements d-flex flex-column justify-content-around py-5 ">
-    <div class="d-flex flex-column align-self-sm-start  justify-content-start p-5">
+<div class="announcements d-flex flex-column justify-content-around py-5 flex-wrap">
+    <div class="d-flex flex-column align-self-sm-start  justify-content-start p-3 flex-grow-1 ">
 
-    <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>
-    <a href="{{ 'blog/announcements' | page }}" class="title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
+        <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>
+        <a href="{{ 'blog/announcements' | page }}" class="title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
     </div>
-
-    {% component 'TrendingAnnouncement' %}
+        {% component 'TrendingAnnouncement' %}
 
 </div>
