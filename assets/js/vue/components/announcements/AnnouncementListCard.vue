@@ -1,5 +1,5 @@
 <template lang="pug">
-    .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto(
+    .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto.p-0(
         :class="{'hoverable' : hoverable }"
     )
         .col-12.col-md-6.p-0

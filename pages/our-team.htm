@@ -6,12 +6,12 @@ robot_index = "index"
 robot_follow = "follow"
 
 [TeamMember]
-groupName = 14
+groupName = 175
 ==
-
 <hero
 
-    background-image="{{ "hero/team.jpg"  | media }}"
+    background-image="{{ "hero/team.jpg"  | media | resize(640,null, {blur: 15 }) }}"
+    background-image-data="{{ "hero/team.jpg" | media }}"
 
 >
     <h1 class="hero-title text-uppercase m-auto align-self-center text-center"><span class="text-white">OUR</span> TEAM</h1>

@@ -69,7 +69,7 @@ code = "frontend-menu"
 
         <mega-menu>
             {%  for index, producer_category in producer_categories %}
-                <sidebar-menu-item key="{{ index}}" title="{{ producer_category.title }}" link="{{ "/products/#"~producer_category.title  }}">
+                <sidebar-menu-item key="{{ index}}" title="{{ producer_category.title }}" link="{{ "our-producers" | page~"/#" ~producer_category.title  }}">
                     {%  if producer_category.items %}
                         {%  for producer in producer_category.items %}
                             <menu-item

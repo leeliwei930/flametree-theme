@@ -14,12 +14,12 @@ categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
 <?php
-use GodSpeed\FlametreeCMS\Policies\PortalBlogPostPolicy;
+use GodSpeed\FlametreeCMS\Policies\PortalBlogPostsPolicy;
 
 
 function onStart(){
     $this['currentPage'] = $this->page;
-    PortalBlogPostPolicy::guard();
+    PortalBlogPostsPolicy::guard();
 }
 
 
@@ -59,8 +59,8 @@ function onStart(){
                 key="{{ announcement.id }}"
                 class="col-11"
                 title="{{ announcement.title }}"
-                featured-image-url="{{ announcement.featured_images[0].getLocalPath() | resize(640, null) }}"
-                data-featured-image-url="{{ announcement.featured_images[0].path }}"
+                featured-image-url="{{ announcement.featured_images[0].getPath() | resize(640, null) }}"
+                data-featured-image-url="{{ announcement.featured_images[0].getPath() }}"
                 description="{{ str_words(announcement.summary, 20) }}"
                 author="{{ announcement.user.full_name }}"
                 author-avatar-image="{{ announcement.user.getAvatarThumb(35) }}"

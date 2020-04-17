@@ -11,10 +11,10 @@ displayEmpty = 0
 categoryPage = "blog/announcement"
 ==
 <?php
-use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoryPolicy;
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
 function onStart(){
    $this['currentPage'] = $this->page;
-    PortalBlogCategoryPolicy::guard();
+    PortalBlogCategoriesPolicy::guard();
 
 }
 ?>
@@ -47,11 +47,11 @@ function onStart(){
     {% endput %}
     {% partial "components/tabs" %}
 
-    <div class="d-flex justify-content-start flex-wrap ">
+    <div class="d-flex flex-row justify-content-start flex-wrap ">
         {% for category in blogCategories.categories %}
-                <div class="d-flex  col-12 col-sm-10 col-md-10 col-lg-8
-        justify-content-around flex-grow-1">
-                    <producer-card
+                <a class="d-flex justify-content-around flex-grow-1 text-decoration-none" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">
+
+                        <producer-card
                         name="{{ category.name }}"
                         subheading="{{ category.posts.count }} posts"
                         image="{{ (category.featured_image) ? category.featured_image| media | resize(350, null, {quality: '15', blur : 15}) : '' }}"
@@ -63,7 +63,7 @@ function onStart(){
                             </a>
                         </template>
                     </producer-card>
-                </div>
+                </a>
         {% endfor %}
     </div>
 </div>

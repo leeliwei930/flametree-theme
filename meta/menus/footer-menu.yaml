@@ -56,9 +56,13 @@ items:
         items:
             -
                 title: ANNOUNCEMENTS
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: blog/announcements
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
@@ -92,41 +96,10 @@ items:
         items:
             -
                 title: 'MEMBER LOGIN'
-                nesting: ''
                 type: cms-page
-                url: ''
                 code: ''
-                reference: member/member-login
-                cmsPage: ''
-                replace: ''
+                reference: login/volunteer
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
-            -
-                title: 'VOLUNTEERS LOGIN'
-                nesting: ''
-                type: cms-page
-                url: ''
-                code: ''
-                reference: member/volunteers-login
-                cmsPage: ''
-                replace: ''
-                viewBag:
-                    isHidden: '0'
-                    cssClass: ''
-                    isExternal: '0'
-                items:
-                    -
-                        title: 'MEMBER LOGIN'
-                        nesting: ''
-                        type: cms-page
-                        url: ''
-                        code: ''
-                        reference: member/member-login
-                        cmsPage: ''
-                        replace: ''
-                        viewBag:
-                            isHidden: '0'
-                            cssClass: ''
-                            isExternal: '0'
