@@ -76,7 +76,7 @@ function onEnd(){
                 <i class="fas fa-arrow-left"></i>
                 Back To All Announcements </a>
         </div>
-        <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-row justify-content-between" data-cy-announcement-id="{{ post.id }}" data-cy="announcement">
             <div class="d-flex flex-column">
                 <h2 class="post-title">{{ post.title }}</h2>
                 <h5 class="post-published-at small" v-text="$tzConverter.convert('{{  post.published_at }}', 'dddd, MMM D Y hh:mm a')"></h5>
