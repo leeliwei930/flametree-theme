@@ -7,8 +7,12 @@ displayEmpty = 0
 categoryPage = "volunteer/announcement-category"
 ==
 <?php
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
+
 function onStart(){
     $this['currentPage'] = $this->page;
+PortalBlogCategoriesPolicy::guard();
+
 }
 ?>
 ==

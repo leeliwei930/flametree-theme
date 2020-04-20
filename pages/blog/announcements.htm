@@ -16,10 +16,13 @@ postPage = "blog/announcement"
 <?php
 use GodSpeed\FlametreeCMS\Policies\PortalBlogPostsPolicy;
 
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
 
 function onStart(){
     $this['currentPage'] = $this->page;
     PortalBlogPostsPolicy::guard();
+    PortalBlogCategoriesPolicy::guard();
+
 }
 
 
@@ -90,7 +93,7 @@ function onStart(){
 
         {% endfor %}
 
-        <div class="d-flex justify-content-around mx-5">
+        <div class="col-12 col-md-10 col-lg-9 align-self-center">
             <dropdown-pagination
                 current-page="{{ posts.currentPage() }}"
                 page-param="page"
