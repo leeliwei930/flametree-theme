@@ -1,24 +1,18 @@
-//Theme Coloring
 
-$primaryColor : #3f2b96;
-$accentColor: #a8c0ff;
 
 
 // Typography font
 $headlineFont: "Lato Black", sans-serif;
 
-$white: #ffffff;
-$dark: #373A3C;
-$light-dark: #707070;
-$light-silver: rgb(189, 189, 189, 0.5);
+$white: var(--white-color-hex);
+$dark: var(--dark-color-hex);
+$light-dark: var(--light-dark-color-hex);
+$light-silver: var(--light-silver-color-hex);
 
 $alert-success : #48c774;
 $alert-danger: #f14668;
 $alert-warning: #ffdd57;
 
-:root {
-    --primary-color-hex: $primaryColor;
-    --primary-color-rgba: 63, 43, 150;
-    --accent-color-rgba: 168,192,255;
-    --accent-color-hex: $accentColor;
-}
+$primaryColor:  var(--primary-color-hex);
+$accentColor: var(--accent-color-hex);
+

@@ -1,5 +1,94 @@
-name: 'FlameTree Theme'
+name: 'GodSpeed Theme'
 description: ''
 author: GodSpeed
 homepage: ''
 code: ''
+form:
+    tabs:
+        fields:
+            primaryColor:
+                label: Primary Color
+                type: colorpicker
+                assetVar: 'primaryColor'
+                default: "#3f2b96"
+                tab: Color
+            accentColor:
+                label: Accent Color
+                type: colorpicker
+                assetVar: 'secondaryColor'
+                default: "#a8c0ff"
+                tab: Color
+            lightSilverColor:
+                label : Light Silver Color
+                type: colorpicker
+                assetVar: 'lightSilverColor'
+                default: "#BDBDBD"
+                tab: Color
+            lightDarkColor:
+                label: Light Gray Color
+                type: colorpicker
+                assetVar: 'lightDarkColor'
+                default: "#707070"
+                tab: Color
+            darkColor:
+                label: Dark Color
+                type: colorpicker
+                assetVar: 'darkColor'
+                default: "#373A3C"
+                tab: Color
+            whiteColor:
+                label: White Color
+                type: colorpicker
+                assetVar: 'whiteColor'
+                default: "#ffffff"
+                tab: Color
+            _rgbColor:
+                type: partial
+                path: '~/themes/flametree-theme/rgb_color_field.htm'
+                tab: Color
+
+            primaryColorRGB:
+                type: text
+                hidden: true
+                default: "63, 43, 150"
+                tab: Color
+
+            accentColorRGB:
+                type: text
+                hidden: true
+                default: "168, 192, 255"
+                tab: Color
+            email:
+                label: Business Email
+                type: text
+                tab: Contact
+                default: "flametreecoop@gmail.com"
+            address:
+                label: Business Address
+                type: richeditor
+                tab: Contact
+                default: "Flame Tree Community Food Co-op
+                                    355 Lawrence Hargrave Dr
+                                    Thirroul, New South Wales"
+
+            po_box_address:
+                label: PO Box Address
+                type: richeditor
+                tab: Contact
+                default: "Flame Tree Community Food Co-op
+                    355 Lawrence Hargrave Dr
+                    Thirroul, New South Wales"
+            phone_number:
+                label: Business Phone Number
+                type: text
+                tab: Contact
+                default: "123456789"
+
+
+require:
+    - RainLab.User
+    - RainLab.Blog
+    - RainLab.Pages
+    - Anandpatel.WysiwygEditors
+    - SureSoftware.PowerSEO
+    - Offline.Search

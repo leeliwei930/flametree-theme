@@ -1,14 +1,15 @@
-title = "FAQ Category | "
-layout = "main"
+title = "FAQ Category |"
 url = "/faq-category/:slug"
+layout = "main"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 
 [FaqCategory]
 slug = "{{:slug}}"
-==
 
+[siteSearchInclude]
+==
 <div class="d-flex flex-column align-items-around">
 {% component 'FaqCategory' %}
 </div>

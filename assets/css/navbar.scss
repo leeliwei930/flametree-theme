@@ -32,9 +32,12 @@
     z-index: 150;
 }
 .nav.navbar .logo {
-    height: 65px;
-    margin: 15px;
-    transform: scale(3.5);
+    height: 55px;
+    width: 55px;
+    position: relative;
+    transform: scale(1.5);
+    padding: 0;
+    z-index: 5;
 }
 
 .nav.navbar .text {

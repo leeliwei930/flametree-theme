@@ -1,6 +1,9 @@
 html  , body {
     overflow-x: hidden;
 }
+body {
+    min-height: 480px;
+}
 @import "variable";
 @import "util";
 @import "typography.scss";

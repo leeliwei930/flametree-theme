@@ -3,7 +3,6 @@ description = "Main Layout"
 [staticMenu footerMenu]
 code = "footer-menu"
 
-[BusinessContact businessContact]
 
 [mailSignup]
 list = "79d86d3102"
@@ -17,41 +16,45 @@ list = "79d86d3102"
     <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
 
     <title>{{ this.page.title }}</title>
-    <link rel="preload" as="style" href="https://unpkg.com/normalize.css@8.0.1/normalize.css" >
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="preload" as="font">
+    <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
 
-    <link rel="stylesheet" href="{{ "assets/public/css/override.css" |theme}}">
 
-    <link rel="stylesheet" href="{{ "assets/public/css/lib.css" |theme}}">
-    <script type="text/javascript" src="{{"assets/public/js/jquery.js" | theme}}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900|Questrial&display=swap" rel="preload"
+          as="font">
 
-    <link rel="stylesheet" href="{{ "assets/public/css/app.css" |theme}}">
+    <link rel="stylesheet" href="{{ "assets/public/css/override.css" |theme }}">
+    {% partial "theme-style" %}
+
+    <link rel="stylesheet" href="{{ "assets/public/css/lib.css" |theme }}">
+    <script type="text/javascript" src="{{ "assets/public/js/jquery.js" | theme }}"></script>
+
+    <link rel="stylesheet" href="{{ "assets/public/css/app.css" |theme }}">
     {% styles %}
 
 
-{% component 'SeoCmsPage' %}
+    {% component 'SeoCmsPage' %}
 </head>
 <body>
 
-    <div id="flametree-app">
-        {% partial 'NavBar' %}
-           {% page %}
+<div id="flametree-app">
+    {% partial 'NavBar' %}
+    {% page %}
 
 
-        <mega-footer
-            facebook="{{ businessContact.facebook_link | default("")}}"
-            twitter="{{ businessContact.twitter_link  | default("") }}"
-            instagram="{{ businessContact.instagram_link  | default("") }}"
-            email="{{ businessContact.email  | default("") }}"
-        >
-            <div class="d-flex flex-row flex-wrap justify-content-end ">
+    <mega-footer
+        facebook="{{ businessContact.facebook_link | default("") }}"
+        twitter="{{ businessContact.twitter_link  | default("") }}"
+        instagram="{{ businessContact.instagram_link  | default("") }}"
+        email="{{ businessContact.email  | default("") }}"
+    >
+        <div class="d-flex flex-row flex-wrap justify-content-end ">
 
             {% for menu in footerMenu.menuItems %}
                 <div class="col-12 col-lg-6 p-0">
                     <mega-footer-header title="{{ menu.title }}">
                         {% for menuItem in menu.items %}
                             <ul class="mega-footer-menu-list">
-                                <mega-footer-item link="{{menuItem.url}}">
+                                <mega-footer-item link="{{ menuItem.url }}">
                                     {{ menuItem.title }}
                                 </mega-footer-item>
                             </ul>
@@ -59,32 +62,32 @@ list = "79d86d3102"
                     </mega-footer-header>
                 </div>
             {% endfor %}
-            </div>
-            <template slot="operating-hours">
-                <mega-footer-header title="OPERATING HOURS">
-                    <div class="operating-hour ">
+        </div>
+        <template slot="operating-hours">
+            <mega-footer-header title="OPERATING HOURS">
+                <div class="operating-hour ">
 
 
-                        {% content 'footer/business-operating-hours.md' %}
-                    </div>
-                </mega-footer-header>
-            </template>
-            <template slot="newsletter-form">
-                <mega-footer-header title="SUBSCRIBE NEWSLETTER">
-                    <div class="flametree-theme mx-auto my-2" id="{{ mailSignup.id }}container">
-                        <form
-        data-request="{{ mailSignup }}::onSignup"
-        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'">
+                    {% content 'footer/business-operating-hours.md' %}
+                </div>
+            </mega-footer-header>
+        </template>
+        <template slot="newsletter-form">
+            <mega-footer-header title="SUBSCRIBE NEWSLETTER">
+                <div class="flametree-theme mx-auto my-2" id="{{ mailSignup.id }}container">
+                    <form
+                        data-request="{{ mailSignup }}::onSignup"
+                        data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'">
                         <div class="text-field-control my-1">
-                            <label  for="subscribe_fullname_newsletter">FULL NAME</label>
+                            <label for="subscribe_fullname_newsletter">FULL NAME</label>
 
-                            <input name="fullname" id="subscribe_fullname_newsletter" type="text"  class="text-field"/>
+                            <input name="fullname" id="subscribe_fullname_newsletter" type="text" class="text-field"/>
 
                         </div>
                         <div class="text-field-control my-1">
                             <label for="subscribe_email_newsletter">EMAIL</label>
 
-                           <input name="email" type="email" id="subscribe_email_newsletter"  class="text-field"/>
+                            <input name="email" type="email" id="subscribe_email_newsletter" class="text-field"/>
 
                         </div>
 
@@ -92,64 +95,75 @@ list = "79d86d3102"
                             SUBSCRIBE NEWSLETTER
                         </button>
 
-            </form>
+                    </form>
+                </div>
+            </mega-footer-header>
+
+            <div class="d-flex flex-column align-self-start business-contact">
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-phone"></i>
+
                     </div>
-                </mega-footer-header>
-
-                <div class="d-flex flex-column align-self-start business-contact">
-                    <div class="d-flex flex-row justify-content-between align-items-center">
-                        <div class="col-2">
-                            <i class="fas fa-phone"></i>
-
-                        </div>
-                        <div class="col-10">
-                            <p>{{ businessContact.phone_number }}</p>
-
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between align-items-center">
-                        <div class="col-2">
-
-                        <i class="fas fa-map-marker-alt  mx-auto"></i>
-                        </div>
-                        <div class="col-10">
-                            {{ businessContact.address | raw }}
-
-                        </div>
-                    </div>
-                    <div class="d-flex flex-row justify-content-between align-items-center">
-                        <div class="col-2">
-
-                        <i class="fas fa-inbox mx-auto"></i>
-                        </div>
-                        <div class="col-10">
-
-                        <div class="mr-auto">
-
-                        {{ businessContact.po_box_address | raw }}
-                        </div>
-                        </div>
+                    <div class="col-10">
+                        <p>{{ this.theme.phone_number }}</p>
 
                     </div>
                 </div>
-            </template>
-            <template slot="credit-message">
-                <p>
-                    Designed and made with ❤️ by <a target="_blank" href="https://csit321_ft01s.techrino.net">Team GodSpeed</a>
-                </p>
-                <p>
-                    Copyright {{ "now" | date("Y") }} &copy; All Rights Reserved.
-                </p>
-            </template>
-        </mega-footer>
-    </div>
-    {% framework extras %}
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="col-2">
+                        <i class="fas fa-envelope"></i>
+
+                    </div>
+                    <div class="col-10">
+                        <p>{{ this.theme.email }}</p>
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="col-2">
+
+                        <i class="fas fa-map-marker-alt  mx-auto"></i>
+                    </div>
+                    <div class="col-10">
+                        {{ this.theme.address | raw }}
+
+                    </div>
+                </div>
+                <div class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="col-2">
+
+                        <i class="fas fa-inbox mx-auto"></i>
+                    </div>
+                    <div class="col-10">
+
+                        <div class="mr-auto">
+
+                            {{ this.theme.po_box_address | raw }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </template>
+        <template slot="credit-message">
+            <p>
+                Designed and made with ❤️ by <a target="_blank" href="https://csit321_ft01s.techrino.net">Team
+                    GodSpeed</a>
+            </p>
+            <p>
+                Copyright {{ "now" | date("Y") }} &copy; All Rights Reserved.
+            </p>
+        </template>
+    </mega-footer>
+</div>
+{% framework extras %}
 
 
-        <script type="text/javascript" src="{{"assets/public/js/index.js" | theme}}"></script>
+<script type="text/javascript" src="{{ "assets/public/js/index.js" | theme }}"></script>
 
 
-    {% scripts %}
+{% scripts %}
 
 
 </body>

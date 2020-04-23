@@ -1,0 +1,23 @@
+
+<script>
+    function hexToRgb(hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        let r =  parseInt(result[1], 16);
+        let  g =  parseInt(result[2], 16);
+        let b = parseInt(result[3], 16);
+        let rgbString = `${r}, ${g}, ${b}`;
+        return rgbString;
+    }
+
+    $('input[name="ThemeData[primaryColor]"]').on('change', function(){
+          let value = $('input[name="ThemeData[primaryColor]"]').val();
+          $('input[name="ThemeData[primaryColorRGB]"]').val(hexToRgb(value))
+    })
+
+    $('input[name="ThemeData[accentColor]"]').on('change', function(){
+        let value = $('input[name="ThemeData[accentColor]"]').val();
+
+        $('input[name="ThemeData[accentColorRGB]"]').val(hexToRgb(value))
+
+    })
+</script>

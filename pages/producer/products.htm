@@ -1,0 +1,13 @@
+title = "Products"
+url = "/producers/:producer"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[Products]
+producer = "{{ :producer }}"
+producer_search_key = "slug"
+products_per_page=3
+==
+{% component 'Products' %}

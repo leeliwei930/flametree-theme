@@ -1,6 +1,6 @@
 <template lang="pug">
     .d-flex.flex-column.shadow.justify-content-end.align-items-start.producer-card.flex-wrap.flex-grow-1.m-2(
-        :class="{'hoverable' : hoverable }"
+        :class="{'hoverable' : hoverable}"
         v-lazy:background-image="imgObj"
     )
         .producer-card-content.d-flex.flex-row.justify-content-between.w-100.flex-wrap
@@ -25,6 +25,7 @@
     border-radius: 13pt;
     transition: all 0.25s;
     z-index: 3;
+
     &[lazy=loaded] {
         background-repeat: no-repeat;
         background-size: cover;
@@ -33,6 +34,7 @@
         background-repeat: no-repeat;
         background-size: cover;
     }
+
     h5.origin-label {
         font-family: 'Nunito', sans-serif;
         font-size: 12pt;

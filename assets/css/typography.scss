@@ -25,7 +25,7 @@
             font-size: 12pt;
         }
         &.small {
-            font-size: 24pt;
+            font-size: 18pt;
         }
 
         &.huge {
@@ -44,7 +44,7 @@
             font-size: 12pt;
         }
         &.small {
-            font-size: 24pt;
+            font-size: 18pt;
         }
 
         &.huge {
@@ -73,7 +73,11 @@
     }
 
     .text-dark {
-        color: #373A3C;
+        color: var(--dark-color-hex);
+    }
+
+    .text-light-dark {
+        color: var(--light-dark-color-hex);
     }
 
     .post-title {

@@ -1,6 +1,7 @@
 <template lang="pug">
-.d-flex.flex-column.flex-wrap.bg-white.flametree-mega-footer.p-3.justify-content-center
-    .d-flex.flex-row.flex-wrap
+.d-flex.flex-column.flex-wrap.bg-white.flametree-mega-footer.justify-content-center
+    .stripe
+    .d-flex.flex-row.flex-wrap.p-3
         .col-12.col-lg-6.text-center.text-lg-left
             slot
         .col-12.col-lg-3.text-center.text-lg-left

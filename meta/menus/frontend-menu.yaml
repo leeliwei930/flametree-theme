@@ -1,10 +1,27 @@
 name: 'Frontend Menu'
 items:
     -
+        title: 'Contact Us'
+        nesting: ''
+        type: url
+        url: /contact-us
+        code: ''
+        reference: ''
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
         title: Announcements
+        nesting: ''
         type: cms-page
+        url: ''
         code: ''
         reference: blog/announcements
+        cmsPage: ''
+        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''
@@ -38,32 +55,27 @@ items:
         items:
             -
                 title: Portal
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: login/volunteer
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
             -
                 title: 'Create an account'
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: signup/volunteer-signup
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
                     isExternal: '0'
-    -
-        title: 'Contact Us'
-        nesting: ''
-        type: url
-        url: /contact-us
-        code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
-        viewBag:
-            isHidden: '0'
-            cssClass: ''
-            isExternal: '0'

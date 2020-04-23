@@ -36,6 +36,8 @@ export default {
     AccordianView:  () => import(/*webpackChunkName: "accordion-view-vue-component" */ "@components/accordian/AccordianView"),
 
     EventCard: () =>  import(/*webpackChunkName: "event-card-vue-component" */ "@components/cards/EventCard"),
+    ProductCard: () =>  import(/*webpackChunkName: "product-card-vue-component" */ "@components/cards/ProductCard"),
+
     Calendar:  () => import(/*webpackChunkName: "calendar-card-vue-component" */ "@components/cards/Calendar"),
     ListView:  () => import(/*webpackChunkName: "list-view-vue-component" */ "@components/listview/ListView"),
     List:  () => import(/*webpackChunkName: "list-vue-component" */ "@components/listview/List")
