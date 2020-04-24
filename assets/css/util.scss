@@ -252,13 +252,14 @@
 
 
         &.btn-outline-primary {
-            border-color: $primaryColor !important;
-            color: $primaryColor !important;
+            border-color: $accentColor !important;
+            color:$accentColor !important;
             border-radius: 0;
 
             &:hover {
                 color: $white !important;
                 background-color: $primaryColor !important;
+                border-color: $primaryColor !important;
 
             }
         }

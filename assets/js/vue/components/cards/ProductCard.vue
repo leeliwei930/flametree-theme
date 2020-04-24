@@ -1,57 +1,48 @@
 <template lang="pug">
 .product-card.d-flex.flex-column.shadow.rounded.justify-content-start
-    template(v-if="dataImage !== ''")
-        img.product-image( v-lazy="imgObj")
-    template(v-else)
-        .d-flex.flex-column.align-items-center.mx-auto.product-image.py-5
+    .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-if="dataImage !== ''")
+            img.product-image( v-lazy="imgObj")
+    .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-else)
+        .py-5.d-flex.flex-column.align-items-center
             i.fas.fa-3x.fa-shopping-bag.text-light-dark
             p.text-muted.py-3 Product Image Is Not Available
-    .product-card-content.mb-auto.m-3
-        h4.heading {{ name }}
-        .price
-            i.fas.fa-dollar-sign.mr-1.text-muted
-            strong {{ price }}
-        .features(v-if="featuresDat.length > 0")
-            h6.text-muted.font-weight-light.text-uppercase.mt-2 Features
-            .feature.my-1(v-for="(feature,index) in featuresDat" v-if="index < 3")
-                strong.title {{ feature.title }}
-                div.description(v-html="feature.description")
-    .product-card-actions.m-3
+    .product-card-content.mb-auto.mt-4.mx-3
+        h4.heading.py-2 {{ name }}
+
+        .categories.d-flex.flex-row.align-items-baseline.py-2
+            slot(name="categories")
+
+    .product-card-actions.mx-1.my-2
+        .price.d-flex.flex-row.align-items-baseline.py-1.mx-3
+            i.fas.fa-dollar-sign.mr-1.text-primary
+            strong {{ priceLabel }}
         slot(name="actions")
 </template>
 <style lang="scss">
 .product-card {
-    height: 40rem;
+    height: 70vh;
+    overflow: hidden;
 
     .product-image {
-        height: 15rem;
+        overflow: hidden;
+        height: 35vh;
         width: 100%;
         transition: 0.25s all;
-        transform: scale(0.85);
-
 
     }
-
-    .price {
-        font-size: 16pt;
-    }
-
-    .feature {
+    .section {
         border-bottom: 0.85pt solid var(--light-silver-color-hex);
-        height: 5rem;
-        .title {
-            color: var(--light-dark-color-hex);
-        }
-        .description {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            word-break: break-word;
-            max-height: 50px;
-        }
+
     }
+    .price {
+        font-size: 18pt;
+    }
+
+
+
     &:hover {
         .product-image {
-            transform: scale(0.95);
+            transform: scale(1.2);
         }
     }
 
@@ -75,7 +66,10 @@ export default {
         price: {
             type: String
         },
-        features: {
+        billingCycle: {
+            type: String
+        },
+        type: {
             type: String
         }
     },
@@ -85,7 +79,6 @@ export default {
                 src: null,
                 loading: null
             },
-            featuresDat: []
         }
     },
     methods: {
@@ -96,10 +89,19 @@ export default {
         this.imgObj.loading = this.image;
     },
     mounted: function(){
-        this.featuresDat = JSON.parse(this.features)
     },
     updated: function(){
 
+    },
+    computed: {
+        priceLabel(){
+            if(this.type === 'service'){
+                let billingCycle = this.billingCycle.charAt(0).toUpperCase() + this.billingCycle.slice(1);
+                return this.price + "/" + billingCycle
+            } else {
+                return this.price
+            }
+        }
     }
 }
 

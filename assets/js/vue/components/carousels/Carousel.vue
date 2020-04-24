@@ -191,6 +191,7 @@ export default {
     data: function(){
         return {
             carouselState: {
+                autoplayState: true,
                 nextSlideAnimation: null,
                 totalSlides: null,
                 currentSlide: null,
@@ -202,7 +203,8 @@ export default {
     methods: {
         autoplayCarousel: function(){
             setInterval(() => {
-                this.nextSlide();
+                if(this.carouselState.autoplayState)
+                    this.nextSlide();
             }, this.interval);
         },
         nextSlide: function(){
@@ -210,9 +212,19 @@ export default {
             this.carouselState.nextSlideAnimation = this.nextSlideAnimation;
             if(nextSlide >= this.carouselState.totalSlides){
                 this.carouselState.currentSlide = 0;
+                this.tempPauseAutoplay();
+
             } else {
                 this.carouselState.currentSlide = nextSlide;
+                this.tempPauseAutoplay();
+
             }
+        },
+        tempPauseAutoplay: function(){
+            this.carouselState.autoplayState = false;
+            setTimeout(() => {
+                this.carouselState.autoplayState = true;
+            }, this.interval)
         },
         prevSlide: function(){
             let prevSlide = Number.parseInt(this.carouselState.currentSlide) - 1;
@@ -220,8 +232,12 @@ export default {
 
             if(prevSlide < 0){
                 this.carouselState.currentSlide = this.carouselState.totalSlides - 1;
+                this.tempPauseAutoplay();
+
             } else {
                 this.carouselState.currentSlide = prevSlide;
+                this.tempPauseAutoplay();
+
             }
         },
         navigateToSlide: function(index){

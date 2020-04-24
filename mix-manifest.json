@@ -20,6 +20,7 @@
     "/assets/public/js/chunks/mega-menu-vue-component.js": "/assets/public/js/chunks/mega-menu-vue-component.js",
     "/assets/public/js/chunks/menu-item-vue-component.js": "/assets/public/js/chunks/menu-item-vue-component.js",
     "/assets/public/js/chunks/producer-card-vue-component.js": "/assets/public/js/chunks/producer-card-vue-component.js",
+    "/assets/public/js/chunks/product-card-vue-component.js": "/assets/public/js/chunks/product-card-vue-component.js",
     "/assets/public/js/chunks/sidebar-menu-item-vue-component.js": "/assets/public/js/chunks/sidebar-menu-item-vue-component.js",
     "/assets/public/js/chunks/social-button-vue-component.js": "/assets/public/js/chunks/social-button-vue-component.js",
     "/assets/public/js/chunks/tile-card-vue-component.js": "/assets/public/js/chunks/tile-card-vue-component.js",
@@ -32,7 +33,5 @@
     "/assets/public/js/chunks/video-playlist-vue-component.js": "/assets/public/js/chunks/video-playlist-vue-component.js",
     "/assets/public/js/chunks/video-thumbnail-vue-component.js": "/assets/public/js/chunks/video-thumbnail-vue-component.js",
     "/assets/public/css/override.css": "/assets/public/css/override.css",
-    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js",
-    "/assets/public/js/chunks/product-card-vue-component.js": "/assets/public/js/chunks/product-card-vue-component.js",
-    "/assets/public/js/chunks/pagination-horizontal-slider-vue-component.js": "/assets/public/js/chunks/pagination-horizontal-slider-vue-component.js"
+    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js"
 }

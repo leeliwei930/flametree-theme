@@ -10,7 +10,7 @@
     }
 
     .text-link {
-        text-decoration: none;
+        text-decoration: none !important;
         color: $primaryColor;
         transition: 0.25s all;
         &:hover {
@@ -56,7 +56,7 @@
         font-family: 'Lato Bold',sans-serif;
         font-size: 32pt;
         &.text-primary {
-            color: $accentColor !important;
+            color: $primaryColor !important;
         }
         &.tiny {
             font-size: 12pt;

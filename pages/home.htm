@@ -27,7 +27,7 @@ postPage = "announcements"
 {% component 'ImageSlider' %}
 
 <div class="d-flex flex-column" id="flametree-who-we-are">
-    <h1 class="headline-light-bold text-uppercase text-primary px-3 py-3 mx-lg-5 ">Who We Are?</h1>
+    <h1 class="headline-light-bold text-uppercase text-primary px-3 py-3 ">Who We Are?</h1>
     {% component 'VideoSection' %}
 </div>
 
@@ -48,7 +48,7 @@ postPage = "announcements"
         <h1 class="headline-light text-uppercase text-primary w-25">
             <span class="text-white">OUR</span>
         PRODUCERS</h1>
-        <a href="#" class="title-link big hover-move-right">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
+        <a href="#" class="title-link big hover-move-right text-decoration-none">VIEW ALL PRODUCERS <i class="fas fa-chevron-right mx-2 "></i></a>
     </div>
     <div class="d-flex flex-row flex-wrap">
         {% component 'AllProducer' %}
@@ -72,7 +72,7 @@ postPage = "announcements"
     <div class="d-flex flex-column align-self-sm-start  justify-content-start p-3 flex-grow-1 ">
 
         <h3 class="headline-light text-uppercase text-primary  small">Recent Announcements</h3>
-        <a href="{{ 'blog/announcements' | page }}" class="title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
+        <a href="{{ 'blog/announcements' | page }}" class="text-decoration-none title-link big hover-move-right">GET MORE ANNOUNCEMENTS<i class="fas fa-chevron-right mx-2 "></i></a>
     </div>
         {% component 'TrendingAnnouncement' %}
 

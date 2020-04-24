@@ -2,9 +2,13 @@
     .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto.p-0(
         :class="{'hoverable' : hoverable }"
     )
-        .col-12.col-md-6.p-0
-            .featured-image.rounded( v-lazy:background-image="imgObj")
+        .col-12.col-md-6.p-0.overflow-hidden
+            .featured-image.rounded.d-flex.flex-column.align-items-center.justify-content-center( v-lazy:background-image="imgObj" v-if="imgObj.src !== '' ")
                 .featured-image-bg-overlay(:style="featuredImageOverlayStyle")
+            .featured-image.rounded.d-flex.flex-column.align-items-center.justify-content-center(v-else)
+                .d-flex.flex-column.align-items-center.justify-content-center
+                    i.fas.fa-image.fa-3x.text-muted.my-3
+                    p.text-light-dark Featured image is not available
         .col-12.col-md-6.p-3
             .d-flex.flex-column.justify-content-start
                 h5.post-title.small {{ title }}
@@ -22,11 +26,21 @@
         height:auto;
         width: 100%;
         transition: 0.25s all;
+
+        &:hover {
+            .featured-image {
+                transform: scale(1.2);
+            }
+        }
         .featured-image {
+            overflow: hidden;
+
             height:100%;
             position: relative;
             z-index: 1;
             min-height: 320px;
+            transition: 0.25s all;
+
             &[lazy=loaded] {
                 background-repeat: no-repeat;
                 background-size: cover;

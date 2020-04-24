@@ -21,10 +21,12 @@
 .producer-card {
     position: relative;
     height: 40vh;
+    overflow: hidden;
 
     border-radius: 13pt;
-    transition: all 0.25s;
+    transition: 0.25s all;
     z-index: 3;
+
 
     &[lazy=loaded] {
         background-repeat: no-repeat;
