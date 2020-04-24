@@ -20,11 +20,12 @@ use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
 
 function onStart(){
     $this['currentPage'] = $this->page;
-    PortalBlogPostsPolicy::guard();
-    PortalBlogCategoriesPolicy::guard();
 
 }
-
+function onEnd(){
+    PortalBlogPostsPolicy::guard();
+    PortalBlogCategoriesPolicy::guard();
+}
 
 ==
 <hero

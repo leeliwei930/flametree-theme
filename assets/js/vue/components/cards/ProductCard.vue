@@ -15,7 +15,7 @@
     .product-card-actions.mx-1.my-2
         .price.d-flex.flex-row.align-items-baseline.py-1.mx-3
             i.fas.fa-dollar-sign.mr-1.text-primary
-            strong {{ priceLabel }}
+            strong {{ price }}
         slot(name="actions")
 </template>
 <style lang="scss">
@@ -65,12 +65,6 @@ export default {
         },
         price: {
             type: String
-        },
-        billingCycle: {
-            type: String
-        },
-        type: {
-            type: String
         }
     },
     data: function(){
@@ -94,14 +88,6 @@ export default {
 
     },
     computed: {
-        priceLabel(){
-            if(this.type === 'service'){
-                let billingCycle = this.billingCycle.charAt(0).toUpperCase() + this.billingCycle.slice(1);
-                return this.price + "/" + billingCycle
-            } else {
-                return this.price
-            }
-        }
     }
 }
 

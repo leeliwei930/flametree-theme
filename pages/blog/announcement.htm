@@ -2,7 +2,6 @@ title = "Announcement"
 url = "/announcement/:slug"
 layout = "main"
 is_hidden = 0
-canonical_url = "http://thlee.synology.me"
 robot_index = "index"
 robot_follow = "follow"
 
@@ -15,13 +14,14 @@ post = "post"
 ==
 <?php
 use GodSpeed\FlametreeCMS\Policies\PortalBlogPostPolicy;
+use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
 
-function onStart(){
-    PortalBlogPostPolicy::guard();
 
-}
 function onEnd(){
        $this->page->title = $this->page->components['post']->post->title . " | Flame Tree Community Food Co-Op";
+
+        PortalBlogPostPolicy::guard();
+        PortalBlogCategoriesPolicy::guard();
 }
 ?>
 ==

@@ -14,8 +14,11 @@ categoryPage = "blog/announcement"
 use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
 function onStart(){
    $this['currentPage'] = $this->page;
-    PortalBlogCategoriesPolicy::guard();
 
+}
+
+function onEnd(){
+PortalBlogCategoriesPolicy::guard();
 }
 ?>
 
