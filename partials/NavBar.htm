@@ -73,6 +73,8 @@ code = "frontend-menu"
                     {%  if producer_category.items %}
                         {%  for producer in producer_category.items %}
                             <menu-item
+                                class="text-decoration-none"
+                                link="{{ "producer/products" | page({producer: producer.url })}}"
                                 leading-icon="fas fa-chevron-circle-right"
                                 parent="{{ producer_category.title }}"
                                 title="{{ producer.title }}"
@@ -108,7 +110,7 @@ code = "frontend-menu"
                                         <a href="#">{{ category.title }}</a>
                                         <ul>
                                             {% for producer in category.items %}
-                                                <a class="d-flex flex-column justify-content-start" href="{{ producer.url | default(category.url) }}">
+                                                <a class="d-flex flex-column justify-content-start text-decoration-none" href="{{ "producer/products" | page({producer: producer.url }) }}">
                                                         <span>{{ producer.title }}</span>
                                                         <span> <i class="fas fa-map-marker-alt mx-2"></i>{{ producer.viewBag.origin }}</span>
                                                 </a>

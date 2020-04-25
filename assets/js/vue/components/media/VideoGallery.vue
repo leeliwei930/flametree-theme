@@ -1,6 +1,6 @@
 <template lang="pug">
-.d-flex.flex-column.align-items-between
-    .col-12.col-lg-8.align-self-center
+.d-flex.flex-column
+    .col-12.align-self-stretch.align-self-lg-center.col-lg-6
         template(v-if="currentPlaying")
             video-player(:autoplay="autoplay" :key="currentPlaying.embed_id"
                     :id="currentPlaying.id"

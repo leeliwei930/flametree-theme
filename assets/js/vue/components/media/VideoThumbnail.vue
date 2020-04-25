@@ -20,7 +20,8 @@
 
     .video-thumbnail  {
         height: 15rem;
-        min-width: 30rem;
+        min-width: 45vh;
+        max-width: 45vh;
     }
 
     .video-thumbnail .rounded-card {

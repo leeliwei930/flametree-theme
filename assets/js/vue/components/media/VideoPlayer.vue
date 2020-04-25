@@ -18,6 +18,10 @@
             source(:src="videoUrl" type="video/mp4")
 </template>
 <style lang="scss">
+.plyr {
+    width: inherit;
+    height: inherit;
+}
 </style>
 <script type="text/javascript">
 import  Plyr  from 'plyr';

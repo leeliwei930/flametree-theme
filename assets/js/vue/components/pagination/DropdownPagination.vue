@@ -12,7 +12,6 @@
 <style lang="scss">
     select.text-field {
         -moz-border-radius: 3px;
-
         --webkit-appearance: menulist-button;
         border-radius: 3px;
         letter-spacing: -.04em;
@@ -63,7 +62,7 @@ export default {
             let path = window.location.pathname;
             let prefix = `${origin}${path}`;
 
-                return `${prefix}${this.pageParam}?=${this.currentPage}` === `${prefix}${this.pageParam}?=${page}`
+            return `${prefix}${this.pageParam}?=${this.currentPage}` === `${prefix}${this.pageParam}?=${page}`
 
 
         },

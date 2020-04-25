@@ -1,13 +1,12 @@
 <template lang="pug">
 .d-flex.flex-column.justify-content-start
-    h5.text-primary.text-uppercase.p-3.font-weight-bold
+    h5.text-primary.text-uppercase.font-weight-bold.px-3.py-2
         | {{title}}
     .video-playlist.d-flex.overflow-auto
         slot
 </template>
 <style lang="scss">
 .video-playlist {
-    padding:15px;
 }
 </style>
 <script type="text/javascript">
