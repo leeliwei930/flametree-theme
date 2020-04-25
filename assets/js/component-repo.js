@@ -44,5 +44,6 @@ export default {
     ImageThumbnail: () => import(/*webpackChunkName: "image-gallery-vue-component" */ "@components/imagegallery/ImageThumbnail"),
 
 
+
 };
 

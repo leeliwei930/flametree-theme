@@ -3,8 +3,8 @@
         .d-flex.justify-content-center.align-items-start
             .nav.flex-column.nav-pills.col-3.pt-3
                 slot
-            .col-8.m-3
-                portal-target.d-flex.flex-wrap(name="menu-items" multiple)
+            .col-8.m-3.overflow-y-scroll( style="max-height:320px")
+                portal-target.d-flex.flex-wrap.menu-items(name="menu-items" multiple)
 </template>
 <script>
 export default  {

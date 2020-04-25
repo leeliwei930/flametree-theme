@@ -12,7 +12,9 @@ body {
 
 @import "home/_who_we_are.scss";
 
-
+.mm-slideout {
+    z-index: auto;
+}
 
 .lozad {
     transition: opacity 2100ms;

@@ -37,9 +37,24 @@ list = "79d86d3102"
 <body>
 
 <div id="flametree-app">
-    {% partial 'NavBar' %}
-    {% page %}
 
+    {% partial 'NavBar' %}
+
+    {% page %}
+    <modal name="search-modal" :adaptive="true" height="auto" classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
+        <div class="d-flex flex-column m-3 h-100">
+            <h5 class="text-primary font-weight-bold headline-light-bold small">
+                Looking for something?
+            </h5>
+            <div class="text-field-control my-5 p-3">
+                <div class="d-flex flex-row align-items-center">
+                <i class="fas fa-search text-muted"></i>
+                <input name="keyword" id="keyword" type="text"  class="text-field" placeholder="Start Entering Keyword And Press Enter"/>
+                </div>
+            </div>
+
+        </div>
+    </modal>
 
     <mega-footer
         facebook="{{ businessContact.facebook_link | default("") }}"
@@ -156,6 +171,7 @@ list = "79d86d3102"
             </p>
         </template>
     </mega-footer>
+
 </div>
 {% framework extras %}
 

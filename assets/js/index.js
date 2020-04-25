@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueX from 'vuex'
 import store from '@store/index.js'
 import Mmenu from 'mmenu-js/src/mmenu.js';
+import VModal from 'vue-js-modal'
 
 import PortalVue from 'portal-vue';
 import moment from 'moment-timezone';
@@ -19,24 +20,11 @@ Vue.use(VueLazyload, {
 momentDurationFormatSetup(moment);
 
 Vue.prototype.$moment = moment;
-Vue.directive('click-outside', {
-    bind: function (el, binding, vnode) {
-        el.clickOutsideEvent = function (event) {
-            // here I check that click was outside the el and his childrens
-            if (!(el == event.target || el.contains(event.target))) {
-                // and if it did, call method provided in attribute value
-                vnode.context[binding.expression](event);
-            }
-        };
-        document.body.addEventListener('click', el.clickOutsideEvent)
-    },
-    unbind: function (el) {
-        document.body.removeEventListener('click', el.clickOutsideEvent)
-    },
-});
+Vue.use(VModal)
+
+
 Vue.use(PortalVue);
 Vue.use(VueX);
-
 
 import components from '@flametree-theme/js/component-repo.js';
 import { BrowserTimeZoneConverter } from "@flametree-theme/js/util.js";
@@ -52,6 +40,7 @@ Object.keys(components).forEach((index) => {
     Vue.component(index, components[index])
     // eslint-disable-next-line no-debugger
 });
+
 
 window.Vue = Vue;
 window.VueX = VueX;

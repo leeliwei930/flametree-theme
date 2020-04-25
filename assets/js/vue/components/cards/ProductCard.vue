@@ -1,11 +1,12 @@
 <template lang="pug">
 .product-card.d-flex.flex-column.shadow.rounded.justify-content-start
-    .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-if="dataImage !== ''")
-            img.product-image( v-lazy="imgObj")
-    .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-else)
-        .py-5.d-flex.flex-column.align-items-center
-            i.fas.fa-3x.fa-shopping-bag.text-light-dark
-            p.text-muted.py-3 Product Image Is Not Available
+    .product-image-wrapper
+        .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-if="dataImage !== ''")
+                img.product-image( v-lazy="imgObj")
+        .d-flex.flex-column.align-items-center.mx-auto.product-image.mb-1(v-else)
+            .py-5.d-flex.flex-column.align-items-center
+                i.fas.fa-3x.fa-shopping-bag.text-light-dark
+                p.text-muted.py-3 Product Image Is Not Available
     .product-card-content.mb-auto.mt-4.mx-3
         h4.heading.py-2 {{ name }}
 
@@ -22,10 +23,13 @@
 .product-card {
     height: 70vh;
     overflow: hidden;
-
-    .product-image {
+    .product-image-wrapper {
+        height: 30vh;
+        width: 100%;
         overflow: hidden;
-        height: 35vh;
+    }
+    .product-image {
+        height: inherit;
         width: 100%;
         transition: 0.25s all;
 

@@ -4,8 +4,8 @@ description = "Navigation Bar"
 
 [staticMenu]
 code = "frontend-menu"
-
 ==
+<div class="navbar-wrapper">
 {% set producer_categories = null %}
 
 <div class="d-flex flex-column justify-content-between justify-content-sm-between shadow-md nav navbar" id="flametree-navigation-bar" >
@@ -15,8 +15,11 @@ code = "frontend-menu"
         <a style="z-index:1;text-decoration: none" class="d-sm-flex d-lg-none text-dark align-items-start" href="#flametree-side-drawer">
             <i class="fas fa-bars fa-1x"></i>
         </a>
-        <a href="{{ "home" | page }}" class="button nav-item-link mx-auto ">
+        <a style="z-index:1;text-decoration: none" href="{{ "home" | page }}" class="button nav-item-link mx-auto ">
             <img src="{{ 'assets/images/logo.png' | theme }}" class="logo"/>
+        </a>
+        <a style="z-index:1;text-decoration: none" class="text-primary" role="button" @click="$modal.show('search-modal')">
+            <i class="fas fa-search"></i>
         </a>
     </div>
     <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
@@ -143,4 +146,5 @@ code = "frontend-menu"
             {% endfor %}
         </ul>
     {% endif %}
+</div>
 </div>

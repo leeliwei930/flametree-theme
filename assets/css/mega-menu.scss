@@ -1,14 +1,19 @@
 
 
 .mega-menu {
-    padding-top: 200px;
+    padding: 10rem 0 10rem 0;
     position: fixed;
     top:0;
     left: 0;
     right: 0;
     z-index:10;
     background: white;
-    height: auto;
+    height: 30rem;
+
+}
+.mega-menu .menu-items {
+    overflow-y: scroll;
+    max-height:16rem;
 }
 .mega-menu .nav-link {
     color: black;
