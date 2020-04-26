@@ -1,0 +1,22 @@
+{% if result.thumb %}
+    <a href="{{ result.url }}">
+        <img src="{{ result.thumb.getThumb(180, auto) }}" alt=""/>
+    </a>
+
+{% elseif result.meta.featured_image %}
+    <img
+        style="max-height: 250px; overflow: hidden"
+        class="mx-auto"
+        src="{{ result.meta.featured_image | resize(auto, 180, {blur: 0, quality: 100})}}"
+    >
+
+{% else %}
+
+        <div class="d-flex flex-column align-items-center justify-content-center">
+            <i class="fas fa-image fa-3x text-muted my-3"></i>
+            <p class="text-light-dark">
+                Preview is not available
+            </p>
+        </div>
+
+{% endif %}

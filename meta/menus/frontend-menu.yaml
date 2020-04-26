@@ -2,13 +2,9 @@ name: 'Frontend Menu'
 items:
     -
         title: 'Contact Us'
-        nesting: ''
         type: url
-        url: /contact-us
+        url: 'https://csit321_ft01s.techrino.net'
         code: ''
-        reference: ''
-        cmsPage: ''
-        replace: ''
         viewBag:
             isHidden: '0'
             cssClass: ''

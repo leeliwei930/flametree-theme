@@ -25,6 +25,11 @@
 
             color: white;
         }
+
+        &-inversed {
+            color: $primaryColor;
+            border: 0.8pt solid $primaryColor;
+        }
     }
     //dropdown class
     .dropdown-card {
@@ -300,6 +305,16 @@
             font-family: 'Lato Bold', sans-serif;
             text-decoration: none;
             color: $primaryColor;
+
+            &-dense {
+                color: $primaryColor;
+
+                &:hover {
+                    background-color: whitesmoke;
+                    color: $primaryColor;
+
+                }
+            }
         }
 
     }
@@ -347,7 +362,24 @@
 
     }
 
+    .mono-white {
+        border-color: white;
+        .overlay-content {
+            position: relative;
+        }
 
+        .blur-overlay {
+            position: absolute;
+            background-color: $white;
+            left:0;
+            top:-15px;
+
+            filter: opacity(0.85);
+            height: 100%;
+            width: 100%;
+            z-index:-1;
+        }
+    }
     .text-field-control{
         display: inline-block;
         width: 100%;
@@ -394,8 +426,8 @@
             box-shadow: none;
 
             &::placeholder {
-                text-transform: uppercase;
                 font-size: 10pt;
+                padding: 10px 0 10px 0;
                 font-family: "Lato Bold", sans-serif;
 
 
@@ -483,3 +515,4 @@
         }
 
     }
+

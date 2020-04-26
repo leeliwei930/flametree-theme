@@ -1,0 +1,10 @@
+<a class="d-flex p-3 align-items-center text-decoration-none" href="{{ __SELF__.searchPage | page }}?q={{ query | url_encode(true) }}">
+    <div style="word-break: break-word" class="text-dark">
+        {{ result.title | raw }}
+
+    </div>
+
+    <div class="d-inline-flex rounded-pill bg-primary-inversed px-3 py-1 ml-auto text-uppercase ">
+       <span> {{ result.provider }}</span>
+    </div>
+</a>

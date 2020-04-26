@@ -1,0 +1,16 @@
+{% set results = __SELF__.results %}
+
+<div class="d-flex flex-column align-items-center p-3">
+{% for result in results %}
+    {# Display all results #}
+    {% partial __SELF__ ~ '::searchresult.htm' result = result %}
+
+{% else %}
+    {# No results found #}
+    {% partial __SELF__ ~ '::no-results.htm' %}
+{% endfor %}
+    <div class="my-4">
+        {% partial __SELF__ ~ '::pagination.htm' results = results %}
+
+    </div>
+</div>

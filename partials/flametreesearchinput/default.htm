@@ -1,0 +1,27 @@
+
+    <form   class="position-relative" action="{{  __SELF__.searchPage | page }}?q={{ query | url_encode(true) }}" method="get">
+        <div class="text-field-control p-2 d-flex flex-row align-items-center ">
+            <i class="fas fa-search text-muted"></i>
+            <input name="q" type="text" placeholder="Looking for something? Start typing and search"
+                   value="{{  __SELF__.query }}"
+                   class="text-field  "
+                   autocomplete="off"
+                   autofocus
+
+                {% if  __SELF__.useAutoComplete %}
+                    data-track-input
+                    data-request="{{ __SELF__ }}::onType"
+
+                    data-request-before-update="document.getElementById('autocomplete-results').classList.add('d-flex')"
+                    data-request-update="'{{  __SELF__ }}::autocomplete': '#autocomplete-results'"
+                {% endif %}
+            />
+
+            <button class="btn btn-action-dense" type="submit">Search</button>
+
+        </div>
+        <div style=" overflow-y: scroll; z-index: 10; max-height: 30rem;width: 100%" class=" position-absolute bg-white shadow d-none flex-column rounded" id="autocomplete-results"></div>
+
+
+    </form>
+

@@ -1,0 +1,40 @@
+title = "Search"
+url = "/search"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[searchResults flametreesearchresults]
+resultsPerPage = 10
+showProviderBadge = 1
+noResultsMessage = "Your search returned no results."
+visitPageMessage = "Visit page"
+
+[searchInput flametreesearchinput]
+useAutoComplete = 1
+autoCompleteResultCount = 20
+showProviderBadge = 1
+searchPage = "search.htm"
+
+
+==
+
+    <hero
+        background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640,null, {blur: 15 })}}"
+        background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
+    >
+        <div class="col-11 col-lg-6 m-auto mono-white bg-white-opaque-blur p-2 rounded"  >
+            <div class="blur-overlay p-5 rounded"></div>
+
+            {% component 'flametreesearchinput' %}
+
+        </div>
+
+    </hero>
+<div class="d-flex flex-column my-3 mx-2">
+
+
+    {% component 'flametreesearchresults' %}
+
+</div>

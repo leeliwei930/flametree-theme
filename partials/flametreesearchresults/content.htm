@@ -1,0 +1,44 @@
+{#<h4 class="ss-result__title">#}
+{#    <a href="{{ result.url | app }}">{{ result.title | raw }}</a>#}
+{#    {% if __SELF__.showProviderBadge %}#}
+{#        <span class="ss-result__badge">#}
+{#            {{ result.provider }}#}
+{#        </span>#}
+{#    {% endif %}#}
+
+{#    #}{# Some results contain meta information.     #}
+{#    #}{# You can access it using result.meta.       #}
+{#    #}{# To find out from which plugin the result   #}
+{#    #}{# was returned you can use result.identifier #}
+{#    #}{# Some results contain the original model.   #}
+{#    #}{# You can access it using result.model       #}
+{#</h4>#}
+
+{#<p class="ss-result__text">#}
+{#    {{ result.excerpt | raw }}#}
+{#</p>#}
+
+{#<p class="ss-result__url">#}
+{#    <a href="{{ result.url | app }}" class="ss-result__link">{{ __SELF__.visitPageMessage }} &rarr;</a>#}
+{#</p>#}
+
+
+
+    <div class="d-flex flex-column align-items-baseline">
+        <h4 class="headline-light-bold small text-primary mr-2">{{ result.title | raw }}</h4>
+
+    </div>
+    <div class="d-flex flex-column my-2" style="max-height: 150px; overflow: hidden; text-overflow: ellipsis">
+        {{ result.excerpt | raw }}
+
+    </div>
+    <div class="d-flex flex-row justify-content-between">
+        <div class="d-inline-flex rounded-pill text-uppercase font-weight-bold bg-primary-inversed px-3 py-1 align-items-center">
+            {{ result.provider }}
+        </div>
+
+    </div>
+    <a href="{{ result.url | app }}" class="d-flex ml-lg-auto justify-content-center  mt-3  btn btn-primary  p-2">
+        {{ __SELF__.visitPageMessage }}
+    </a>
+

@@ -8,7 +8,6 @@
                 | {{ author }}
 
             .d-flex.flex-column.justify-content-start.flex-wrap
-
                 p
                     i.fas.fa-calendar.text-accent.mr-2
                     | {{ publishedOn }}

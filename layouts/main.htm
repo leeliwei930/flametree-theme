@@ -7,6 +7,13 @@ code = "footer-menu"
 [mailSignup]
 list = "79d86d3102"
 
+[searchInput flametreemodalsearchinput]
+useAutoComplete = 0
+autoCompleteResultCount = 5
+showProviderBadge = 1
+searchPage = "search.htm"
+
+
 [SeoCmsPage]
 ==
 <!doctype html>
@@ -36,22 +43,18 @@ list = "79d86d3102"
 </head>
 <body>
 
-<div id="flametree-app">
+<div id="flametree-app" >
 
     {% partial 'NavBar' %}
-
+    <div class="min-vh-100">
     {% page %}
-    <modal name="search-modal" :adaptive="true" height="auto" classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
+    </div>
+    <modal name="search-modal" height="150" :adaptive="true"  classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
         <div class="d-flex flex-column m-3 h-100">
             <h5 class="text-primary font-weight-bold headline-light-bold small">
                 Looking for something?
             </h5>
-            <div class="text-field-control my-5 p-3">
-                <div class="d-flex flex-row align-items-center">
-                <i class="fas fa-search text-muted"></i>
-                <input name="keyword" id="keyword" type="text"  class="text-field" placeholder="Start Entering Keyword And Press Enter"/>
-                </div>
-            </div>
+            {% component "flametreemodalsearchinput" %}
 
         </div>
     </modal>

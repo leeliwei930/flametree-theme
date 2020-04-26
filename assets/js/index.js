@@ -6,6 +6,7 @@ import VModal from 'vue-js-modal'
 
 import PortalVue from 'portal-vue';
 import moment from 'moment-timezone';
+
 import VueLazyload from 'vue-lazyload'
 import  momentDurationFormatSetup from "moment-duration-format";
 Vue.use(VueLazyload, {

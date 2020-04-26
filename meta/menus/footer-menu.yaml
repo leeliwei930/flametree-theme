@@ -69,13 +69,9 @@ items:
                     isExternal: '0'
             -
                 title: 'FREQUENTLY ASKED QUESTIONS'
-                nesting: ''
                 type: cms-page
-                url: ''
                 code: ''
-                reference: frequently-ask-questions
-                cmsPage: ''
-                replace: ''
+                reference: faq-categories
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
@@ -96,9 +92,13 @@ items:
         items:
             -
                 title: 'MEMBER LOGIN'
+                nesting: ''
                 type: cms-page
+                url: ''
                 code: ''
                 reference: login/volunteer
+                cmsPage: ''
+                replace: ''
                 viewBag:
                     isHidden: '0'
                     cssClass: ''
