@@ -18,7 +18,7 @@ code = "frontend-menu"
         <a style="z-index:1;text-decoration: none" href="{{ "home" | page }}" class="button nav-item-link mx-auto ">
             <img src="{{ 'assets/images/logo.png' | theme }}" class="logo"/>
         </a>
-        <a style="z-index:1;text-decoration: none" class="text-primary" role="button" @click="$modal.show('search-modal')">
+        <a href="#" style="cursor: pointer;z-index:1;" class="text-link" role="button" @click="$modal.show('search-modal')">
             <i class="fas fa-search"></i>
         </a>
     </div>

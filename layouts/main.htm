@@ -3,7 +3,6 @@ description = "Main Layout"
 [staticMenu footerMenu]
 code = "footer-menu"
 
-
 [mailSignup]
 list = "79d86d3102"
 
@@ -13,8 +12,11 @@ autoCompleteResultCount = 5
 showProviderBadge = 1
 searchPage = "search.htm"
 
-
 [SeoCmsPage]
+
+[staticPage]
+useContent = 1
+default = 0
 ==
 <!doctype html>
 <html lang="en">
@@ -47,7 +49,7 @@ searchPage = "search.htm"
 
     {% partial 'NavBar' %}
     <div class="min-vh-100">
-    {% page %}
+    {% page %}{% component 'staticPage' %}
     </div>
     <modal name="search-modal" height="150" :adaptive="true"  classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
         <div class="d-flex flex-column m-3 h-100">
