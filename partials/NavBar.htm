@@ -70,9 +70,17 @@ code = "frontend-menu"
 {% if producer_categories %}
     <div  id="producer-mega-menu" class="d-none">
 
-        <mega-menu>
+        <mega-menu
+        v-slot="{state}"
+        >
             {%  for index, producer_category in producer_categories %}
-                <sidebar-menu-item key="{{ index}}" title="{{ producer_category.title }}" link="{{ "our-producers" | page~"/#" ~producer_category.title  }}">
+                <sidebar-menu-item
+                    key="{{ index}}"
+                    @hover="state.updateActiveSelection"
+                    title="{{ producer_category.title }}"
+                    :active-select="state.activeSelection"
+                    link="{{ "our-producers" | page~"/#" ~producer_category.title  }}"
+                >
                     {%  if producer_category.items %}
                         {%  for producer in producer_category.items %}
                             <menu-item
@@ -83,6 +91,7 @@ code = "frontend-menu"
                                 title="{{ producer.title }}"
                                 description="{{ producer.viewBag.origin }}"
                                 icon="fas fa-map-marker-alt fa-2x"
+                                :active-select="state.activeSelection"
                             >
                             </menu-item>
 

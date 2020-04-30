@@ -6,7 +6,7 @@
                         i.fas.fa-video
                         strong.ml-auto
                             | {{formatReadableDuration}}
-                    .currently-playing-indicator.text-uppercase.bg-primary.p-2.d-flex.justify-content-center.align-items-center(v-if="isPlaying")
+                    .currently-playing-indicator.text-uppercase.p-2.d-flex.justify-content-center.align-items-center(v-if="isPlaying")
                         strong  Playing
                 .justify-content-center.my-auto.action-fadeIn.d-flex
                         i.fas(:class="dynamicActionIcon")
@@ -79,6 +79,7 @@
         color: white;
         opacity: 1;
         transition: all 1s;
+        background-color: var(--primary-color-hex);
     }
 
     .video-thumbnail .currently-playing-indicator strong {
@@ -128,7 +129,8 @@ export default {
     },
     data: function(){
         return {
-            showPlayIcon: false
+            showPlayIcon: false,
+            video: {}
         }
     },
     methods: {
@@ -146,20 +148,27 @@ export default {
             return styleClass;
         },
         emitClickEvent: function(){
+            if(this.isPlaying){
+                this.$emit('paused');
+                return;
+            }
 
-            let videoObj = {
+            this.$emit('click' , this.video);
+        },
+        copyVideoObject: function(){
+            Object.assign(this.video, {
                 type: this.type,
                 title: this.title,
                 description: this.description,
                 embed_id : this.embedId,
                 featured_image_url: this.featuredImageUrl,
                 video_url : this.videoUrl,
-            };
+            });
 
-            this.$emit('click' , videoObj);
         }
     },
     created: function(){
+        this.copyVideoObject();
 
     },
     mounted: function(){
@@ -170,7 +179,7 @@ export default {
     },
     computed: {
         backgroundCSS: function(){
-            if(this.featuredImage !== null){
+            if(this.featuredImageUrl !== null){
                 return `background: url(' `+ this.featuredImageUrl + `') ,linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
                         background-blend-mode:multiply;
                         background-repeat:no-repeat;

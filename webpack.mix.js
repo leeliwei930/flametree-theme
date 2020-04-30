@@ -21,7 +21,6 @@ mix
         resolve: {
             alias: {
                 '@components': path.resolve(__dirname, 'assets/js/vue/components'),
-                '@store': path.resolve(__dirname, 'assets/js/vue/store'),
                 '@flametree-theme' : path.resolve('assets')
             }
         },

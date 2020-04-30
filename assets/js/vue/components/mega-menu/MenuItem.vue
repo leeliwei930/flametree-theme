@@ -1,5 +1,5 @@
 <template lang="pug">
-    a.d-flex.flex-row.col-5.px-2.menu-item.text-decoration-none.text-primary(:href="link" v-if="currentSelectedMenu === parent")
+    a.d-flex.flex-row.col-5.px-2.menu-item.text-decoration-none.text-primary(:href="link" v-if="isSelected")
         .d-flex.flex-row.justify-content-between.align-items-center
             .flex-column
                 i(:class="leadingIcon", v-if="leadingIcon != null")
@@ -20,12 +20,13 @@ export default {
         description: String,
         icon: String,
         link: String,
-        leadingIcon: String
+        leadingIcon: String,
+        activeSelect: String,
     },
 
     computed: {
-        currentSelectedMenu: function(){
-            return this.$store.getters["Navbar/getCurrentSelectedMenu"];
+        isSelected: function(){
+            return this.activeSelect === this.parent;
         }
     }
 }

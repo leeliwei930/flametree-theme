@@ -1,12 +1,10 @@
 import Vue from 'vue'
-import VueX from 'vuex'
-import store from '@store/index.js'
+
+
 import Mmenu from 'mmenu-js/src/mmenu.js';
 import VModal from 'vue-js-modal'
-
 import PortalVue from 'portal-vue';
 import moment from 'moment-timezone';
-
 import VueLazyload from 'vue-lazyload'
 import  momentDurationFormatSetup from "moment-duration-format";
 Vue.use(VueLazyload, {
@@ -22,10 +20,8 @@ momentDurationFormatSetup(moment);
 
 Vue.prototype.$moment = moment;
 Vue.use(VModal)
-
-
 Vue.use(PortalVue);
-Vue.use(VueX);
+
 
 import components from '@flametree-theme/js/component-repo.js';
 import { BrowserTimeZoneConverter } from "@flametree-theme/js/util.js";
@@ -44,14 +40,10 @@ Object.keys(components).forEach((index) => {
 
 
 window.Vue = Vue;
-window.VueX = VueX;
 window.app = new Vue({
     el : "#flametree-app",
-    store: store,
+
     data: {
-        mmenuState: {
-            ready: false
-        },
         scrollY: 0
     },
     methods: {
@@ -59,7 +51,7 @@ window.app = new Vue({
             if(document.getElementById('flametree-side-drawer') == null){
                 return;
             }
-            let mmenu =  new Mmenu("#flametree-side-drawer", {
+            new Mmenu("#flametree-side-drawer", {
 
                 wrappers: ["bootstrap"],
                 "extensions": [
@@ -72,9 +64,8 @@ window.app = new Vue({
                     }
                 }
             });
-            this.mmenuState.ready = true;
 
-            this.$store.commit('SideDrawer/setMenu', mmenu);
+
 
             this.displayMenu();
         },
@@ -137,12 +128,10 @@ window.app = new Vue({
     },
 
     updated: function(){
-        // this.$forceUpdate();
+
     },
     computed: {
 
-        megaMenuState(){
-            return this.$store.getters['Navbar/currentMegaMenuState']
-        },
+
     },
 })

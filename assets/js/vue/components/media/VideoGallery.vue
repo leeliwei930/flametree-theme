@@ -1,29 +1,17 @@
 <template lang="pug">
 .d-flex.flex-column
     .col-12.align-self-stretch.align-self-lg-center.col-lg-6
-        template(v-if="currentPlaying")
-            video-player(:autoplay="autoplay" :key="currentPlaying.embed_id"
-                    :id="currentPlaying.id"
-                    :embed-id="currentPlaying.embed_id" :source="currentPlaying.type" @ready="registerPlayerInstance"
-                    :ref="'plyr-video-'+currentPlaying.id" :video-url="currentPlaying.video_url"
-                    :poster-url="currentPlaying.featured_image_url"
-                )
-
-    video-playlist( :title="playlistName")
-        template(v-if="videos.length > 0")
-            video-thumbnail.my-3.mx-1(
-                v-for="video in videos"
-                :key=" 'video-thumbnail-' + video.id"
-                :description="shortenVideoDescription(video.description)"
-                :duration="video.duration"
-                :title="video.title"
-                :featured-image-url="video.featured_image_url"
-                :embed-id="video.embed_id"
-                :video-url="video.video_url"
-                :is-playing="(currentPlaying.embed_id === video.embed_id && currentPlaying.type === video.type)"
-                :type="video.type"
-                @click="playVideo"
+        template(v-if="playerState.currentPlaying != null")
+            video-player(:autoplay="autoplay"
+                :id="playerState.currentPlaying.id"
+                :embed-id="playerState.currentPlaying.embed_id" :source="playerState.currentPlaying.type" @ready="registerPlayerInstance"
+                :ref="'plyr-video-'+playerState.currentPlaying.id" :video-url="playerState.currentPlaying.video_url"
+                :poster-url="playerState.currentPlaying.featured_image_url"
             )
+
+    video-playlist(:title="playlistName")
+        slot(:playerState="playerState")
+
 
 </template>
 <style lang="scss">
@@ -35,9 +23,6 @@ import isMobile from "../../../mobile-detector";
 export default {
 
     props: {
-        videoList : {
-            type: String
-        },
         autoplay: {
             type: Boolean,
             default: false
@@ -45,23 +30,35 @@ export default {
         playlistName: {
             type: String,
             default: "Playlist"
+        },
+        defaultVideo: {
+            type: String
         }
     },
     data: function(){
         return {
-            currentPlayEmbedID: null,
-            videos: [],
-            currentPlaying: null,
-            player: null
+            player: null,
+            playerState:{
+                currentPlaying: null,
+                isPaused: false,
+                setCurrentPlaying: function(video){
+                    this.playVideo(video)
+                }.bind(this),
+                pausePlayer: function(){
+                    if(this.playerState.isPaused){
+                        this.player.play()
+                        this.playerState.isPaused = false;
+
+
+                    } else {
+                        this.player.stop();
+                        this.playerState.isPaused = true;
+                    }
+                }.bind(this)
+            }
         }
     },
     methods: {
-        shortenVideoDescription: function(description){
-            if(description === null){
-                return  "Unknown"
-            }
-            return description.substring(0, 15);
-        },
         registerPlayerInstance: function(player){
             this.player = player;
             if(this.autoplay && !isMobile()){
@@ -70,20 +67,19 @@ export default {
         },
         playVideo(videoObj){
             this.player.stop();
-            this.currentPlaying = videoObj;
+            this.playerState.currentPlaying = videoObj;
             this.player.play();
+        },
 
-
+        loadDefaultVideo(){
+            this.playerState.currentPlaying = JSON.parse(this.defaultVideo);
         }
+
     },
     created: function(){
-        // copy all the videos from props to data collection for state
-        this.videos  =  JSON.parse(this.videoList);
-        if(this.videos.length > 0){
-            this.currentPlaying = this.videos[0];
-        }
     },
     mounted: function(){
+        this.loadDefaultVideo();
 
     },
     updated: function(){
