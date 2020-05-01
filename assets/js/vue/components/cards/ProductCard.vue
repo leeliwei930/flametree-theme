@@ -10,7 +10,7 @@
     .product-card-content.mb-auto.mt-4.mx-3
         h4.heading.py-2 {{ name }}
 
-        .categories.d-flex.flex-row.align-items-baseline.py-2
+        .categories.d-flex.flex-row.align-items-baseline.py-2.flex-wrap
             slot(name="categories")
 
     .product-card-actions.mx-1.my-2

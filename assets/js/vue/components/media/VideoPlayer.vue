@@ -1,27 +1,10 @@
 <template lang="pug">
 .plyr_root
-    template(v-if="(source === 'youtube' || source === 'vimeo')")
-        div(class="plyr__video-embed" :id="'plyr-' + id")
-            iframe(
-                :src="getIframeSources"
-                allowfullscreen
-                allowtransparency
-            )
-    template(v-else)
-        video(:poster="posterUrl"
-            :id="'plyr-'+id"
-            playsinline
-            controls
-            :autoplay="autoplay"
-            :volume="volume"
-        )
-            source(:src="videoUrl" type="video/mp4")
+    div(:id="'plyr-' + _uid" :data-plyr-provider="getSourceLabel" :data-plyr-embed-id="embedId")
+
 </template>
 <style lang="scss">
-.plyr {
-    width: inherit;
-    height: inherit;
-}
+
 </style>
 <script type="text/javascript">
 import  Plyr  from 'plyr';
@@ -65,14 +48,11 @@ export default {
         }
     },
     methods: {
-        loadPlyr: function(id){
+        loadPlyr: function(){
             // create a new player instance
-            this.player = new Plyr('#plyr-' + id);
+            this.player = new Plyr('#plyr-' + this._uid);
             this.player.on('ready' , () => {
-
-                setTimeout(() => {
-                    this.$emit('ready', this.player);
-                }, 1800)
+                this.$emit('ready', this.player);
             })
 
         }
@@ -83,7 +63,7 @@ export default {
     },
 
     mounted: function(){
-        this.loadPlyr(this.id);
+        this.loadPlyr();
 
     },
     updated: function(){
@@ -106,6 +86,12 @@ export default {
                 return ``
 
             }
+        },
+        getSourceLabel: function(){
+            if(this.source === 'video'){
+                return 'html5'
+            }
+            return this.source;
         }
     }
 }

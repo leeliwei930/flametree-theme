@@ -43,17 +43,6 @@ export default {
                 isPaused: false,
                 setCurrentPlaying: function(video){
                     this.playVideo(video)
-                }.bind(this),
-                pausePlayer: function(){
-                    if(this.playerState.isPaused){
-                        this.player.play()
-                        this.playerState.isPaused = false;
-
-
-                    } else {
-                        this.player.stop();
-                        this.playerState.isPaused = true;
-                    }
                 }.bind(this)
             }
         }
@@ -66,11 +55,39 @@ export default {
             }
         },
         playVideo(videoObj){
-            this.player.stop();
+
             this.playerState.currentPlaying = videoObj;
+            this.updatePlayerSource(videoObj)
             this.player.play();
         },
-
+        updatePlayerSource: function(videoObj){
+            if(this.player != null){
+                if(videoObj.type !== 'video')
+                {
+                    this.player.source = {
+                        type: 'video',
+                        title: videoObj.title,
+                        sources: [
+                            {
+                                src: videoObj.embed_id,
+                                provider: videoObj.type
+                            }
+                        ]
+                    }
+                } else {
+                    this.player.source = {
+                        type: 'video',
+                        title: videoObj.title,
+                        sources: [
+                            {
+                                src: videoObj.video_url,
+                                type: "video/mp4"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
         loadDefaultVideo(){
             this.playerState.currentPlaying = JSON.parse(this.defaultVideo);
         }

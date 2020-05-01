@@ -148,10 +148,6 @@ export default {
             return styleClass;
         },
         emitClickEvent: function(){
-            if(this.isPlaying){
-                this.$emit('paused');
-                return;
-            }
 
             this.$emit('click' , this.video);
         },
