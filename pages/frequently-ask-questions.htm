@@ -1,6 +1,19 @@
 title = "Frequently Ask Questions"
-url = "/frequently-ask-questions"
+url = "/faqs"
+layout = "main"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
+
+[FaqCategories]
+category_parameter_key = "category"
+faqs_page = "frequently-ask-questions"
 ==
+<hero
+style="max-height: 20vh"
+gradient-color="linear-gradient(30deg, rgba(var(--primary-color-rgba), 0.8), rgba(var(--accent-color-rgba), 0.3))"
+>
+<h1 class="hero-title text-uppercase align-self-center mr-auto ml-5">FAQs</h1>
+</hero>
+
+{% component 'FaqCategories' %}

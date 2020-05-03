@@ -71,7 +71,7 @@ items:
                 title: 'FREQUENTLY ASKED QUESTIONS'
                 type: cms-page
                 code: ''
-                reference: faq-categories
+                reference: frequently-ask-questions
                 viewBag:
                     isHidden: '0'
                     cssClass: ''

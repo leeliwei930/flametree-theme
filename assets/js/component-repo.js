@@ -32,6 +32,7 @@ export default {
     TileCard: () => import(/*webpackChunkName: "tile-card-vue-component" */ "@components/cards/TileCard"),
     Accordian: () => import(/*webpackChunkName: "accordion-vue-component" */ "@components/accordian/Accordian"),
     AccordianView: () => import(/*webpackChunkName: "accordion-view-vue-component" */ "@components/accordian/AccordianView"),
+    AccordionBasic: () => import(/*webpackChunkName: "accordion-basic-vue-component" */ "@components/accordian/AccordionBasic"),
 
     EventCard: () => import(/*webpackChunkName: "event-card-vue-component" */ "@components/cards/EventCard"),
     ProductCard: () => import(/*webpackChunkName: "product-card-vue-component" */ "@components/cards/ProductCard"),
@@ -43,7 +44,9 @@ export default {
     ImageGallery: () => import(/*webpackChunkName: "image-gallery-vue-component" */ "@components/imagegallery/ImageGallery"),
     ImageThumbnail: () => import(/*webpackChunkName: "image-gallery-vue-component" */ "@components/imagegallery/ImageThumbnail"),
 
+    StackMenuList: () => import(/*webpackChunkName: "stack-menu-list-vue-component" */ "@components/stack-menu/StackMenuList.vue"),
 
+    StackMenuItem: () => import(/*webpackChunkName: "stack-menu-item-vue-component" */ "@components/stack-menu/StackMenuItem.vue")
 
 };
 

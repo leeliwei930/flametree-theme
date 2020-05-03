@@ -257,14 +257,27 @@
 
 
         &.btn-outline-primary {
-            border-color: $accentColor !important;
-            color:$accentColor !important;
+            border-color: $primaryColor !important;
+            color:$primaryColor !important;
             border-radius: 0;
 
             &:hover {
                 color: $white !important;
                 background-color: $primaryColor !important;
                 border-color: $primaryColor !important;
+
+            }
+        }
+
+        &.btn-outline-accent {
+            border-color: $accentColor !important;
+            color:$accentColor !important;
+            border-radius: 0;
+
+            &:hover {
+                color: $white !important;
+                background-color: $accentColor !important;
+                border-color: $accentColor !important;
 
             }
         }
