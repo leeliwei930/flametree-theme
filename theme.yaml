@@ -83,8 +83,18 @@ form:
                 type: text
                 tab: Contact
                 default: "123456789"
-
-
+            facebook_link:
+                label: Facebook
+                type: text
+                tab: Social Media
+            twitter_link:
+                label: Twitter
+                type: text
+                tab: Social Media
+            instagram_link:
+                label: Twitter
+                type: text
+                tab: Social Media
 require:
     - RainLab.User
     - RainLab.Blog

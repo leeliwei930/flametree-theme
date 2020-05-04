@@ -11,11 +11,11 @@
     .d-flex.justify-content-center.flex-column
         img(class="footer-logo" :src="logo")
         .d-flex.flex-row.justify-content-center.social-link.my-2
-            a.mx-2.fa-2x(:href="facebook" v-if="facebook.length > 0" target="_blank")
+            a.mx-2.fa-2x(:href="'https://' +facebook" v-if="facebook.length > 0" target="_blank")
                 i.fab.fa-facebook-square
-            a.mx-2.fa-2x(:href="twitter"  v-if="twitter.length > 0" target="_blank")
+            a.mx-2.fa-2x(:href="'https://' +twitter"  v-if="twitter.length > 0" target="_blank")
                 i.fab.fa-twitter
-            a.mx-2.fa-2x(:href="instagram"  v-if="instagram.length > 0" target="_blank")
+            a.mx-2.fa-2x(:href="'https://' +instagram"  v-if="instagram.length > 0" target="_blank")
                 i.fab.fa-instagram
             a.mx-2.fa-2x(:href="'mailto::'+email"  v-if="email.length > 0" target="_blank")
                 i.fas.fa-envelope

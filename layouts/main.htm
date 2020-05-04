@@ -62,10 +62,10 @@ default = 0
     </modal>
 
     <mega-footer
-        facebook="{{ businessContact.facebook_link | default("") }}"
-        twitter="{{ businessContact.twitter_link  | default("") }}"
-        instagram="{{ businessContact.instagram_link  | default("") }}"
-        email="{{ businessContact.email  | default("") }}"
+        facebook="{{ this.theme.facebook_link | url_encode | default("") }}"
+        twitter="{{ this.theme.twitter_link  | default("") }}"
+        instagram="{{ this.theme.instagram_link  | default("") }}"
+        email="{{ this.theme.email  | default("") }}"
     >
         <div class="d-flex flex-row flex-wrap justify-content-end ">
 

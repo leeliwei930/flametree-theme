@@ -4,6 +4,7 @@
     "/assets/public/css/lib.css": "/assets/public/css/lib.css",
     "/assets/public/css/app.css": "/assets/public/css/app.css",
     "/assets/public/js/jquery.js": "/assets/public/js/jquery.js",
+    "/assets/public/js/chunks/accordion-basic-vue-component.js": "/assets/public/js/chunks/accordion-basic-vue-component.js",
     "/assets/public/js/chunks/accordion-view-vue-component.js": "/assets/public/js/chunks/accordion-view-vue-component.js",
     "/assets/public/js/chunks/accordion-vue-component.js": "/assets/public/js/chunks/accordion-vue-component.js",
     "/assets/public/js/chunks/announcement-basic-card-vue-component.js": "/assets/public/js/chunks/announcement-basic-card-vue-component.js",
@@ -36,6 +37,5 @@
     "/assets/public/js/chunks/video-playlist-vue-component.js": "/assets/public/js/chunks/video-playlist-vue-component.js",
     "/assets/public/js/chunks/video-thumbnail-vue-component.js": "/assets/public/js/chunks/video-thumbnail-vue-component.js",
     "/assets/public/css/override.css": "/assets/public/css/override.css",
-    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js",
-    "/assets/public/js/chunks/accordion-basic-vue-component.js": "/assets/public/js/chunks/accordion-basic-vue-component.js"
+    "/assets/public/js/bootstrap.js": "/assets/public/js/bootstrap.js"
 }
