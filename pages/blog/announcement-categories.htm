@@ -32,7 +32,7 @@ PortalBlogCategoriesPolicy::guard();
 >
         <h1 class="hero-title text-uppercase m-auto align-self-center text-center">Announcement Categories</h1>
 </hero>
-<div class="d-flex flex-column justify-content-center flex-wrap mx-3">
+<div class="d-flex flex-column justify-content-center flex-wrap">
 
     {% put tabs %}
     {% partial "components/tab"
@@ -50,7 +50,7 @@ PortalBlogCategoriesPolicy::guard();
     {% endput %}
     {% partial "components/tabs" %}
 
-    <div class="d-flex flex-row justify-content-start flex-wrap ">
+    <div class="d-flex flex-row justify-content-start flex-wrap m-1">
         {% for category in blogCategories.categories %}
                 <a class="d-flex justify-content-around flex-grow-1 text-decoration-none" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">
 

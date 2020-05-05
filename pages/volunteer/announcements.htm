@@ -1,4 +1,4 @@
-\title = "Announcements"
+title = "Announcements"
 url = "/membership/announcements"
 layout = "authenticated"
 is_hidden = 0
@@ -19,8 +19,8 @@ function onStart(){
 }
 ?>
 ==
-{% partial 'nav-header' backBtnLink= "volunteer/dashboard" backBtnText="Back To Dashboard" %}
-<div class="d-flex justify-content-around flex-column mx-3">
+
+<div class="d-flex justify-content-around flex-column">
     {% put tabs %}
         {% partial "components/tab"
             icon="fa-list"
@@ -36,6 +36,10 @@ function onStart(){
         %}
     {% endput %}
     {% partial "components/tabs" %}
+
+</div>
+
+<div class="m-3">
     {% component 'PrivateAnnouncements' %}
 
 </div>

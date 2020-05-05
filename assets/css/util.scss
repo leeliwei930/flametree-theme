@@ -528,4 +528,54 @@
         }
 
     }
+@keyframes tabBorderAnimation {
+    from {
+        width: 0;
+        background-color: transparent;
+
+    }
+
+    to {
+        width: 100%;
+        opacity: 1;
+
+        background-color: var(--primary-color-hex);
+
+    }
+}
+
+    .tab {
+        color: var(--dark);
+
+        .bar {
+            height: 3pt;
+            width: 0;
+
+
+
+
+        }
+        &.active {
+            color: var(--primary-color-hex);
+            .bar {
+
+                width: 100%;
+                opacity: 1;
+                background-color: var(--primary-color-hex);
+            }
+
+        }
+
+        &:hover:not(.active) {
+            color: var(--primary-color-hex);
+
+            .bar {
+                animation-name: tabBorderAnimation;
+                animation-duration: 0.25s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-in-out;
+            }
+
+        }
+    }
 

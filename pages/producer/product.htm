@@ -1,6 +1,13 @@
-layout = "main"
+title = "Product"
 url = "/product/:slug"
-title= "Flame Tree Community Food Co-Op"
+layout = "main"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
 [Product]
+search_key = "slug"
+search_key_param = "{{:slug}}"
 ==
+
 {% component "Product" %}

@@ -1,6 +1,11 @@
 
 <a href="{{ link}}"
-   class="d-flex align-items-center btn rounded-pill mx-1 my-3 shadow-lg  px-3 py-2 text-font-nunito {{ (isActive) ? 'btn-light-inversed' : 'btn-light'}}">
-    <i class="fas {{ icon }} mx-2"></i> {{ title }}
+   class="d-flex flex-column tab  justify-content-between align-items-center text-decoration-none text-font-nunito {{ (isActive) ? 'active'}}">
+    <div class="d-flex flex-row align-items-baseline justify-content-between p-3">
+    <i class="fas {{ icon }} mx-2"></i>
+    {{ title }}
+    </div>
+    <div class="bar"></div>
 </a>
+
 

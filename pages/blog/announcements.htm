@@ -37,7 +37,6 @@ function onEnd(){
         <h1 class="hero-title text-uppercase m-auto align-self-center">Announcements</h1>
 </hero>
 
-<div class="d-flex flex-column  flex-wrap">
 
 
     {% put tabs %}
@@ -55,6 +54,7 @@ function onEnd(){
         %}
     {% endput %}
     {% partial "components/tabs" %}
+<div class="d-flex flex-column  flex-wrap m-3 mx-auto">
 
     {%  if blogPosts.posts %}
         {% for announcement in blogPosts.posts %}
