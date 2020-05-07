@@ -394,7 +394,8 @@
         }
     }
     .text-field-control{
-        display: inline-block;
+        display: inline-flex;
+        flex-wrap: wrap;
         width: 100%;
         border-width: 0.75px;
         border-style: solid;

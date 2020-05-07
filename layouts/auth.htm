@@ -1,4 +1,4 @@
-description = "Main Layout"
+description = "Auth Layout"
 
 [staticMenu footerMenu]
 code = "footer-menu"
@@ -13,10 +13,6 @@ showProviderBadge = 1
 searchPage = "search.htm"
 
 [SeoCmsPage]
-
-[staticPage]
-useContent = 1
-default = 0
 ==
 <!doctype html>
 <html lang="en">
@@ -44,15 +40,39 @@ default = 0
 
 
     {% component 'SeoCmsPage' %}
+
+    <style>
+        .bg-auth-container {
+            overflow: hidden;
+            min-height: 80vh;
+        }
+        .bg-auth {
+            background-image:  linear-gradient(30deg, white, darkgray), url({{ 'assets/images/login_background.jpg' | theme }});
+            transform: scale(1.05);
+            background-size: contain;
+            background-repeat: round;
+            width: 100%;
+            background-blend-mode: multiply;
+        }
+    </style>
 </head>
 <body>
 
 <div id="flametree-app" >
 
     {% partial 'NavBar' %}
-    <div class="min-vh-100">
-    {% page %}{% component 'staticPage' %}
+    <div class="d-flex flex-column flex-wrap-reverse flex-md-wrap flex-md-row">
+        <div class="d-none d-md-flex col-lg-8 col-12 bg-auth-container">
+            <div class="bg-auth"></div>
+        </div>
+        <div class="d-flex col-lg-4 pt-3 col-12 my-5 justify-content-md-start justify-content-center ">
+
+                {% page %}
+
+        </div>
+
     </div>
+
     <modal name="search-modal" height="150" :adaptive="true"  classes="v--modal animated fadeInUp fadeoutDown fast " :pivot-y="1">
         <div class="d-flex flex-column m-3 h-100">
             <h5 class="text-primary font-weight-bold headline-light-bold small">

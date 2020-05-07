@@ -1,6 +1,6 @@
 title = "Membership Sign Up"
 url = "/membership/signup"
-layout = "main"
+layout = "auth"
 description = "Flametree Community Volunteer Portal Sign Up"
 is_hidden = 0
 robot_index = "index"
@@ -16,9 +16,5 @@ security = "all"
 allowedUserGroups[] = "guest"
 redirect = "volunteer/dashboard"
 ==
-<div class="d-flex flex-column align-content-center justify-content-center" >
-    <div class="bg-white rounded-lg shadow-lg  mx-auto col-10 col-lg-4 px-3 py-4 my-5 ">
-        {% component 'ReferralSignUp'  %}
-    </div>
 
-</div>
+{% component 'ReferralSignUp'  %}

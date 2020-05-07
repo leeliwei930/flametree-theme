@@ -1,6 +1,6 @@
 
     <form   class="position-relative" action="{{  __SELF__.searchPage | page }}?q={{ query | url_encode(true) }}" method="get">
-        <div class="text-field-control p-2 d-flex flex-row align-items-center ">
+        <div class="text-field-control p-2 flex-nowrap align-items-center">
             <i class="fas fa-search text-muted"></i>
             <input name="q" type="text" placeholder="Looking for something? Start typing and search"
                    value="{{  __SELF__.query }}"

@@ -1,6 +1,6 @@
-title = "Forgot Password | Membership"
+title = "Forgot Password - Membership"
 url = "/membership/forgot-password"
-layout = "main"
+layout = "auth"
 description = "Flame Tree Community Volunteer Forgot Password"
 is_hidden = 0
 robot_index = "index"
@@ -13,14 +13,7 @@ success_param = "success"
 success_message = "Your password has been updated, please login."
 reset_mail_sent_message = "A reset password instruction has been sent out to your inbox."
 ==
-<div class="d-flex flex-column justify-content-center" >
-
-    <div class="bg-white rounded-lg shadow-lg col-10 col-lg-4  mx-auto px-3 py-4 my-5 ">
-        <div class="flametree-theme">
-            <div  id="partialUserResetForm">
-        {% component "VolunteerResetPassword" %}
-            </div>
-        </div>
-    </div>
-
+<div  id="partialUserResetForm" >
+    {% component "VolunteerResetPassword" %}
 </div>
+
