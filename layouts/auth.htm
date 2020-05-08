@@ -46,14 +46,6 @@ searchPage = "search.htm"
             overflow: hidden;
             min-height: 80vh;
         }
-        .bg-auth {
-            background-image:  linear-gradient(30deg, white, darkgray), url({{ 'assets/images/login_background.jpg' | theme }});
-            transform: scale(1.05);
-            background-size: contain;
-            background-repeat: round;
-            width: 100%;
-            background-blend-mode: multiply;
-        }
     </style>
 </head>
 <body>
@@ -65,7 +57,7 @@ searchPage = "search.htm"
         <div class="d-none d-md-flex col-lg-8 col-12 bg-auth-container">
             <div class="bg-auth"></div>
         </div>
-        <div class="d-flex col-lg-4 pt-3 col-12 my-5 justify-content-md-start justify-content-center ">
+        <div class="d-flex col-lg-4 pt-3 col-12 my-5 m-0  justify-content-around ">
 
                 {% page %}
 
@@ -116,7 +108,7 @@ searchPage = "search.htm"
         </template>
         <template slot="newsletter-form">
             <mega-footer-header title="SUBSCRIBE NEWSLETTER">
-                <div class="flametree-theme mx-auto my-2" id="{{ mailSignup.id }}container">
+                <div class="my-2" id="{{ mailSignup.id }}container">
                     <form
                         data-request="{{ mailSignup }}::onSignup"
                         data-request-update="'{{ mailSignup }}::result': '#{{ mailSignup.id }}container'">

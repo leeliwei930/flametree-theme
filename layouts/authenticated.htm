@@ -59,15 +59,14 @@ code = "volunteer-navbar-menu"
                                 {% if staticMenu.menuItems %}
                                     {% for navItem in staticMenu.menuItems %}
                                         <a class="dropdown-card-menu-item" href="{{navItem.url}}">
-                                            <i class="fas {{ navItem.code }} text-accent col"></i>
+                                            <i class="fas {{ navItem.code }} text-primary col"></i>
                                             <strong class="col-9 text-dark text-uppercase ">{{ navItem.title }}</strong>
                                         </a>
-
                                     {% endfor %}
                                 {% endif %}
 
                                 <a href="{{ 'volunteer/profile-settings' | page }}" class="dropdown-card-menu-item" >
-                                    <i class="fas fa-edit text-accent col"></i>
+                                    <i class="fas fa-edit text-primary col"></i>
                                     <strong class="col-9 text-dark text-uppercase ">Update Profile</strong>
                                 </a>
 
@@ -76,7 +75,7 @@ code = "volunteer-navbar-menu"
                                    data-request="onLogOut"
                                    data-request-data="{'redirect':  '{{ 'login/volunteer' | page }}'}"
                                 >
-                                    <i class="fas fa-sign-out-alt col text-accent"></i>
+                                    <i class="fas fa-sign-out-alt col text-primary"></i>
                                     <strong class="col-9 text-dark text-uppercase ">Log Out</strong>
                                 </a>
 

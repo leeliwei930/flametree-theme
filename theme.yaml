@@ -1,8 +1,8 @@
 name: 'GodSpeed Theme'
-description: ''
+description: 'A default demo theme for GodSpeed CMS plugin'
 author: GodSpeed
-homepage: ''
-code: ''
+homepage: 'csit321_ft01s.techrino.net'
+code: 'godspeed-theme'
 form:
     tabs:
         fields:
@@ -140,10 +140,26 @@ form:
                 label: Twitter
                 type: text
                 tab: Social Media
+
+            login_page_bg_image:
+                label: Login Page Background Image
+                type: mediafinder
+                tab: Background Images
+                default: ""
+            signup_page_bg_image:
+                label: Sign Up Page Backgroud Image
+                type: mediafinder
+                tab: Background Images
+                default: ""
+            forgot_password_bg_image:
+                label: Forgot Password Page Background Image
+                type: mediafinder
+                tab: Background Images
+                default: ""
 require:
     - RainLab.User
     - RainLab.Blog
     - RainLab.Pages
     - Anandpatel.WysiwygEditors
     - SureSoftware.PowerSEO
-    - Offline.Search
+    - Offline.SiteSearch

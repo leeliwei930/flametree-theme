@@ -17,15 +17,33 @@ security = "all"
 allowedUserGroups[] = "guest"
 redirect = "volunteer/dashboard"
 ==
+{% put styles %}
+<style>
+    .bg-auth {
+    {% if this.theme.login_page_bg_image == "" %}
+        background-image:  linear-gradient(30deg, white, darkgray), url({{ 'assets/images/auth.jpg' | theme }});
+    {% else %}
+        background-image:  linear-gradient(30deg, white, darkgray), url({{ this.theme.login_page_bg_image | media }});
+    {% endif %}
+        transform: scale(1.05);
+        background-size: contain;
+        background-repeat: round;
+        width: 100%;
+        background-blend-mode: multiply;
+    }
+</style>
+{% endput %}
 
-
-{{ form_ajax('onSignin' ,  { 'data-request-validate' : true, 'data-request-flash': true }) }}
+{{ form_ajax('onSignin' ,  { 'class' : 'd-flex flex-column flex-grow-1 mx-5 mx-md-0',  'data-request-validate' : true, 'data-request-flash': true }) }}
             {% if get('success') %}
                 <div class="alert alert-success">
                     <p>{{ get('success') }}</p>
                 </div>
             {% endif %}
+
 <h2 class="text-primary headline-light-bold small py-2">Account Login</h2>
+
+
 
 <div class="text-field-control my-1">
     <label for="volunteer_login_email">EMAIL</label>
@@ -33,6 +51,7 @@ redirect = "volunteer/dashboard"
     <input name="login" id="volunteer_login_email" type="text" class="text-field"/>
 
 </div>
+
 <small class="text-danger" data-validate-for="login"></small>
 
 <div class="text-field-control my-1">
@@ -49,6 +68,7 @@ redirect = "volunteer/dashboard"
     <a href="{{ 'signup/volunteer-signup' | page }}" class="text-link">Create a new account</a>
 </div>
 <button class="btn btn-primary rounded w-100 my-3">LOG IN</button>
+
 {{ form_close() }}
 
 

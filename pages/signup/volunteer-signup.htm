@@ -16,5 +16,22 @@ security = "all"
 allowedUserGroups[] = "guest"
 redirect = "volunteer/dashboard"
 ==
-
+{% put styles %}
+    <style>
+        .bg-auth {
+        {% if this.theme.signup_page_bg_image == "" %}
+            background-image:  linear-gradient(30deg, white, darkgray), url({{ 'assets/images/auth.jpg' | theme }});
+        {% else %}
+            background-image:  linear-gradient(30deg, white, darkgray), url({{ this.theme.signup_page_bg_image | media }});
+        {% endif %}
+            transform: scale(1.05);
+            background-size: contain;
+            background-repeat: round;
+            width: 100%;
+            background-blend-mode: multiply;
+        }
+    </style>
+{% endput %}
+<div class='d-flex flex-column flex-grow-1 mx-5 mx-lg-0'>
 {% component 'ReferralSignUp'  %}
+</div>
