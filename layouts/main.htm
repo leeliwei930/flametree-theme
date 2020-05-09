@@ -12,11 +12,12 @@ autoCompleteResultCount = 5
 showProviderBadge = 1
 searchPage = "search.htm"
 
-[SeoCmsPage]
-
 [staticPage]
 useContent = 1
 default = 0
+
+[seo]
+disable_schema = 0
 ==
 <!doctype html>
 <html lang="en">
@@ -25,8 +26,7 @@ default = 0
     <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
 
 
-    {% partial "page-title" %}
-
+    {% component 'seo' %}
     <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
 
 
@@ -43,7 +43,6 @@ default = 0
     {% styles %}
 
 
-    {% component 'SeoCmsPage' %}
 </head>
 <body>
 

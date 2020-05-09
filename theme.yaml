@@ -6,50 +6,12 @@ code: 'godspeed-theme'
 form:
     tabs:
         fields:
-            siteTitle:
-                label: Company Name
-                type: text
-                default: "My Company"
-                tab: Brand
-                span: left
             companyLogo:
                 label: Company Logo
                 type: mediafinder
                 tab: Brand
                 span: right
                 default: ""
-
-            displayBrandNameInTitle:
-                label: Display company name in  site title?
-                type: checkbox
-                default: 1
-                tab: Brand
-                span: left
-
-            siteTitleDisplayPosition:
-                label: Site Title Display Position
-                type:  radio
-                trigger:
-                    action: show
-                    condition: checked
-                    field: displayBrandNameInTitle
-                options:
-                    prefix: Prefix
-                    postfix: Postfix
-                default: postfix
-                tab: Brand
-                span: right
-
-            siteTitleSeparator:
-                label: The separator between site title and your company name.
-                type: text
-                default: "|"
-                tab: Brand
-                span: left
-                trigger:
-                    action: show
-                    condition: checked
-                    field: displayBrandNameInTitle
 
             primaryColor:
                 label: Primary Color

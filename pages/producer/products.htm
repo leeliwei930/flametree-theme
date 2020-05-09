@@ -2,12 +2,21 @@ title = "Products"
 url = "/producers/:producer"
 layout = "main"
 is_hidden = 0
+meta_title = "{{ producer.name }}'s products catalogue"
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "{{ producer.name }}'s products catalogue"
+og_description = "{{producer.name }} 's product catalogue"
+og_type = "website"
+og_ref_image = "{{ producer.featured_image }}"
 
 [Products]
 producer = "{{ :producer }}"
 producer_search_key = "slug"
-products_per_page=10
+products_per_page = 10
 ==
 {% component 'Products' %}

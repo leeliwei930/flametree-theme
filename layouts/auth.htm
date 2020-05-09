@@ -12,7 +12,7 @@ autoCompleteResultCount = 5
 showProviderBadge = 1
 searchPage = "search.htm"
 
-[SeoCmsPage]
+[seo]
 ==
 <!doctype html>
 <html lang="en">
@@ -20,8 +20,8 @@ searchPage = "search.htm"
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.9, shrink-to-fit=no">
 
+    {% component 'seo' %}
 
-    {% partial "page-title" %}
 
     <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.1/normalize.css">
 
@@ -39,7 +39,7 @@ searchPage = "search.htm"
     {% styles %}
 
 
-    {% component 'SeoCmsPage' %}
+
 
     <style>
         .bg-auth-container {
