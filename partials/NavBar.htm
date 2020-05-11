@@ -8,14 +8,14 @@ code = "frontend-menu"
 <div class="navbar-wrapper">
 {% set producer_categories = null %}
 
-<div class="d-flex flex-column justify-content-between justify-content-sm-between shadow-md nav navbar" id="flametree-navigation-bar" >
+<div class="d-flex flex-column  justify-content-between justify-content-sm-between shadow-md nav navbar" id="flametree-navigation-bar" >
     <div class="navbar-overlay"></div>
 
-    <div class="w-100 d-flex flex-grow-1 flex-md-grow-0 py-4 px-3 align-items-center justify-content-between ">
+    <div class="d-flex flex-grow-1 flex-md-grow-1 p-3 align-items-center justify-content-between ">
         <a style="z-index:1;text-decoration: none" class="d-sm-flex d-lg-none text-dark align-items-start" href="#flametree-side-drawer">
             <i class="fas fa-bars fa-1x"></i>
         </a>
-        <a style="z-index:1;text-decoration: none" href="{{ "home" | page }}" class="button nav-item-link mx-auto ">
+        <a style="z-index:1;text-decoration: none" href="{{ "home" | page }}" class="button nav-item-link mx-auto my-1">
             {% if this.theme.companyLogo == "" %}
             <img src="{{ 'assets/images/logo.png' | theme }}" class="logo"/>
 
@@ -29,14 +29,14 @@ code = "frontend-menu"
             <i class="fas fa-search"></i>
         </a>
     </div>
-    <div class="d-lg-flex flex-row justify-content-end mx-5 d-none align-items-baseline">
+    <div class="d-lg-flex flex-row justify-content-center d-none align-items-baseline flex-shrink-1">
         {% if staticMenu.menuItems %}
             {% for item in staticMenu.menuItems %}
                 {% if not isHidden %}
                     {% if item.title is same as("Producers") %}
                         {% set producer_categories = item.items %}
 
-                        <div class="nav-item p-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
+                        <div class="nav-item p-3 mx-3 {{ (item.items ) ? 'nav-dropdown' : null }}"
                          id="producer-link">
                         <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
@@ -51,7 +51,7 @@ code = "frontend-menu"
                         {% endif %}
                     </div>
                     {% else %}
-                        <div class=" nav-item p-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
+                        <div class=" nav-item p-3 mx-3 {{ (item.items ) ? 'nav-dropdown' : null }}">
                             <a class="nav-item-link" href="{{ item.url | app }}">{{ item.title }}</a>
 
                             {% if item.items and item.title != "Producers" %}

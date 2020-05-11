@@ -103,27 +103,12 @@ window.app = new Vue({
             });
 
         },
-        registerAffixNavbar: function(){
-            if(document.getElementById('flametree-navigation-bar') === null)
-            {
-                return;
-            }
-            window.addEventListener('scroll', () => {
-                if(window.scrollY > 200){
-                    document.getElementById('flametree-navigation-bar').classList
-                        .add('fixed-top', 'animated', 'fadeInDown')
-                } else {
-                    document.getElementById('flametree-navigation-bar').classList
-                        .remove('fixed-top', 'animated', 'fadeInDown')
-                }
-            })
 
-        }
     },
     mounted: function () {
         this.initializeMMenu();
         this.registerMegaMenuEvent();
-        this.registerAffixNavbar();
+
 
     },
 

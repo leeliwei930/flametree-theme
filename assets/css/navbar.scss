@@ -30,6 +30,8 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     padding:0;
     z-index: 150;
+    align-items: stretch;
+
 }
 .nav.navbar .logo {
     height: 55px;
@@ -146,13 +148,13 @@
 @keyframes animateDropdownMenu {
     from {
         opacity:0;
-        transform: translate(-15px,0px);
+        transform: translate(-15px,0%);
 
     }
 
     to {
         opacity: 1;
-        transform: translate(-15px,20px);
+        transform: translate(-15px,10%);
 
     }
 }
