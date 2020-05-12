@@ -2,8 +2,17 @@ title = "Announcement Categories"
 url = "/announcement-categories"
 layout = "main"
 is_hidden = 0
+meta_title = "Announcement Categories"
+meta_description = "List all the categories of announcements."
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "Announcement Categories"
+og_description = "List all the categories of announcements."
+og_type = "article"
 
 [blogCategories]
 slug = "{{ :slug }}"
@@ -21,10 +30,7 @@ function onEnd(){
 PortalBlogCategoriesPolicy::guard();
 }
 ?>
-
-
 ==
-
 <hero
     background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
     background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640, null, {blur: 15}) }}"
@@ -70,4 +76,3 @@ PortalBlogCategoriesPolicy::guard();
         {% endfor %}
     </div>
 </div>
-

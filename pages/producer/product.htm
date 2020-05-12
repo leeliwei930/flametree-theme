@@ -2,12 +2,20 @@ title = "Product"
 url = "/product/:slug"
 layout = "main"
 is_hidden = 0
+meta_title = "{{ product.name }}'s product detail"
+meta_description = "{{ product.description }}"
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "{{ product.name }}'s product detail"
+og_description = "{{ product.description }}"
+og_type = "article"
 
 [Product]
 search_key = "slug"
 search_key_param = "{{:slug}}"
 ==
-
 {% component "Product" %}

@@ -2,13 +2,21 @@ title = "Announcement"
 url = "/announcement/:slug"
 layout = "main"
 is_hidden = 0
+meta_title = "{{ post.title }}'s post detail"
+meta_description = "About {{ post.title }}'s post detail"
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "{{ post.title }}'s post detail"
+og_description = "About {{ post.title }}'s post detail"
+og_type = "article"
 
 [blogPost post]
 slug = "{{ :slug }}"
-categoryPage = "blog/category"
-
+categoryPage = 404
 ==
 <?php
 use GodSpeed\Essentials\Policies\PortalBlogPostPolicy;

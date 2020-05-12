@@ -3,13 +3,23 @@ url = "/membership/signup"
 layout = "auth"
 description = "Flametree Community Volunteer Portal Sign Up"
 is_hidden = 0
+meta_title = "Membership Sign Up"
+meta_description = "Membership Sign Up Page"
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "Membership Sign Up"
+og_description = "Membership Sign Up Page"
+og_type = "website"
 
 [ReferralSignUp]
 redirect = "login/volunteer"
 paramCode = "code"
 forceSecure = 0
+referralCodeParam = "referral"
 
 [session]
 security = "all"
@@ -25,8 +35,8 @@ redirect = "volunteer/dashboard"
             background-image:  linear-gradient(30deg, white, darkgray), url({{ this.theme.signup_page_bg_image | media }});
         {% endif %}
             transform: scale(1.05);
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
+            background-size: contain;
+            background-repeat: round;
             width: 100%;
             background-blend-mode: multiply;
         }

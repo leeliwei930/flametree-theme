@@ -2,8 +2,17 @@ title = "Announcements | Flame Tree Community Food Co-Op"
 url = "/announcements"
 layout = "main"
 is_hidden = 0
+meta_title = "Announcements | Flame Tree Community Food Co-Op"
+meta_description = "Announcements"
 robot_index = "index"
 robot_follow = "follow"
+enabled_in_sitemap = 0
+use_updated_at = 0
+changefreq = "always"
+priority = 0.1
+og_title = "Announcements | Flame Tree Community Food Co-Op"
+og_description = "Announcements"
+og_type = "article"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -22,11 +31,7 @@ function onStart(){
     $this['currentPage'] = $this->page;
 
 }
-function onEnd(){
-    PortalBlogPostsPolicy::guard();
-    PortalBlogCategoriesPolicy::guard();
-}
-
+?>
 ==
 <hero
 
@@ -107,4 +112,3 @@ function onEnd(){
 
     {%  endif %}
     </div>
-

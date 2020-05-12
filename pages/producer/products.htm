@@ -3,6 +3,7 @@ url = "/producers/:producer"
 layout = "main"
 is_hidden = 0
 meta_title = "{{ producer.name }}'s products catalogue"
+meta_description = "{{ producer.description }}"
 robot_index = "index"
 robot_follow = "follow"
 enabled_in_sitemap = 0
@@ -10,8 +11,8 @@ use_updated_at = 0
 changefreq = "always"
 priority = 0.1
 og_title = "{{ producer.name }}'s products catalogue"
-og_description = "{{producer.name }} 's product catalogue"
-og_type = "website"
+og_description = "{{ producer.description }}"
+og_type = "article"
 og_ref_image = "{{ producer.featured_image }}"
 
 [Products]
