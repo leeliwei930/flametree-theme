@@ -15,7 +15,7 @@ categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
 <?php
-use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoryPolicy;
+use GodSpeed\Essentials\Policies\PortalBlogCategoryPolicy;
 
 function onStart(){
        PortalBlogCategoryPolicy::guard();
@@ -78,27 +78,14 @@ function onStart(){
             </announcement-list-card>
         {% endfor %}
 
-        <div class="d-flex justify-content-around ">
-            <dropdown-pagination
-                current-page="{{ blogPosts.posts.currentPage() }}"
-                page-param="page"
-                per-page="{{ blogPosts.posts.perPage() }}"
-                prev-page-url="{{ blogPosts.posts.previousPageUrl() }}"
-                next-page-url="{{ blogPosts.posts.nextPageUrl() }}"
-                url="{{ "/announcement-category/"~ category.slug  }}"
-                total="{{ blogPosts.posts.total() }}"
-                @change="(e) => {
-                    $window.location.href = e.target.value;
-                }"
-            >
-
-            </dropdown-pagination>
+        <div class="d-flex justify-content-around my-3 ">
+            {{ blogPosts.posts | raw }}
         </div>
 
 
     {% else %}
 
-        {{ blogPosts.noPostsMessage}}
+        {{ blogPosts.noPostsMessage }}
 
     {%  endif %}
     </div>

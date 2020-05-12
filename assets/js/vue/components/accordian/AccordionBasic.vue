@@ -1,8 +1,8 @@
 <template lang="pug">
-    .accordion-basic.d-flex.flex-column.py-3
+    .accordion-basic.d-flex.flex-column.py-3(@click="emitClickEvent")
         .accordion-basic-header.d-flex.flex-row.justify-content-between.align-items-baseline
-            h4(@click="emitClickEvent") {{ title }}
-            button.btn.btn-outline-primary.accordion-basic-button.px-3(@click="emitClickEvent")
+            h4 {{ title }}
+            button.btn.btn-outline-primary.accordion-basic-button.px-3
                 i.fas.fa-1x(:class="buttonText")
         .accordion-basic-content.p-2(:class="active ? 'show' : 'hide'")
              slot

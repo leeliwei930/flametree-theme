@@ -11,22 +11,25 @@ categoryPage = "blog/category"
 
 ==
 <?php
-use GodSpeed\FlametreeCMS\Policies\PortalBlogPostPolicy;
-use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
+use GodSpeed\Essentials\Policies\PortalBlogPostPolicy;
+use GodSpeed\Essentials\Policies\PortalBlogCategoriesPolicy;
 
 
 function onEnd(){
-       $this->page->title = $this->page->components['post']->post->title . " | Flame Tree Community Food Co-Op";
 
-        PortalBlogPostPolicy::guard();
-        PortalBlogCategoriesPolicy::guard();
+PortalBlogPostPolicy::guard();
+PortalBlogCategoriesPolicy::guard();
+
 }
 ?>
 ==
 
 <hero gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.2), rgba(var(--accent-color-rgba),0.8))"
-      background-image-data="{{ post.featured_images[0].getPath()  }}"
-      background-image="{{ post.featured_images[0].getLocalPath()  | resize(640, null, {quality: 35, blur: '15'}) }}"
+      {%  if post.featured_images.count() %}
+          background-image-data="{{ post.featured_images [0].getPath()  }}"
+          background-image="{{ post.featured_images[0].getLocalPath()  | resize(640, null, {quality: 35, blur: '15'}) }}"
+        {% endif %}
+
 >
 </hero>
 

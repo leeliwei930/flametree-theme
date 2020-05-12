@@ -14,9 +14,9 @@ categoryPage = "blog/announcement"
 postPage = "blog/announcement"
 ==
 <?php
-use GodSpeed\FlametreeCMS\Policies\PortalBlogPostsPolicy;
+use GodSpeed\Essentials\Policies\PortalBlogPostsPolicy;
 
-use GodSpeed\FlametreeCMS\Policies\PortalBlogCategoriesPolicy;
+use GodSpeed\Essentials\Policies\PortalBlogCategoriesPolicy;
 
 function onStart(){
     $this['currentPage'] = $this->page;
