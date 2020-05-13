@@ -2,6 +2,8 @@ title = "Announcements | Flame Tree Community Food Co-Op"
 url = "/announcements"
 layout = "main"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 meta_title = "Announcements | Flame Tree Community Food Co-Op"
 meta_description = "Announcements"
 robot_index = "index"
@@ -29,9 +31,11 @@ use GodSpeed\Essentials\Policies\PortalBlogCategoriesPolicy;
 
 function onStart(){
     $this['currentPage'] = $this->page;
+    PortalBlogPostsPolicy::guard();
+
 
 }
-?>
+
 ==
 <hero
 
@@ -112,3 +116,4 @@ function onStart(){
 
     {%  endif %}
     </div>
+

@@ -2,6 +2,8 @@ title = "Announcement Categories"
 url = "/announcement-categories"
 layout = "main"
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 meta_title = "Announcement Categories"
 meta_description = "List all the categories of announcements."
 robot_index = "index"
@@ -14,6 +16,7 @@ og_title = "Announcement Categories"
 og_description = "List all the categories of announcements."
 og_type = "article"
 
+
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 0
@@ -23,14 +26,15 @@ categoryPage = "blog/announcement"
 use GodSpeed\Essentials\Policies\PortalBlogCategoriesPolicy;
 function onStart(){
    $this['currentPage'] = $this->page;
+    PortalBlogCategoriesPolicy::guard();
 
 }
 
-function onEnd(){
-PortalBlogCategoriesPolicy::guard();
-}
 ?>
+
+
 ==
+
 <hero
     background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
     background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640, null, {blur: 15}) }}"
@@ -76,3 +80,4 @@ PortalBlogCategoriesPolicy::guard();
         {% endfor %}
     </div>
 </div>
+

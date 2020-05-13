@@ -25,7 +25,7 @@
 
     border-radius: 13pt;
     transition: 0.25s all;
-    z-index: 3;
+
 
 
     &[lazy=loaded] {

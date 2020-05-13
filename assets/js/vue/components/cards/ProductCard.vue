@@ -21,10 +21,12 @@
 </template>
 <style lang="scss">
 .product-card {
-    height: 500px;
+
+    height: 480px;
+    width: 350px;
     overflow: hidden;
     .product-image-wrapper {
-        height: 250px;
+        height: 200px;
         width: 100%;
         overflow: hidden;
     }
