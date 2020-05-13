@@ -20,7 +20,7 @@
 <style lang="scss">
 .producer-card {
     position: relative;
-    height: 40vh;
+    height: 320px;
     overflow: hidden;
 
     border-radius: 13pt;

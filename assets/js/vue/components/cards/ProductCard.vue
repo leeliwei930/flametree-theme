@@ -21,10 +21,10 @@
 </template>
 <style lang="scss">
 .product-card {
-    height: 70vh;
+    height: 500px;
     overflow: hidden;
     .product-image-wrapper {
-        height: 30vh;
+        height: 250px;
         width: 100%;
         overflow: hidden;
     }
@@ -46,7 +46,7 @@
 
     &:hover {
         .product-image {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
     }
 
