@@ -1,8 +1,7 @@
-name: 'GodSpeed Theme'
+name: 'GodSpeed Flametree Theme'
 description: 'A default demo theme for GodSpeed CMS plugin'
-author: GodSpeed
+author: 'GodSpeed'
 homepage: 'csit321_ft01s.techrino.net'
-code: 'godspeed-theme'
 form:
     tabs:
         fields:
@@ -10,7 +9,7 @@ form:
                 label: Company Logo
                 type: mediafinder
                 tab: Brand
-                span: right
+                span: left
                 default: ""
 
             primaryColor:
@@ -125,3 +124,4 @@ require:
     - Anandpatel.WysiwygEditors
     - Arcane.Seo
     - Offline.SiteSearch
+    - GodSpeed.Essentials
