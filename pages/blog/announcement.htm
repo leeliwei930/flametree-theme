@@ -35,7 +35,7 @@ PortalBlogCategoriesPolicy::guard();
 <hero gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.2), rgba(var(--accent-color-rgba),0.8))"
       {%  if post.featured_images.count() %}
           background-image-data="{{ post.featured_images [0].getPath()  }}"
-          background-image="{{ post.featured_images[0].getLocalPath()  | resize(640, null, {quality: 35, blur: '15'}) }}"
+          background-image="{{ post.featured_images[0].getLocalPath()  | lazyload(640, null, {quality: 35, blur: '15'}) }}"
         {% endif %}
 
 >

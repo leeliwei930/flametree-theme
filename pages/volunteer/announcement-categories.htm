@@ -40,7 +40,7 @@ PortalBlogCategoriesPolicy::guard();
             <producer-card
                 name="{{ category.name }}"
                 subheading="{{ category.posts.count }} posts"
-                image="{{ (category.featured_image) ? category.featured_image| media | resize(350, null, {quality: '15', blur : 15}) : '' }}"
+                image="{{ (category.featured_image) ? category.featured_image| media | lazyload(350, null, {quality: '15', blur : 15}) : '' }}"
                 data-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
             >
                 <template slot="actions">

@@ -39,7 +39,7 @@ function onStart(){
 ==
 <hero
 
-    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640,null, {blur: 15 })}}"
+    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | lazyload(640,null, {blur: 15 })}}"
     background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
 
 >
@@ -71,7 +71,7 @@ function onStart(){
                 key="{{ announcement.id }}"
                 class="col-11 col-md-10 col-lg-9"
                 title="{{ announcement.title }}"
-                featured-image-url="{{( announcement.featured_images is not empty ) ? announcement.featured_images[0].getPath() | resize(640, null) : null }}"
+                featured-image-url="{{( announcement.featured_images is not empty ) ? announcement.featured_images[0].getPath() | lazyload(640, null) : null }}"
                 data-featured-image-url="{{( announcement.featured_images is not empty  ) ? announcement.featured_images[0].getPath()  : null }}"
                 description="{{ str_words(announcement.content, 20) }}"
                 author="{{ announcement.user.full_name }}"

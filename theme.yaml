@@ -125,3 +125,4 @@ require:
     - Arcane.Seo
     - Offline.SiteSearch
     - GodSpeed.Essentials
+    - RainLab.MailChimp

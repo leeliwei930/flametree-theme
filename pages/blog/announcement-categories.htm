@@ -37,7 +37,7 @@ function onStart(){
 
 <hero
     background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
-    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | resize(640, null, {blur: 15}) }}"
+    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | lazyload(640, null, {blur: 15}) }}"
 
 >
         <h1 class="hero-title text-uppercase m-auto align-self-center text-center">Announcement Categories</h1>
@@ -67,7 +67,7 @@ function onStart(){
                         <producer-card
                         name="{{ category.name }}"
                         subheading="{{ category.posts.count }} posts"
-                        image="{{ (category.featured_image) ? category.featured_image| media | resize(350, null, {quality: '15', blur : 15}) : '' }}"
+                        image="{{ (category.featured_image) ? category.featured_image| media | lazyload(350, null, {quality: '15', blur : 15}) : '' }}"
                        data-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
                     >
                         <template slot="actions">
