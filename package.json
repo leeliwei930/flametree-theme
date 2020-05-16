@@ -19,7 +19,7 @@
     "animate.css": "^3.7.2",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.3.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mmenu-js": "^8.4.0",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.3.2",
