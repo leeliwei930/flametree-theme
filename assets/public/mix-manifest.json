@@ -1,0 +1,13 @@
+{
+    "/js/index.js": "/js/index.js",
+    "/css/authenticated/app.css": "/css/authenticated/app.css",
+    "/css/lib.css": "/css/lib.css",
+    "/css/app.css": "/css/app.css",
+    "/js/jquery.js": "/js/jquery.js",
+    "/js/lozad.js": "/js/lozad.js",
+    "/js/chunks/mega-menu.js": "/js/chunks/mega-menu.js",
+    "/js/chunks/menu-item.js": "/js/chunks/menu-item.js",
+    "/js/chunks/side-bar-item.js": "/js/chunks/side-bar-item.js",
+    "/css/override.css": "/css/override.css",
+    "/js/bootstrap.js": "/js/bootstrap.js"
+}

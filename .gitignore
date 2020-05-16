@@ -1,5 +1,2 @@
-assets/public/*
 node_modules/*
-fonts/*
 yarn-error.log
-themes/flametree-theme/assets/public/js/chunks
