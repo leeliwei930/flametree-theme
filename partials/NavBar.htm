@@ -92,7 +92,7 @@ code = "frontend-menu"
                         {%  for producer in producer_category.items %}
                             <menu-item
                                 class="text-decoration-none"
-                                link="{{ "producer/products" | page({producer: producer.url })}}"
+                                link="{{ "producer/products" | page({slug: producer.url })}}"
                                 leading-icon="fas fa-chevron-circle-right"
                                 parent="{{ producer_category.title }}"
                                 title="{{ producer.title }}"

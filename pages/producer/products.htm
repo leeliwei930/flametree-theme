@@ -1,5 +1,5 @@
 title = "Products"
-url = "/producers/:producer"
+url = "/producers/:slug"
 layout = "main"
 is_hidden = 0
 meta_title = "{{ producer.name }}'s products catalogue"
@@ -16,8 +16,10 @@ og_type = "article"
 og_ref_image = "{{ producer.featured_image }}"
 
 [Products]
-producer = "{{ :producer }}"
+producer = "{{ :slug }}"
 producer_search_key = "slug"
 products_per_page = 10
+product_page = "producer/product"
+product_page_slug = "slug"
 ==
 {% component 'Products' %}
