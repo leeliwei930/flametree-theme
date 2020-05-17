@@ -7,7 +7,7 @@
     <img
         style="max-height: 250px; overflow: hidden"
         class="mx-auto"
-        src="{{ result.meta.featured_image | resize(auto, 180, {blur: 0, quality: 100})}}"
+        src="{{ result.meta.featured_image | lazyload(auto, 180, {blur: 0, quality: 100})}}"
     >
 
 {% else %}
