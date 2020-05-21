@@ -34,7 +34,21 @@ function onStart(){
 
 
 ==
+{% put seo %}
+{% partial "site-title/main"  %}
 
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="{{  this.page.meta_description  }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{  this.page.meta_description }}">
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop announcements categories"/>
+{% endput %}
 <hero
     background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
     background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | lazyload(640, null, {blur: 15}) }}"
@@ -67,8 +81,8 @@ function onStart(){
                         <producer-card
                         name="{{ category.name }}"
                         subheading="{{ category.posts.count }} posts"
-                        image="{{ (category.featured_image) ? category.featured_image| media | lazyload(350, null, {quality: '15', blur : 15}) : '' }}"
-                       data-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
+                        image="{{ (category.godspeed_essentials_featured_image) ? category.godspeed_essentials_featured_image| media | lazyload(350, null, {quality: '15', blur : 15}) : '' }}"
+                       data-image="{{ (category.godspeed_essentials_featured_image) ? category.godspeed_essentials_featured_image | media : '' }}"
                     >
                         <template slot="actions">
                             <a class="btn btn-action text-white align-self-end my-4 mx-3 hover-move-right" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">VIEW ALL POSTS

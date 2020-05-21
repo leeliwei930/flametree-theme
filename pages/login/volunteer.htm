@@ -26,6 +26,25 @@ security = "all"
 allowedUserGroups[] = "guest"
 redirect = "volunteer/dashboard"
 ==
+{% put seo %}
+    {% partial "site-title/main"  %}
+
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{  this.page.meta_description  }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{  this.page.meta_description }}">
+
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop membership login"/>
+{% endput %}
+
 {% put styles %}
 <style>
     .bg-auth {

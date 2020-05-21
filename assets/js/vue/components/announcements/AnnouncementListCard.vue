@@ -1,15 +1,15 @@
 <template lang="pug">
-    .announcement-card-list.shadow-sm.bg-white.my-3.rounded.d-flex.flex-row.flex-wrap.mx-auto.p-0(
+    .announcement-card-list.shadow-sm.bg-white.my-2.rounded.d-flex.flex-row.flex-wrap.mx-auto.p-0(
         :class="{'hoverable' : hoverable }"
     )
-        .col-12.col-md-6.p-0.overflow-hidden
+        .col-12.col-md-4.p-0.overflow-hidden
             .featured-image.rounded.d-flex.flex-column.align-items-center.justify-content-center( v-lazy:background-image="imgObj" v-if="imgObj.src !== '' ")
                 .featured-image-bg-overlay(:style="featuredImageOverlayStyle")
             .featured-image.rounded.d-flex.flex-column.align-items-center.justify-content-center(v-else)
                 .d-flex.flex-column.align-items-center.justify-content-center
                     i.fas.fa-image.fa-3x.text-muted.my-3
                     p.text-light-dark Featured image is not available
-        .col-12.col-md-6.p-3
+        .col-12.col-md-8.p-3
             .d-flex.flex-column.justify-content-start
                 h5.post-title.small {{ title }}
                 p.post-published-at.small Posted On {{ publishedOn }}
@@ -23,8 +23,9 @@
 </template>
 <style lang="scss">
     .announcement-card-list {
-        height:auto;
-        width: 100%;
+
+
+
         transition: 0.25s all;
 
         &:hover {
@@ -35,10 +36,11 @@
         .featured-image {
             overflow: hidden;
 
-            height:100%;
+
             position: relative;
             z-index: 1;
-            min-height: 320px;
+            height: 100%;
+            min-height: 35vh;
             transition: 0.25s all;
 
             &[lazy=loaded] {

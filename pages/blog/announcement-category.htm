@@ -10,10 +10,6 @@ enabled_in_sitemap = 0
 use_updated_at = 0
 changefreq = "always"
 priority = 0.1
-og_title = "{{ category.name }}'s announcement category"
-og_description = "About the announcement category."
-og_type = "article"
-og_ref_image = "{{ category.featured_image }}"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
@@ -34,11 +30,34 @@ function onStart(){
 }
 ?>
 ==
+{% put seo %}
+{% partial "site-title/main" title=category.title %}
+
+    <meta name="description" content="{{ category.description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{ category.description }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:description" content="{{ category.description }}">
+    {%  if category.godspeed_essentials_featured_image %}
+        <meta property="twitter:image" content="{{ category.godspeed_essentials_featured_image | media  }}" />
+        <meta property="og:image" content="{{  category.godspeed_essentials_featured_image | media  }}" />
+    {%  else %}
+        <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+        <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    {% endif %}
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop announcement"/>
+{% endput %}
 {% if category is not empty %}
 <div class="d-flex flex-column flex-wrap">
 
     <hero
-        background-image="{{ (category.featured_image) ? category.featured_image | media : '' }}"
+        background-image="{{ (category.godspeed_essentials_featured_image) ? category.godspeed_essentials_featured_image | media : '' }}"
         gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.8), rgba(var(--accent-color-rgba),0.8))"
     >
         <div class="d-flex flex-column justify-content-center mx-5 ">

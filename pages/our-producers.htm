@@ -3,22 +3,39 @@ url = "/our-producers"
 layout = "main"
 is_hidden = 0
 meta_title = "Our Producers"
-meta_description = "Producers page list all the healthy products by categorizing in 4 categories."
+meta_description = "Flametree Community Food Co-Op producers"
 robot_index = "index"
 robot_follow = "follow"
 enabled_in_sitemap = 0
 use_updated_at = 0
 changefreq = "always"
 priority = 0.1
-og_title = "Our Producers"
-og_description = "Producers page list all the healthy products by categorizing in 4 categories."
-og_type = "website"
+
 
 [ProducerCategoryList]
 producer_page = "producer/products"
 producer_page_slug = "slug"
 ==
-<div class="d-flex flex-column flex-wrap flametree-theme">
+{% put seo %}
+{% partial "site-title/main"  %}
+
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{  this.page.meta_description  }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{  this.page.meta_description }}">
+
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop producers"/>
+{% endput %}
+
+<div class="d-flex flex-column flex-wrap">
     <hero
         background-image="{{ "agriculture-backyard-blur-close-up-296230.jpg" | media | lazyload(640,null)}}"
         background-image-data="{{ "agriculture-backyard-blur-close-up-296230.jpg" | media }}"

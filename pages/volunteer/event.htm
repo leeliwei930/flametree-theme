@@ -10,6 +10,10 @@ robot_follow = "follow"
 searchBy = "slug"
 searchKey = "{{ :slug }}"
 ==
+{% put seo %}
+{% partial "site-title/main"  %}
+
+{% endput %}
 {% partial 'nav-header' backBtnLink= "volunteer/events" backBtnText="Back To Events" %}
 
 {% component 'Event' %}

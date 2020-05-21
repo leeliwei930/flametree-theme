@@ -180,13 +180,9 @@
     }
 
     .post-card {
-        width:95%;
-        max-width: 1280px;
 
-        &.absolute {
-            transform: translateY(-50px);
-            z-index: 1;
-        }
+
+
 
         .post-html {
             img {

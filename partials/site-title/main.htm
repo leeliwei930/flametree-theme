@@ -1,0 +1,23 @@
+
+
+{% if this.theme.displayCompanyNameInSiteTitle %}
+    {%  if this.theme.siteTitleOrder == 'prefix' %}
+        {% partial 'site-title/prefix' title=title %}
+    {% elseif this.theme.siteTitleOrder == 'postfix' %}
+        {% partial 'site-title/postfix' title=title %}
+    {% endif %}
+
+{% else %}
+    {% if title %}
+        <title>{{ title ~ ' - ' ~  this.page.title}}</title>
+        <meta name="title" content="{{ title ~ ' - ' ~  this.page.title}}"/>
+        <meta property="og:title" content="{{ title ~ ' - ' ~  this.page.title}}" />
+        <meta name="twitter:title" content="{{ title ~ ' - ' ~  this.page.title}}">
+    {% else %}
+        <title>{{ this.page.title}}</title>
+        <meta name="title" content="{{ this.page.title}}"/>
+        <meta property="og:title" content="{{ this.page.title}}" />
+        <meta name="twitter:title" content="{{ this.page.title}}">
+    {% endif %}
+{%  endif %}
+

@@ -11,6 +11,45 @@ form:
                 tab: Brand
                 span: left
                 default: ""
+            companyName:
+                label: Company Name
+                type: text
+                tab: Brand
+                span: left
+                default: "My Company Name"
+            displayCompanyNameInSiteTitle:
+                label: Display company name in website title
+                type: switch
+                tab: Brand
+                span: right
+                default: 0
+            siteTitleOrder:
+                label: Company Site Title
+                type: dropdown
+                options:
+                    prefix: Prefix
+                    postfix: Postfix
+                span: left
+                tab: Brand
+                trigger:
+                    action: show
+                    field: displayCompanyNameInSiteTitle
+                    condition: checked
+            siteTitleSeparator:
+                label: Site Title Separator
+                type: text
+                tab: Brand
+                span: right
+                default: "|"
+                trigger:
+                    action: show
+                    field: displayCompanyNameInSiteTitle
+                    condition: checked
+
+            companyCardImage:
+                label: Company SEO Card Image
+                type: mediafinder
+                tab: Brand
 
             primaryColor:
                 label: Primary Color
@@ -122,7 +161,6 @@ require:
     - RainLab.Blog
     - RainLab.Pages
     - Anandpatel.WysiwygEditors
-    - Arcane.Seo
     - Offline.SiteSearch
     - GodSpeed.Essentials
     - RainLab.MailChimp
