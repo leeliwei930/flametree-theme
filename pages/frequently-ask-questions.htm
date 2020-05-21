@@ -3,21 +3,33 @@ url = "/faqs"
 layout = "main"
 is_hidden = 0
 meta_title = "Frequently Asked Questions"
-meta_description = "A list of frequently asked questions and answers on a particular topic."
-robot_index = "index"
-robot_follow = "follow"
-enabled_in_sitemap = 0
-use_updated_at = 0
-changefreq = "always"
-priority = 0.1
-og_title = "Frequently Asked Questions"
-og_description = "A list of frequently asked questions and answers on a particular topic."
-og_type = "website"
+meta_description = "Frequently asked questions and answers on a particular topic."
 
 [FaqCategories]
 category_parameter_key = "category"
 faqs_page = "frequently-ask-questions"
 ==
+{% put seo %}
+{% partial "site-title/main" %}
+
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{ this.page.meta_description }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:description" content="{{ this.page.meta_description }}">
+
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop faqs"/>
+{% endput %}
+
 <hero
 style="max-height: 15vh"
 gradient-color="linear-gradient(30deg, rgba(var(--primary-color-rgba), 0.8), rgba(var(--accent-color-rgba), 0.3))"

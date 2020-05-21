@@ -1,18 +1,9 @@
 title = "Announcement"
 url = "/announcement/:slug"
 layout = "main"
+meta_title = "{{ post.title }}"
+meta_description = "{{ post.description }}"
 is_hidden = 0
-meta_title = "{{ post.title }}'s post detail"
-meta_description = "About {{ post.title }}'s post detail"
-robot_index = "index"
-robot_follow = "follow"
-enabled_in_sitemap = 0
-use_updated_at = 0
-changefreq = "always"
-priority = 0.1
-og_title = "{{ post.title }}'s post detail"
-og_description = "About {{ post.title }}'s post detail"
-og_type = "article"
 
 [blogPost post]
 slug = "{{ :slug }}"
@@ -31,8 +22,32 @@ PortalBlogCategoriesPolicy::guard();
 }
 ?>
 ==
+{% put seo %}
+    {% partial "site-title/main" title=post.title %}
 
-<hero gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.2), rgba(var(--accent-color-rgba),0.8))"
+    <meta name="description" content="{{ post.excerpt }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{ post.excerpt }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:description" content="{{ post.description }}">
+    {%  if post.featured_images.count() > 0 %}
+        <meta property="twitter:image" content="{{ post.featured_images [0].getPath()  }}" />
+        <meta property="og:image" content="{{ post.featured_images [0].getPath()  }}" />
+    {%  else %}
+        <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+        <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    {% endif %}
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop announcement"/>
+{% endput %}
+
+<hero
+    gradient-color="linear-gradient(0deg, rgba(var(--primary-color-rgba),0.2), rgba(var(--accent-color-rgba),0.8))"
       {%  if post.featured_images.count() %}
           background-image-data="{{ post.featured_images [0].getPath()  }}"
           background-image="{{ post.featured_images[0].getLocalPath()  | lazyload(640, null, {quality: 35, blur: '15'}) }}"
@@ -41,10 +56,9 @@ PortalBlogCategoriesPolicy::guard();
 >
 </hero>
 
-<div class="flametree-theme">
 
 <div class="d-flex flex-column align-items-center">
-    <div class="d-flex flex-column bg-light shadow rounded-lg p-md-5 p-3   post-card absolute">
+    <div class="d-flex flex-column bg-light  shadow rounded-lg p-5  mx-5 w-100 min-vh-100">
         <div class="d-flex">
             <a href="{{ 'blog/announcements' | page }}" class="text-link my-3 ">
                 <i class="fas fa-arrow-left"></i>
@@ -77,5 +91,4 @@ PortalBlogCategoriesPolicy::guard();
     </div>
     <social-button
     ></social-button>
-</div>
 </div>

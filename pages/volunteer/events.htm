@@ -8,7 +8,10 @@ robot_follow = "follow"
 [Events]
 event_page = "volunteer/event"
 ==
+{% put seo %}
+{% partial "site-title/main"  %}
 
+{% endput %}
 <div class="d-flex flex-column">
 
     {%  component 'Events' %}

@@ -10,6 +10,10 @@ robot_follow = "follow"
 searchBy = "slug"
 searchKey = "{{ :slug }}"
 ==
+{% put seo %}
+{% partial "site-title/main" title=training.title %}
+
+{% endput %}
 <div class="d-flex">
     {% partial 'nav-header' backBtnLink= "volunteer/training-resources" backBtnText="Back To All Trainings" %}
 

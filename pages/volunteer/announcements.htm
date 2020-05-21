@@ -19,7 +19,10 @@ function onStart(){
 }
 ?>
 ==
+{% put seo %}
+{% partial "site-title/main"  %}
 
+{% endput %}
 <div class="d-flex justify-content-around flex-column">
     {% put tabs %}
         {% partial "components/tab"

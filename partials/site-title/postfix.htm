@@ -1,0 +1,15 @@
+{% if title %}
+    {% set processedTitle =  title ~ ' - ' ~ this.page.title ~ ' ' ~ this.theme.siteTitleSeparator  ~ ' '~ this.theme.companyName %}
+    <title>{{ processedTitle }}</title>
+    <meta name="title" content="{{ processedTitle }}"/>
+    <meta property="og:title" content="{{ processedTitle }}" />
+    <meta name="twitter:title" content="{{ processedTitle }}">
+{% else %}
+
+    {% set processedTitle =  this.page.title ~ ' ' ~ this.theme.siteTitleSeparator  ~ ' '~ this.theme.companyName %}
+    <title>{{ processedTitle }}</title>
+    <meta name="title" content="{{ processedTitle }}"/>
+    <meta property="og:title" content="{{ processedTitle }}" />
+    <meta name="twitter:title" content="{{ processedTitle }}">
+
+{% endif %}

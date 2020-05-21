@@ -1,18 +1,18 @@
-title = "Announcements | Flame Tree Community Food Co-Op"
+title = "Announcements"
 url = "/announcements"
 layout = "main"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-meta_title = "Announcements | Flame Tree Community Food Co-Op"
-meta_description = "Announcements"
+meta_title = "Announcements"
+meta_description = "Announcements page"
 robot_index = "index"
 robot_follow = "follow"
 enabled_in_sitemap = 0
 use_updated_at = 0
 changefreq = "always"
 priority = 0.1
-og_title = "Announcements | Flame Tree Community Food Co-Op"
+og_title = "Announcements"
 og_description = "Announcements"
 og_type = "article"
 
@@ -37,6 +37,25 @@ function onStart(){
 }
 
 ==
+{% put seo %}
+    {% partial "site-title/main"  %}
+
+    <meta name="description" content="{{ this.page.meta_description }}"/>
+    <meta property="og:type" content="article" />
+
+    <meta property="og:description" content="{{  this.page.meta_description  }}" />
+    <meta property="og:url" content="{{ '' | page }}" />
+    <meta property="og:locale" content="en-GB" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:description" content="{{  this.page.meta_description }}">
+
+    <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+    <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
+
+    <meta name="robots" content="index/follow"/>
+    <meta name="keywords" content="flametree coop announcement"/>
+{% endput %}
+
 <hero
 
     background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | lazyload(640,null, {blur: 15 })}}"
