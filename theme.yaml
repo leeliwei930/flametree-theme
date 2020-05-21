@@ -90,7 +90,7 @@ form:
                 tab: Color
             _rgbColor:
                 type: partial
-                path: '~/themes/flametree-theme/rgb_color_field.htm'
+                path: '~/themes/godspeed-flametree-theme/rgb_color_field.htm'
                 tab: Color
 
             primaryColorRGB:
