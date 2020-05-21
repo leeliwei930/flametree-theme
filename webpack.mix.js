@@ -25,7 +25,7 @@ mix
             }
         },
         output: {
-            publicPath: "/themes/flametree-theme/",
+            publicPath: "/themes/godspeed-flametree-theme/",
             chunkFilename: "assets/public/js/chunks/[name].js",
 
         },
