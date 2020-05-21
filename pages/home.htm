@@ -37,16 +37,16 @@ postPage = "announcements"
 ==
 
 {% put seo %}
-    <meta name="title" content=""/>
-    <meta name="description" content="{{ post.excerpt }}"/>
+    {% partial "site-title/main" %}
+    <meta name="description" content="{{ this.page.meta_description }}"/>
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ post.title }}" />
-    <meta property="og:description" content="{{ post.excerpt }}" />
+
+    <meta property="og:description" content="{{ this.page.meta_description}}" />
     <meta property="og:url" content="{{ '' | page }}" />
     <meta property="og:locale" content="en-GB" />
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ post.title }}">
-    <meta name="twitter:description" content="{{ post.description }}">
+
+    <meta name="twitter:description" content="{{this.page.meta_description }}">
 
     <meta property="twitter:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
     <meta property="og:image" content="{{ (this.theme.companyCardImage) ? this.theme.companyCardImage | media : 'assets/images/flametree-company-card-image.jpg' | theme }}" />
