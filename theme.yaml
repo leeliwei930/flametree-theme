@@ -1,7 +1,8 @@
-name: 'GodSpeed Flametree Theme'
+name: 'Flametree Theme'
 description: 'A default demo theme for GodSpeed CMS plugin'
 author: 'GodSpeed'
 homepage: 'csit321_ft01s.techrino.net'
+code: "flametree-theme"
 form:
     tabs:
         fields:
