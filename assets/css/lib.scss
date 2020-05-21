@@ -7,7 +7,7 @@
 
 $fa-font-path: "~@fortawesome/fontawesome-free/webfonts" !default;
 // override the fonts public url path
-$fa-url-font-path: "/themes/flametree-theme/assets/fonts/vendor/@fortawesome/fontawesome-free";
+$fa-url-font-path: "/themes/godspeed-flametree-theme/assets/fonts/vendor/@fortawesome/fontawesome-free";
 $fa-font-display:             auto !default;
 
 @font-face {
@@ -49,7 +49,7 @@ $fa-font-display:             auto !default;
   }
 
 
-$lato-url-font-path: "/themes/flametree-theme/assets/fonts/Lato";
+$lato-url-font-path: "/themes/godspeed-flametree-theme/assets/fonts/Lato";
 
 @font-face {
     font-family: "Lato";
@@ -87,7 +87,7 @@ $lato-url-font-path: "/themes/flametree-theme/assets/fonts/Lato";
     src: url('#{$lato-url-font-path}/Lato-Thin.ttf') format('truetype')
 }
 
-$questrial-url-font-path: "/themes/flametree-theme/assets/fonts/Questrial";
+$questrial-url-font-path: "/themes/godspeed-flametree-theme/assets/fonts/Questrial";
 
 @font-face {
     font-family: "Questrial";
@@ -96,7 +96,7 @@ $questrial-url-font-path: "/themes/flametree-theme/assets/fonts/Questrial";
     src: url('#{$questrial-url-font-path}/Questrial-Regular.ttf')
 }
 
-$nunito-url-font-path: "/themes/flametree-theme/assets/fonts/Nunito";
+$nunito-url-font-path: "/themes/godspeed-flametree-theme/assets/fonts/Nunito";
 
 @font-face {
     font-family: 'Nunito';
