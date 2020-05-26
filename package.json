@@ -1,6 +1,6 @@
 {
   "name": "flametree-theme",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A flametree coop theme",
   "main": "index.js",
   "repository": "git@gitlab.com:leeliwei930/flametree-theme.git",

@@ -23,7 +23,6 @@
 .product-card {
 
     height: 480px;
-    width: 350px;
     overflow: hidden;
     .product-image-wrapper {
         height: 200px;

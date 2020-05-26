@@ -56,14 +56,7 @@ function onStart(){
     <meta name="keywords" content="flametree coop announcement"/>
 {% endput %}
 
-<hero
 
-    background-image="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media | lazyload(640,null, {blur: 15 })}}"
-    background-image-data="{{ "home-gardening-young-rucola-top-view-6427.jpg"  | media }}"
-
->
-        <h1 class="hero-title text-uppercase m-auto align-self-center">Announcements</h1>
-</hero>
 
 
 
@@ -82,6 +75,7 @@ function onStart(){
         %}
     {% endput %}
     {% partial "components/tabs" %}
+
 <div class="d-flex flex-column  flex-wrap m-3 mx-auto">
 
     {%  if blogPosts.posts %}
