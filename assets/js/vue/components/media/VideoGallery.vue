@@ -1,6 +1,6 @@
 <template lang="pug">
 .d-flex.flex-column
-    .col-12.align-self-stretch.align-self-lg-center.col-lg-6
+    .col-12.align-self-stretch.align-self-lg-center.col-lg-8
         template(v-if="playerState.currentPlaying != null")
             video-player(:autoplay="autoplay"
                 :id="playerState.currentPlaying.id"

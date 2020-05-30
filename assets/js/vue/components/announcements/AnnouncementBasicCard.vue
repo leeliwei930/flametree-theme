@@ -1,25 +1,23 @@
 <template lang="pug">
-    .col-sm-10.col-md-10.col-md-3.col-xl-4
-        .announcement-basic-card.shadow.bg-light.m-1.p-3(:class="{'hoverable' : hoverable}")
-            h2.post-title.text-dark {{title}}
-            p.post-summary.text-dark {{ description }}
-            p
-                i.fas.fa-user.text-accent.mr-2
-                | {{ author }}
+    .announcement-basic-card.d-flex.flex-column.shadow.bg-light.p-3(:class="{'hoverable' : hoverable}")
+        h2.post-title.text-dark {{title}}
+        p.post-summary.text-dark {{ description }}
+        p
+            i.fas.fa-user.text-accent.mr-2
+            | {{ author }}
 
-            .d-flex.flex-column.justify-content-start.flex-wrap
-                p
-                    i.fas.fa-calendar.text-accent.mr-2
-                    | {{ publishedOn }}
-                slot
+        .d-flex.flex-column.justify-content-start.flex-wrap
+            p
+                i.fas.fa-calendar.text-accent.mr-2
+                | {{ publishedOn }}
+            slot
 </template>
 <style lang="scss">
     .announcement-basic-card {
-        display: flex;
-        flex-direction: column;
+
+
         padding:15px;
-        justify-content: space-between;
-        width: inherit;
+        width: 480px;
         height: 100%;
         transition: all 0.25s;
         &.hoverable:hover {

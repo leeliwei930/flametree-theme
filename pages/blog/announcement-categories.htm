@@ -70,8 +70,8 @@ function onStart(){
 
     <div class="d-flex flex-row justify-content-start flex-wrap m-1">
         {% for category in blogCategories.categories %}
+            <div class="col-12 col-md-6 col-lg-4">
                 <a class="d-flex justify-content-around flex-grow-1 text-decoration-none" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">
-
                         <producer-card
                         name="{{ category.name }}"
                         subheading="{{ category.posts.count }} posts"
@@ -79,12 +79,13 @@ function onStart(){
                        data-image="{{ (category.godspeed_essentials_featured_image) ? category.godspeed_essentials_featured_image | media : '' }}"
                     >
                         <template slot="actions">
-                            <a class="btn btn-action text-white align-self-end my-4 mx-3 hover-move-right" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">VIEW ALL POSTS
+                            <a class="btn btn-action text-white my-4 mx-3 hover-move-right align-self-end" href="{{ 'blog/announcement-category' | page({category : category.slug}) }}">VIEW ALL POSTS
                                 <i class="fas fa-arrow-right"></i>
                             </a>
                         </template>
                     </producer-card>
                 </a>
+            </div>
         {% endfor %}
     </div>
 </div>

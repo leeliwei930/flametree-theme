@@ -1,6 +1,6 @@
 <template lang="pug">
     .video-thumbnail(@mouseover="showPlayIcon = true" @mouseleave="showPlayIcon = false" v-on:click="emitClickEvent()")
-        .d-flex.flex-column.justify-content-between.p-3.w-100.h-100.rounded-card(:style="backgroundCSS" , :class="styleBuilder()" )
+        .d-flex.flex-column.justify-content-between.p-3.h-100.rounded-card.flex-grow-1(:style="backgroundCSS" , :class="styleBuilder()" )
                 .d-flex.flex-row.justify-content-between
                     .duration.p-2.d-flex.justify-content-between.align-items-center
                         i.fas.fa-video
@@ -19,9 +19,9 @@
 <style lang="scss">
 
     .video-thumbnail  {
-        height: 15rem;
-        min-width: 45vh;
-        max-width: 45vh;
+        height: 230px;
+        min-width: 320px;
+        max-width: 320px;
     }
 
     .video-thumbnail .rounded-card {
@@ -58,7 +58,7 @@
     .video-thumbnail:hover {
         .action-fadeIn {
             opacity: 1;
-            transform: translateY(-15px);
+            transform: translateY(-10px);
         }
     }
 
@@ -193,9 +193,9 @@ export default {
         },
         dynamicActionIcon : function(){
             if(this.isPlaying){
-                return ' fa-pause fa-3x'
+                return ' fa-pause fa-2x'
             } else {
-                return ' fa-play fa-3x'
+                return ' fa-play fa-2x'
             }
         },
 

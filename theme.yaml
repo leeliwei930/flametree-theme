@@ -138,7 +138,7 @@ form:
                 type: text
                 tab: Social Media
             instagram_link:
-                label: Twitter
+                label: Instagram
                 type: text
                 tab: Social Media
 

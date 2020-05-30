@@ -5,15 +5,6 @@ description = "Flametree Community Volunteer Portal Login"
 is_hidden = 0
 meta_title = "Membership Login"
 meta_description = "Membership login page."
-robot_index = "index"
-robot_follow = "follow"
-enabled_in_sitemap = 0
-use_updated_at = 0
-changefreq = "always"
-priority = 0.1
-og_title = "Membership Login"
-og_description = "Membership login page."
-og_type = "website"
 
 [account]
 redirect = "volunteer/dashboard"
@@ -62,7 +53,7 @@ redirect = "volunteer/dashboard"
 </style>
 {% endput %}
 
-{{ form_ajax('onSignin' ,  { 'class' : 'd-flex flex-column flex-grow-1 mx-5 mx-md-0',  'data-request-validate' : true, 'data-request-flash': true }) }}
+{{ form_ajax('onSignin' ,  { 'class' : 'd-flex flex-column flex-grow-1 mx-3 mx-md-0',  'data-request-validate' : true, 'data-request-flash': true }) }}
             {% if get('success') %}
                 <div class="alert alert-success">
                     <p>{{ get('success') }}</p>

@@ -3,15 +3,16 @@
         :class="{'hoverable' : hoverable}"
         v-lazy:background-image="imgObj"
     )
-        .producer-card-content.d-flex.flex-row.justify-content-between.w-100.flex-wrap
-            .d-flex.flex-column
-                h5.origin-label.p-3.mb-auto
-                    i.fas.fa-map-marker-alt.mx-1(v-show="origin")
+        .producer-card-content.w-100
+            .d-flex.flex-wrap.flex-column.flex-grow-1.align-items-start
+                h5.origin-label.px-4.py-2(v-if="origin")
+                    i.fas.fa-map-marker-alt.mx-1
                     | {{origin}}
-                h2.card-title.px-4.py-3(:class="nameClass") {{ name }}
-                h3.subheading.px-4.py-3(v-if="subheading") {{ subheading }}
-            .d-flex.flex-row
+                h2.card-title.px-4.py-2(:class="nameClass") {{ name }}
+                .d-flex.flex-row.align-items-baseline.justify-content-between
+                    h3.subheading.px-4.py-2(v-if="subheading") {{ subheading }}
                 slot(name="actions")
+
         .producer-card-overlay(:style="bgOverlayStyle")
 
 

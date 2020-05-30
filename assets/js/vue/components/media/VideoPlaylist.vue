@@ -1,6 +1,6 @@
 <template lang="pug">
 .d-flex.flex-column.justify-content-start
-    h5.text-primary.text-uppercase.font-weight-bold.px-3.py-2
+    h5.text-primary.text-uppercase.font-weight-bold.m-3
         | {{title}}
     .video-playlist.d-flex.overflow-auto
         slot

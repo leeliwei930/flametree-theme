@@ -2,3 +2,4 @@
 1.0.1: Add Site Title generator
 1.0.2: Fix theme customization setting run time error  due to  reference a partial that is not exist
 1.0.3: Added parallex effect properties attribute to Hero.vue component
+1.0.4: Improve the login page, Video Player UI layout such as  margin and scaling, update the announcement-basic-card vue component layout to flexbox.
